@@ -39,6 +39,7 @@ L0099	= $0099
 L009A	= $009A
 L009B	= $009B
 L009D	= $009D
+L009E	= $009E
 L009F	= $009F
 L00A0	= $00A0
 L00A1	= $00A1
@@ -154,6 +155,7 @@ L1901	= $1901
 L1902	= $1902
 L1980	= $1980
 L1981	= $1981
+L1991	= $1991
 L1995	= $1995
 L1996	= $1996
 L1997	= $1997
@@ -218,12 +220,6 @@ L2BAF	= $2BAF
 L2BB3	= $2BB3
 L2BCA	= $2BCA
 
-L9C19	= $9C19
-L9C82	= $9C82
-L9C92	= $9C92
-L9CA5	= $9CA5
-L9CB5	= $9CB5
-L9CD7	= $9CD7
 L9D01	= $9D01
 L9D09	= $9D09
 L9E80	= $9E80
@@ -4166,3 +4162,157 @@ L9BF5:  lda     #$03                            ; 9BF5 A9 03                    
         clc                                     ; 9BFC 18                       .
         adc     #$03                            ; 9BFD 69 03                    i.
         sta     L009D                           ; 9BFF 85 9D                    ..
+        bcc     L9C05                           ; 9C01 90 02                    ..
+        inc     L009E                           ; 9C03 E6 9E                    ..
+L9C05:  dec     L00D2                           ; 9C05 C6 D2                    ..
+        bne     L9BF5                           ; 9C07 D0 EC                    ..
+        inc     L00AB                           ; 9C09 E6 AB                    ..
+        lda     L00A7                           ; 9C0B A5 A7                    ..
+        cmp     L00AB                           ; 9C0D C5 AB                    ..
+        bcs     L9BE0                           ; 9C0F B0 CF                    ..
+        lda     L00A8                           ; 9C11 A5 A8                    ..
+        clc                                     ; 9C13 18                       .
+        adc     L00D3                           ; 9C14 65 D3                    e.
+        sta     L00A8                           ; 9C16 85 A8                    ..
+        rts                                     ; 9C18 60                       `
+
+; ----------------------------------------------------------------------------
+L9C19:  stx     L0058                           ; 9C19 86 58                    .X
+        sty     L0059                           ; 9C1B 84 59                    .Y
+        sta     L00D3                           ; 9C1D 85 D3                    ..
+        ldy     L00A7                           ; 9C1F A4 A7                    ..
+        lda     L00A8                           ; 9C21 A5 A8                    ..
+        tax                                     ; 9C23 AA                       .
+        inx                                     ; 9C24 E8                       .
+        jsr     L9A5D                           ; 9C25 20 5D 9A                  ].
+        stx     L00B3                           ; 9C28 86 B3                    ..
+        sty     L00B4                           ; 9C2A 84 B4                    ..
+        lda     L00A7                           ; 9C2C A5 A7                    ..
+        clc                                     ; 9C2E 18                       .
+        adc     L00D3                           ; 9C2F 65 D3                    e.
+        tay                                     ; 9C31 A8                       .
+        lda     L00A8                           ; 9C32 A5 A8                    ..
+        tax                                     ; 9C34 AA                       .
+        inx                                     ; 9C35 E8                       .
+        jsr     L9A5D                           ; 9C36 20 5D 9A                  ].
+        stx     L00B1                           ; 9C39 86 B1                    ..
+        sty     L00B2                           ; 9C3B 84 B2                    ..
+        ldy     L0059                           ; 9C3D A4 59                    .Y
+        ldx     L00A8                           ; 9C3F A6 A8                    ..
+        jsr     L0CE6                           ; 9C41 20 E6 0C                  ..
+        jsr     L9C92                           ; 9C44 20 92 9C                  ..
+        ldx     L00E6                           ; 9C47 A6 E6                    ..
+        ldy     L00E7                           ; 9C49 A4 E7                    ..
+        jsr     L9CD7                           ; 9C4B 20 D7 9C                  ..
+        lda     L00A8                           ; 9C4E A5 A8                    ..
+        ldx     #$00                            ; 9C50 A2 00                    ..
+        ldy     L0058                           ; 9C52 A4 58                    .X
+        jsr     L0C90                           ; 9C54 20 90 0C                  ..
+        jsr     L9C82                           ; 9C57 20 82 9C                  ..
+        lda     L00A7                           ; 9C5A A5 A7                    ..
+        clc                                     ; 9C5C 18                       .
+        adc     L00D3                           ; 9C5D 65 D3                    e.
+        sta     L000E                           ; 9C5F 85 0E                    ..
+L9C61:  lda     L00A8                           ; 9C61 A5 A8                    ..
+        sta     L00D2                           ; 9C63 85 D2                    ..
+L9C65:  lda     #$03                            ; 9C65 A9 03                    ..
+        jsr     L9819                           ; 9C67 20 19 98                  ..
+        lda     L009D                           ; 9C6A A5 9D                    ..
+        clc                                     ; 9C6C 18                       .
+        adc     #$03                            ; 9C6D 69 03                    i.
+        sta     L009D                           ; 9C6F 85 9D                    ..
+        bcc     L9C75                           ; 9C71 90 02                    ..
+        inc     L009E                           ; 9C73 E6 9E                    ..
+L9C75:  dec     L00D2                           ; 9C75 C6 D2                    ..
+        bpl     L9C65                           ; 9C77 10 EC                    ..
+        dec     L00D3                           ; 9C79 C6 D3                    ..
+        bne     L9C61                           ; 9C7B D0 E4                    ..
+        lda     L000E                           ; 9C7D A5 0E                    ..
+        sta     L00A7                           ; 9C7F 85 A7                    ..
+        rts                                     ; 9C81 60                       `
+
+; ----------------------------------------------------------------------------
+L9C82:  ldx     #$03                            ; 9C82 A2 03                    ..
+L9C84:  lda     L1991,x                         ; 9C84 BD 91 19                 ...
+        sta     L00C3,x                         ; 9C87 95 C3                    ..
+        dex                                     ; 9C89 CA                       .
+        bpl     L9C84                           ; 9C8A 10 F8                    ..
+        inx                                     ; 9C8C E8                       .
+        stx     L00C7                           ; 9C8D 86 C7                    ..
+        stx     L006A                           ; 9C8F 86 6A                    .j
+        rts                                     ; 9C91 60                       `
+
+; ----------------------------------------------------------------------------
+L9C92:  lda     L00E6                           ; 9C92 A5 E6                    ..
+        ldy     L00E7                           ; 9C94 A4 E7                    ..
+        asl     L00E6                           ; 9C96 06 E6                    ..
+        rol     L00E7                           ; 9C98 26 E7                    &.
+        clc                                     ; 9C9A 18                       .
+        adc     L00E6                           ; 9C9B 65 E6                    e.
+        sta     L00E6                           ; 9C9D 85 E6                    ..
+        tya                                     ; 9C9F 98                       .
+        adc     L00E7                           ; 9CA0 65 E7                    e.
+        sta     L00E7                           ; 9CA2 85 E7                    ..
+        rts                                     ; 9CA4 60                       `
+
+; ----------------------------------------------------------------------------
+L9CA5:  ldy     #$00                            ; 9CA5 A0 00                    ..
+        sta     L00CE                           ; 9CA7 85 CE                    ..
+        asl     a                               ; 9CA9 0A                       .
+        bcc     L9CAD                           ; 9CAA 90 01                    ..
+        iny                                     ; 9CAC C8                       .
+L9CAD:  clc                                     ; 9CAD 18                       .
+        adc     L00CE                           ; 9CAE 65 CE                    e.
+        tax                                     ; 9CB0 AA                       .
+        bcc     L9CB4                           ; 9CB1 90 01                    ..
+        iny                                     ; 9CB3 C8                       .
+L9CB4:  rts                                     ; 9CB4 60                       `
+
+; ----------------------------------------------------------------------------
+L9CB5:  cpy     #$00                            ; 9CB5 C0 00                    ..
+        beq     L9CC8                           ; 9CB7 F0 0F                    ..
+        sty     L00CE                           ; 9CB9 84 CE                    ..
+        ldy     #$00                            ; 9CBB A0 00                    ..
+L9CBD:  dec     L00B2                           ; 9CBD C6 B2                    ..
+L9CBF:  sta     (L00B1),y                       ; 9CBF 91 B1                    ..
+        iny                                     ; 9CC1 C8                       .
+        bne     L9CBF                           ; 9CC2 D0 FB                    ..
+        dec     L00CE                           ; 9CC4 C6 CE                    ..
+        bne     L9CBD                           ; 9CC6 D0 F5                    ..
+L9CC8:  cpx     #$00                            ; 9CC8 E0 00                    ..
+        beq     L9CD6                           ; 9CCA F0 0A                    ..
+        dec     L00B2                           ; 9CCC C6 B2                    ..
+        ldy     #$FF                            ; 9CCE A0 FF                    ..
+L9CD0:  sta     (L00B1),y                       ; 9CD0 91 B1                    ..
+        dey                                     ; 9CD2 88                       .
+        dex                                     ; 9CD3 CA                       .
+        bne     L9CD0                           ; 9CD4 D0 FA                    ..
+L9CD6:  rts                                     ; 9CD6 60                       `
+
+; ----------------------------------------------------------------------------
+L9CD7:  tya                                     ; 9CD7 98                       .
+        beq     L9CEF                           ; 9CD8 F0 15                    ..
+        sty     L00CE                           ; 9CDA 84 CE                    ..
+        ldy     #$FF                            ; 9CDC A0 FF                    ..
+L9CDE:  dec     L00B4                           ; 9CDE C6 B4                    ..
+        dec     L00B2                           ; 9CE0 C6 B2                    ..
+L9CE2:  lda     (L00B3),y                       ; 9CE2 B1 B3                    ..
+        sta     (L00B1),y                       ; 9CE4 91 B1                    ..
+        dey                                     ; 9CE6 88                       .
+        cpy     #$FF                            ; 9CE7 C0 FF                    ..
+        bne     L9CE2                           ; 9CE9 D0 F7                    ..
+        dec     L00CE                           ; 9CEB C6 CE                    ..
+        bne     L9CDE                           ; 9CED D0 EF                    ..
+L9CEF:  txa                                     ; 9CEF 8A                       .
+        beq     L9D00                           ; 9CF0 F0 0E                    ..
+        ldy     #$FF                            ; 9CF2 A0 FF                    ..
+        dec     L00B4                           ; 9CF4 C6 B4                    ..
+        dec     L00B2                           ; 9CF6 C6 B2                    ..
+L9CF8:  lda     (L00B3),y                       ; 9CF8 B1 B3                    ..
+        sta     (L00B1),y                       ; 9CFA 91 B1                    ..
+        dey                                     ; 9CFC 88                       .
+        dex                                     ; 9CFD CA                       .
+        bne     L9CF8                           ; 9CFE D0 F8                    ..
+L9D00:  rts                                     ; 9D00 60                       `
+
+; ----------------------------------------------------------------------------
