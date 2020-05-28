@@ -155,6 +155,8 @@ L1980	= $1980
 L1981	= $1981
 L1995	= $1995
 L1996	= $1996
+L1997	= $1997
+L1998	= $1998
 L1999	= $1999
 L199A	= $199A
 L19A4	= $19A4
@@ -215,11 +217,6 @@ L2BAF	= $2BAF
 L2BB3	= $2BB3
 L2BCA	= $2BCA
 
-L9A06	= $9A06
-L9A52	= $9A52
-L9A5D	= $9A5D
-L9A9A	= $9A9A
-L9AD3	= $9AD3
 L9B61	= $9B61
 L9C19	= $9C19
 L9C92	= $9C92
@@ -244,53 +241,53 @@ LDA60	= $DA60
 LDA66	= $DA66
 LE456	= $E456
 
-L8000:  sta     L000D                           ; 8000 85 0D                    ..
-	ldx     #$06                            ; 8002 A2 06                    ..
-	stx     L0000                           ; 8004 86 00                    ..
-	ldy     #$00                            ; 8006 A0 00                    ..
-	sty     L0002                           ; 8008 84 02                    ..
-	ldx     #$21                            ; 800A A2 21                    .!
-	iny                                     ; 800C C8                       .
-	lda     #$FF                            ; 800D A9 FF                    ..
-	jsr     L9E80                           ; 800F 20 80 9E                  ..
-	jsr     L1FD9                           ; 8012 20 D9 1F                  ..
+L8000:  sta     L000D                   	; 8000 85 0D                    ..
+	ldx     #$06                    	; 8002 A2 06                    ..
+	stx     L0000                   	; 8004 86 00                    ..
+	ldy     #$00                    	; 8006 A0 00                    ..
+	sty     L0002                   	; 8008 84 02                    ..
+	ldx     #$21                    	; 800A A2 21                    .!
+	iny                             	; 800C C8                       .
+	lda     #$FF                    	; 800D A9 FF                    ..
+	jsr     L9E80                   	; 800F 20 80 9E                  ..
+	jsr     L1FD9                   	; 8012 20 D9 1F                  ..
 L8015:	lda     L00C1
 	cmp	#$FE
 	bne     L8022
-	jsr     LA805                           ; 801B 20 05 A8                  ..
-	lda     #$00                            ; 801E A9 00                    ..
-	sta     L00C1                           ; 8020 85 C1                    ..
-L8022:  jsr     L1FB5                           ; 8022 20 B5 1F                  ..
-	lda     #$00                            ; 8025 A9 00                    ..
-	sta     L00B9                           ; 8027 85 B9                    ..
-	jsr     L86B3                           ; 8029 20 B3 86                  ..
-	ldx     #$5C                            ; 802C A2 5C                    .\
-	ldy     #$80                            ; 802E A0 80                    ..
-L8030:  sta     L00CE                           ; 8030 85 CE                    ..
-L8032:  stx     L00B3                           ; 8032 86 B3                    ..
-	sty     L00B4                           ; 8034 84 B4                    ..
-	ldy     #$00                            ; 8036 A0 00                    ..
-L8038:  lda     (L00B3),y                       ; 8038 B1 B3                    ..
-	beq     L8059                           ; 803A F0 1D                    ..
-	cmp     L00CE                           ; 803C C5 CE                    ..
-	.byte   $F0                             ; 803E F0                       .
-L803F:  ora     $B3A5                           ; 803F 0D A5 B3                 ...
-	clc                                     ; 8042 18                       .
-	adc     #$03                            ; 8043 69 03                    i.
-	sta     L00B3                           ; 8045 85 B3                    ..
-	bcc     L8038                           ; 8047 90 EF                    ..
-	inc     L00B4                           ; 8049 E6 B4                    ..
-	bne     L8038                           ; 804B D0 EB                    ..
-L804D:  ldy     #$02                            ; 804D A0 02                    ..
-L804F:  lda     (L00B3),y                       ; 804F B1 B3                    ..
-	pha                                     ; 8051 48                       H
-	dey                                     ; 8052 88                       .
-	lda     (L00B3),y                       ; 8053 B1 B3                    ..
-	pha                                     ; 8055 48                       H
-	jmp     L86DB                           ; 8056 4C DB 86                 L..
+	jsr     LA805                   	; 801B 20 05 A8                  ..
+	lda     #$00                    	; 801E A9 00                    ..
+	sta     L00C1                   	; 8020 85 C1                    ..
+L8022:  jsr     L1FB5                   	; 8022 20 B5 1F                  ..
+	lda     #$00                    	; 8025 A9 00                    ..
+	sta     L00B9                   	; 8027 85 B9                    ..
+	jsr     L86B3                   	; 8029 20 B3 86                  ..
+	ldx     #$5C                    	; 802C A2 5C                    .\
+	ldy     #$80                    	; 802E A0 80                    ..
+L8030:  sta     L00CE                   	; 8030 85 CE                    ..
+L8032:  stx     L00B3                   	; 8032 86 B3                    ..
+	sty     L00B4                   	; 8034 84 B4                    ..
+	ldy     #$00                    	; 8036 A0 00                    ..
+L8038:  lda     (L00B3),y               	; 8038 B1 B3                    ..
+	beq     L8059                   	; 803A F0 1D                    ..
+	cmp     L00CE                   	; 803C C5 CE                    ..
+	.byte   $F0                     	; 803E F0                       .
+L803F:  ora     $B3A5                   	; 803F 0D A5 B3                 ...
+	clc                             	; 8042 18                       .
+	adc     #$03                    	; 8043 69 03                    i.
+	sta     L00B3                   	; 8045 85 B3                    ..
+	bcc     L8038                   	; 8047 90 EF                    ..
+	inc     L00B4                   	; 8049 E6 B4                    ..
+	bne     L8038                   	; 804B D0 EB                    ..
+L804D:  ldy     #$02                    	; 804D A0 02                    ..
+L804F:  lda     (L00B3),y               	; 804F B1 B3                    ..
+	pha                             	; 8051 48                       H
+	dey                             	; 8052 88                       .
+	lda     (L00B3),y               	; 8053 B1 B3                    ..
+	pha                             	; 8055 48                       H
+	jmp     L86DB                   	; 8056 4C DB 86                 L..
 
 ; ----------------------------------------------------------------------------
-L8059:  jmp     L98B6                           ; 8059 4C B6 98                 L..
+L8059:  jmp     L98B6                   	; 8059 4C B6 98                 L..
 
 ; ----------------------------------------------------------------------------
 	.byte   'C'
@@ -331,394 +328,394 @@ L8059:  jmp     L98B6                           ; 8059 4C B6 98                 
 	.addr	L2B26-1
 	.byte	$00
 
-L8093:	jsr     L1FD1                           ; 8093 20 D1 1F                  ..
-	stx     L19A5                           ; 8096 8E A5 19                 ...
-	sty     L19A4                           ; 8099 8C A4 19                 ...
-	jmp     L28E3                           ; 809C 4C E3 28                 L.(
+L8093:	jsr     L1FD1                   	; 8093 20 D1 1F                  ..
+	stx     L19A5                   	; 8096 8E A5 19                 ...
+	sty     L19A4                   	; 8099 8C A4 19                 ...
+	jmp     L28E3                   	; 809C 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L809F:	jsr     L1FD1                           ; 809F 20 D1 1F                  ..
-L80A2:  stx     L0096                           ; 80A2 86 96                    ..
-	sty     L0095                           ; 80A4 84 95                    ..
-	jsr     LA7B8                           ; 80A6 20 B8 A7                  ..
-	lda     L0096                           ; 80A9 A5 96                    ..
-	cmp     L0088,x                         ; 80AB D5 88                    ..
-	bcc     L80B6                           ; 80AD 90 07                    ..
-	cmp     L008C,x                         ; 80AF D5 8C                    ..
-	bcc     L80B8                           ; 80B1 90 05                    ..
-	jsr     L9696                           ; 80B3 20 96 96                  ..
-L80B6:  sta     L0088,x                         ; 80B6 95 88                    ..
-L80B8:  lda     L0095                           ; 80B8 A5 95                    ..
-	cmp     L0080,x                         ; 80BA D5 80                    ..
-	bcc     L80C5                           ; 80BC 90 07                    ..
-	cmp     L0084,x                         ; 80BE D5 84                    ..
-	bcc     L80C7                           ; 80C0 90 05                    ..
-	jsr     L96B4                           ; 80C2 20 B4 96                  ..
-L80C5:  sta     L0080,x                         ; 80C5 95 80                    ..
-L80C7:  jsr     L811F                           ; 80C7 20 1F 81                  ..
-	jsr     L9A06                           ; 80CA 20 06 9A                  ..
-	jmp     L28E3                           ; 80CD 4C E3 28                 L.(
+L809F:	jsr     L1FD1                   	; 809F 20 D1 1F                  ..
+L80A2:  stx     L0096                   	; 80A2 86 96                    ..
+	sty     L0095                   	; 80A4 84 95                    ..
+	jsr     LA7B8                   	; 80A6 20 B8 A7                  ..
+	lda     L0096                   	; 80A9 A5 96                    ..
+	cmp     L0088,x                 	; 80AB D5 88                    ..
+	bcc     L80B6                   	; 80AD 90 07                    ..
+	cmp     L008C,x                 	; 80AF D5 8C                    ..
+	bcc     L80B8                   	; 80B1 90 05                    ..
+	jsr     L9696                   	; 80B3 20 96 96                  ..
+L80B6:  sta     L0088,x                 	; 80B6 95 88                    ..
+L80B8:  lda     L0095                   	; 80B8 A5 95                    ..
+	cmp     L0080,x                 	; 80BA D5 80                    ..
+	bcc     L80C5                   	; 80BC 90 07                    ..
+	cmp     L0084,x                 	; 80BE D5 84                    ..
+	bcc     L80C7                   	; 80C0 90 05                    ..
+	jsr     L96B4                   	; 80C2 20 B4 96                  ..
+L80C5:  sta     L0080,x                 	; 80C5 95 80                    ..
+L80C7:  jsr     L811F                   	; 80C7 20 1F 81                  ..
+	jsr     L9A06                   	; 80CA 20 06 9A                  ..
+	jmp     L28E3                   	; 80CD 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L80D0:	ldx     #$00                            ; 80D0 A2 00                    ..
-	cmp     #$9B                            ; 80D2 C9 9B                    ..
-	beq     L80FA                           ; 80D4 F0 24                    .$
-	cmp     #$41                            ; 80D6 C9 41                    .A
-	beq     L80DF                           ; 80D8 F0 05                    ..
-	cmp     #$4D                            ; 80DA C9 4D                    .M
-	bne     L80E8                           ; 80DC D0 0A                    ..
-	dex                                     ; 80DE CA                       .
-L80DF:  stx     L19E3                           ; 80DF 8E E3 19                 ...
-L80E2:  jsr     L877F                           ; 80E2 20 7F 87                  ..
-	jmp     L28E3                           ; 80E5 4C E3 28                 L.(
+L80D0:	ldx     #$00                    	; 80D0 A2 00                    ..
+	cmp     #$9B                    	; 80D2 C9 9B                    ..
+	beq     L80FA                   	; 80D4 F0 24                    .$
+	cmp     #$41                    	; 80D6 C9 41                    .A
+	beq     L80DF                   	; 80D8 F0 05                    ..
+	cmp     #$4D                    	; 80DA C9 4D                    .M
+	bne     L80E8                   	; 80DC D0 0A                    ..
+	dex                             	; 80DE CA                       .
+L80DF:  stx     L19E3                   	; 80DF 8E E3 19                 ...
+L80E2:  jsr     L877F                   	; 80E2 20 7F 87                  ..
+	jmp     L28E3                   	; 80E5 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L80E8:  cmp     #$46                            ; 80E8 C9 46                    .F
-	beq     L80F8                           ; 80EA F0 0C                    ..
-	ldx     #$FF                            ; 80EC A2 FF                    ..
-	cmp     #$52                            ; 80EE C9 52                    .R
-	beq     L80F3                           ; 80F0 F0 01                    ..
-	inx                                     ; 80F2 E8                       .
-L80F3:  stx     L00CD                           ; 80F3 86 CD                    ..
-	jmp     L80E2                           ; 80F5 4C E2 80                 L..
+L80E8:  cmp     #$46                    	; 80E8 C9 46                    .F
+	beq     L80F8                   	; 80EA F0 0C                    ..
+	ldx     #$FF                    	; 80EC A2 FF                    ..
+	cmp     #$52                    	; 80EE C9 52                    .R
+	beq     L80F3                   	; 80F0 F0 01                    ..
+	inx                             	; 80F2 E8                       .
+L80F3:  stx     L00CD                   	; 80F3 86 CD                    ..
+	jmp     L80E2                   	; 80F5 4C E2 80                 L..
 
 ; ----------------------------------------------------------------------------
-L80F8:  dec     L000C                           ; 80F8 C6 0C                    ..
-L80FA:  dec     L000A                           ; 80FA C6 0A                    ..
-	jmp     L28E3                           ; 80FC 4C E3 28                 L.(
+L80F8:  dec     L000C                   	; 80F8 C6 0C                    ..
+L80FA:  dec     L000A                   	; 80FA C6 0A                    ..
+	jmp     L28E3                   	; 80FC 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L80FF:	lda     #$00                            ; 80FF A9 00                    ..
-	beq     L8105                           ; 8101 F0 02                    ..
-L8103:	lda     #$FF                            ; 8103 A9 FF                    ..
-L8105:  sta     L19DD                           ; 8105 8D DD 19                 ...
-	jmp     L2910                           ; 8108 4C 10 29                 L.)
+L80FF:	lda     #$00                    	; 80FF A9 00                    ..
+	beq     L8105                   	; 8101 F0 02                    ..
+L8103:	lda     #$FF                    	; 8103 A9 FF                    ..
+L8105:  sta     L19DD                   	; 8105 8D DD 19                 ...
+	jmp     L2910                   	; 8108 4C 10 29                 L.)
 
 ; ----------------------------------------------------------------------------
-L810B:	lda     L1996                           ; 810B AD 96 19                 ...
-	eor     #$FF                            ; 810E 49 FF                    I.
-	sta     L1996                           ; 8110 8D 96 19                 ...
-L8113:  jsr     L8C53                           ; 8113 20 53 8C                  S.
-	jsr     L8132                           ; 8116 20 32 81                  2.
-	jsr     L814E                           ; 8119 20 4E 81                  N.
-L811C:  jmp     L28E3                           ; 811C 4C E3 28                 L.(
+L810B:	lda     L1996                   	; 810B AD 96 19                 ...
+	eor     #$FF                    	; 810E 49 FF                    I.
+	sta     L1996                   	; 8110 8D 96 19                 ...
+L8113:  jsr     L8C53                   	; 8113 20 53 8C                  S.
+	jsr     L8132                   	; 8116 20 32 81                  2.
+	jsr     L814E                   	; 8119 20 4E 81                  N.
+L811C:  jmp     L28E3                   	; 811C 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L811F:  ldx     #$00                            ; 811F A2 00                    ..
-	jsr     L8126                           ; 8121 20 26 81                  &.
-	ldx     #$04                            ; 8124 A2 04                    ..
-L8126:  lda     L038B                           ; 8126 AD 8B 03                 ...
-	pha                                     ; 8129 48                       H
-	ldy     L037A,x                         ; 812A BC 7A 03                 .z.
+L811F:  ldx     #$00                    	; 811F A2 00                    ..
+	jsr     L8126                   	; 8121 20 26 81                  &.
+	ldx     #$04                    	; 8124 A2 04                    ..
+L8126:  lda     L038B                   	; 8126 AD 8B 03                 ...
+	pha                             	; 8129 48                       H
+	ldy     L037A,x                 	; 812A BC 7A 03                 .z.
 	lda	L0378,x
-	bpl     L8146                           ; 8130 10 14                    ..
-L8132:  lda     L038B                           ; 8132 AD 8B 03                 ...
-	pha                                     ; 8135 48                       H
-	lda     L1996                           ; 8136 AD 96 19                 ...
-	beq     L8141                           ; 8139 F0 06                    ..
-	ldy     #$02                            ; 813B A0 02                    ..
-	lda     #$00                            ; 813D A9 00                    ..
-	beq     L8144                           ; 813F F0 03                    ..
-L8141:  lda     #$03                            ; 8141 A9 03                    ..
-	tay                                     ; 8143 A8                       .
-L8144:  ldx     #$00                            ; 8144 A2 00                    ..
-L8146:  jsr     L9980                           ; 8146 20 80 99                  ..
-	pla                                     ; 8149 68                       h
-	sta     L038B                           ; 814A 8D 8B 03                 ...
-	rts                                     ; 814D 60                       `
+	bpl     L8146                   	; 8130 10 14                    ..
+L8132:  lda     L038B                   	; 8132 AD 8B 03                 ...
+	pha                             	; 8135 48                       H
+	lda     L1996                   	; 8136 AD 96 19                 ...
+	beq     L8141                   	; 8139 F0 06                    ..
+	ldy     #$02                    	; 813B A0 02                    ..
+	lda     #$00                    	; 813D A9 00                    ..
+	beq     L8144                   	; 813F F0 03                    ..
+L8141:  lda     #$03                    	; 8141 A9 03                    ..
+	tay                             	; 8143 A8                       .
+L8144:  ldx     #$00                    	; 8144 A2 00                    ..
+L8146:  jsr     L9980                   	; 8146 20 80 99                  ..
+	pla                             	; 8149 68                       h
+	sta     L038B                   	; 814A 8D 8B 03                 ...
+	rts                             	; 814D 60                       `
 
 ; ----------------------------------------------------------------------------
-L814E:  lda     L038B                           ; 814E AD 8B 03                 ...
-	pha                                     ; 8151 48                       H
-	ldy     L038D                           ; 8152 AC 8D 03                 ...
-	lda     L038C                           ; 8155 AD 8C 03                 ...
-	ldx     L1996                           ; 8158 AE 96 19                 ...
-	bne     L8161                           ; 815B D0 04                    ..
-	iny                                     ; 815D C8                       .
-	clc                                     ; 815E 18                       .
-	adc     #$03                            ; 815F 69 03                    i.
-L8161:  ldx     #$04                            ; 8161 A2 04                    ..
-	jsr     L9980                           ; 8163 20 80 99                  ..
-	pla                                     ; 8166 68                       h
-	sta     L038B                           ; 8167 8D 8B 03                 ...
-	rts                                     ; 816A 60                       `
+L814E:  lda     L038B                   	; 814E AD 8B 03                 ...
+	pha                             	; 8151 48                       H
+	ldy     L038D                   	; 8152 AC 8D 03                 ...
+	lda     L038C                   	; 8155 AD 8C 03                 ...
+	ldx     L1996                   	; 8158 AE 96 19                 ...
+	bne     L8161                   	; 815B D0 04                    ..
+	iny                             	; 815D C8                       .
+	clc                             	; 815E 18                       .
+	adc     #$03                    	; 815F 69 03                    i.
+L8161:  ldx     #$04                    	; 8161 A2 04                    ..
+	jsr     L9980                   	; 8163 20 80 99                  ..
+	pla                             	; 8166 68                       h
+	sta     L038B                   	; 8167 8D 8B 03                 ...
+	rts                             	; 816A 60                       `
 
 ; ----------------------------------------------------------------------------
-L816B:	cmp     #$23                            ; 816B C9 23                    .#
-	bne     L8172                           ; 816D D0 03                    ..
-	jmp     L2857                           ; 816F 4C 57 28                 LW(
+L816B:	cmp     #$23                    	; 816B C9 23                    .#
+	bne     L8172                   	; 816D D0 03                    ..
+	jmp     L2857                   	; 816F 4C 57 28                 LW(
 
 ; ----------------------------------------------------------------------------
-L8172:  jsr     L86F3                           ; 8172 20 F3 86                  ..
-	bcc     L817A                           ; 8175 90 03                    ..
-	jmp     L98B2                           ; 8177 4C B2 98                 L..
+L8172:  jsr     L86F3                   	; 8172 20 F3 86                  ..
+	bcc     L817A                   	; 8175 90 03                    ..
+	jmp     L98B2                   	; 8177 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L817A:  lda     L00A7                           ; 817A A5 A7                    ..
-	cmp     L00AB                           ; 817C C5 AB                    ..
-	bcc     L81A0                           ; 817E 90 20                    . 
-	lda     L00A8                           ; 8180 A5 A8                    ..
-	cmp     L00AC                           ; 8182 C5 AC                    ..
-	bcc     L81A0                           ; 8184 90 1A                    ..
-	jsr     L0CD3                           ; 8186 20 D3 0C                  ..
-	lda     L00C3                           ; 8189 A5 C3                    ..
-	and     #$C0                            ; 818B 29 C0                    ).
-	beq     L81A0                           ; 818D F0 11                    ..
-	lda     L00C6                           ; 818F A5 C6                    ..
-	bmi     L81A0                           ; 8191 30 0D                    0.
-	lda     #$00                            ; 8193 A9 00                    ..
-	sta     L00C6                           ; 8195 85 C6                    ..
-	lda     L00C3                           ; 8197 A5 C3                    ..
-	and     #$3F                            ; 8199 29 3F                    )?
-	sta     L00C3                           ; 819B 85 C3                    ..
-	jsr     L0AA6                           ; 819D 20 A6 0A                  ..
-L81A0:  jsr     L2838                           ; 81A0 20 38 28                  8(
-	bcs     L817A                           ; 81A3 B0 D5                    ..
-	jmp     L28E3                           ; 81A5 4C E3 28                 L.(
+L817A:  lda     L00A7                   	; 817A A5 A7                    ..
+	cmp     L00AB                   	; 817C C5 AB                    ..
+	bcc     L81A0                   	; 817E 90 20                    . 
+	lda     L00A8                   	; 8180 A5 A8                    ..
+	cmp     L00AC                   	; 8182 C5 AC                    ..
+	bcc     L81A0                   	; 8184 90 1A                    ..
+	jsr     L0CD3                   	; 8186 20 D3 0C                  ..
+	lda     L00C3                   	; 8189 A5 C3                    ..
+	and     #$C0                    	; 818B 29 C0                    ).
+	beq     L81A0                   	; 818D F0 11                    ..
+	lda     L00C6                   	; 818F A5 C6                    ..
+	bmi     L81A0                   	; 8191 30 0D                    0.
+	lda     #$00                    	; 8193 A9 00                    ..
+	sta     L00C6                   	; 8195 85 C6                    ..
+	lda     L00C3                   	; 8197 A5 C3                    ..
+	and     #$3F                    	; 8199 29 3F                    )?
+	sta     L00C3                   	; 819B 85 C3                    ..
+	jsr     L0AA6                   	; 819D 20 A6 0A                  ..
+L81A0:  jsr     L2838                   	; 81A0 20 38 28                  8(
+	bcs     L817A                   	; 81A3 B0 D5                    ..
+	jmp     L28E3                   	; 81A5 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L81A8:	jsr     L8750                           ; 81A8 20 50 87                  P.
-	bcs     L81B0                           ; 81AB B0 03                    ..
-	jmp     L98B2                           ; 81AD 4C B2 98                 L..
+L81A8:	jsr     L8750                   	; 81A8 20 50 87                  P.
+	bcs     L81B0                   	; 81AB B0 03                    ..
+	jmp     L98B2                   	; 81AD 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L81B0:  lda     #$00                            ; 81B0 A9 00                    ..
-	sta     L19D3                           ; 81B2 8D D3 19                 ...
-	lda     L00AE                           ; 81B5 A5 AE                    ..
-	cmp     L00B0                           ; 81B7 C5 B0                    ..
-	beq     L81C2                           ; 81B9 F0 07                    ..
-	lda     L00AD                           ; 81BB A5 AD                    ..
-	sta     L00AF                           ; 81BD 85 AF                    ..
-	dec     L19D3                           ; 81BF CE D3 19                 ...
-L81C2:  ldx     #$03                            ; 81C2 A2 03                    ..
-L81C4:  lda     L00AD,x                         ; 81C4 B5 AD                    ..
-	sta     L19CB,x                         ; 81C6 9D CB 19                 ...
-	dex                                     ; 81C9 CA                       .
-	bpl     L81C4                           ; 81CA 10 F8                    ..
-	sta     L00B5                           ; 81CC 85 B5                    ..
-	lda     L00AE                           ; 81CE A5 AE                    ..
-	sta     L00B6                           ; 81D0 85 B6                    ..
-	jsr     L86F3                           ; 81D2 20 F3 86                  ..
-	bcc     L81DA                           ; 81D5 90 03                    ..
-	jmp     L98BA                           ; 81D7 4C BA 98                 L..
+L81B0:  lda     #$00                    	; 81B0 A9 00                    ..
+	sta     L19D3                   	; 81B2 8D D3 19                 ...
+	lda     L00AE                   	; 81B5 A5 AE                    ..
+	cmp     L00B0                   	; 81B7 C5 B0                    ..
+	beq     L81C2                   	; 81B9 F0 07                    ..
+	lda     L00AD                   	; 81BB A5 AD                    ..
+	sta     L00AF                   	; 81BD 85 AF                    ..
+	dec     L19D3                   	; 81BF CE D3 19                 ...
+L81C2:  ldx     #$03                    	; 81C2 A2 03                    ..
+L81C4:  lda     L00AD,x                 	; 81C4 B5 AD                    ..
+	sta     L19CB,x                 	; 81C6 9D CB 19                 ...
+	dex                             	; 81C9 CA                       .
+	bpl     L81C4                   	; 81CA 10 F8                    ..
+	sta     L00B5                   	; 81CC 85 B5                    ..
+	lda     L00AE                   	; 81CE A5 AE                    ..
+	sta     L00B6                   	; 81D0 85 B6                    ..
+	jsr     L86F3                   	; 81D2 20 F3 86                  ..
+	bcc     L81DA                   	; 81D5 90 03                    ..
+	jmp     L98BA                   	; 81D7 4C BA 98                 L..
 
 ; ----------------------------------------------------------------------------
-L81DA:  lda     L19D3                           ; 81DA AD D3 19                 ...
-	bne     L81F0                           ; 81DD D0 11                    ..
-	lda     L00AE                           ; 81DF A5 AE                    ..
-	cmp     L00B0                           ; 81E1 C5 B0                    ..
-	bne     L81F0                           ; 81E3 D0 0B                    ..
-	lda     L19CB                           ; 81E5 AD CB 19                 ...
-	cmp     L19CD                           ; 81E8 CD CD 19                 ...
-	bne     L81F0                           ; 81EB D0 03                    ..
-	dec     L19D3                           ; 81ED CE D3 19                 ...
-L81F0:  ldx     #$03                            ; 81F0 A2 03                    ..
-L81F2:  lda     L00AD,x                         ; 81F2 B5 AD                    ..
-	sta     L19CF,x                         ; 81F4 9D CF 19                 ...
-	dex                                     ; 81F7 CA                       .
-	bpl     L81F2                           ; 81F8 10 F8                    ..
-	bit     L19D3                           ; 81FA 2C D3 19                 ,..
-	bpl     L8216                           ; 81FD 10 17                    ..
-	lda     L19CE                           ; 81FF AD CE 19                 ...
-	sec                                     ; 8202 38                       8
-	sbc     L19CC                           ; 8203 ED CC 19                 ...
-	clc                                     ; 8206 18                       .
-L8207:  adc     L19D0                           ; 8207 6D D0 19                 m..
-	bpl     L820F                           ; 820A 10 03                    ..
-	jmp     L98B2                           ; 820C 4C B2 98                 L..
+L81DA:  lda     L19D3                   	; 81DA AD D3 19                 ...
+	bne     L81F0                   	; 81DD D0 11                    ..
+	lda     L00AE                   	; 81DF A5 AE                    ..
+	cmp     L00B0                   	; 81E1 C5 B0                    ..
+	bne     L81F0                   	; 81E3 D0 0B                    ..
+	lda     L19CB                   	; 81E5 AD CB 19                 ...
+	cmp     L19CD                   	; 81E8 CD CD 19                 ...
+	bne     L81F0                   	; 81EB D0 03                    ..
+	dec     L19D3                   	; 81ED CE D3 19                 ...
+L81F0:  ldx     #$03                    	; 81F0 A2 03                    ..
+L81F2:  lda     L00AD,x                 	; 81F2 B5 AD                    ..
+	sta     L19CF,x                 	; 81F4 9D CF 19                 ...
+	dex                             	; 81F7 CA                       .
+	bpl     L81F2                   	; 81F8 10 F8                    ..
+	bit     L19D3                   	; 81FA 2C D3 19                 ,..
+	bpl     L8216                   	; 81FD 10 17                    ..
+	lda     L19CE                   	; 81FF AD CE 19                 ...
+	sec                             	; 8202 38                       8
+	sbc     L19CC                   	; 8203 ED CC 19                 ...
+	clc                             	; 8206 18                       .
+L8207:  adc     L19D0                   	; 8207 6D D0 19                 m..
+	bpl     L820F                   	; 820A 10 03                    ..
+	jmp     L98B2                   	; 820C 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L820F:  tax                                     ; 820F AA                       .
-	ldy     L19D1                           ; 8210 AC D1 19                 ...
-	jmp     L822A                           ; 8213 4C 2A 82                 L*.
+L820F:  tax                             	; 820F AA                       .
+	ldy     L19D1                   	; 8210 AC D1 19                 ...
+	jmp     L822A                   	; 8213 4C 2A 82                 L*.
 
 ; ----------------------------------------------------------------------------
-L8216:  lda     L19CD                           ; 8216 AD CD 19                 ...
-	sec                                     ; 8219 38                       8
-	sbc     L19CB                           ; 821A ED CB 19                 ...
-	clc                                     ; 821D 18                       .
-	adc     L19CF                           ; 821E 6D CF 19                 m..
-	bcc     L8226                           ; 8221 90 03                    ..
-	jmp     L98B2                           ; 8223 4C B2 98                 L..
+L8216:  lda     L19CD                   	; 8216 AD CD 19                 ...
+	sec                             	; 8219 38                       8
+	sbc     L19CB                   	; 821A ED CB 19                 ...
+	clc                             	; 821D 18                       .
+	adc     L19CF                   	; 821E 6D CF 19                 m..
+	bcc     L8226                   	; 8221 90 03                    ..
+	jmp     L98B2                   	; 8223 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L8226:  tay                                     ; 8226 A8                       .
-	ldx     L19D2                           ; 8227 AE D2 19                 ...
-L822A:  jsr     L9AD3                           ; 822A 20 D3 9A                  ..
-	ldy     L00AD                           ; 822D A4 AD                    ..
-	sty     L00B7                           ; 822F 84 B7                    ..
-	ldx     L00AE                           ; 8231 A6 AE                    ..
-	stx     L00B8                           ; 8233 86 B8                    ..
-L8235:  ldy     L00B5                           ; 8235 A4 B5                    ..
-	sty     L00A9                           ; 8237 84 A9                    ..
-	ldx     L00B6                           ; 8239 A6 B6                    ..
-	stx     L00AA                           ; 823B 86 AA                    ..
-	jsr     L974B                           ; 823D 20 4B 97                  K.
-	lda     L00C5                           ; 8240 A5 C5                    ..
-	and     #$10                            ; 8242 29 10                    ).
-	sta     L19AB                           ; 8244 8D AB 19                 ...
-L8247:  ldy     L00B7                           ; 8247 A4 B7                    ..
-	sty     L00A9                           ; 8249 84 A9                    ..
-	ldx     L00B8                           ; 824B A6 B8                    ..
-	stx     L00AA                           ; 824D 86 AA                    ..
-	jsr     L9772                           ; 824F 20 72 97                  r.
-	bit     L19D3                           ; 8252 2C D3 19                 ,..
-	bpl     L8272                           ; 8255 10 1B                    ..
-	inc     L00B7                           ; 8257 E6 B7                    ..
-	lda     L19D1                           ; 8259 AD D1 19                 ...
-	cmp     L00B7                           ; 825C C5 B7                    ..
-	bcs     L8247                           ; 825E B0 E7                    ..
-	lda     L19CF                           ; 8260 AD CF 19                 ...
-	sta     L00B7                           ; 8263 85 B7                    ..
-	inc     L00B8                           ; 8265 E6 B8                    ..
-	inc     L00B6                           ; 8267 E6 B6                    ..
-	lda     L19CE                           ; 8269 AD CE 19                 ...
-	cmp     L00B6                           ; 826C C5 B6                    ..
-	bcs     L8235                           ; 826E B0 C5                    ..
-	bcc     L828B                           ; 8270 90 19                    ..
-L8272:  inc     L00B8                           ; 8272 E6 B8                    ..
-	lda     L19D2                           ; 8274 AD D2 19                 ...
-	cmp     L00B8                           ; 8277 C5 B8                    ..
-	bcs     L8247                           ; 8279 B0 CC                    ..
-	lda     L19D0                           ; 827B AD D0 19                 ...
-	sta     L00B8                           ; 827E 85 B8                    ..
-	inc     L00B7                           ; 8280 E6 B7                    ..
-	inc     L00B5                           ; 8282 E6 B5                    ..
-	lda     L19CD                           ; 8284 AD CD 19                 ...
-	cmp     L00B5                           ; 8287 C5 B5                    ..
-	bcs     L8235                           ; 8289 B0 AA                    ..
-L828B:  jsr     L877F                           ; 828B 20 7F 87                  ..
+L8226:  tay                             	; 8226 A8                       .
+	ldx     L19D2                   	; 8227 AE D2 19                 ...
+L822A:  jsr     L9AD3                   	; 822A 20 D3 9A                  ..
+	ldy     L00AD                   	; 822D A4 AD                    ..
+	sty     L00B7                   	; 822F 84 B7                    ..
+	ldx     L00AE                   	; 8231 A6 AE                    ..
+	stx     L00B8                   	; 8233 86 B8                    ..
+L8235:  ldy     L00B5                   	; 8235 A4 B5                    ..
+	sty     L00A9                   	; 8237 84 A9                    ..
+	ldx     L00B6                   	; 8239 A6 B6                    ..
+	stx     L00AA                   	; 823B 86 AA                    ..
+	jsr     L974B                   	; 823D 20 4B 97                  K.
+	lda     L00C5                   	; 8240 A5 C5                    ..
+	and     #$10                    	; 8242 29 10                    ).
+	sta     L19AB                   	; 8244 8D AB 19                 ...
+L8247:  ldy     L00B7                   	; 8247 A4 B7                    ..
+	sty     L00A9                   	; 8249 84 A9                    ..
+	ldx     L00B8                   	; 824B A6 B8                    ..
+	stx     L00AA                   	; 824D 86 AA                    ..
+	jsr     L9772                   	; 824F 20 72 97                  r.
+	bit     L19D3                   	; 8252 2C D3 19                 ,..
+	bpl     L8272                   	; 8255 10 1B                    ..
+	inc     L00B7                   	; 8257 E6 B7                    ..
+	lda     L19D1                   	; 8259 AD D1 19                 ...
+	cmp     L00B7                   	; 825C C5 B7                    ..
+	bcs     L8247                   	; 825E B0 E7                    ..
+	lda     L19CF                   	; 8260 AD CF 19                 ...
+	sta     L00B7                   	; 8263 85 B7                    ..
+	inc     L00B8                   	; 8265 E6 B8                    ..
+	inc     L00B6                   	; 8267 E6 B6                    ..
+	lda     L19CE                   	; 8269 AD CE 19                 ...
+	cmp     L00B6                   	; 826C C5 B6                    ..
+	bcs     L8235                   	; 826E B0 C5                    ..
+	bcc     L828B                   	; 8270 90 19                    ..
+L8272:  inc     L00B8                   	; 8272 E6 B8                    ..
+	lda     L19D2                   	; 8274 AD D2 19                 ...
+	cmp     L00B8                   	; 8277 C5 B8                    ..
+	bcs     L8247                   	; 8279 B0 CC                    ..
+	lda     L19D0                   	; 827B AD D0 19                 ...
+	sta     L00B8                   	; 827E 85 B8                    ..
+	inc     L00B7                   	; 8280 E6 B7                    ..
+	inc     L00B5                   	; 8282 E6 B5                    ..
+	lda     L19CD                   	; 8284 AD CD 19                 ...
+	cmp     L00B5                   	; 8287 C5 B5                    ..
+	bcs     L8235                   	; 8289 B0 AA                    ..
+L828B:  jsr     L877F                   	; 828B 20 7F 87                  ..
 	jmp	L28E3
 
 ; ----------------------------------------------------------------------------
-L8291:	jsr     L8750                           ; 8291 20 50 87                  P.
-	bcs     L8299                           ; 8294 B0 03                    ..
-	jmp     L98B2                           ; 8296 4C B2 98                 L..
+L8291:	jsr     L8750                   	; 8291 20 50 87                  P.
+	bcs     L8299                   	; 8294 B0 03                    ..
+	jmp     L98B2                   	; 8296 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L8299:  lda     L00AB                           ; 8299 A5 AB                    ..
-	sta     L00A9                           ; 829B 85 A9                    ..
-	lda     L00AC                           ; 829D A5 AC                    ..
-	sta     L00AA                           ; 829F 85 AA                    ..
-	jsr     L1FD1                           ; 82A1 20 D1 1F                  ..
-	tya                                     ; 82A4 98                       .
-	pha                                     ; 82A5 48                       H
-	txa                                     ; 82A6 8A                       .
-	pha                                     ; 82A7 48                       H
-	jsr     L8EDC                           ; 82A8 20 DC 8E                  ..
-	pla                                     ; 82AB 68                       h
-	sta     L00AC                           ; 82AC 85 AC                    ..
-	sta     L00B8                           ; 82AE 85 B8                    ..
-	pla                                     ; 82B0 68                       h
-	sta     L00AB                           ; 82B1 85 AB                    ..
-	lda     L00A9                           ; 82B3 A5 A9                    ..
-	sec                                     ; 82B5 38                       8
-	sbc     L00AB                           ; 82B6 E5 AB                    ..
-	sta     L000E                           ; 82B8 85 0E                    ..
-	lda     L00AA                           ; 82BA A5 AA                    ..
-	sec                                     ; 82BC 38                       8
-	sbc     L00AC                           ; 82BD E5 AC                    ..
-	sta     L000F                           ; 82BF 85 0F                    ..
-L82C1:  jsr     L0C8A                           ; 82C1 20 8A 0C                  ..
-	jsr     L0CA4                           ; 82C4 20 A4 0C                  ..
-	jsr     L0CB9                           ; 82C7 20 B9 0C                  ..
-	ldy     #$02                            ; 82CA A0 02                    ..
-	lda     #$FF                            ; 82CC A9 FF                    ..
-	sta     LD301                           ; 82CE 8D 01 D3                 ...
-L82D1:  lda     (L009D),y                       ; 82D1 B1 9D                    ..
-	sta     (L00A2),y                       ; 82D3 91 A2                    ..
-	dey                                     ; 82D5 88                       .
-	bpl     L82D1                           ; 82D6 10 F9                    ..
-	bit     L00C3                           ; 82D8 24 C3                    $.
-	bpl     L8309                           ; 82DA 10 2D                    .-
-	lda     L00C7                           ; 82DC A5 C7                    ..
-	clc                                     ; 82DE 18                       .
-	adc     #$09                            ; 82DF 69 09                    i.
-	sta     L00C8                           ; 82E1 85 C8                    ..
-	ldy     #$09                            ; 82E3 A0 09                    ..
-	lda     L00A1                           ; 82E5 A5 A1                    ..
-	sta     LD301                           ; 82E7 8D 01 D3                 ...
-L82EA:  jsr     L8338                           ; 82EA 20 38 83                  8.
-	bcs     L8304                           ; 82ED B0 15                    ..
-	bne     L8302                           ; 82EF D0 11                    ..
-	iny                                     ; 82F1 C8                       .
-	lda     (L009F),y                       ; 82F2 B1 9F                    ..
-	adc     L000E                           ; 82F4 65 0E                    e.
-	sta     (L009F),y                       ; 82F6 91 9F                    ..
-	iny                                     ; 82F8 C8                       .
-	lda     (L009F),y                       ; 82F9 B1 9F                    ..
-	clc                                     ; 82FB 18                       .
-	adc     L000F                           ; 82FC 65 0F                    e.
-	sta     (L009F),y                       ; 82FE 91 9F                    ..
-	dey                                     ; 8300 88                       .
-	dey                                     ; 8301 88                       .
-L8302:  iny                                     ; 8302 C8                       .
-	iny                                     ; 8303 C8                       .
-L8304:  iny                                     ; 8304 C8                       .
+L8299:  lda     L00AB                   	; 8299 A5 AB                    ..
+	sta     L00A9                   	; 829B 85 A9                    ..
+	lda     L00AC                   	; 829D A5 AC                    ..
+	sta     L00AA                   	; 829F 85 AA                    ..
+	jsr     L1FD1                   	; 82A1 20 D1 1F                  ..
+	tya                             	; 82A4 98                       .
+	pha                             	; 82A5 48                       H
+	txa                             	; 82A6 8A                       .
+	pha                             	; 82A7 48                       H
+	jsr     L8EDC                   	; 82A8 20 DC 8E                  ..
+	pla                             	; 82AB 68                       h
+	sta     L00AC                   	; 82AC 85 AC                    ..
+	sta     L00B8                   	; 82AE 85 B8                    ..
+	pla                             	; 82B0 68                       h
+	sta     L00AB                   	; 82B1 85 AB                    ..
+	lda     L00A9                   	; 82B3 A5 A9                    ..
+	sec                             	; 82B5 38                       8
+	sbc     L00AB                   	; 82B6 E5 AB                    ..
+	sta     L000E                   	; 82B8 85 0E                    ..
+	lda     L00AA                   	; 82BA A5 AA                    ..
+	sec                             	; 82BC 38                       8
+	sbc     L00AC                   	; 82BD E5 AC                    ..
+	sta     L000F                   	; 82BF 85 0F                    ..
+L82C1:  jsr     L0C8A                   	; 82C1 20 8A 0C                  ..
+	jsr     L0CA4                   	; 82C4 20 A4 0C                  ..
+	jsr     L0CB9                   	; 82C7 20 B9 0C                  ..
+	ldy     #$02                    	; 82CA A0 02                    ..
+	lda     #$FF                    	; 82CC A9 FF                    ..
+	sta     LD301                   	; 82CE 8D 01 D3                 ...
+L82D1:  lda     (L009D),y               	; 82D1 B1 9D                    ..
+	sta     (L00A2),y               	; 82D3 91 A2                    ..
+	dey                             	; 82D5 88                       .
+	bpl     L82D1                   	; 82D6 10 F9                    ..
+	bit     L00C3                   	; 82D8 24 C3                    $.
+	bpl     L8309                   	; 82DA 10 2D                    .-
+	lda     L00C7                   	; 82DC A5 C7                    ..
+	clc                             	; 82DE 18                       .
+	adc     #$09                    	; 82DF 69 09                    i.
+	sta     L00C8                   	; 82E1 85 C8                    ..
+	ldy     #$09                    	; 82E3 A0 09                    ..
+	lda     L00A1                   	; 82E5 A5 A1                    ..
+	sta     LD301                   	; 82E7 8D 01 D3                 ...
+L82EA:  jsr     L8338                   	; 82EA 20 38 83                  8.
+	bcs     L8304                   	; 82ED B0 15                    ..
+	bne     L8302                   	; 82EF D0 11                    ..
+	iny                             	; 82F1 C8                       .
+	lda     (L009F),y               	; 82F2 B1 9F                    ..
+	adc     L000E                   	; 82F4 65 0E                    e.
+	sta     (L009F),y               	; 82F6 91 9F                    ..
+	iny                             	; 82F8 C8                       .
+	lda     (L009F),y               	; 82F9 B1 9F                    ..
+	clc                             	; 82FB 18                       .
+	adc     L000F                   	; 82FC 65 0F                    e.
+	sta     (L009F),y               	; 82FE 91 9F                    ..
+	dey                             	; 8300 88                       .
+	dey                             	; 8301 88                       .
+L8302:  iny                             	; 8302 C8                       .
+	iny                             	; 8303 C8                       .
+L8304:  iny                             	; 8304 C8                       .
 	cpy	#$C8
-	bcc     L82EA                           ; 8307 90 E1                    ..
-L8309:  ldy     #$02                            ; 8309 A0 02                    ..
-	lda     #$FF                            ; 830B A9 FF                    ..
-	sta     LD301                           ; 830D 8D 01 D3                 ...
-	lda     (L009D),y                       ; 8310 B1 9D                    ..
-	and     #$3F                            ; 8312 29 3F                    )?
-	sta     (L009D),y                       ; 8314 91 9D                    ..
-	inc     L00AC                           ; 8316 E6 AC                    ..
-	inc     L00AA                           ; 8318 E6 AA                    ..
-	lda     L00B0                           ; 831A A5 B0                    ..
-	cmp     L00AA                           ; 831C C5 AA                    ..
-	bcs     L82C1                           ; 831E B0 A1                    ..
-	lda     L00AE                           ; 8320 A5 AE                    ..
-	sta     L00AA                           ; 8322 85 AA                    ..
-	lda     L00B8                           ; 8324 A5 B8                    ..
-	sta     L00AC                           ; 8326 85 AC                    ..
-	inc     L00AB                           ; 8328 E6 AB                    ..
-	inc     L00A9                           ; 832A E6 A9                    ..
-	lda     L00AF                           ; 832C A5 AF                    ..
-	cmp     L00A9                           ; 832E C5 A9                    ..
-	bcc     L8335                           ; 8330 90 03                    ..
-	jmp     L82C1                           ; 8332 4C C1 82                 L..
+	bcc     L82EA                   	; 8307 90 E1                    ..
+L8309:  ldy     #$02                    	; 8309 A0 02                    ..
+	lda     #$FF                    	; 830B A9 FF                    ..
+	sta     LD301                   	; 830D 8D 01 D3                 ...
+	lda     (L009D),y               	; 8310 B1 9D                    ..
+	and     #$3F                    	; 8312 29 3F                    )?
+	sta     (L009D),y               	; 8314 91 9D                    ..
+	inc     L00AC                   	; 8316 E6 AC                    ..
+	inc     L00AA                   	; 8318 E6 AA                    ..
+	lda     L00B0                   	; 831A A5 B0                    ..
+	cmp     L00AA                   	; 831C C5 AA                    ..
+	bcs     L82C1                   	; 831E B0 A1                    ..
+	lda     L00AE                   	; 8320 A5 AE                    ..
+	sta     L00AA                   	; 8322 85 AA                    ..
+	lda     L00B8                   	; 8324 A5 B8                    ..
+	sta     L00AC                   	; 8326 85 AC                    ..
+	inc     L00AB                   	; 8328 E6 AB                    ..
+	inc     L00A9                   	; 832A E6 A9                    ..
+	lda     L00AF                   	; 832C A5 AF                    ..
+	cmp     L00A9                   	; 832E C5 A9                    ..
+	bcc     L8335                   	; 8330 90 03                    ..
+	jmp     L82C1                   	; 8332 4C C1 82                 L..
 
 ; ----------------------------------------------------------------------------
-L8335:  jmp     L828B                           ; 8335 4C 8B 82                 L..
+L8335:  jmp     L828B                   	; 8335 4C 8B 82                 L..
 
 ; ----------------------------------------------------------------------------
-L8338:  lda     (L009F),y                       ; 8338 B1 9F                    ..
-	bne     L8344                           ; 833A D0 08                    ..
-	tya                                     ; 833C 98                       .
-	clc                                     ; 833D 18                       .
-	adc     #$06                            ; 833E 69 06                    i.
-	tay                                     ; 8340 A8                       .
-	sec                                     ; 8341 38                       8
-	bcs     L834B                           ; 8342 B0 07                    ..
-L8344:  cmp     #$03                            ; 8344 C9 03                    ..
-	bcs     L834B                           ; 8346 B0 03                    ..
-	cmp     #$01                            ; 8348 C9 01                    ..
-	clc                                     ; 834A 18                       .
-L834B:  rts                                     ; 834B 60                       `
+L8338:  lda     (L009F),y               	; 8338 B1 9F                    ..
+	bne     L8344                   	; 833A D0 08                    ..
+	tya                             	; 833C 98                       .
+	clc                             	; 833D 18                       .
+	adc     #$06                    	; 833E 69 06                    i.
+	tay                             	; 8340 A8                       .
+	sec                             	; 8341 38                       8
+	bcs     L834B                   	; 8342 B0 07                    ..
+L8344:  cmp     #$03                    	; 8344 C9 03                    ..
+	bcs     L834B                   	; 8346 B0 03                    ..
+	cmp     #$01                    	; 8348 C9 01                    ..
+	clc                             	; 834A 18                       .
+L834B:  rts                             	; 834B 60                       `
 
 ; ----------------------------------------------------------------------------
-L834C:	cmp     #$55                            ; 834C C9 55                    .U
-	bne     L8358                           ; 834E D0 08                    ..
-	lda     #$FF                            ; 8350 A9 FF                    ..
-	sta     L19A8                           ; 8352 8D A8 19                 ...
-	jsr     L86DB                           ; 8355 20 DB 86                  ..
-L8358:  cmp     #$47                            ; 8358 C9 47                    .G
-	bne     L8364                           ; 835A D0 08                    ..
-	lda     #$FF                            ; 835C A9 FF                    ..
-	sta     L19A9                           ; 835E 8D A9 19                 ...
-	jsr     L86DB                           ; 8361 20 DB 86                  ..
-L8364:  sta     L00CE                           ; 8364 85 CE                    ..
-	lda     #$0A                            ; 8366 A9 0A                    ..
-	pha                                     ; 8368 48                       H
-	lda     #$1E                            ; 8369 A9 1E                    ..
-	pha                                     ; 836B 48                       H
-	ldx     #$73                            ; 836C A2 73                    .s
-	ldy     #$83                            ; 836E A0 83                    ..
-	jmp     L8032                           ; 8370 4C 32 80                 L2.
+L834C:	cmp     #$55                    	; 834C C9 55                    .U
+	bne     L8358                   	; 834E D0 08                    ..
+	lda     #$FF                    	; 8350 A9 FF                    ..
+	sta     L19A8                   	; 8352 8D A8 19                 ...
+	jsr     L86DB                   	; 8355 20 DB 86                  ..
+L8358:  cmp     #$47                    	; 8358 C9 47                    .G
+	bne     L8364                   	; 835A D0 08                    ..
+	lda     #$FF                    	; 835C A9 FF                    ..
+	sta     L19A9                   	; 835E 8D A9 19                 ...
+	jsr     L86DB                   	; 8361 20 DB 86                  ..
+L8364:  sta     L00CE                   	; 8364 85 CE                    ..
+	lda     #$0A                    	; 8366 A9 0A                    ..
+	pha                             	; 8368 48                       H
+	lda     #$1E                    	; 8369 A9 1E                    ..
+	pha                             	; 836B 48                       H
+	ldx     #$73                    	; 836C A2 73                    .s
+	ldy     #$83                    	; 836E A0 83                    ..
+	jmp     L8032                   	; 8370 4C 32 80                 L2.
 
 ; ----------------------------------------------------------------------------
-	jmp     L83B3                           ; 8373 4C B3 83                 L..
+	jmp     L83B3                   	; 8373 4C B3 83                 L..
 
 ; ----------------------------------------------------------------------------
 	.byte	'R'
@@ -756,3048 +753,3048 @@ L8364:  sta     L00CE                           ; 8364 85 CE                    
 	.byte	$00
 
 ; ----------------------------------------------------------------------------
-L83AA:	jsr     L84C5                           ; 83AA 20 C5 84                  ..
-	ldx     #$02                            ; 83AD A2 02                    ..
-	ldy     #$3F                            ; 83AF A0 3F                    .?
-	lda     #$00                            ; 83B1 A9 00                    ..
-L83B3:  rts                                     ; 83B3 60                       `
+L83AA:	jsr     L84C5                   	; 83AA 20 C5 84                  ..
+	ldx     #$02                    	; 83AD A2 02                    ..
+	ldy     #$3F                    	; 83AF A0 3F                    .?
+	lda     #$00                    	; 83B1 A9 00                    ..
+L83B3:  rts                             	; 83B3 60                       `
 
 ; ----------------------------------------------------------------------------
-	jsr     L84C5                           ; 83B4 20 C5 84                  ..
-	ldx     #$02                            ; 83B7 A2 02                    ..
-	ldy     #$3F                            ; 83B9 A0 3F                    .?
-	lda     #$40                            ; 83BB A9 40                    .@
-	rts                                     ; 83BD 60                       `
+	jsr     L84C5                   	; 83B4 20 C5 84                  ..
+	ldx     #$02                    	; 83B7 A2 02                    ..
+	ldy     #$3F                    	; 83B9 A0 3F                    .?
+	lda     #$40                    	; 83BB A9 40                    .@
+	rts                             	; 83BD 60                       `
 
 ; ----------------------------------------------------------------------------
-	jsr     L84C5                           ; 83BE 20 C5 84                  ..
-	ldx     #$02                            ; 83C1 A2 02                    ..
-	ldy     #$3F                            ; 83C3 A0 3F                    .?
-	lda     #$80                            ; 83C5 A9 80                    ..
-	rts                                     ; 83C7 60                       `
+	jsr     L84C5                   	; 83BE 20 C5 84                  ..
+	ldx     #$02                    	; 83C1 A2 02                    ..
+	ldy     #$3F                    	; 83C3 A0 3F                    .?
+	lda     #$80                    	; 83C5 A9 80                    ..
+	rts                             	; 83C7 60                       `
 
 ; ----------------------------------------------------------------------------
-L83C8:	ldx     #$01                            ; 83C8 A2 01                    ..
-	ldy     #$EF                            ; 83CA A0 EF                    ..
-	lda     #$10                            ; 83CC A9 10                    ..
-	rts                                     ; 83CE 60                       `
+L83C8:	ldx     #$01                    	; 83C8 A2 01                    ..
+	ldy     #$EF                    	; 83CA A0 EF                    ..
+	lda     #$10                    	; 83CC A9 10                    ..
+	rts                             	; 83CE 60                       `
 
 ; ----------------------------------------------------------------------------
-L83CF:	ldx     #$01                            ; 83CF A2 01                    ..
-	ldy     #$DF                            ; 83D1 A0 DF                    ..
-	lda     #$20                            ; 83D3 A9 20                    . 
-	rts                                     ; 83D5 60                       `
+L83CF:	ldx     #$01                    	; 83CF A2 01                    ..
+	ldy     #$DF                    	; 83D1 A0 DF                    ..
+	lda     #$20                    	; 83D3 A9 20                    . 
+	rts                             	; 83D5 60                       `
 
 ; ----------------------------------------------------------------------------
-L83D6:	ldx     #$01                            ; 83D6 A2 01                    ..
-	ldy     #$F7                            ; 83D8 A0 F7                    ..
-	lda     #$08                            ; 83DA A9 08                    ..
-	rts                                     ; 83DC 60                       `
+L83D6:	ldx     #$01                    	; 83D6 A2 01                    ..
+	ldy     #$F7                    	; 83D8 A0 F7                    ..
+	lda     #$08                    	; 83DA A9 08                    ..
+	rts                             	; 83DC 60                       `
 
 ; ----------------------------------------------------------------------------
-L83DD:	jsr     L84C5                           ; 83DD 20 C5 84                  ..
-	ldx     #$01                            ; 83E0 A2 01                    ..
-	ldy     #$FC                            ; 83E2 A0 FC                    ..
-	lda     #$03                            ; 83E4 A9 03                    ..
-	rts                                     ; 83E6 60                       `
+L83DD:	jsr     L84C5                   	; 83DD 20 C5 84                  ..
+	ldx     #$01                    	; 83E0 A2 01                    ..
+	ldy     #$FC                    	; 83E2 A0 FC                    ..
+	lda     #$03                    	; 83E4 A9 03                    ..
+	rts                             	; 83E6 60                       `
 
 ; ----------------------------------------------------------------------------
-L83E7:	jsr     L84C5                           ; 83E7 20 C5 84                  ..
-	ldx     #$01                            ; 83EA A2 01                    ..
-	ldy     #$FC                            ; 83EC A0 FC                    ..
-	lda     #$02                            ; 83EE A9 02                    ..
-	rts                                     ; 83F0 60                       `
+L83E7:	jsr     L84C5                   	; 83E7 20 C5 84                  ..
+	ldx     #$01                    	; 83EA A2 01                    ..
+	ldy     #$FC                    	; 83EC A0 FC                    ..
+	lda     #$02                    	; 83EE A9 02                    ..
+	rts                             	; 83F0 60                       `
 
 ; ----------------------------------------------------------------------------
-L83F1:	jsr     L84C5                           ; 83F1 20 C5 84                  ..
-	ldx     #$01                            ; 83F4 A2 01                    ..
-	ldy     #$FC                            ; 83F6 A0 FC                    ..
-	lda     #$00                            ; 83F8 A9 00                    ..
-	rts                                     ; 83FA 60                       `
+L83F1:	jsr     L84C5                   	; 83F1 20 C5 84                  ..
+	ldx     #$01                    	; 83F4 A2 01                    ..
+	ldy     #$FC                    	; 83F6 A0 FC                    ..
+	lda     #$00                    	; 83F8 A9 00                    ..
+	rts                             	; 83FA 60                       `
 
 ; ----------------------------------------------------------------------------
-L83FB:	jsr     L84C5                           ; 83FB 20 C5 84                  ..
-	ldx     #$01                            ; 83FE A2 01                    ..
-	ldy     #$3F                            ; 8400 A0 3F                    .?
-	lda     #$00                            ; 8402 A9 00                    ..
-	rts                                     ; 8404 60                       `
+L83FB:	jsr     L84C5                   	; 83FB 20 C5 84                  ..
+	ldx     #$01                    	; 83FE A2 01                    ..
+	ldy     #$3F                    	; 8400 A0 3F                    .?
+	lda     #$00                    	; 8402 A9 00                    ..
+	rts                             	; 8404 60                       `
 
 ; ----------------------------------------------------------------------------
-L8405:	jsr     L84C5                           ; 8405 20 C5 84                  ..
-	ldx     #$01                            ; 8408 A2 01                    ..
-	ldy     #$3F                            ; 840A A0 3F                    .?
-	lda     #$40                            ; 840C A9 40                    .@
-	rts                                     ; 840E 60                       `
+L8405:	jsr     L84C5                   	; 8405 20 C5 84                  ..
+	ldx     #$01                    	; 8408 A2 01                    ..
+	ldy     #$3F                    	; 840A A0 3F                    .?
+	lda     #$40                    	; 840C A9 40                    .@
+	rts                             	; 840E 60                       `
 
 ; ----------------------------------------------------------------------------
-L840F:	jsr     L84C5                           ; 840F 20 C5 84                  ..
-	ldx     #$01                            ; 8412 A2 01                    ..
-	ldy     #$3F                            ; 8414 A0 3F                    .?
-	lda     #$80                            ; 8416 A9 80                    ..
-	rts                                     ; 8418 60                       `
+L840F:	jsr     L84C5                   	; 840F 20 C5 84                  ..
+	ldx     #$01                    	; 8412 A2 01                    ..
+	ldy     #$3F                    	; 8414 A0 3F                    .?
+	lda     #$80                    	; 8416 A9 80                    ..
+	rts                             	; 8418 60                       `
 
 ; ----------------------------------------------------------------------------
-L8419:	jsr     L84C5                           ; 8419 20 C5 84                  ..
-	ldx     #$01                            ; 841C A2 01                    ..
-	ldy     #$3F                            ; 841E A0 3F                    .?
-	lda     #$C0                            ; 8420 A9 C0                    ..
-	rts                                     ; 8422 60                       `
+L8419:	jsr     L84C5                   	; 8419 20 C5 84                  ..
+	ldx     #$01                    	; 841C A2 01                    ..
+	ldy     #$3F                    	; 841E A0 3F                    .?
+	lda     #$C0                    	; 8420 A9 C0                    ..
+	rts                             	; 8422 60                       `
 
 ; ----------------------------------------------------------------------------
-L8423:	jsr     L84C5                           ; 8423 20 C5 84                  ..
-	ldx     #$00                            ; 8426 A2 00                    ..
-	ldy     #$0A                            ; 8428 A0 0A                    ..
-	jsr     L84CE                           ; 842A 20 CE 84                  ..
-	bcc     L8432                           ; 842D 90 03                    ..
-L842F:	jmp     L98B2                           ; 842F 4C B2 98                 L..
+L8423:	jsr     L84C5                   	; 8423 20 C5 84                  ..
+	ldx     #$00                    	; 8426 A2 00                    ..
+	ldy     #$0A                    	; 8428 A0 0A                    ..
+	jsr     L84CE                   	; 842A 20 CE 84                  ..
+	bcc     L8432                   	; 842D 90 03                    ..
+L842F:	jmp     L98B2                   	; 842F 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L8432:  asl     a                               ; 8432 0A                       .
-	asl     a                               ; 8433 0A                       .
-	ldx     #$00                            ; 8434 A2 00                    ..
-	ldy     #$C3                            ; 8436 A0 C3                    ..
-	rts                                     ; 8438 60                       `
+L8432:  asl     a                       	; 8432 0A                       .
+	asl     a                       	; 8433 0A                       .
+	ldx     #$00                    	; 8434 A2 00                    ..
+	ldy     #$C3                    	; 8436 A0 C3                    ..
+	rts                             	; 8438 60                       `
 
 ; ----------------------------------------------------------------------------
-L8439:	jsr     L8C53                           ; 8439 20 53 8C                  S.
-	jsr     L84C5                           ; 843C 20 C5 84                  ..
-	ldx     #$01                            ; 843F A2 01                    ..
-	ldy     #$24                            ; 8441 A0 24                    .$
+L8439:	jsr     L8C53                   	; 8439 20 53 8C                  S.
+	jsr     L84C5                   	; 843C 20 C5 84                  ..
+	ldx     #$01                    	; 843F A2 01                    ..
+	ldy     #$24                    	; 8441 A0 24                    .$
 	jsr	L84CE
-L8446:  bcs     L842F                           ; 8446 B0 E7                    ..
-	ldx     L19A9                           ; 8448 AE A9 19                 ...
-	bne     L845E                           ; 844B D0 11                    ..
-	pha                                     ; 844D 48                       H
-	lda     #$40                            ; 844E A9 40                    .@
-	sta     L19A7                           ; 8450 8D A7 19                 ...
-	jsr     L86F3                           ; 8453 20 F3 86                  ..
-	bcc     L845B                           ; 8456 90 03                    ..
-	jmp     L98BA                           ; 8458 4C BA 98                 L..
+L8446:  bcs     L842F                   	; 8446 B0 E7                    ..
+	ldx     L19A9                   	; 8448 AE A9 19                 ...
+	bne     L845E                   	; 844B D0 11                    ..
+	pha                             	; 844D 48                       H
+	lda     #$40                    	; 844E A9 40                    .@
+	sta     L19A7                   	; 8450 8D A7 19                 ...
+	jsr     L86F3                   	; 8453 20 F3 86                  ..
+	bcc     L845B                   	; 8456 90 03                    ..
+	jmp     L98BA                   	; 8458 4C BA 98                 L..
 
 ; ----------------------------------------------------------------------------
-L845B:  pla                                     ; 845B 68                       h
-	bne     L847C                           ; 845C D0 1E                    ..
-L845E:  sta     L1995                           ; 845E 8D 95 19                 ...
-	ldx     #$7F                            ; 8461 A2 7F                    ..
-L8463:  pha                                     ; 8463 48                       H
-	txa                                     ; 8464 8A                       .
-	pha                                     ; 8465 48                       H
-	jsr     L8787                           ; 8466 20 87 87                  ..
-	and     L1981,x                         ; 8469 3D 81 19                 =..
-	tay                                     ; 846C A8                       .
-	pla                                     ; 846D 68                       h
-	tax                                     ; 846E AA                       .
-	pla                                     ; 846F 68                       h
-	cpy     #$00                            ; 8470 C0 00                    ..
-	bne     L8477                           ; 8472 D0 03                    ..
-	sta     L1901,x                         ; 8474 9D 01 19                 ...
-L8477:  dex                                     ; 8477 CA                       .
-	bpl     L8463                           ; 8478 10 E9                    ..
-	bmi     L8495                           ; 847A 30 19                    0.
-L847C:  ldx     L00AC                           ; 847C A6 AC                    ..
-	sta     L1901,x                         ; 847E 9D 01 19                 ...
-	pha                                     ; 8481 48                       H
-	txa                                     ; 8482 8A                       .
-	jsr     L8787                           ; 8483 20 87 87                  ..
-	ora     L1981,x                         ; 8486 1D 81 19                 ...
-	sta     L1981,x                         ; 8489 9D 81 19                 ...
-	pla                                     ; 848C 68                       h
-	inc     L00AC                           ; 848D E6 AC                    ..
-	ldx     L00B0                           ; 848F A6 B0                    ..
-	cpx     L00AC                           ; 8491 E4 AC                    ..
-	bcs     L847C                           ; 8493 B0 E7                    ..
-L8495:  ldx     #$00                            ; 8495 A2 00                    ..
-	ldy     #$00                            ; 8497 A0 00                    ..
-	jsr     L99C0                           ; 8499 20 C0 99                  ..
-	ldx     #$01                            ; 849C A2 01                    ..
-	ldy     #$04                            ; 849E A0 04                    ..
-	jsr     L99C0                           ; 84A0 20 C0 99                  ..
-	jmp     L0A9E                           ; 84A3 4C 9E 0A                 L..
+L845B:  pla                             	; 845B 68                       h
+	bne     L847C                   	; 845C D0 1E                    ..
+L845E:  sta     L1995                   	; 845E 8D 95 19                 ...
+	ldx     #$7F                    	; 8461 A2 7F                    ..
+L8463:  pha                             	; 8463 48                       H
+	txa                             	; 8464 8A                       .
+	pha                             	; 8465 48                       H
+	jsr     L8787                   	; 8466 20 87 87                  ..
+	and     L1981,x                 	; 8469 3D 81 19                 =..
+	tay                             	; 846C A8                       .
+	pla                             	; 846D 68                       h
+	tax                             	; 846E AA                       .
+	pla                             	; 846F 68                       h
+	cpy     #$00                    	; 8470 C0 00                    ..
+	bne     L8477                   	; 8472 D0 03                    ..
+	sta     L1901,x                 	; 8474 9D 01 19                 ...
+L8477:  dex                             	; 8477 CA                       .
+	bpl     L8463                   	; 8478 10 E9                    ..
+	bmi     L8495                   	; 847A 30 19                    0.
+L847C:  ldx     L00AC                   	; 847C A6 AC                    ..
+	sta     L1901,x                 	; 847E 9D 01 19                 ...
+	pha                             	; 8481 48                       H
+	txa                             	; 8482 8A                       .
+	jsr     L8787                   	; 8483 20 87 87                  ..
+	ora     L1981,x                 	; 8486 1D 81 19                 ...
+	sta     L1981,x                 	; 8489 9D 81 19                 ...
+	pla                             	; 848C 68                       h
+	inc     L00AC                   	; 848D E6 AC                    ..
+	ldx     L00B0                   	; 848F A6 B0                    ..
+	cpx     L00AC                   	; 8491 E4 AC                    ..
+	bcs     L847C                   	; 8493 B0 E7                    ..
+L8495:  ldx     #$00                    	; 8495 A2 00                    ..
+	ldy     #$00                    	; 8497 A0 00                    ..
+	jsr     L99C0                   	; 8499 20 C0 99                  ..
+	ldx     #$01                    	; 849C A2 01                    ..
+	ldy     #$04                    	; 849E A0 04                    ..
+	jsr     L99C0                   	; 84A0 20 C0 99                  ..
+	jmp     L0A9E                   	; 84A3 4C 9E 0A                 L..
 
 ; ----------------------------------------------------------------------------
-L84A6:	jsr     L84C5                           ; 84A6 20 C5 84                  ..
-	ldx     #$00                            ; 84A9 A2 00                    ..
-	ldy     #$07                            ; 84AB A0 07                    ..
-	jsr     L84CE                           ; 84AD 20 CE 84                  ..
-	bcs     L8446                           ; 84B0 B0 94                    ..
-	ldx     #$02                            ; 84B2 A2 02                    ..
-	ldy     #$F8                            ; 84B4 A0 F8                    ..
-	rts                                     ; 84B6 60                       `
+L84A6:	jsr     L84C5                   	; 84A6 20 C5 84                  ..
+	ldx     #$00                    	; 84A9 A2 00                    ..
+	ldy     #$07                    	; 84AB A0 07                    ..
+	jsr     L84CE                   	; 84AD 20 CE 84                  ..
+	bcs     L8446                   	; 84B0 B0 94                    ..
+	ldx     #$02                    	; 84B2 A2 02                    ..
+	ldy     #$F8                    	; 84B4 A0 F8                    ..
+	rts                             	; 84B6 60                       `
 
 ; ----------------------------------------------------------------------------
-L84B7:	ldx     #$02                            ; 84B7 A2 02                    ..
-	ldy     #$F7                            ; 84B9 A0 F7                    ..
-	lda     #$08                            ; 84BB A9 08                    ..
-	rts                                     ; 84BD 60                       `
+L84B7:	ldx     #$02                    	; 84B7 A2 02                    ..
+	ldy     #$F7                    	; 84B9 A0 F7                    ..
+	lda     #$08                    	; 84BB A9 08                    ..
+	rts                             	; 84BD 60                       `
 
 ; ----------------------------------------------------------------------------
-L84BE:	ldx     #$03                            ; 84BE A2 03                    ..
-	ldy     #$7F                            ; 84C0 A0 7F                    ..
-	lda     #$80                            ; 84C2 A9 80                    ..
-	rts                                     ; 84C4 60                       `
+L84BE:	ldx     #$03                    	; 84BE A2 03                    ..
+	ldy     #$7F                    	; 84C0 A0 7F                    ..
+	lda     #$80                    	; 84C2 A9 80                    ..
+	rts                             	; 84C4 60                       `
 
 ; ----------------------------------------------------------------------------
-L84C5:  lda     L19A8                           ; 84C5 AD A8 19                 ...
-	beq     L84CD                           ; 84C8 F0 03                    ..
-	jmp     L28E3                           ; 84CA 4C E3 28                 L.(
+L84C5:  lda     L19A8                   	; 84C5 AD A8 19                 ...
+	beq     L84CD                   	; 84C8 F0 03                    ..
+	jmp     L28E3                   	; 84CA 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L84CD:  rts                                     ; 84CD 60                       `
+L84CD:  rts                             	; 84CD 60                       `
 
 ; ----------------------------------------------------------------------------
-L84CE:  stx     L19E6                           ; 84CE 8E E6 19                 ...
-	sty     L19E7                           ; 84D1 8C E7 19                 ...
-	jsr     L86C8                           ; 84D4 20 C8 86                  ..
-	bcs     L850A                           ; 84D7 B0 31                    .1
-	lda     #$80                            ; 84D9 A9 80                    ..
-	sta     L00F3                           ; 84DB 85 F3                    ..
-	lda     #$06                            ; 84DD A9 06                    ..
-	sta     L00F4                           ; 84DF 85 F4                    ..
-	lda     L00B9                           ; 84E1 A5 B9                    ..
-	sta     L00F2                           ; 84E3 85 F2                    ..
-	sta     L19B1                           ; 84E5 8D B1 19                 ...
-	jsr     LD800                           ; 84E8 20 00 D8                  ..
-	bcs     L850A                           ; 84EB B0 1D                    ..
-	lda     L00F2                           ; 84ED A5 F2                    ..
-	sta     L00B9                           ; 84EF 85 B9                    ..
-	jsr     LD9D2                           ; 84F1 20 D2 D9                  ..
-	bcs     L850A                           ; 84F4 B0 14                    ..
-	lda     L00D5                           ; 84F6 A5 D5                    ..
-	bne     L850A                           ; 84F8 D0 10                    ..
-	lda     L00D4                           ; 84FA A5 D4                    ..
-	cmp     L19E6                           ; 84FC CD E6 19                 ...
-	bcc     L850A                           ; 84FF 90 09                    ..
-	cmp     L19E7                           ; 8501 CD E7 19                 ...
-	beq     L8508                           ; 8504 F0 02                    ..
-	bcs     L850A                           ; 8506 B0 02                    ..
-L8508:  clc                                     ; 8508 18                       .
-	rts                                     ; 8509 60                       `
+L84CE:  stx     L19E6                   	; 84CE 8E E6 19                 ...
+	sty     L19E7                   	; 84D1 8C E7 19                 ...
+	jsr     L86C8                   	; 84D4 20 C8 86                  ..
+	bcs     L850A                   	; 84D7 B0 31                    .1
+	lda     #$80                    	; 84D9 A9 80                    ..
+	sta     L00F3                   	; 84DB 85 F3                    ..
+	lda     #$06                    	; 84DD A9 06                    ..
+	sta     L00F4                   	; 84DF 85 F4                    ..
+	lda     L00B9                   	; 84E1 A5 B9                    ..
+	sta     L00F2                   	; 84E3 85 F2                    ..
+	sta     L19B1                   	; 84E5 8D B1 19                 ...
+	jsr     LD800                   	; 84E8 20 00 D8                  ..
+	bcs     L850A                   	; 84EB B0 1D                    ..
+	lda     L00F2                   	; 84ED A5 F2                    ..
+	sta     L00B9                   	; 84EF 85 B9                    ..
+	jsr     LD9D2                   	; 84F1 20 D2 D9                  ..
+	bcs     L850A                   	; 84F4 B0 14                    ..
+	lda     L00D5                   	; 84F6 A5 D5                    ..
+	bne     L850A                   	; 84F8 D0 10                    ..
+	lda     L00D4                   	; 84FA A5 D4                    ..
+	cmp     L19E6                   	; 84FC CD E6 19                 ...
+	bcc     L850A                   	; 84FF 90 09                    ..
+	cmp     L19E7                   	; 8501 CD E7 19                 ...
+	beq     L8508                   	; 8504 F0 02                    ..
+	bcs     L850A                   	; 8506 B0 02                    ..
+L8508:  clc                             	; 8508 18                       .
+	rts                             	; 8509 60                       `
 
 ; ----------------------------------------------------------------------------
-L850A:  sec                                     ; 850A 38                       8
-	rts                                     ; 850B 60                       `
+L850A:  sec                             	; 850A 38                       8
+	rts                             	; 850B 60                       `
 
 ; ----------------------------------------------------------------------------
-L850C:  lda     #$00                            ; 850C A9 00                    ..
-	sta     L0094                           ; 850E 85 94                    ..
-	jsr     L86DD                           ; 8510 20 DD 86                  ..
-	cmp     #$21                            ; 8513 C9 21                    .!
-	bne     L851D                           ; 8515 D0 06                    ..
-	ldy     L00A7                           ; 8517 A4 A7                    ..
-	ldx     L00A8                           ; 8519 A6 A8                    ..
-	bpl     L852D                           ; 851B 10 10                    ..
-L851D:  cmp     #$23                            ; 851D C9 23                    .#
-	beq     L852D                           ; 851F F0 0C                    ..
-	cmp     #$3B                            ; 8521 C9 3B                    .;
-	beq     L8529                           ; 8523 F0 04                    ..
-	cmp     #$9B                            ; 8525 C9 9B                    ..
-	bne     L8531                           ; 8527 D0 08                    ..
-L8529:  ldy     L0095                           ; 8529 A4 95                    ..
-	ldx     L0096                           ; 852B A6 96                    ..
-L852D:  clc                                     ; 852D 18                       .
-	inc     L00B9                           ; 852E E6 B9                    ..
-	rts                                     ; 8530 60                       `
+L850C:  lda     #$00                    	; 850C A9 00                    ..
+	sta     L0094                   	; 850E 85 94                    ..
+	jsr     L86DD                   	; 8510 20 DD 86                  ..
+	cmp     #$21                    	; 8513 C9 21                    .!
+	bne     L851D                   	; 8515 D0 06                    ..
+	ldy     L00A7                   	; 8517 A4 A7                    ..
+	ldx     L00A8                   	; 8519 A6 A8                    ..
+	bpl     L852D                   	; 851B 10 10                    ..
+L851D:  cmp     #$23                    	; 851D C9 23                    .#
+	beq     L852D                   	; 851F F0 0C                    ..
+	cmp     #$3B                    	; 8521 C9 3B                    .;
+	beq     L8529                   	; 8523 F0 04                    ..
+	cmp     #$9B                    	; 8525 C9 9B                    ..
+	bne     L8531                   	; 8527 D0 08                    ..
+L8529:  ldy     L0095                   	; 8529 A4 95                    ..
+	ldx     L0096                   	; 852B A6 96                    ..
+L852D:  clc                             	; 852D 18                       .
+	inc     L00B9                   	; 852E E6 B9                    ..
+	rts                             	; 8530 60                       `
 
 ; ----------------------------------------------------------------------------
-L8531:  bit     L19A7                           ; 8531 2C A7 19                 ,..
-	bmi     L8547                           ; 8534 30 11                    0.
-	jsr     L859F                           ; 8536 20 9F 85                  ..
-	bcc     L8545                           ; 8539 90 0A                    ..
-	bit     L19A6                           ; 853B 2C A6 19                 ,..
-	bpl     L8564                           ; 853E 10 24                    .$
-	jsr     L85E5                           ; 8540 20 E5 85                  ..
-	bcs     L8564                           ; 8543 B0 1F                    ..
-L8545:  sta     L000F                           ; 8545 85 0F                    ..
-L8547:  bit     L19A7                           ; 8547 2C A7 19                 ,..
-	bvs     L855F                           ; 854A 70 13                    p.
-	ldx     #$01                            ; 854C A2 01                    ..
-	ldy     #$FF                            ; 854E A0 FF                    ..
-	jsr     L84CE                           ; 8550 20 CE 84                  ..
-	bcc     L855F                           ; 8553 90 0A                    ..
-	bit     L19A6                           ; 8555 2C A6 19                 ,..
-	bpl     L8564                           ; 8558 10 0A                    ..
-	jsr     L8567                           ; 855A 20 67 85                  g.
-	bcs     L8564                           ; 855D B0 05                    ..
-L855F:  tay                                     ; 855F A8                       .
-	dey                                     ; 8560 88                       .
-	ldx     L000F                           ; 8561 A6 0F                    ..
-	clc                                     ; 8563 18                       .
-L8564:  lda     #$FF                            ; 8564 A9 FF                    ..
-	rts                                     ; 8566 60                       `
+L8531:  bit     L19A7                   	; 8531 2C A7 19                 ,..
+	bmi     L8547                   	; 8534 30 11                    0.
+	jsr     L859F                   	; 8536 20 9F 85                  ..
+	bcc     L8545                   	; 8539 90 0A                    ..
+	bit     L19A6                   	; 853B 2C A6 19                 ,..
+	bpl     L8564                   	; 853E 10 24                    .$
+	jsr     L85E5                   	; 8540 20 E5 85                  ..
+	bcs     L8564                   	; 8543 B0 1F                    ..
+L8545:  sta     L000F                   	; 8545 85 0F                    ..
+L8547:  bit     L19A7                   	; 8547 2C A7 19                 ,..
+	bvs     L855F                   	; 854A 70 13                    p.
+	ldx     #$01                    	; 854C A2 01                    ..
+	ldy     #$FF                    	; 854E A0 FF                    ..
+	jsr     L84CE                   	; 8550 20 CE 84                  ..
+	bcc     L855F                   	; 8553 90 0A                    ..
+	bit     L19A6                   	; 8555 2C A6 19                 ,..
+	bpl     L8564                   	; 8558 10 0A                    ..
+	jsr     L8567                   	; 855A 20 67 85                  g.
+	bcs     L8564                   	; 855D B0 05                    ..
+L855F:  tay                             	; 855F A8                       .
+	dey                             	; 8560 88                       .
+	ldx     L000F                   	; 8561 A6 0F                    ..
+	clc                             	; 8563 18                       .
+L8564:  lda     #$FF                    	; 8564 A9 FF                    ..
+	rts                             	; 8566 60                       `
 
 ; ----------------------------------------------------------------------------
-L8567:  jsr     L8769                           ; 8567 20 69 87                  i.
-	lda     L19A5                           ; 856A AD A5 19                 ...
-	sta     L00AE                           ; 856D 85 AE                    ..
-	sta     L00B0                           ; 856F 85 B0                    ..
-	sta     L00AC                           ; 8571 85 AC                    ..
-	lda     #$00                            ; 8573 A9 00                    ..
-	sta     L00AB                           ; 8575 85 AB                    ..
-	lda     L00A7                           ; 8577 A5 A7                    ..
-	sta     L00AF                           ; 8579 85 AF                    ..
-	jsr     L8641                           ; 857B 20 41 86                  A.
-L857E:  jsr     L861B                           ; 857E 20 1B 86                  ..
-	beq     L858D                           ; 8581 F0 0A                    ..
-	jsr     L2838                           ; 8583 20 38 28                  8(
-	bcs     L857E                           ; 8586 B0 F6                    ..
-	jsr     L8774                           ; 8588 20 74 87                  t.
-	sec                                     ; 858B 38                       8
-	rts                                     ; 858C 60                       `
+L8567:  jsr     L8769                   	; 8567 20 69 87                  i.
+	lda     L19A5                   	; 856A AD A5 19                 ...
+	sta     L00AE                   	; 856D 85 AE                    ..
+	sta     L00B0                   	; 856F 85 B0                    ..
+	sta     L00AC                   	; 8571 85 AC                    ..
+	lda     #$00                    	; 8573 A9 00                    ..
+	sta     L00AB                   	; 8575 85 AB                    ..
+	lda     L00A7                   	; 8577 A5 A7                    ..
+	sta     L00AF                   	; 8579 85 AF                    ..
+	jsr     L8641                   	; 857B 20 41 86                  A.
+L857E:  jsr     L861B                   	; 857E 20 1B 86                  ..
+	beq     L858D                   	; 8581 F0 0A                    ..
+	jsr     L2838                   	; 8583 20 38 28                  8(
+	bcs     L857E                   	; 8586 B0 F6                    ..
+	jsr     L8774                   	; 8588 20 74 87                  t.
+	sec                             	; 858B 38                       8
+	rts                             	; 858C 60                       `
 
 ; ----------------------------------------------------------------------------
-L858D:  inc     L00AB                           ; 858D E6 AB                    ..
-	lda     L00AB                           ; 858F A5 AB                    ..
-	pha                                     ; 8591 48                       H
-	jsr     L8774                           ; 8592 20 74 87                  t.
-	lda     L19B1                           ; 8595 AD B1 19                 ...
-	clc                                     ; 8598 18                       .
-	adc     L00C8                           ; 8599 65 C8                    e.
-	sta     L00B9                           ; 859B 85 B9                    ..
-	pla                                     ; 859D 68                       h
-	rts                                     ; 859E 60                       `
+L858D:  inc     L00AB                   	; 858D E6 AB                    ..
+	lda     L00AB                   	; 858F A5 AB                    ..
+	pha                             	; 8591 48                       H
+	jsr     L8774                   	; 8592 20 74 87                  t.
+	lda     L19B1                   	; 8595 AD B1 19                 ...
+	clc                             	; 8598 18                       .
+	adc     L00C8                   	; 8599 65 C8                    e.
+	sta     L00B9                   	; 859B 85 B9                    ..
+	pla                             	; 859D 68                       h
+	rts                             	; 859E 60                       `
 
 ; ----------------------------------------------------------------------------
-L859F:  lda     #$FF                            ; 859F A9 FF                    ..
-	sta     L00E6                           ; 85A1 85 E6                    ..
-	jsr     L86DD                           ; 85A3 20 DD 86                  ..
-	jsr     L867A                           ; 85A6 20 7A 86                  z.
-	bcs     L85E4                           ; 85A9 B0 39                    .9
-	lda     L00B9                           ; 85AB A5 B9                    ..
-	sta     L19B1                           ; 85AD 8D B1 19                 ...
-	ldy     #$00                            ; 85B0 A0 00                    ..
-L85B2:  ldx     L00B9                           ; 85B2 A6 B9                    ..
-	lda     L0680,x                         ; 85B4 BD 80 06                 ...
-	jsr     L867A                           ; 85B7 20 7A 86                  z.
-	bcs     L85CA                           ; 85BA B0 0E                    ..
-	inc     L00B9                           ; 85BC E6 B9                    ..
-	sec                                     ; 85BE 38                       8
-	sbc     #$41                            ; 85BF E9 41                    .A
-	ldx     L00E6                           ; 85C1 A6 E6                    ..
-	stx     L00E7                           ; 85C3 86 E7                    ..
-	sta     L00E6                           ; 85C5 85 E6                    ..
-	iny                                     ; 85C7 C8                       .
-	bne     L85B2                           ; 85C8 D0 E8                    ..
-L85CA:  cpy     #$03                            ; 85CA C0 03                    ..
-	bcs     L85E4                           ; 85CC B0 16                    ..
-	lda     #$00                            ; 85CE A9 00                    ..
-	ldx     L00E7                           ; 85D0 A6 E7                    ..
-	bmi     L85DC                           ; 85D2 30 08                    0.
-L85D4:  clc                                     ; 85D4 18                       .
-	adc     #$1A                            ; 85D5 69 1A                    i.
-	bcs     L85E4                           ; 85D7 B0 0B                    ..
-	dex                                     ; 85D9 CA                       .
-	bpl     L85D4                           ; 85DA 10 F8                    ..
-L85DC:  clc                                     ; 85DC 18                       .
-	adc     L00E6                           ; 85DD 65 E6                    e.
-	bcs     L85E4                           ; 85DF B0 03                    ..
-	bpl     L85E4                           ; 85E1 10 01                    ..
-	sec                                     ; 85E3 38                       8
-L85E4:  rts                                     ; 85E4 60                       `
+L859F:  lda     #$FF                    	; 859F A9 FF                    ..
+	sta     L00E6                   	; 85A1 85 E6                    ..
+	jsr     L86DD                   	; 85A3 20 DD 86                  ..
+	jsr     L867A                   	; 85A6 20 7A 86                  z.
+	bcs     L85E4                   	; 85A9 B0 39                    .9
+	lda     L00B9                   	; 85AB A5 B9                    ..
+	sta     L19B1                   	; 85AD 8D B1 19                 ...
+	ldy     #$00                    	; 85B0 A0 00                    ..
+L85B2:  ldx     L00B9                   	; 85B2 A6 B9                    ..
+	lda     L0680,x                 	; 85B4 BD 80 06                 ...
+	jsr     L867A                   	; 85B7 20 7A 86                  z.
+	bcs     L85CA                   	; 85BA B0 0E                    ..
+	inc     L00B9                   	; 85BC E6 B9                    ..
+	sec                             	; 85BE 38                       8
+	sbc     #$41                    	; 85BF E9 41                    .A
+	ldx     L00E6                   	; 85C1 A6 E6                    ..
+	stx     L00E7                   	; 85C3 86 E7                    ..
+	sta     L00E6                   	; 85C5 85 E6                    ..
+	iny                             	; 85C7 C8                       .
+	bne     L85B2                   	; 85C8 D0 E8                    ..
+L85CA:  cpy     #$03                    	; 85CA C0 03                    ..
+	bcs     L85E4                   	; 85CC B0 16                    ..
+	lda     #$00                    	; 85CE A9 00                    ..
+	ldx     L00E7                   	; 85D0 A6 E7                    ..
+	bmi     L85DC                   	; 85D2 30 08                    0.
+L85D4:  clc                             	; 85D4 18                       .
+	adc     #$1A                    	; 85D5 69 1A                    i.
+	bcs     L85E4                   	; 85D7 B0 0B                    ..
+	dex                             	; 85D9 CA                       .
+	bpl     L85D4                   	; 85DA 10 F8                    ..
+L85DC:  clc                             	; 85DC 18                       .
+	adc     L00E6                   	; 85DD 65 E6                    e.
+	bcs     L85E4                   	; 85DF B0 03                    ..
+	bpl     L85E4                   	; 85E1 10 01                    ..
+	sec                             	; 85E3 38                       8
+L85E4:  rts                             	; 85E4 60                       `
 
 ; ----------------------------------------------------------------------------
-L85E5:  jsr     L8769                           ; 85E5 20 69 87                  i.
-	lda     L19A4                           ; 85E8 AD A4 19                 ...
-	sta     L00AF                           ; 85EB 85 AF                    ..
-	sta     L00AB                           ; 85ED 85 AB                    ..
-	lda     #$00                            ; 85EF A9 00                    ..
-	sta     L00AE                           ; 85F1 85 AE                    ..
-	sta     L00AC                           ; 85F3 85 AC                    ..
-	lda     L00A8                           ; 85F5 A5 A8                    ..
-	sta     L00B0                           ; 85F7 85 B0                    ..
-	jsr     L8641                           ; 85F9 20 41 86                  A.
-L85FC:  jsr     L861B                           ; 85FC 20 1B 86                  ..
-	beq     L860B                           ; 85FF F0 0A                    ..
-	jsr     L2838                           ; 8601 20 38 28                  8(
-	bcs     L85FC                           ; 8604 B0 F6                    ..
-	jsr     L8774                           ; 8606 20 74 87                  t.
-	sec                                     ; 8609 38                       8
-	rts                                     ; 860A 60                       `
+L85E5:  jsr     L8769                   	; 85E5 20 69 87                  i.
+	lda     L19A4                   	; 85E8 AD A4 19                 ...
+	sta     L00AF                   	; 85EB 85 AF                    ..
+	sta     L00AB                   	; 85ED 85 AB                    ..
+	lda     #$00                    	; 85EF A9 00                    ..
+	sta     L00AE                   	; 85F1 85 AE                    ..
+	sta     L00AC                   	; 85F3 85 AC                    ..
+	lda     L00A8                   	; 85F5 A5 A8                    ..
+	sta     L00B0                   	; 85F7 85 B0                    ..
+	jsr     L8641                   	; 85F9 20 41 86                  A.
+L85FC:  jsr     L861B                   	; 85FC 20 1B 86                  ..
+	beq     L860B                   	; 85FF F0 0A                    ..
+	jsr     L2838                   	; 8601 20 38 28                  8(
+	bcs     L85FC                   	; 8604 B0 F6                    ..
+	jsr     L8774                   	; 8606 20 74 87                  t.
+	sec                             	; 8609 38                       8
+	rts                             	; 860A 60                       `
 
 ; ----------------------------------------------------------------------------
-L860B:  lda     L00AC                           ; 860B A5 AC                    ..
-	pha                                     ; 860D 48                       H
-	jsr     L8774                           ; 860E 20 74 87                  t.
-	lda     L19B1                           ; 8611 AD B1 19                 ...
-	clc                                     ; 8614 18                       .
-	adc     L00C8                           ; 8615 65 C8                    e.
-	sta     L00B9                           ; 8617 85 B9                    ..
-	pla                                     ; 8619 68                       h
-	rts                                     ; 861A 60                       `
+L860B:  lda     L00AC                   	; 860B A5 AC                    ..
+	pha                             	; 860D 48                       H
+	jsr     L8774                   	; 860E 20 74 87                  t.
+	lda     L19B1                   	; 8611 AD B1 19                 ...
+	clc                             	; 8614 18                       .
+	adc     L00C8                   	; 8615 65 C8                    e.
+	sta     L00B9                   	; 8617 85 B9                    ..
+	pla                             	; 8619 68                       h
+	rts                             	; 861A 60                       `
 
 ; ----------------------------------------------------------------------------
-L861B:  jsr     L0CB9                           ; 861B 20 B9 0C                  ..
-	jsr     L0CD6                           ; 861E 20 D6 0C                  ..
-	bit     L00C3                           ; 8621 24 C3                    $.
-	bmi     L863E                           ; 8623 30 19                    0.
-	bvc     L863E                           ; 8625 50 17                    P.
-	lda     L00A4                           ; 8627 A5 A4                    ..
-	clc                                     ; 8629 18                       .
-	adc     #$03                            ; 862A 69 03                    i.
-	sta     L00B1                           ; 862C 85 B1                    ..
-	lda     L00A5                           ; 862E A5 A5                    ..
-	adc     #$00                            ; 8630 69 00                    i.
-	sta     L00B2                           ; 8632 85 B2                    ..
-	ldx     L00C8                           ; 8634 A6 C8                    ..
-	lda     L00C6                           ; 8636 A5 C6                    ..
-	and     #$7F                            ; 8638 29 7F                    ).
-	tay                                     ; 863A A8                       .
-	jmp     L8C1E                           ; 863B 4C 1E 8C                 L..
+L861B:  jsr     L0CB9                   	; 861B 20 B9 0C                  ..
+	jsr     L0CD6                   	; 861E 20 D6 0C                  ..
+	bit     L00C3                   	; 8621 24 C3                    $.
+	bmi     L863E                   	; 8623 30 19                    0.
+	bvc     L863E                   	; 8625 50 17                    P.
+	lda     L00A4                   	; 8627 A5 A4                    ..
+	clc                             	; 8629 18                       .
+	adc     #$03                    	; 862A 69 03                    i.
+	sta     L00B1                   	; 862C 85 B1                    ..
+	lda     L00A5                   	; 862E A5 A5                    ..
+	adc     #$00                    	; 8630 69 00                    i.
+	sta     L00B2                   	; 8632 85 B2                    ..
+	ldx     L00C8                   	; 8634 A6 C8                    ..
+	lda     L00C6                   	; 8636 A5 C6                    ..
+	and     #$7F                    	; 8638 29 7F                    ).
+	tay                             	; 863A A8                       .
+	jmp     L8C1E                   	; 863B 4C 1E 8C                 L..
 
 ; ----------------------------------------------------------------------------
-L863E:  lda     #$FF                            ; 863E A9 FF                    ..
-	rts                                     ; 8640 60                       `
+L863E:  lda     #$FF                    	; 863E A9 FF                    ..
+	rts                             	; 8640 60                       `
 
 ; ----------------------------------------------------------------------------
-L8641:  lda     #$80                            ; 8641 A9 80                    ..
-	clc                                     ; 8643 18                       .
-	adc     L19B1                           ; 8644 6D B1 19                 m..
-	sta     L00B3                           ; 8647 85 B3                    ..
-	lda     #$06                            ; 8649 A9 06                    ..
-	adc     #$00                            ; 864B 69 00                    i.
-	sta     L00B4                           ; 864D 85 B4                    ..
-	ldy     #$00                            ; 864F A0 00                    ..
-L8651:  lda     (L00B3),y                       ; 8651 B1 B3                    ..
-	jsr     L8675                           ; 8653 20 75 86                  u.
-	bcs     L865B                           ; 8656 B0 03                    ..
-	iny                                     ; 8658 C8                       .
-	bne     L8651                           ; 8659 D0 F6                    ..
-L865B:  sty     L00C8                           ; 865B 84 C8                    ..
-	rts                                     ; 865D 60                       `
+L8641:  lda     #$80                    	; 8641 A9 80                    ..
+	clc                             	; 8643 18                       .
+	adc     L19B1                   	; 8644 6D B1 19                 m..
+	sta     L00B3                   	; 8647 85 B3                    ..
+	lda     #$06                    	; 8649 A9 06                    ..
+	adc     #$00                    	; 864B 69 00                    i.
+	sta     L00B4                   	; 864D 85 B4                    ..
+	ldy     #$00                    	; 864F A0 00                    ..
+L8651:  lda     (L00B3),y               	; 8651 B1 B3                    ..
+	jsr     L8675                   	; 8653 20 75 86                  u.
+	bcs     L865B                   	; 8656 B0 03                    ..
+	iny                             	; 8658 C8                       .
+	bne     L8651                   	; 8659 D0 F6                    ..
+L865B:  sty     L00C8                   	; 865B 84 C8                    ..
+	rts                             	; 865D 60                       `
 
 ; ----------------------------------------------------------------------------
-L865E:  cmp     #$30                            ; 865E C9 30                    .0
-	bcc     L8665                           ; 8660 90 03                    ..
-	cmp     #$3A                            ; 8662 C9 3A                    .:
-	rts                                     ; 8664 60                       `
+L865E:  cmp     #$30                    	; 865E C9 30                    .0
+	bcc     L8665                   	; 8660 90 03                    ..
+	cmp     #$3A                    	; 8662 C9 3A                    .:
+	rts                             	; 8664 60                       `
 
 ; ----------------------------------------------------------------------------
-L8665:  sec                                     ; 8665 38                       8
-	rts                                     ; 8666 60                       `
+L8665:  sec                             	; 8665 38                       8
+	rts                             	; 8666 60                       `
 
 ; ----------------------------------------------------------------------------
-L8667:  cmp     #$2B                            ; 8667 C9 2B                    .+
-	beq     L8673                           ; 8669 F0 08                    ..
-	cmp     #$2D                            ; 866B C9 2D                    .-
-	beq     L8673                           ; 866D F0 04                    ..
-	cmp     #$2E                            ; 866F C9 2E                    ..
-	bne     L865E                           ; 8671 D0 EB                    ..
-L8673:  clc                                     ; 8673 18                       .
-	rts                                     ; 8674 60                       `
+L8667:  cmp     #$2B                    	; 8667 C9 2B                    .+
+	beq     L8673                   	; 8669 F0 08                    ..
+	cmp     #$2D                    	; 866B C9 2D                    .-
+	beq     L8673                   	; 866D F0 04                    ..
+	cmp     #$2E                    	; 866F C9 2E                    ..
+	bne     L865E                   	; 8671 D0 EB                    ..
+L8673:  clc                             	; 8673 18                       .
+	rts                             	; 8674 60                       `
 
 ; ----------------------------------------------------------------------------
-L8675:  jsr     L865E                           ; 8675 20 5E 86                  ^.
-	bcc     L868D                           ; 8678 90 13                    ..
-L867A:  cmp     #$41                            ; 867A C9 41                    .A
-	bcc     L8665                           ; 867C 90 E7                    ..
-	cmp     #$5B                            ; 867E C9 5B                    .[
-	bcc     L868D                           ; 8680 90 0B                    ..
-	cmp     #$61                            ; 8682 C9 61                    .a
-	bcc     L8665                           ; 8684 90 DF                    ..
-	cmp     #$7B                            ; 8686 C9 7B                    .{
-	bcs     L868D                           ; 8688 B0 03                    ..
-	sbc     #$1F                            ; 868A E9 1F                    ..
-	clc                                     ; 868C 18                       .
-L868D:  rts                                     ; 868D 60                       `
+L8675:  jsr     L865E                   	; 8675 20 5E 86                  ^.
+	bcc     L868D                   	; 8678 90 13                    ..
+L867A:  cmp     #$41                    	; 867A C9 41                    .A
+	bcc     L8665                   	; 867C 90 E7                    ..
+	cmp     #$5B                    	; 867E C9 5B                    .[
+	bcc     L868D                   	; 8680 90 0B                    ..
+	cmp     #$61                    	; 8682 C9 61                    .a
+	bcc     L8665                   	; 8684 90 DF                    ..
+	cmp     #$7B                    	; 8686 C9 7B                    .{
+	bcs     L868D                   	; 8688 B0 03                    ..
+	sbc     #$1F                    	; 868A E9 1F                    ..
+	clc                             	; 868C 18                       .
+L868D:  rts                             	; 868D 60                       `
 
 ; ----------------------------------------------------------------------------
-	pha                                     ; 868E 48                       H
-	and     #$7F                            ; 868F 29 7F                    ).
-	cmp     #$20                            ; 8691 C9 20                    . 
-	bcc     L8699                           ; 8693 90 04                    ..
-	cmp     #$7B                            ; 8695 C9 7B                    .{
-	bcc     L869A                           ; 8697 90 01                    ..
-L8699:  sec                                     ; 8699 38                       8
-L869A:  pla                                     ; 869A 68                       h
-	rts                                     ; 869B 60                       `
+	pha                             	; 868E 48                       H
+	and     #$7F                    	; 868F 29 7F                    ).
+	cmp     #$20                    	; 8691 C9 20                    . 
+	bcc     L8699                   	; 8693 90 04                    ..
+	cmp     #$7B                    	; 8695 C9 7B                    .{
+	bcc     L869A                   	; 8697 90 01                    ..
+L8699:  sec                             	; 8699 38                       8
+L869A:  pla                             	; 869A 68                       h
+	rts                             	; 869B 60                       `
 
 ; ----------------------------------------------------------------------------
-	inc     L00B9                           ; 869C E6 B9                    ..
-L869E:  ldx     L00B9                           ; 869E A6 B9                    ..
-	lda     L0680,x                         ; 86A0 BD 80 06                 ...
-	cmp     #$9B                            ; 86A3 C9 9B                    ..
-	beq     L86B0                           ; 86A5 F0 09                    ..
-	jsr     L8667                           ; 86A7 20 67 86                  g.
-	bcc     L86B0                           ; 86AA 90 04                    ..
-	inc     L00B9                           ; 86AC E6 B9                    ..
-	bne     L869E                           ; 86AE D0 EE                    ..
-L86B0:  rts                                     ; 86B0 60                       `
+	inc     L00B9                   	; 869C E6 B9                    ..
+L869E:  ldx     L00B9                   	; 869E A6 B9                    ..
+	lda     L0680,x                 	; 86A0 BD 80 06                 ...
+	cmp     #$9B                    	; 86A3 C9 9B                    ..
+	beq     L86B0                   	; 86A5 F0 09                    ..
+	jsr     L8667                   	; 86A7 20 67 86                  g.
+	bcc     L86B0                   	; 86AA 90 04                    ..
+	inc     L00B9                   	; 86AC E6 B9                    ..
+	bne     L869E                   	; 86AE D0 EE                    ..
+L86B0:  rts                             	; 86B0 60                       `
 
 ; ----------------------------------------------------------------------------
-	inc     L00B9                           ; 86B1 E6 B9                    ..
-L86B3:  ldx     L00B9                           ; 86B3 A6 B9                    ..
-	lda     L0680,x                         ; 86B5 BD 80 06                 ...
-	cmp     #$9B                            ; 86B8 C9 9B                    ..
-	beq     L86C5                           ; 86BA F0 09                    ..
-	jsr     L867A                           ; 86BC 20 7A 86                  z.
-	bcc     L86C5                           ; 86BF 90 04                    ..
-	inc     L00B9                           ; 86C1 E6 B9                    ..
-	bne     L86B3                           ; 86C3 D0 EE                    ..
-L86C5:  rts                                     ; 86C5 60                       `
+	inc     L00B9                   	; 86B1 E6 B9                    ..
+L86B3:  ldx     L00B9                   	; 86B3 A6 B9                    ..
+	lda     L0680,x                 	; 86B5 BD 80 06                 ...
+	cmp     #$9B                    	; 86B8 C9 9B                    ..
+	beq     L86C5                   	; 86BA F0 09                    ..
+	jsr     L867A                   	; 86BC 20 7A 86                  z.
+	bcc     L86C5                   	; 86BF 90 04                    ..
+	inc     L00B9                   	; 86C1 E6 B9                    ..
+	bne     L86B3                   	; 86C3 D0 EE                    ..
+L86C5:  rts                             	; 86C5 60                       `
 
 ; ----------------------------------------------------------------------------
-	inc     L00B9                           ; 86C6 E6 B9                    ..
-L86C8:  ldx     L00B9                           ; 86C8 A6 B9                    ..
-	lda     L0680,x                         ; 86CA BD 80 06                 ...
-	cmp     #$9B                            ; 86CD C9 9B                    ..
-	beq     L86DA                           ; 86CF F0 09                    ..
-	jsr     L8675                           ; 86D1 20 75 86                  u.
-	bcc     L86DA                           ; 86D4 90 04                    ..
-	inc     L00B9                           ; 86D6 E6 B9                    ..
-	bne     L86C8                           ; 86D8 D0 EE                    ..
-L86DA:  rts                                     ; 86DA 60                       `
+	inc     L00B9                   	; 86C6 E6 B9                    ..
+L86C8:  ldx     L00B9                   	; 86C8 A6 B9                    ..
+	lda     L0680,x                 	; 86CA BD 80 06                 ...
+	cmp     #$9B                    	; 86CD C9 9B                    ..
+	beq     L86DA                   	; 86CF F0 09                    ..
+	jsr     L8675                   	; 86D1 20 75 86                  u.
+	bcc     L86DA                   	; 86D4 90 04                    ..
+	inc     L00B9                   	; 86D6 E6 B9                    ..
+	bne     L86C8                   	; 86D8 D0 EE                    ..
+L86DA:  rts                             	; 86DA 60                       `
 
 ; ----------------------------------------------------------------------------
-L86DB:  inc     L00B9                           ; 86DB E6 B9                    ..
-L86DD:  ldx     L00B9                           ; 86DD A6 B9                    ..
-	lda     L0680,x                         ; 86DF BD 80 06                 ...
-	cmp     #$9B                            ; 86E2 C9 9B                    ..
-	beq     L86DA                           ; 86E4 F0 F4                    ..
-	cmp     #$20                            ; 86E6 C9 20                    . 
-	bne     L86EE                           ; 86E8 D0 04                    ..
-	inc     L00B9                           ; 86EA E6 B9                    ..
-	bne     L86DD                           ; 86EC D0 EF                    ..
-L86EE:  jsr     L867A                           ; 86EE 20 7A 86                  z.
-	clc                                     ; 86F1 18                       .
-	rts                                     ; 86F2 60                       `
+L86DB:  inc     L00B9                   	; 86DB E6 B9                    ..
+L86DD:  ldx     L00B9                   	; 86DD A6 B9                    ..
+	lda     L0680,x                 	; 86DF BD 80 06                 ...
+	cmp     #$9B                    	; 86E2 C9 9B                    ..
+	beq     L86DA                   	; 86E4 F0 F4                    ..
+	cmp     #$20                    	; 86E6 C9 20                    . 
+	bne     L86EE                   	; 86E8 D0 04                    ..
+	inc     L00B9                   	; 86EA E6 B9                    ..
+	bne     L86DD                   	; 86EC D0 EF                    ..
+L86EE:  jsr     L867A                   	; 86EE 20 7A 86                  z.
+	clc                             	; 86F1 18                       .
+	rts                             	; 86F2 60                       `
 
 ; ----------------------------------------------------------------------------
-L86F3:  jsr     L850C                           ; 86F3 20 0C 85                  ..
-	bcs     L874F                           ; 86F6 B0 57                    .W
-	sec                                     ; 86F8 38                       8
-	sbc     #$23                            ; 86F9 E9 23                    .#
-	bne     L870C                           ; 86FB D0 0F                    ..
-	sta     L00AD                           ; 86FD 85 AD                    ..
-	sta     L00AE                           ; 86FF 85 AE                    ..
-	sta     L00AB                           ; 8701 85 AB                    ..
-	sta     L00AC                           ; 8703 85 AC                    ..
-	ldx     L00A8                           ; 8705 A6 A8                    ..
-	ldy     L00A7                           ; 8707 A4 A7                    ..
-	jmp     L8726                           ; 8709 4C 26 87                 L&.
+L86F3:  jsr     L850C                   	; 86F3 20 0C 85                  ..
+	bcs     L874F                   	; 86F6 B0 57                    .W
+	sec                             	; 86F8 38                       8
+	sbc     #$23                    	; 86F9 E9 23                    .#
+	bne     L870C                   	; 86FB D0 0F                    ..
+	sta     L00AD                   	; 86FD 85 AD                    ..
+	sta     L00AE                   	; 86FF 85 AE                    ..
+	sta     L00AB                   	; 8701 85 AB                    ..
+	sta     L00AC                   	; 8703 85 AC                    ..
+	ldx     L00A8                   	; 8705 A6 A8                    ..
+	ldy     L00A7                   	; 8707 A4 A7                    ..
+	jmp     L8726                   	; 8709 4C 26 87                 L&.
 
 ; ----------------------------------------------------------------------------
-L870C:  sty     L00AD                           ; 870C 84 AD                    ..
-	sty     L00AB                           ; 870E 84 AB                    ..
-	stx     L00AE                           ; 8710 86 AE                    ..
-	stx     L00AC                           ; 8712 86 AC                    ..
-	ldx     L00B9                           ; 8714 A6 B9                    ..
-	lda     L0680,x                         ; 8716 BD 80 06                 ...
-	ldx     L00AE                           ; 8719 A6 AE                    ..
-	cmp     #$3A                            ; 871B C9 3A                    .:
-	bne     L8726                           ; 871D D0 07                    ..
-	inc     L00B9                           ; 871F E6 B9                    ..
-	jsr     L850C                           ; 8721 20 0C 85                  ..
-	bcs     L874F                           ; 8724 B0 29                    .)
-L8726:  cpy     L00AD                           ; 8726 C4 AD                    ..
-	bcs     L8731                           ; 8728 B0 07                    ..
-	lda     L00AD                           ; 872A A5 AD                    ..
-	sty     L00AD                           ; 872C 84 AD                    ..
-	sty     L00AB                           ; 872E 84 AB                    ..
-	tay                                     ; 8730 A8                       .
-L8731:  cpx     L00AE                           ; 8731 E4 AE                    ..
-	bcs     L873C                           ; 8733 B0 07                    ..
-	lda     L00AE                           ; 8735 A5 AE                    ..
-	stx     L00AE                           ; 8737 86 AE                    ..
-	stx     L00AC                           ; 8739 86 AC                    ..
-	tax                                     ; 873B AA                       .
-L873C:  sty     L00AF                           ; 873C 84 AF                    ..
-	stx     L00B0                           ; 873E 86 B0                    ..
-	tya                                     ; 8740 98                       .
-	sec                                     ; 8741 38                       8
-	sbc     L00AD                           ; 8742 E5 AD                    ..
-	sta     L199A                           ; 8744 8D 9A 19                 ...
-	txa                                     ; 8747 8A                       .
-	sec                                     ; 8748 38                       8
-	sbc     L00AE                           ; 8749 E5 AE                    ..
-	sta     L1999                           ; 874B 8D 99 19                 ...
-	clc                                     ; 874E 18                       .
-L874F:  rts                                     ; 874F 60                       `
+L870C:  sty     L00AD                   	; 870C 84 AD                    ..
+	sty     L00AB                   	; 870E 84 AB                    ..
+	stx     L00AE                   	; 8710 86 AE                    ..
+	stx     L00AC                   	; 8712 86 AC                    ..
+	ldx     L00B9                   	; 8714 A6 B9                    ..
+	lda     L0680,x                 	; 8716 BD 80 06                 ...
+	ldx     L00AE                   	; 8719 A6 AE                    ..
+	cmp     #$3A                    	; 871B C9 3A                    .:
+	bne     L8726                   	; 871D D0 07                    ..
+	inc     L00B9                   	; 871F E6 B9                    ..
+	jsr     L850C                   	; 8721 20 0C 85                  ..
+	bcs     L874F                   	; 8724 B0 29                    .)
+L8726:  cpy     L00AD                   	; 8726 C4 AD                    ..
+	bcs     L8731                   	; 8728 B0 07                    ..
+	lda     L00AD                   	; 872A A5 AD                    ..
+	sty     L00AD                   	; 872C 84 AD                    ..
+	sty     L00AB                   	; 872E 84 AB                    ..
+	tay                             	; 8730 A8                       .
+L8731:  cpx     L00AE                   	; 8731 E4 AE                    ..
+	bcs     L873C                   	; 8733 B0 07                    ..
+	lda     L00AE                   	; 8735 A5 AE                    ..
+	stx     L00AE                   	; 8737 86 AE                    ..
+	stx     L00AC                   	; 8739 86 AC                    ..
+	tax                             	; 873B AA                       .
+L873C:  sty     L00AF                   	; 873C 84 AF                    ..
+	stx     L00B0                   	; 873E 86 B0                    ..
+	tya                             	; 8740 98                       .
+	sec                             	; 8741 38                       8
+	sbc     L00AD                   	; 8742 E5 AD                    ..
+	sta     L199A                   	; 8744 8D 9A 19                 ...
+	txa                             	; 8747 8A                       .
+	sec                             	; 8748 38                       8
+	sbc     L00AE                   	; 8749 E5 AE                    ..
+	sta     L1999                   	; 874B 8D 99 19                 ...
+	clc                             	; 874E 18                       .
+L874F:  rts                             	; 874F 60                       `
 
 ; ----------------------------------------------------------------------------
-L8750:  jsr     L86F3                           ; 8750 20 F3 86                  ..
-	lda     L00A7                           ; 8753 A5 A7                    ..
-	cmp     L00AF                           ; 8755 C5 AF                    ..
-	bcc     L875D                           ; 8757 90 04                    ..
-	lda     L00A8                           ; 8759 A5 A8                    ..
-	cmp     L00B0                           ; 875B C5 B0                    ..
-L875D:  rts                                     ; 875D 60                       `
+L8750:  jsr     L86F3                   	; 8750 20 F3 86                  ..
+	lda     L00A7                   	; 8753 A5 A7                    ..
+	cmp     L00AF                   	; 8755 C5 AF                    ..
+	bcc     L875D                   	; 8757 90 04                    ..
+	lda     L00A8                   	; 8759 A5 A8                    ..
+	cmp     L00B0                   	; 875B C5 B0                    ..
+L875D:  rts                             	; 875D 60                       `
 
 ; ----------------------------------------------------------------------------
-L875E:  lda     L00A7                           ; 875E A5 A7                    ..
-	cmp     L0095                           ; 8760 C5 95                    ..
-	bcc     L8768                           ; 8762 90 04                    ..
-	lda     L00A8                           ; 8764 A5 A8                    ..
-	cmp     L0096                           ; 8766 C5 96                    ..
-L8768:  rts                                     ; 8768 60                       `
+L875E:  lda     L00A7                   	; 875E A5 A7                    ..
+	cmp     L0095                   	; 8760 C5 95                    ..
+	bcc     L8768                   	; 8762 90 04                    ..
+	lda     L00A8                   	; 8764 A5 A8                    ..
+	cmp     L0096                   	; 8766 C5 96                    ..
+L8768:  rts                             	; 8768 60                       `
 
 ; ----------------------------------------------------------------------------
-L8769:  ldx     #$07                            ; 8769 A2 07                    ..
-L876B:  lda     L00AB,x                         ; 876B B5 AB                    ..
-	sta     L053D,x                         ; 876D 9D 3D 05                 .=.
-	dex                                     ; 8770 CA                       .
-	bpl     L876B                           ; 8771 10 F8                    ..
-	rts                                     ; 8773 60                       `
+L8769:  ldx     #$07                    	; 8769 A2 07                    ..
+L876B:  lda     L00AB,x                 	; 876B B5 AB                    ..
+	sta     L053D,x                 	; 876D 9D 3D 05                 .=.
+	dex                             	; 8770 CA                       .
+	bpl     L876B                   	; 8771 10 F8                    ..
+	rts                             	; 8773 60                       `
 
 ; ----------------------------------------------------------------------------
-L8774:  ldx     #$07                            ; 8774 A2 07                    ..
-L8776:  lda     L053D,x                         ; 8776 BD 3D 05                 .=.
-	sta     L00AB,x                         ; 8779 95 AB                    ..
-	dex                                     ; 877B CA                       .
-	bpl     L8776                           ; 877C 10 F8                    ..
-	rts                                     ; 877E 60                       `
+L8774:  ldx     #$07                    	; 8774 A2 07                    ..
+L8776:  lda     L053D,x                 	; 8776 BD 3D 05                 .=.
+	sta     L00AB,x                 	; 8779 95 AB                    ..
+	dex                             	; 877B CA                       .
+	bpl     L8776                   	; 877C 10 F8                    ..
+	rts                             	; 877E 60                       `
 
 ; ----------------------------------------------------------------------------
-L877F:  lda     L19E3                           ; 877F AD E3 19                 ...
-	eor     #$FF                            ; 8782 49 FF                    I.
-	sta     L000A                           ; 8784 85 0A                    ..
-	rts                                     ; 8786 60                       `
+L877F:  lda     L19E3                   	; 877F AD E3 19                 ...
+	eor     #$FF                    	; 8782 49 FF                    I.
+	sta     L000A                   	; 8784 85 0A                    ..
+	rts                             	; 8786 60                       `
 
 ; ----------------------------------------------------------------------------
-L8787:  tay                                     ; 8787 A8                       .
-	lsr     a                               ; 8788 4A                       J
-	lsr     a                               ; 8789 4A                       J
-	lsr     a                               ; 878A 4A                       J
-	tax                                     ; 878B AA                       .
-	tya                                     ; 878C 98                       .
-	and     #$07                            ; 878D 29 07                    ).
-	tay                                     ; 878F A8                       .
-	lda     #$00                            ; 8790 A9 00                    ..
-	sec                                     ; 8792 38                       8
-L8793:  rol     a                               ; 8793 2A                       *
-	dey                                     ; 8794 88                       .
-	bpl     L8793                           ; 8795 10 FC                    ..
-	rts                                     ; 8797 60                       `
+L8787:  tay                             	; 8787 A8                       .
+	lsr     a                       	; 8788 4A                       J
+	lsr     a                       	; 8789 4A                       J
+	lsr     a                       	; 878A 4A                       J
+	tax                             	; 878B AA                       .
+	tya                             	; 878C 98                       .
+	and     #$07                    	; 878D 29 07                    ).
+	tay                             	; 878F A8                       .
+	lda     #$00                    	; 8790 A9 00                    ..
+	sec                             	; 8792 38                       8
+L8793:  rol     a                       	; 8793 2A                       *
+	dey                             	; 8794 88                       .
+	bpl     L8793                   	; 8795 10 FC                    ..
+	rts                             	; 8797 60                       `
 
 ; ----------------------------------------------------------------------------
-L8798:	pha                                     ; 8798 48                       H
-	lda     L1996                           ; 8799 AD 96 19                 ...
+L8798:	pha                             	; 8798 48                       H
+	lda     L1996                   	; 8799 AD 96 19                 ...
 	beq	L87A1
-	jmp     L28E3                           ; 879E 4C E3 28                 L.(
+	jmp     L28E3                   	; 879E 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L87A1:	jsr     L8C53                           ; 87A1 20 53 8C                  S.
-	sta     L00BF                           ; 87A4 85 BF                    ..
-	lda     #$17                            ; 87A6 A9 17                    ..
-	sta     L037B                           ; 87A8 8D 7B 03                 .{.
-	jsr     L9073                           ; 87AB 20 73 90                  s.
-	pla                                     ; 87AE 68                       h
-	ldx     L038A                           ; 87AF AE 8A 03                 ...
-	bne     L87B8                           ; 87B2 D0 04                    ..
-	cmp     #$9B                            ; 87B4 C9 9B                    ..
-	bne     L87D0                           ; 87B6 D0 18                    ..
-L87B8:  lda     #$00                            ; 87B8 A9 00                    ..
-	sta     L038A                           ; 87BA 8D 8A 03                 ...
-	sta     L038B                           ; 87BD 8D 8B 03                 ...
-	lda     #$28                            ; 87C0 A9 28                    .(
-	sta     L0379                           ; 87C2 8D 79 03                 .y.
-	lda     L0080                           ; 87C5 A5 80                    ..
-	sta     L0095                           ; 87C7 85 95                    ..
-	lda     L0088                           ; 87C9 A5 88                    ..
-	sta     L0096                           ; 87CB 85 96                    ..
-	jmp     L8113                           ; 87CD 4C 13 81                 L..
+L87A1:	jsr     L8C53                   	; 87A1 20 53 8C                  S.
+	sta     L00BF                   	; 87A4 85 BF                    ..
+	lda     #$17                    	; 87A6 A9 17                    ..
+	sta     L037B                   	; 87A8 8D 7B 03                 .{.
+	jsr     L9073                   	; 87AB 20 73 90                  s.
+	pla                             	; 87AE 68                       h
+	ldx     L038A                   	; 87AF AE 8A 03                 ...
+	bne     L87B8                   	; 87B2 D0 04                    ..
+	cmp     #$9B                    	; 87B4 C9 9B                    ..
+	bne     L87D0                   	; 87B6 D0 18                    ..
+L87B8:  lda     #$00                    	; 87B8 A9 00                    ..
+	sta     L038A                   	; 87BA 8D 8A 03                 ...
+	sta     L038B                   	; 87BD 8D 8B 03                 ...
+	lda     #$28                    	; 87C0 A9 28                    .(
+	sta     L0379                   	; 87C2 8D 79 03                 .y.
+	lda     L0080                   	; 87C5 A5 80                    ..
+	sta     L0095                   	; 87C7 85 95                    ..
+	lda     L0088                   	; 87C9 A5 88                    ..
+	sta     L0096                   	; 87CB 85 96                    ..
+	jmp     L8113                   	; 87CD 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L87D0:  cmp     #$56                            ; 87D0 C9 56                    .V
-	bne     L87F9                           ; 87D2 D0 25                    .%
-	lda     #$80                            ; 87D4 A9 80                    ..
-	sta     L038A                           ; 87D6 8D 8A 03                 ...
-	ldx     L0096                           ; 87D9 A6 96                    ..
-	cpx     L0088                           ; 87DB E4 88                    ..
-	beq     L87B8                           ; 87DD F0 D9                    ..
-	stx     L0089                           ; 87DF 86 89                    ..
-	lda     L0080                           ; 87E1 A5 80                    ..
-	sta     L0081                           ; 87E3 85 81                    ..
-	ldy     L0095                           ; 87E5 A4 95                    ..
-	jsr     L9051                           ; 87E7 20 51 90                  Q.
-	lda     L0099                           ; 87EA A5 99                    ..
-	sta     L0379                           ; 87EC 8D 79 03                 .y.
-	sta     L038C                           ; 87EF 8D 8C 03                 ...
-	lda     #$02                            ; 87F2 A9 02                    ..
-	sta     L038D                           ; 87F4 8D 8D 03                 ...
-	bne     L881B                           ; 87F7 D0 22                    ."
-L87F9:  ldy     L0095                           ; 87F9 A4 95                    ..
-	cpy     L0080                           ; 87FB C4 80                    ..
-	beq     L87B8                           ; 87FD F0 B9                    ..
-	cpy     L0084                           ; 87FF C4 84                    ..
-	beq     L87B8                           ; 8801 F0 B5                    ..
-	sty     L0081                           ; 8803 84 81                    ..
-	lda     L0088                           ; 8805 A5 88                    ..
-	sta     L0089                           ; 8807 85 89                    ..
-	ldx     L0096                           ; 8809 A6 96                    ..
-	jsr     L9051                           ; 880B 20 51 90                  Q.
-	lda     L009A                           ; 880E A5 9A                    ..
-	sta     L037B                           ; 8810 8D 7B 03                 .{.
-	sta     L038D                           ; 8813 8D 8D 03                 ...
-	lda     #$00                            ; 8816 A9 00                    ..
-	sta     L038C                           ; 8818 8D 8C 03                 ...
-L881B:  lda     #$28                            ; 881B A9 28                    .(
-	sta     L037D                           ; 881D 8D 7D 03                 .}.
-	lda     #$17                            ; 8820 A9 17                    ..
-	sta     L037F                           ; 8822 8D 7F 03                 ...
-	jsr     L86DB                           ; 8825 20 DB 86                  ..
-	cmp     #$53                            ; 8828 C9 53                    .S
-	bne     L8834                           ; 882A D0 08                    ..
-	lda     L038A                           ; 882C AD 8A 03                 ...
-	ora     #$40                            ; 882F 09 40                    .@
-	sta     L038A                           ; 8831 8D 8A 03                 ...
-L8834:  inc     L038A                           ; 8834 EE 8A 03                 ...
-	inc     L038B                           ; 8837 EE 8B 03                 ...
-L883A:  jmp     L8113                           ; 883A 4C 13 81                 L..
+L87D0:  cmp     #$56                    	; 87D0 C9 56                    .V
+	bne     L87F9                   	; 87D2 D0 25                    .%
+	lda     #$80                    	; 87D4 A9 80                    ..
+	sta     L038A                   	; 87D6 8D 8A 03                 ...
+	ldx     L0096                   	; 87D9 A6 96                    ..
+	cpx     L0088                   	; 87DB E4 88                    ..
+	beq     L87B8                   	; 87DD F0 D9                    ..
+	stx     L0089                   	; 87DF 86 89                    ..
+	lda     L0080                   	; 87E1 A5 80                    ..
+	sta     L0081                   	; 87E3 85 81                    ..
+	ldy     L0095                   	; 87E5 A4 95                    ..
+	jsr     L9051                   	; 87E7 20 51 90                  Q.
+	lda     L0099                   	; 87EA A5 99                    ..
+	sta     L0379                   	; 87EC 8D 79 03                 .y.
+	sta     L038C                   	; 87EF 8D 8C 03                 ...
+	lda     #$02                    	; 87F2 A9 02                    ..
+	sta     L038D                   	; 87F4 8D 8D 03                 ...
+	bne     L881B                   	; 87F7 D0 22                    ."
+L87F9:  ldy     L0095                   	; 87F9 A4 95                    ..
+	cpy     L0080                   	; 87FB C4 80                    ..
+	beq     L87B8                   	; 87FD F0 B9                    ..
+	cpy     L0084                   	; 87FF C4 84                    ..
+	beq     L87B8                   	; 8801 F0 B5                    ..
+	sty     L0081                   	; 8803 84 81                    ..
+	lda     L0088                   	; 8805 A5 88                    ..
+	sta     L0089                   	; 8807 85 89                    ..
+	ldx     L0096                   	; 8809 A6 96                    ..
+	jsr     L9051                   	; 880B 20 51 90                  Q.
+	lda     L009A                   	; 880E A5 9A                    ..
+	sta     L037B                   	; 8810 8D 7B 03                 .{.
+	sta     L038D                   	; 8813 8D 8D 03                 ...
+	lda     #$00                    	; 8816 A9 00                    ..
+	sta     L038C                   	; 8818 8D 8C 03                 ...
+L881B:  lda     #$28                    	; 881B A9 28                    .(
+	sta     L037D                   	; 881D 8D 7D 03                 .}.
+	lda     #$17                    	; 8820 A9 17                    ..
+	sta     L037F                   	; 8822 8D 7F 03                 ...
+	jsr     L86DB                   	; 8825 20 DB 86                  ..
+	cmp     #$53                    	; 8828 C9 53                    .S
+	bne     L8834                   	; 882A D0 08                    ..
+	lda     L038A                   	; 882C AD 8A 03                 ...
+	ora     #$40                    	; 882F 09 40                    .@
+	sta     L038A                   	; 8831 8D 8A 03                 ...
+L8834:  inc     L038A                   	; 8834 EE 8A 03                 ...
+	inc     L038B                   	; 8837 EE 8B 03                 ...
+L883A:  jmp     L8113                   	; 883A 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L883D:	pha                                     ; 883D 48                       H
-	inc     L00B9                           ; 883E E6 B9                    ..
-	jsr     L8EEB                           ; 8840 20 EB 8E                  ..
-	jsr     L1FD1                           ; 8843 20 D1 1F                  ..
-	sty     L0097                           ; 8846 84 97                    ..
-	stx     L0098                           ; 8848 86 98                    ..
-	pla                                     ; 884A 68                       h
-	cmp     #$43                            ; 884B C9 43                    .C
-	beq     L8852                           ; 884D F0 03                    ..
-	jmp     L88E6                           ; 884F 4C E6 88                 L..
+L883D:	pha                             	; 883D 48                       H
+	inc     L00B9                   	; 883E E6 B9                    ..
+	jsr     L8EEB                   	; 8840 20 EB 8E                  ..
+	jsr     L1FD1                   	; 8843 20 D1 1F                  ..
+	sty     L0097                   	; 8846 84 97                    ..
+	stx     L0098                   	; 8848 86 98                    ..
+	pla                             	; 884A 68                       h
+	cmp     #$43                    	; 884B C9 43                    .C
+	beq     L8852                   	; 884D F0 03                    ..
+	jmp     L88E6                   	; 884F 4C E6 88                 L..
 
 ; ----------------------------------------------------------------------------
-L8852:  ldx     L0098                           ; 8852 A6 98                    ..
-	lda     L00A8                           ; 8854 A5 A8                    ..
-	cmp     #$7F                            ; 8856 C9 7F                    ..
-	bne     L885D                           ; 8858 D0 03                    ..
-	jmp     L98B2                           ; 885A 4C B2 98                 L..
+L8852:  ldx     L0098                   	; 8852 A6 98                    ..
+	lda     L00A8                   	; 8854 A5 A8                    ..
+	cmp     #$7F                    	; 8856 C9 7F                    ..
+	bne     L885D                   	; 8858 D0 03                    ..
+	jmp     L98B2                   	; 885A 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L885D:  sec                                     ; 885D 38                       8
-	sbc     L0098                           ; 885E E5 98                    ..
-	bcc     L883A                           ; 8860 90 D8                    ..
-	adc     #$00                            ; 8862 69 00                    i.
-	tay                                     ; 8864 A8                       .
-	lda     #$01                            ; 8865 A9 01                    ..
-	jsr     L9B61                           ; 8867 20 61 9B                  a.
-	lda     #$00                            ; 886A A9 00                    ..
-	sta     L00A9                           ; 886C 85 A9                    ..
-	sta     L00AA                           ; 886E 85 AA                    ..
-L8870:  jsr     L0C8A                           ; 8870 20 8A 0C                  ..
-	lda     L00C2                           ; 8873 A5 C2                    ..
-	bpl     L88C8                           ; 8875 10 51                    .Q
-	jsr     L0CA4                           ; 8877 20 A4 0C                  ..
-	lda     L00C7                           ; 887A A5 C7                    ..
-	clc                                     ; 887C 18                       .
-	adc     #$09                            ; 887D 69 09                    i.
-	sta     L00C7                           ; 887F 85 C7                    ..
-	ldx     #$00                            ; 8881 A2 00                    ..
-	lda     L00AA                           ; 8883 A5 AA                    ..
-	cmp     L0098                           ; 8885 C5 98                    ..
-	bcc     L888A                           ; 8887 90 01                    ..
-	dex                                     ; 8889 CA                       .
-L888A:  stx     L00CE                           ; 888A 86 CE                    ..
-	ldy     #$09                            ; 888C A0 09                    ..
-L888E:  jsr     L8338                           ; 888E 20 38 83                  8.
-	bcs     L88C3                           ; 8891 B0 30                    .0
-	bne     L88B7                           ; 8893 D0 22                    ."
-	iny                                     ; 8895 C8                       .
-	iny                                     ; 8896 C8                       .
-	lda     (L009F),y                       ; 8897 B1 9F                    ..
-	tax                                     ; 8899 AA                       .
-	clc                                     ; 889A 18                       .
-	adc     L00AA                           ; 889B 65 AA                    e.
-	sta     L00CF                           ; 889D 85 CF                    ..
-	bit     L00CE                           ; 889F 24 CE                    $.
-	bmi     L88AA                           ; 88A1 30 07                    0.
-	cmp     L0098                           ; 88A3 C5 98                    ..
-	bcc     L88B1                           ; 88A5 90 0A                    ..
-	inx                                     ; 88A7 E8                       .
-	bne     L88B1                           ; 88A8 D0 07                    ..
-L88AA:  lda     L0098                           ; 88AA A5 98                    ..
-	cmp     L00CF                           ; 88AC C5 CF                    ..
-	bcc     L88B1                           ; 88AE 90 01                    ..
-	dex                                     ; 88B0 CA                       .
-L88B1:  txa                                     ; 88B1 8A                       .
-	sta     (L009F),y                       ; 88B2 91 9F                    ..
-	jmp     L88C3                           ; 88B4 4C C3 88                 L..
+L885D:  sec                             	; 885D 38                       8
+	sbc     L0098                   	; 885E E5 98                    ..
+	bcc     L883A                   	; 8860 90 D8                    ..
+	adc     #$00                    	; 8862 69 00                    i.
+	tay                             	; 8864 A8                       .
+	lda     #$01                    	; 8865 A9 01                    ..
+	jsr     L9B61                   	; 8867 20 61 9B                  a.
+	lda     #$00                    	; 886A A9 00                    ..
+	sta     L00A9                   	; 886C 85 A9                    ..
+	sta     L00AA                   	; 886E 85 AA                    ..
+L8870:  jsr     L0C8A                   	; 8870 20 8A 0C                  ..
+	lda     L00C2                   	; 8873 A5 C2                    ..
+	bpl     L88C8                   	; 8875 10 51                    .Q
+	jsr     L0CA4                   	; 8877 20 A4 0C                  ..
+	lda     L00C7                   	; 887A A5 C7                    ..
+	clc                             	; 887C 18                       .
+	adc     #$09                    	; 887D 69 09                    i.
+	sta     L00C7                   	; 887F 85 C7                    ..
+	ldx     #$00                    	; 8881 A2 00                    ..
+	lda     L00AA                   	; 8883 A5 AA                    ..
+	cmp     L0098                   	; 8885 C5 98                    ..
+	bcc     L888A                   	; 8887 90 01                    ..
+	dex                             	; 8889 CA                       .
+L888A:  stx     L00CE                   	; 888A 86 CE                    ..
+	ldy     #$09                    	; 888C A0 09                    ..
+L888E:  jsr     L8338                   	; 888E 20 38 83                  8.
+	bcs     L88C3                   	; 8891 B0 30                    .0
+	bne     L88B7                   	; 8893 D0 22                    ."
+	iny                             	; 8895 C8                       .
+	iny                             	; 8896 C8                       .
+	lda     (L009F),y               	; 8897 B1 9F                    ..
+	tax                             	; 8899 AA                       .
+	clc                             	; 889A 18                       .
+	adc     L00AA                   	; 889B 65 AA                    e.
+	sta     L00CF                   	; 889D 85 CF                    ..
+	bit     L00CE                   	; 889F 24 CE                    $.
+	bmi     L88AA                   	; 88A1 30 07                    0.
+	cmp     L0098                   	; 88A3 C5 98                    ..
+	bcc     L88B1                   	; 88A5 90 0A                    ..
+	inx                             	; 88A7 E8                       .
+	bne     L88B1                   	; 88A8 D0 07                    ..
+L88AA:  lda     L0098                   	; 88AA A5 98                    ..
+	cmp     L00CF                   	; 88AC C5 CF                    ..
+	bcc     L88B1                   	; 88AE 90 01                    ..
+	dex                             	; 88B0 CA                       .
+L88B1:  txa                             	; 88B1 8A                       .
+	sta     (L009F),y               	; 88B2 91 9F                    ..
+	jmp     L88C3                   	; 88B4 4C C3 88                 L..
 
 ; ----------------------------------------------------------------------------
-L88B7:  iny                                     ; 88B7 C8                       .
-	iny                                     ; 88B8 C8                       .
-	lda     (L009F),y                       ; 88B9 B1 9F                    ..
-	cmp     L0098                           ; 88BB C5 98                    ..
-	bcc     L88C3                           ; 88BD 90 04                    ..
-	adc     #$00                            ; 88BF 69 00                    i.
-	sta     (L009F),y                       ; 88C1 91 9F                    ..
-L88C3:  iny                                     ; 88C3 C8                       .
-	cpy     L00C7                           ; 88C4 C4 C7                    ..
-	bcc     L888E                           ; 88C6 90 C6                    ..
-L88C8:  jsr     L903E                           ; 88C8 20 3E 90                  >.
-	bcs     L8870                           ; 88CB B0 A3                    ..
-	ldx     #$7F                            ; 88CD A2 7F                    ..
-L88CF:  cpx     L0098                           ; 88CF E4 98                    ..
-	beq     L88DD                           ; 88D1 F0 0A                    ..
-	lda     L1900,x                         ; 88D3 BD 00 19                 ...
-	sta     L1901,x                         ; 88D6 9D 01 19                 ...
-	dex                                     ; 88D9 CA                       .
-	jmp     L88CF                           ; 88DA 4C CF 88                 L..
+L88B7:  iny                             	; 88B7 C8                       .
+	iny                             	; 88B8 C8                       .
+	lda     (L009F),y               	; 88B9 B1 9F                    ..
+	cmp     L0098                   	; 88BB C5 98                    ..
+	bcc     L88C3                   	; 88BD 90 04                    ..
+	adc     #$00                    	; 88BF 69 00                    i.
+	sta     (L009F),y               	; 88C1 91 9F                    ..
+L88C3:  iny                             	; 88C3 C8                       .
+	cpy     L00C7                   	; 88C4 C4 C7                    ..
+	bcc     L888E                   	; 88C6 90 C6                    ..
+L88C8:  jsr     L903E                   	; 88C8 20 3E 90                  >.
+	bcs     L8870                   	; 88CB B0 A3                    ..
+	ldx     #$7F                    	; 88CD A2 7F                    ..
+L88CF:  cpx     L0098                   	; 88CF E4 98                    ..
+	beq     L88DD                   	; 88D1 F0 0A                    ..
+	lda     L1900,x                 	; 88D3 BD 00 19                 ...
+	sta     L1901,x                 	; 88D6 9D 01 19                 ...
+	dex                             	; 88D9 CA                       .
+	jmp     L88CF                   	; 88DA 4C CF 88                 L..
 
 ; ----------------------------------------------------------------------------
-L88DD:  lda     L1995                           ; 88DD AD 95 19                 ...
-	sta     L1901,x                         ; 88E0 9D 01 19                 ...
-L88E3:  jmp     L8113                           ; 88E3 4C 13 81                 L..
+L88DD:  lda     L1995                   	; 88DD AD 95 19                 ...
+	sta     L1901,x                 	; 88E0 9D 01 19                 ...
+L88E3:  jmp     L8113                   	; 88E3 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L88E6:  cmp     #$52                            ; 88E6 C9 52                    .R
-	beq     L88ED                           ; 88E8 F0 03                    ..
-	jmp     L98BA                           ; 88EA 4C BA 98                 L..
+L88E6:  cmp     #$52                    	; 88E6 C9 52                    .R
+	beq     L88ED                   	; 88E8 F0 03                    ..
+	jmp     L98BA                   	; 88EA 4C BA 98                 L..
 
 ; ----------------------------------------------------------------------------
-L88ED:  ldx     L0097                           ; 88ED A6 97                    ..
-	lda     L00A7                           ; 88EF A5 A7                    ..
-	cmp     #$FE                            ; 88F1 C9 FE                    ..
-	bne     L88F8                           ; 88F3 D0 03                    ..
-	jmp     L98B2                           ; 88F5 4C B2 98                 L..
+L88ED:  ldx     L0097                   	; 88ED A6 97                    ..
+	lda     L00A7                   	; 88EF A5 A7                    ..
+	cmp     #$FE                    	; 88F1 C9 FE                    ..
+	bne     L88F8                   	; 88F3 D0 03                    ..
+	jmp     L98B2                   	; 88F5 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L88F8:  sec                                     ; 88F8 38                       8
-	sbc     L0097                           ; 88F9 E5 97                    ..
-	bcc     L88E3                           ; 88FB 90 E6                    ..
-	adc     #$00                            ; 88FD 69 00                    i.
-	tay                                     ; 88FF A8                       .
-	lda     #$01                            ; 8900 A9 01                    ..
-	jsr     L9C19                           ; 8902 20 19 9C                  ..
-	lda     #$00                            ; 8905 A9 00                    ..
-	sta     L00A9                           ; 8907 85 A9                    ..
-	sta     L00AA                           ; 8909 85 AA                    ..
-L890B:  jsr     L0C8A                           ; 890B 20 8A 0C                  ..
-	lda     L00C2                           ; 890E A5 C2                    ..
-	bpl     L8962                           ; 8910 10 50                    .P
-	jsr     L0CA4                           ; 8912 20 A4 0C                  ..
-	lda     L00C7                           ; 8915 A5 C7                    ..
-	clc                                     ; 8917 18                       .
-	adc     #$09                            ; 8918 69 09                    i.
-	sta     L00C7                           ; 891A 85 C7                    ..
-	ldx     #$00                            ; 891C A2 00                    ..
-	lda     L00A9                           ; 891E A5 A9                    ..
-	cmp     L0097                           ; 8920 C5 97                    ..
-	bcc     L8925                           ; 8922 90 01                    ..
-	dex                                     ; 8924 CA                       .
-L8925:  stx     L00CE                           ; 8925 86 CE                    ..
-	ldy     #$09                            ; 8927 A0 09                    ..
-L8929:  jsr     L8338                           ; 8929 20 38 83                  8.
-	bcs     L895D                           ; 892C B0 2F                    ./
-	bne     L8951                           ; 892E D0 21                    .!
-	iny                                     ; 8930 C8                       .
-	lda     (L009F),y                       ; 8931 B1 9F                    ..
-	tax                                     ; 8933 AA                       .
-	clc                                     ; 8934 18                       .
-	adc     L00A9                           ; 8935 65 A9                    e.
-	sta     L00CF                           ; 8937 85 CF                    ..
-	bit     L00CE                           ; 8939 24 CE                    $.
-	bmi     L8944                           ; 893B 30 07                    0.
-	cmp     L0097                           ; 893D C5 97                    ..
-	bcc     L894B                           ; 893F 90 0A                    ..
-	inx                                     ; 8941 E8                       .
-	bne     L894B                           ; 8942 D0 07                    ..
-L8944:  lda     L0097                           ; 8944 A5 97                    ..
-	cmp     L00CF                           ; 8946 C5 CF                    ..
-	bcc     L894B                           ; 8948 90 01                    ..
-	dex                                     ; 894A CA                       .
-L894B:  txa                                     ; 894B 8A                       .
-	sta     (L009F),y                       ; 894C 91 9F                    ..
-	jmp     L895C                           ; 894E 4C 5C 89                 L\.
+L88F8:  sec                             	; 88F8 38                       8
+	sbc     L0097                   	; 88F9 E5 97                    ..
+	bcc     L88E3                   	; 88FB 90 E6                    ..
+	adc     #$00                    	; 88FD 69 00                    i.
+	tay                             	; 88FF A8                       .
+	lda     #$01                    	; 8900 A9 01                    ..
+	jsr     L9C19                   	; 8902 20 19 9C                  ..
+	lda     #$00                    	; 8905 A9 00                    ..
+	sta     L00A9                   	; 8907 85 A9                    ..
+	sta     L00AA                   	; 8909 85 AA                    ..
+L890B:  jsr     L0C8A                   	; 890B 20 8A 0C                  ..
+	lda     L00C2                   	; 890E A5 C2                    ..
+	bpl     L8962                   	; 8910 10 50                    .P
+	jsr     L0CA4                   	; 8912 20 A4 0C                  ..
+	lda     L00C7                   	; 8915 A5 C7                    ..
+	clc                             	; 8917 18                       .
+	adc     #$09                    	; 8918 69 09                    i.
+	sta     L00C7                   	; 891A 85 C7                    ..
+	ldx     #$00                    	; 891C A2 00                    ..
+	lda     L00A9                   	; 891E A5 A9                    ..
+	cmp     L0097                   	; 8920 C5 97                    ..
+	bcc     L8925                   	; 8922 90 01                    ..
+	dex                             	; 8924 CA                       .
+L8925:  stx     L00CE                   	; 8925 86 CE                    ..
+	ldy     #$09                    	; 8927 A0 09                    ..
+L8929:  jsr     L8338                   	; 8929 20 38 83                  8.
+	bcs     L895D                   	; 892C B0 2F                    ./
+	bne     L8951                   	; 892E D0 21                    .!
+	iny                             	; 8930 C8                       .
+	lda     (L009F),y               	; 8931 B1 9F                    ..
+	tax                             	; 8933 AA                       .
+	clc                             	; 8934 18                       .
+	adc     L00A9                   	; 8935 65 A9                    e.
+	sta     L00CF                   	; 8937 85 CF                    ..
+	bit     L00CE                   	; 8939 24 CE                    $.
+	bmi     L8944                   	; 893B 30 07                    0.
+	cmp     L0097                   	; 893D C5 97                    ..
+	bcc     L894B                   	; 893F 90 0A                    ..
+	inx                             	; 8941 E8                       .
+	bne     L894B                   	; 8942 D0 07                    ..
+L8944:  lda     L0097                   	; 8944 A5 97                    ..
+	cmp     L00CF                   	; 8946 C5 CF                    ..
+	bcc     L894B                   	; 8948 90 01                    ..
+	dex                             	; 894A CA                       .
+L894B:  txa                             	; 894B 8A                       .
+	sta     (L009F),y               	; 894C 91 9F                    ..
+	jmp     L895C                   	; 894E 4C 5C 89                 L\.
 
 ; ----------------------------------------------------------------------------
-L8951:  iny                                     ; 8951 C8                       .
-	lda     (L009F),y                       ; 8952 B1 9F                    ..
-	cmp     L0097                           ; 8954 C5 97                    ..
-	bcc     L895C                           ; 8956 90 04                    ..
-	adc     #$00                            ; 8958 69 00                    i.
-	sta     (L009F),y                       ; 895A 91 9F                    ..
-L895C:  iny                                     ; 895C C8                       .
-L895D:  iny                                     ; 895D C8                       .
-	cpy     L00C7                           ; 895E C4 C7                    ..
-	bcc     L8929                           ; 8960 90 C7                    ..
-L8962:  jsr     L903E                           ; 8962 20 3E 90                  >.
-	bcs     L890B                           ; 8965 B0 A4                    ..
-L8967:  jmp     L8113                           ; 8967 4C 13 81                 L..
+L8951:  iny                             	; 8951 C8                       .
+	lda     (L009F),y               	; 8952 B1 9F                    ..
+	cmp     L0097                   	; 8954 C5 97                    ..
+	bcc     L895C                   	; 8956 90 04                    ..
+	adc     #$00                    	; 8958 69 00                    i.
+	sta     (L009F),y               	; 895A 91 9F                    ..
+L895C:  iny                             	; 895C C8                       .
+L895D:  iny                             	; 895D C8                       .
+	cpy     L00C7                   	; 895E C4 C7                    ..
+	bcc     L8929                   	; 8960 90 C7                    ..
+L8962:  jsr     L903E                   	; 8962 20 3E 90                  >.
+	bcs     L890B                   	; 8965 B0 A4                    ..
+L8967:  jmp     L8113                   	; 8967 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L896A:	pha                                     ; 896A 48                       H
-	inc     L00B9                           ; 896B E6 B9                    ..
-	jsr     L8EEB                           ; 896D 20 EB 8E                  ..
-	jsr     L1FD1                           ; 8970 20 D1 1F                  ..
-	sty     L0097                           ; 8973 84 97                    ..
-	stx     L0098                           ; 8975 86 98                    ..
-	pla                                     ; 8977 68                       h
-	cmp     #$43                            ; 8978 C9 43                    .C
-	beq     L897F                           ; 897A F0 03                    ..
-	jmp     L8A13                           ; 897C 4C 13 8A                 L..
+L896A:	pha                             	; 896A 48                       H
+	inc     L00B9                   	; 896B E6 B9                    ..
+	jsr     L8EEB                   	; 896D 20 EB 8E                  ..
+	jsr     L1FD1                   	; 8970 20 D1 1F                  ..
+	sty     L0097                   	; 8973 84 97                    ..
+	stx     L0098                   	; 8975 86 98                    ..
+	pla                             	; 8977 68                       h
+	cmp     #$43                    	; 8978 C9 43                    .C
+	beq     L897F                   	; 897A F0 03                    ..
+	jmp     L8A13                   	; 897C 4C 13 8A                 L..
 
 ; ----------------------------------------------------------------------------
-L897F:  lda     L00A8                           ; 897F A5 A8                    ..
-	beq     L8967                           ; 8981 F0 E4                    ..
-	cmp     L0098                           ; 8983 C5 98                    ..
-	bcc     L8967                           ; 8985 90 E0                    ..
-	lda     #$00                            ; 8987 A9 00                    ..
-	sta     L00A9                           ; 8989 85 A9                    ..
-	sta     L00AA                           ; 898B 85 AA                    ..
-L898D:  jsr     L0C8A                           ; 898D 20 8A 0C                  ..
-	lda     L00C2                           ; 8990 A5 C2                    ..
-	bpl     L89F0                           ; 8992 10 5C                    .\
-	jsr     L0CA4                           ; 8994 20 A4 0C                  ..
-	lda     L00C7                           ; 8997 A5 C7                    ..
-	clc                                     ; 8999 18                       .
-	adc     #$09                            ; 899A 69 09                    i.
-	sta     L00C7                           ; 899C 85 C7                    ..
-	ldx     #$00                            ; 899E A2 00                    ..
-	lda     L00AA                           ; 89A0 A5 AA                    ..
-	cmp     L0098                           ; 89A2 C5 98                    ..
-	bcc     L89A7                           ; 89A4 90 01                    ..
-	dex                                     ; 89A6 CA                       .
-L89A7:  stx     L00CE                           ; 89A7 86 CE                    ..
-	ldy     #$09                            ; 89A9 A0 09                    ..
-L89AB:  jsr     L8338                           ; 89AB 20 38 83                  8.
-	bcs     L89EB                           ; 89AE B0 3B                    .;
-	bne     L89D9                           ; 89B0 D0 27                    .'
-	iny                                     ; 89B2 C8                       .
-	iny                                     ; 89B3 C8                       .
-	lda     (L009F),y                       ; 89B4 B1 9F                    ..
-	tax                                     ; 89B6 AA                       .
-	clc                                     ; 89B7 18                       .
-	adc     L00AA                           ; 89B8 65 AA                    e.
-	cmp     L0098                           ; 89BA C5 98                    ..
-	bne     L89C4                           ; 89BC D0 06                    ..
-	jsr     L8B4B                           ; 89BE 20 4B 8B                  K.
-	jmp     L89EB                           ; 89C1 4C EB 89                 L..
+L897F:  lda     L00A8                   	; 897F A5 A8                    ..
+	beq     L8967                   	; 8981 F0 E4                    ..
+	cmp     L0098                   	; 8983 C5 98                    ..
+	bcc     L8967                   	; 8985 90 E0                    ..
+	lda     #$00                    	; 8987 A9 00                    ..
+	sta     L00A9                   	; 8989 85 A9                    ..
+	sta     L00AA                   	; 898B 85 AA                    ..
+L898D:  jsr     L0C8A                   	; 898D 20 8A 0C                  ..
+	lda     L00C2                   	; 8990 A5 C2                    ..
+	bpl     L89F0                   	; 8992 10 5C                    .\
+	jsr     L0CA4                   	; 8994 20 A4 0C                  ..
+	lda     L00C7                   	; 8997 A5 C7                    ..
+	clc                             	; 8999 18                       .
+	adc     #$09                    	; 899A 69 09                    i.
+	sta     L00C7                   	; 899C 85 C7                    ..
+	ldx     #$00                    	; 899E A2 00                    ..
+	lda     L00AA                   	; 89A0 A5 AA                    ..
+	cmp     L0098                   	; 89A2 C5 98                    ..
+	bcc     L89A7                   	; 89A4 90 01                    ..
+	dex                             	; 89A6 CA                       .
+L89A7:  stx     L00CE                   	; 89A7 86 CE                    ..
+	ldy     #$09                    	; 89A9 A0 09                    ..
+L89AB:  jsr     L8338                   	; 89AB 20 38 83                  8.
+	bcs     L89EB                   	; 89AE B0 3B                    .;
+	bne     L89D9                   	; 89B0 D0 27                    .'
+	iny                             	; 89B2 C8                       .
+	iny                             	; 89B3 C8                       .
+	lda     (L009F),y               	; 89B4 B1 9F                    ..
+	tax                             	; 89B6 AA                       .
+	clc                             	; 89B7 18                       .
+	adc     L00AA                   	; 89B8 65 AA                    e.
+	cmp     L0098                   	; 89BA C5 98                    ..
+	bne     L89C4                   	; 89BC D0 06                    ..
+	jsr     L8B4B                   	; 89BE 20 4B 8B                  K.
+	jmp     L89EB                   	; 89C1 4C EB 89                 L..
 
 ; ----------------------------------------------------------------------------
-L89C4:  bcs     L89CE                           ; 89C4 B0 08                    ..
-	bit     L00CE                           ; 89C6 24 CE                    $.
-	bpl     L89D3                           ; 89C8 10 09                    ..
-	inx                                     ; 89CA E8                       .
-	jmp     L89D3                           ; 89CB 4C D3 89                 L..
+L89C4:  bcs     L89CE                   	; 89C4 B0 08                    ..
+	bit     L00CE                   	; 89C6 24 CE                    $.
+	bpl     L89D3                   	; 89C8 10 09                    ..
+	inx                             	; 89CA E8                       .
+	jmp     L89D3                   	; 89CB 4C D3 89                 L..
 
 ; ----------------------------------------------------------------------------
-L89CE:  bit     L00CE                           ; 89CE 24 CE                    $.
-	bmi     L89D3                           ; 89D0 30 01                    0.
-	dex                                     ; 89D2 CA                       .
-L89D3:  txa                                     ; 89D3 8A                       .
-	sta     (L009F),y                       ; 89D4 91 9F                    ..
-	jmp     L89EB                           ; 89D6 4C EB 89                 L..
+L89CE:  bit     L00CE                   	; 89CE 24 CE                    $.
+	bmi     L89D3                   	; 89D0 30 01                    0.
+	dex                             	; 89D2 CA                       .
+L89D3:  txa                             	; 89D3 8A                       .
+	sta     (L009F),y               	; 89D4 91 9F                    ..
+	jmp     L89EB                   	; 89D6 4C EB 89                 L..
 
 ; ----------------------------------------------------------------------------
-L89D9:  iny                                     ; 89D9 C8                       .
-	iny                                     ; 89DA C8                       .
-	lda     (L009F),y                       ; 89DB B1 9F                    ..
-	cmp     L0098                           ; 89DD C5 98                    ..
-	bne     L89E5                           ; 89DF D0 04                    ..
-	jsr     L8B4B                           ; 89E1 20 4B 8B                  K.
-	clc                                     ; 89E4 18                       .
-L89E5:  bcc     L89EB                           ; 89E5 90 04                    ..
-	sbc     #$01                            ; 89E7 E9 01                    ..
-	sta     (L009F),y                       ; 89E9 91 9F                    ..
-L89EB:  iny                                     ; 89EB C8                       .
-	cpy     L00C7                           ; 89EC C4 C7                    ..
-	bcc     L89AB                           ; 89EE 90 BB                    ..
-L89F0:  jsr     L903E                           ; 89F0 20 3E 90                  >.
-	bcs     L898D                           ; 89F3 B0 98                    ..
-	ldx     L0098                           ; 89F5 A6 98                    ..
-	lda     L00A8                           ; 89F7 A5 A8                    ..
-	sec                                     ; 89F9 38                       8
-	sbc     L0098                           ; 89FA E5 98                    ..
-	jsr     L8A9C                           ; 89FC 20 9C 8A                  ..
-	ldx     L0098                           ; 89FF A6 98                    ..
-L8A01:  lda     L1902,x                         ; 8A01 BD 02 19                 ...
-	sta     L1901,x                         ; 8A04 9D 01 19                 ...
-	inx                                     ; 8A07 E8                       .
-	bpl     L8A01                           ; 8A08 10 F7                    ..
-	lda     L1995                           ; 8A0A AD 95 19                 ...
-	sta     L1980                           ; 8A0D 8D 80 19                 ...
-L8A10:  jmp     L8113                           ; 8A10 4C 13 81                 L..
+L89D9:  iny                             	; 89D9 C8                       .
+	iny                             	; 89DA C8                       .
+	lda     (L009F),y               	; 89DB B1 9F                    ..
+	cmp     L0098                   	; 89DD C5 98                    ..
+	bne     L89E5                   	; 89DF D0 04                    ..
+	jsr     L8B4B                   	; 89E1 20 4B 8B                  K.
+	clc                             	; 89E4 18                       .
+L89E5:  bcc     L89EB                   	; 89E5 90 04                    ..
+	sbc     #$01                    	; 89E7 E9 01                    ..
+	sta     (L009F),y               	; 89E9 91 9F                    ..
+L89EB:  iny                             	; 89EB C8                       .
+	cpy     L00C7                   	; 89EC C4 C7                    ..
+	bcc     L89AB                   	; 89EE 90 BB                    ..
+L89F0:  jsr     L903E                   	; 89F0 20 3E 90                  >.
+	bcs     L898D                   	; 89F3 B0 98                    ..
+	ldx     L0098                   	; 89F5 A6 98                    ..
+	lda     L00A8                   	; 89F7 A5 A8                    ..
+	sec                             	; 89F9 38                       8
+	sbc     L0098                   	; 89FA E5 98                    ..
+	jsr     L8A9C                   	; 89FC 20 9C 8A                  ..
+	ldx     L0098                   	; 89FF A6 98                    ..
+L8A01:  lda     L1902,x                 	; 8A01 BD 02 19                 ...
+	sta     L1901,x                 	; 8A04 9D 01 19                 ...
+	inx                             	; 8A07 E8                       .
+	bpl     L8A01                   	; 8A08 10 F7                    ..
+	lda     L1995                   	; 8A0A AD 95 19                 ...
+	sta     L1980                   	; 8A0D 8D 80 19                 ...
+L8A10:  jmp     L8113                   	; 8A10 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L8A13:  cmp     #$52                            ; 8A13 C9 52                    .R
-	beq     L8A1A                           ; 8A15 F0 03                    ..
-	jmp     L98BA                           ; 8A17 4C BA 98                 L..
+L8A13:  cmp     #$52                    	; 8A13 C9 52                    .R
+	beq     L8A1A                   	; 8A15 F0 03                    ..
+	jmp     L98BA                   	; 8A17 4C BA 98                 L..
 
 ; ----------------------------------------------------------------------------
-L8A1A:  lda     L00A7                           ; 8A1A A5 A7                    ..
-	beq     L8A10                           ; 8A1C F0 F2                    ..
-	cmp     L0097                           ; 8A1E C5 97                    ..
-	bcc     L8A10                           ; 8A20 90 EE                    ..
-	lda     #$00                            ; 8A22 A9 00                    ..
-	sta     L00A9                           ; 8A24 85 A9                    ..
-	sta     L00AA                           ; 8A26 85 AA                    ..
-L8A28:  jsr     L0C8A                           ; 8A28 20 8A 0C                  ..
-	lda     L00C2                           ; 8A2B A5 C2                    ..
-	bpl     L8A8A                           ; 8A2D 10 5B                    .[
-	jsr     L0CA4                           ; 8A2F 20 A4 0C                  ..
-	lda     L00C7                           ; 8A32 A5 C7                    ..
-	clc                                     ; 8A34 18                       .
-	adc     #$09                            ; 8A35 69 09                    i.
-	sta     L00C7                           ; 8A37 85 C7                    ..
-	ldx     #$00                            ; 8A39 A2 00                    ..
-	lda     L00A9                           ; 8A3B A5 A9                    ..
-	cmp     L0097                           ; 8A3D C5 97                    ..
-	bcc     L8A42                           ; 8A3F 90 01                    ..
-	dex                                     ; 8A41 CA                       .
-L8A42:  stx     L00CE                           ; 8A42 86 CE                    ..
-	ldy     #$09                            ; 8A44 A0 09                    ..
-L8A46:  jsr     L8338                           ; 8A46 20 38 83                  8.
-	bcs     L8A85                           ; 8A49 B0 3A                    .:
-	bne     L8A73                           ; 8A4B D0 26                    .&
-	iny                                     ; 8A4D C8                       .
-	lda     (L009F),y                       ; 8A4E B1 9F                    ..
-	tax                                     ; 8A50 AA                       .
-	clc                                     ; 8A51 18                       .
-	adc     L00A9                           ; 8A52 65 A9                    e.
-	cmp     L0097                           ; 8A54 C5 97                    ..
-	bne     L8A5E                           ; 8A56 D0 06                    ..
-	jsr     L8B4B                           ; 8A58 20 4B 8B                  K.
-	jmp     L8A84                           ; 8A5B 4C 84 8A                 L..
+L8A1A:  lda     L00A7                   	; 8A1A A5 A7                    ..
+	beq     L8A10                   	; 8A1C F0 F2                    ..
+	cmp     L0097                   	; 8A1E C5 97                    ..
+	bcc     L8A10                   	; 8A20 90 EE                    ..
+	lda     #$00                    	; 8A22 A9 00                    ..
+	sta     L00A9                   	; 8A24 85 A9                    ..
+	sta     L00AA                   	; 8A26 85 AA                    ..
+L8A28:  jsr     L0C8A                   	; 8A28 20 8A 0C                  ..
+	lda     L00C2                   	; 8A2B A5 C2                    ..
+	bpl     L8A8A                   	; 8A2D 10 5B                    .[
+	jsr     L0CA4                   	; 8A2F 20 A4 0C                  ..
+	lda     L00C7                   	; 8A32 A5 C7                    ..
+	clc                             	; 8A34 18                       .
+	adc     #$09                    	; 8A35 69 09                    i.
+	sta     L00C7                   	; 8A37 85 C7                    ..
+	ldx     #$00                    	; 8A39 A2 00                    ..
+	lda     L00A9                   	; 8A3B A5 A9                    ..
+	cmp     L0097                   	; 8A3D C5 97                    ..
+	bcc     L8A42                   	; 8A3F 90 01                    ..
+	dex                             	; 8A41 CA                       .
+L8A42:  stx     L00CE                   	; 8A42 86 CE                    ..
+	ldy     #$09                    	; 8A44 A0 09                    ..
+L8A46:  jsr     L8338                   	; 8A46 20 38 83                  8.
+	bcs     L8A85                   	; 8A49 B0 3A                    .:
+	bne     L8A73                   	; 8A4B D0 26                    .&
+	iny                             	; 8A4D C8                       .
+	lda     (L009F),y               	; 8A4E B1 9F                    ..
+	tax                             	; 8A50 AA                       .
+	clc                             	; 8A51 18                       .
+	adc     L00A9                   	; 8A52 65 A9                    e.
+	cmp     L0097                   	; 8A54 C5 97                    ..
+	bne     L8A5E                   	; 8A56 D0 06                    ..
+	jsr     L8B4B                   	; 8A58 20 4B 8B                  K.
+	jmp     L8A84                   	; 8A5B 4C 84 8A                 L..
 
 ; ----------------------------------------------------------------------------
-L8A5E:  bcs     L8A68                           ; 8A5E B0 08                    ..
-	bit     L00CE                           ; 8A60 24 CE                    $.
-	bpl     L8A6D                           ; 8A62 10 09                    ..
-	inx                                     ; 8A64 E8                       .
-	jmp     L8A6D                           ; 8A65 4C 6D 8A                 Lm.
+L8A5E:  bcs     L8A68                   	; 8A5E B0 08                    ..
+	bit     L00CE                   	; 8A60 24 CE                    $.
+	bpl     L8A6D                   	; 8A62 10 09                    ..
+	inx                             	; 8A64 E8                       .
+	jmp     L8A6D                   	; 8A65 4C 6D 8A                 Lm.
 
 ; ----------------------------------------------------------------------------
-L8A68:  bit     L00CE                           ; 8A68 24 CE                    $.
-	bmi     L8A6D                           ; 8A6A 30 01                    0.
-	dex                                     ; 8A6C CA                       .
-L8A6D:  txa                                     ; 8A6D 8A                       .
-	sta     (L009F),y                       ; 8A6E 91 9F                    ..
-	jmp     L8A84                           ; 8A70 4C 84 8A                 L..
+L8A68:  bit     L00CE                   	; 8A68 24 CE                    $.
+	bmi     L8A6D                   	; 8A6A 30 01                    0.
+	dex                             	; 8A6C CA                       .
+L8A6D:  txa                             	; 8A6D 8A                       .
+	sta     (L009F),y               	; 8A6E 91 9F                    ..
+	jmp     L8A84                   	; 8A70 4C 84 8A                 L..
 
 ; ----------------------------------------------------------------------------
-L8A73:  iny                                     ; 8A73 C8                       .
-	lda     (L009F),y                       ; 8A74 B1 9F                    ..
-	cmp     L0097                           ; 8A76 C5 97                    ..
-	bne     L8A7E                           ; 8A78 D0 04                    ..
-	jsr     L8B4B                           ; 8A7A 20 4B 8B                  K.
-	clc                                     ; 8A7D 18                       .
-L8A7E:  bcc     L8A84                           ; 8A7E 90 04                    ..
-	sbc     #$01                            ; 8A80 E9 01                    ..
-	sta     (L009F),y                       ; 8A82 91 9F                    ..
-L8A84:  iny                                     ; 8A84 C8                       .
-L8A85:  iny                                     ; 8A85 C8                       .
-	cpy     L00C7                           ; 8A86 C4 C7                    ..
-	bcc     L8A46                           ; 8A88 90 BC                    ..
-L8A8A:  jsr     L903E                           ; 8A8A 20 3E 90                  >.
-	bcs     L8A28                           ; 8A8D B0 99                    ..
-	ldy     L0097                           ; 8A8F A4 97                    ..
-	lda     L00A7                           ; 8A91 A5 A7                    ..
-	sec                                     ; 8A93 38                       8
-	sbc     L0097                           ; 8A94 E5 97                    ..
-	jsr     L8AF8                           ; 8A96 20 F8 8A                  ..
-	jmp     L8113                           ; 8A99 4C 13 81                 L..
+L8A73:  iny                             	; 8A73 C8                       .
+	lda     (L009F),y               	; 8A74 B1 9F                    ..
+	cmp     L0097                   	; 8A76 C5 97                    ..
+	bne     L8A7E                   	; 8A78 D0 04                    ..
+	jsr     L8B4B                   	; 8A7A 20 4B 8B                  K.
+	clc                             	; 8A7D 18                       .
+L8A7E:  bcc     L8A84                   	; 8A7E 90 04                    ..
+	sbc     #$01                    	; 8A80 E9 01                    ..
+	sta     (L009F),y               	; 8A82 91 9F                    ..
+L8A84:  iny                             	; 8A84 C8                       .
+L8A85:  iny                             	; 8A85 C8                       .
+	cpy     L00C7                   	; 8A86 C4 C7                    ..
+	bcc     L8A46                   	; 8A88 90 BC                    ..
+L8A8A:  jsr     L903E                   	; 8A8A 20 3E 90                  >.
+	bcs     L8A28                   	; 8A8D B0 99                    ..
+	ldy     L0097                   	; 8A8F A4 97                    ..
+	lda     L00A7                   	; 8A91 A5 A7                    ..
+	sec                             	; 8A93 38                       8
+	sbc     L0097                   	; 8A94 E5 97                    ..
+	jsr     L8AF8                   	; 8A96 20 F8 8A                  ..
+	jmp     L8113                   	; 8A99 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L8A9C:  stx     L0058                           ; 8A9C 86 58                    .X
-	sta     L0059                           ; 8A9E 85 59                    .Y
-	lda     #$00                            ; 8AA0 A9 00                    ..
-	sta     L00AB                           ; 8AA2 85 AB                    ..
-L8AA4:  ldy     L00AB                           ; 8AA4 A4 AB                    ..
-	lda     L00A8                           ; 8AA6 A5 A8                    ..
-	ldx     #$00                            ; 8AA8 A2 00                    ..
-	jsr     L9A5D                           ; 8AAA 20 5D 9A                  ].
-	stx     L00B3                           ; 8AAD 86 B3                    ..
-	sty     L00B4                           ; 8AAF 84 B4                    ..
-	ldy     L00AB                           ; 8AB1 A4 AB                    ..
-	ldx     L00A8                           ; 8AB3 A6 A8                    ..
-	dex                                     ; 8AB5 CA                       .
-	txa                                     ; 8AB6 8A                       .
-	ldx     #$00                            ; 8AB7 A2 00                    ..
-	jsr     L9A5D                           ; 8AB9 20 5D 9A                  ].
-	stx     L00B1                           ; 8ABC 86 B1                    ..
-	sty     L00B2                           ; 8ABE 84 B2                    ..
-	lda     L0058                           ; 8AC0 A5 58                    .X
-	jsr     L9CA5                           ; 8AC2 20 A5 9C                  ..
-	jsr     L8B29                           ; 8AC5 20 29 8B                  ).
-	ldy     L00AB                           ; 8AC8 A4 AB                    ..
-	lda     L00A8                           ; 8ACA A5 A8                    ..
-	ldx     L0058                           ; 8ACC A6 58                    .X
-	inx                                     ; 8ACE E8                       .
-	jsr     L9A5D                           ; 8ACF 20 5D 9A                  ].
-	stx     L00B3                           ; 8AD2 86 B3                    ..
-	sty     L00B4                           ; 8AD4 84 B4                    ..
-	ldy     L00AB                           ; 8AD6 A4 AB                    ..
-	ldx     L00A8                           ; 8AD8 A6 A8                    ..
-	dex                                     ; 8ADA CA                       .
-	txa                                     ; 8ADB 8A                       .
-	ldx     L0058                           ; 8ADC A6 58                    .X
-	jsr     L9A5D                           ; 8ADE 20 5D 9A                  ].
-	stx     L00B1                           ; 8AE1 86 B1                    ..
-	sty     L00B2                           ; 8AE3 84 B2                    ..
-	lda     L0059                           ; 8AE5 A5 59                    .Y
-	jsr     L9CA5                           ; 8AE7 20 A5 9C                  ..
-	jsr     L8B29                           ; 8AEA 20 29 8B                  ).
-	inc     L00AB                           ; 8AED E6 AB                    ..
-	lda     L00A7                           ; 8AEF A5 A7                    ..
-L8AF1:  cmp     L00AB                           ; 8AF1 C5 AB                    ..
-	bcs     L8AA4                           ; 8AF3 B0 AF                    ..
-	dec     L00A8                           ; 8AF5 C6 A8                    ..
-	rts                                     ; 8AF7 60                       `
+L8A9C:  stx     L0058                   	; 8A9C 86 58                    .X
+	sta     L0059                   	; 8A9E 85 59                    .Y
+	lda     #$00                    	; 8AA0 A9 00                    ..
+	sta     L00AB                   	; 8AA2 85 AB                    ..
+L8AA4:  ldy     L00AB                   	; 8AA4 A4 AB                    ..
+	lda     L00A8                   	; 8AA6 A5 A8                    ..
+	ldx     #$00                    	; 8AA8 A2 00                    ..
+	jsr     L9A5D                   	; 8AAA 20 5D 9A                  ].
+	stx     L00B3                   	; 8AAD 86 B3                    ..
+	sty     L00B4                   	; 8AAF 84 B4                    ..
+	ldy     L00AB                   	; 8AB1 A4 AB                    ..
+	ldx     L00A8                   	; 8AB3 A6 A8                    ..
+	dex                             	; 8AB5 CA                       .
+	txa                             	; 8AB6 8A                       .
+	ldx     #$00                    	; 8AB7 A2 00                    ..
+	jsr     L9A5D                   	; 8AB9 20 5D 9A                  ].
+	stx     L00B1                   	; 8ABC 86 B1                    ..
+	sty     L00B2                   	; 8ABE 84 B2                    ..
+	lda     L0058                   	; 8AC0 A5 58                    .X
+	jsr     L9CA5                   	; 8AC2 20 A5 9C                  ..
+	jsr     L8B29                   	; 8AC5 20 29 8B                  ).
+	ldy     L00AB                   	; 8AC8 A4 AB                    ..
+	lda     L00A8                   	; 8ACA A5 A8                    ..
+	ldx     L0058                   	; 8ACC A6 58                    .X
+	inx                             	; 8ACE E8                       .
+	jsr     L9A5D                   	; 8ACF 20 5D 9A                  ].
+	stx     L00B3                   	; 8AD2 86 B3                    ..
+	sty     L00B4                   	; 8AD4 84 B4                    ..
+	ldy     L00AB                   	; 8AD6 A4 AB                    ..
+	ldx     L00A8                   	; 8AD8 A6 A8                    ..
+	dex                             	; 8ADA CA                       .
+	txa                             	; 8ADB 8A                       .
+	ldx     L0058                   	; 8ADC A6 58                    .X
+	jsr     L9A5D                   	; 8ADE 20 5D 9A                  ].
+	stx     L00B1                   	; 8AE1 86 B1                    ..
+	sty     L00B2                   	; 8AE3 84 B2                    ..
+	lda     L0059                   	; 8AE5 A5 59                    .Y
+	jsr     L9CA5                   	; 8AE7 20 A5 9C                  ..
+	jsr     L8B29                   	; 8AEA 20 29 8B                  ).
+	inc     L00AB                   	; 8AED E6 AB                    ..
+	lda     L00A7                   	; 8AEF A5 A7                    ..
+L8AF1:  cmp     L00AB                   	; 8AF1 C5 AB                    ..
+	bcs     L8AA4                   	; 8AF3 B0 AF                    ..
+	dec     L00A8                   	; 8AF5 C6 A8                    ..
+	rts                             	; 8AF7 60                       `
 
 ; ----------------------------------------------------------------------------
-L8AF8:  sty     L0058                           ; 8AF8 84 58                    .X
-	sta     L0059                           ; 8AFA 85 59                    .Y
-	lda     L00A8                           ; 8AFC A5 A8                    ..
-	ldx     #$00                            ; 8AFE A2 00                    ..
-	iny                                     ; 8B00 C8                       .
-	jsr     L9A5D                           ; 8B01 20 5D 9A                  ].
-	stx     L00B3                           ; 8B04 86 B3                    ..
-	sty     L00B4                           ; 8B06 84 B4                    ..
-	ldy     L0058                           ; 8B08 A4 58                    .X
-	lda     L00A8                           ; 8B0A A5 A8                    ..
-	ldx     #$00                            ; 8B0C A2 00                    ..
-	jsr     L9A5D                           ; 8B0E 20 5D 9A                  ].
-	stx     L00B1                           ; 8B11 86 B1                    ..
-	sty     L00B2                           ; 8B13 84 B2                    ..
+L8AF8:  sty     L0058                   	; 8AF8 84 58                    .X
+	sta     L0059                   	; 8AFA 85 59                    .Y
+	lda     L00A8                   	; 8AFC A5 A8                    ..
+	ldx     #$00                    	; 8AFE A2 00                    ..
+	iny                             	; 8B00 C8                       .
+	jsr     L9A5D                   	; 8B01 20 5D 9A                  ].
+	stx     L00B3                   	; 8B04 86 B3                    ..
+	sty     L00B4                   	; 8B06 84 B4                    ..
+	ldy     L0058                   	; 8B08 A4 58                    .X
+	lda     L00A8                   	; 8B0A A5 A8                    ..
+	ldx     #$00                    	; 8B0C A2 00                    ..
+	jsr     L9A5D                   	; 8B0E 20 5D 9A                  ].
+	stx     L00B1                   	; 8B11 86 B1                    ..
+	sty     L00B2                   	; 8B13 84 B2                    ..
 	ldy	L0059
 	ldx	L00A8
-	jsr     L0CE6                           ; 8B19 20 E6 0C                  ..
-	jsr     L9C92                           ; 8B1C 20 92 9C                  ..
-	ldx     L00E6                           ; 8B1F A6 E6                    ..
-	ldy     L00E7                           ; 8B21 A4 E7                    ..
-	jsr     L8B29                           ; 8B23 20 29 8B                  ).
-	dec     L00A7                           ; 8B26 C6 A7                    ..
-	rts                                     ; 8B28 60                       `
+	jsr     L0CE6                   	; 8B19 20 E6 0C                  ..
+	jsr     L9C92                   	; 8B1C 20 92 9C                  ..
+	ldx     L00E6                   	; 8B1F A6 E6                    ..
+	ldy     L00E7                   	; 8B21 A4 E7                    ..
+	jsr     L8B29                   	; 8B23 20 29 8B                  ).
+	dec     L00A7                   	; 8B26 C6 A7                    ..
+	rts                             	; 8B28 60                       `
 
 ; ----------------------------------------------------------------------------
-L8B29:  tya                                     ; 8B29 98                       .
-	beq     L8B3F                           ; 8B2A F0 13                    ..
-	sty     L00CE                           ; 8B2C 84 CE                    ..
-	ldy     #$00                            ; 8B2E A0 00                    ..
-L8B30:  lda     (L00B3),y                       ; 8B30 B1 B3                    ..
-	sta     (L00B1),y                       ; 8B32 91 B1                    ..
-	iny                                     ; 8B34 C8                       .
-	bne     L8B30                           ; 8B35 D0 F9                    ..
-	inc     L00B4                           ; 8B37 E6 B4                    ..
-	inc     L00B2                           ; 8B39 E6 B2                    ..
-	dec     L00CE                           ; 8B3B C6 CE                    ..
-	bne     L8B30                           ; 8B3D D0 F1                    ..
-L8B3F:  txa                                     ; 8B3F 8A                       .
-	beq     L8B4A                           ; 8B40 F0 08                    ..
-L8B42:  lda     (L00B3),y                       ; 8B42 B1 B3                    ..
-	sta     (L00B1),y                       ; 8B44 91 B1                    ..
-	iny                                     ; 8B46 C8                       .
-	dex                                     ; 8B47 CA                       .
-	bne     L8B42                           ; 8B48 D0 F8                    ..
-L8B4A:  rts                                     ; 8B4A 60                       `
+L8B29:  tya                             	; 8B29 98                       .
+	beq     L8B3F                   	; 8B2A F0 13                    ..
+	sty     L00CE                   	; 8B2C 84 CE                    ..
+	ldy     #$00                    	; 8B2E A0 00                    ..
+L8B30:  lda     (L00B3),y               	; 8B30 B1 B3                    ..
+	sta     (L00B1),y               	; 8B32 91 B1                    ..
+	iny                             	; 8B34 C8                       .
+	bne     L8B30                   	; 8B35 D0 F9                    ..
+	inc     L00B4                   	; 8B37 E6 B4                    ..
+	inc     L00B2                   	; 8B39 E6 B2                    ..
+	dec     L00CE                   	; 8B3B C6 CE                    ..
+	bne     L8B30                   	; 8B3D D0 F1                    ..
+L8B3F:  txa                             	; 8B3F 8A                       .
+	beq     L8B4A                   	; 8B40 F0 08                    ..
+L8B42:  lda     (L00B3),y               	; 8B42 B1 B3                    ..
+	sta     (L00B1),y               	; 8B44 91 B1                    ..
+	iny                             	; 8B46 C8                       .
+	dex                             	; 8B47 CA                       .
+	bne     L8B42                   	; 8B48 D0 F8                    ..
+L8B4A:  rts                             	; 8B4A 60                       `
 
 ; ----------------------------------------------------------------------------
-L8B4B:  tya                                     ; 8B4B 98                       .
-	pha                                     ; 8B4C 48                       H
-	ldy     #$01                            ; 8B4D A0 01                    ..
-	lda     (L009F),y                       ; 8B4F B1 9F                    ..
-	ora     #$10                            ; 8B51 09 10                    ..
-	sta     (L009F),y                       ; 8B53 91 9F                    ..
-	pla                                     ; 8B55 68                       h
-	tay                                     ; 8B56 A8                       .
-	rts                                     ; 8B57 60                       `
+L8B4B:  tya                             	; 8B4B 98                       .
+	pha                             	; 8B4C 48                       H
+	ldy     #$01                    	; 8B4D A0 01                    ..
+	lda     (L009F),y               	; 8B4F B1 9F                    ..
+	ora     #$10                    	; 8B51 09 10                    ..
+	sta     (L009F),y               	; 8B53 91 9F                    ..
+	pla                             	; 8B55 68                       h
+	tay                             	; 8B56 A8                       .
+	rts                             	; 8B57 60                       `
 
 ; ----------------------------------------------------------------------------
-L8B58:	pha                                     ; 8B58 48                       H
-	inc     L00B9                           ; 8B59 E6 B9                    ..
-	ldx     #$10                            ; 8B5B A2 10                    ..
-	stx     L00BE                           ; 8B5D 86 BE                    ..
-	ldy     #$02                            ; 8B5F A0 02                    ..
-L8B61:  lda     L2B36,y                         ; 8B61 B9 36 2B                 .6+
-	sta     L04FD,y                         ; 8B64 99 FD 04                 ...
-	dey                                     ; 8B67 88                       .
-	bpl     L8B61                           ; 8B68 10 F7                    ..
-	lda     #$08                            ; 8B6A A9 08                    ..
-	jsr     LBF1B                           ; 8B6C 20 1B BF                  ..
-	pla                                     ; 8B6F 68                       h
-	cmp     #$43                            ; 8B70 C9 43                    .C
-	beq     L8B77                           ; 8B72 F0 03                    ..
-	jmp     LB9AA                           ; 8B74 4C AA B9                 L..
+L8B58:	pha                             	; 8B58 48                       H
+	inc     L00B9                   	; 8B59 E6 B9                    ..
+	ldx     #$10                    	; 8B5B A2 10                    ..
+	stx     L00BE                   	; 8B5D 86 BE                    ..
+	ldy     #$02                    	; 8B5F A0 02                    ..
+L8B61:  lda     L2B36,y                 	; 8B61 B9 36 2B                 .6+
+	sta     L04FD,y                 	; 8B64 99 FD 04                 ...
+	dey                             	; 8B67 88                       .
+	bpl     L8B61                   	; 8B68 10 F7                    ..
+	lda     #$08                    	; 8B6A A9 08                    ..
+	jsr     LBF1B                   	; 8B6C 20 1B BF                  ..
+	pla                             	; 8B6F 68                       h
+	cmp     #$43                    	; 8B70 C9 43                    .C
+	beq     L8B77                   	; 8B72 F0 03                    ..
+	jmp     LB9AA                   	; 8B74 4C AA B9                 L..
 
 ; ----------------------------------------------------------------------------
-L8B77:  jsr     L86F3                           ; 8B77 20 F3 86                  ..
-	lda     L00AB                           ; 8B7A A5 AB                    ..
-	sta     L00A9                           ; 8B7C 85 A9                    ..
-	lda     L00AC                           ; 8B7E A5 AC                    ..
-	sta     L00AA                           ; 8B80 85 AA                    ..
-L8B82:  jsr     L0C8A                           ; 8B82 20 8A 0C                  ..
-	jsr     L0CA4                           ; 8B85 20 A4 0C                  ..
-	lda     L00C3                           ; 8B88 A5 C3                    ..
-	and     #$C0                            ; 8B8A 29 C0                    ).
-	beq     L8BB3                           ; 8B8C F0 25                    .%
-	lda     #$00                            ; 8B8E A9 00                    ..
-	sta     L00BD                           ; 8B90 85 BD                    ..
-	ldx     L00AA                           ; 8B92 A6 AA                    ..
-	ldy     L00A9                           ; 8B94 A4 A9                    ..
-	jsr     LA045                           ; 8B96 20 45 A0                  E.
-	inc     L00BD                           ; 8B99 E6 BD                    ..
-	jsr     L8EF7                           ; 8B9B 20 F7 8E                  ..
-	lda     #$00                            ; 8B9E A9 00                    ..
-	sta     L00BD                           ; 8BA0 85 BD                    ..
-	bit     L00C3                           ; 8BA2 24 C3                    $.
-	bmi     L8BBE                           ; 8BA4 30 18                    0.
-	jsr     L29EB                           ; 8BA6 20 EB 29                  .)
-	stx     L00BD                           ; 8BA9 86 BD                    ..
-L8BAB:  lda     #$9B                            ; 8BAB A9 9B                    ..
-	jsr     L2AC0                           ; 8BAD 20 C0 2A                  .*
-	jsr     L8EF7                           ; 8BB0 20 F7 8E                  ..
-L8BB3:  jsr     L126F                           ; 8BB3 20 6F 12                  o.
-	bcs     L8B82                           ; 8BB6 B0 CA                    ..
-	jsr     LBF35                           ; 8BB8 20 35 BF                  5.
-	jmp     L28E3                           ; 8BBB 4C E3 28                 L.(
+L8B77:  jsr     L86F3                   	; 8B77 20 F3 86                  ..
+	lda     L00AB                   	; 8B7A A5 AB                    ..
+	sta     L00A9                   	; 8B7C 85 A9                    ..
+	lda     L00AC                   	; 8B7E A5 AC                    ..
+	sta     L00AA                   	; 8B80 85 AA                    ..
+L8B82:  jsr     L0C8A                   	; 8B82 20 8A 0C                  ..
+	jsr     L0CA4                   	; 8B85 20 A4 0C                  ..
+	lda     L00C3                   	; 8B88 A5 C3                    ..
+	and     #$C0                    	; 8B8A 29 C0                    ).
+	beq     L8BB3                   	; 8B8C F0 25                    .%
+	lda     #$00                    	; 8B8E A9 00                    ..
+	sta     L00BD                   	; 8B90 85 BD                    ..
+	ldx     L00AA                   	; 8B92 A6 AA                    ..
+	ldy     L00A9                   	; 8B94 A4 A9                    ..
+	jsr     LA045                   	; 8B96 20 45 A0                  E.
+	inc     L00BD                   	; 8B99 E6 BD                    ..
+	jsr     L8EF7                   	; 8B9B 20 F7 8E                  ..
+	lda     #$00                    	; 8B9E A9 00                    ..
+	sta     L00BD                   	; 8BA0 85 BD                    ..
+	bit     L00C3                   	; 8BA2 24 C3                    $.
+	bmi     L8BBE                   	; 8BA4 30 18                    0.
+	jsr     L29EB                   	; 8BA6 20 EB 29                  .)
+	stx     L00BD                   	; 8BA9 86 BD                    ..
+L8BAB:  lda     #$9B                    	; 8BAB A9 9B                    ..
+	jsr     L2AC0                   	; 8BAD 20 C0 2A                  .*
+	jsr     L8EF7                   	; 8BB0 20 F7 8E                  ..
+L8BB3:  jsr     L126F                   	; 8BB3 20 6F 12                  o.
+	bcs     L8B82                   	; 8BB6 B0 CA                    ..
+	jsr     LBF35                   	; 8BB8 20 35 BF                  5.
+	jmp     L28E3                   	; 8BBB 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L8BBE:  jsr     L2A13                           ; 8BBE 20 13 2A                  .*
-	jmp     L8BAB                           ; 8BC1 4C AB 8B                 L..
+L8BBE:  jsr     L2A13                   	; 8BBE 20 13 2A                  .*
+	jmp     L8BAB                   	; 8BC1 4C AB 8B                 L..
 
 ; ----------------------------------------------------------------------------
-L8BC4:  jsr     L0C8A                           ; 8BC4 20 8A 0C                  ..
-	jsr     L0CA4                           ; 8BC7 20 A4 0C                  ..
-	jsr     L0CB9                           ; 8BCA 20 B9 0C                  ..
-	lda     #$FF                            ; 8BCD A9 FF                    ..
-	bit     L00C3                           ; 8BCF 24 C3                    $.
-	bmi     L8BDB                           ; 8BD1 30 08                    0.
-	bvs     L8BF2                           ; 8BD3 70 1D                    p.
-	lda     L00C2                           ; 8BD5 A5 C2                    ..
-	and     #$C0                            ; 8BD7 29 C0                    ).
-L8BD9:  sec                                     ; 8BD9 38                       8
-	rts                                     ; 8BDA 60                       `
+L8BC4:  jsr     L0C8A                   	; 8BC4 20 8A 0C                  ..
+	jsr     L0CA4                   	; 8BC7 20 A4 0C                  ..
+	jsr     L0CB9                   	; 8BCA 20 B9 0C                  ..
+	lda     #$FF                    	; 8BCD A9 FF                    ..
+	bit     L00C3                   	; 8BCF 24 C3                    $.
+	bmi     L8BDB                   	; 8BD1 30 08                    0.
+	bvs     L8BF2                   	; 8BD3 70 1D                    p.
+	lda     L00C2                   	; 8BD5 A5 C2                    ..
+	and     #$C0                    	; 8BD7 29 C0                    ).
+L8BD9:  sec                             	; 8BD9 38                       8
+	rts                             	; 8BDA 60                       `
 
 ; ----------------------------------------------------------------------------
-L8BDB:  bit     L00C2                           ; 8BDB 24 C2                    $.
-	bmi     L8BE3                           ; 8BDD 30 04                    0.
-	bvs     L8BD9                           ; 8BDF 70 F8                    p.
-L8BE1:  clc                                     ; 8BE1 18                       .
-	rts                                     ; 8BE2 60                       `
+L8BDB:  bit     L00C2                   	; 8BDB 24 C2                    $.
+	bmi     L8BE3                   	; 8BDD 30 04                    0.
+	bvs     L8BD9                   	; 8BDF 70 F8                    p.
+L8BE1:  clc                             	; 8BE1 18                       .
+	rts                             	; 8BE2 60                       `
 
 ; ----------------------------------------------------------------------------
-L8BE3:  jsr     L94A1                           ; 8BE3 20 A1 94                  ..
-	jsr     LB449                           ; 8BE6 20 49 B4                  I.
-	jsr     L945D                           ; 8BE9 20 5D 94                  ].
-	jsr     LDA60                           ; 8BEC 20 60 DA                  `.
-	asl     L00D4                           ; 8BEF 06 D4                    ..
-L8BF1:  rts                                     ; 8BF1 60                       `
+L8BE3:  jsr     L94A1                   	; 8BE3 20 A1 94                  ..
+	jsr     LB449                   	; 8BE6 20 49 B4                  I.
+	jsr     L945D                   	; 8BE9 20 5D 94                  ].
+	jsr     LDA60                   	; 8BEC 20 60 DA                  `.
+	asl     L00D4                   	; 8BEF 06 D4                    ..
+L8BF1:  rts                             	; 8BF1 60                       `
 
 ; ----------------------------------------------------------------------------
-L8BF2:  bit     L00C2                           ; 8BF2 24 C2                    $.
-	bmi     L8BE1                           ; 8BF4 30 EB                    0.
-	bvc     L8BE1                           ; 8BF6 50 E9                    P.
-	jsr     L8C3E                           ; 8BF8 20 3E 8C                  >.
-	lda     #$00                            ; 8BFB A9 00                    ..
-	sta     L00B3                           ; 8BFD 85 B3                    ..
-	lda     #$06                            ; 8BFF A9 06                    ..
-	sta     L00B4                           ; 8C01 85 B4                    ..
+L8BF2:  bit     L00C2                   	; 8BF2 24 C2                    $.
+	bmi     L8BE1                   	; 8BF4 30 EB                    0.
+	bvc     L8BE1                   	; 8BF6 50 E9                    P.
+	jsr     L8C3E                   	; 8BF8 20 3E 8C                  >.
+	lda     #$00                    	; 8BFB A9 00                    ..
+	sta     L00B3                   	; 8BFD 85 B3                    ..
+	lda     #$06                    	; 8BFF A9 06                    ..
+	sta     L00B4                   	; 8C01 85 B4                    ..
 	lda	L00A4
 	clc
-	adc     #$03                            ; 8C06 69 03                    i.
-	sta     L00B1                           ; 8C08 85 B1                    ..
-	lda     L00A5                           ; 8C0A A5 A5                    ..
-	adc     #$00                            ; 8C0C 69 00                    i.
-	sta     L00B2                           ; 8C0E 85 B2                    ..
-	ldy     #$02                            ; 8C10 A0 02                    ..
-	lda     L00A6                           ; 8C12 A5 A6                    ..
-	sta     LD301                           ; 8C14 8D 01 D3                 ...
-	lda     (L00A4),y                       ; 8C17 B1 A4                    ..
-	and     #$7F                            ; 8C19 29 7F                    ).
-	tay                                     ; 8C1B A8                       .
-	ldx     L00C7                           ; 8C1C A6 C7                    ..
-L8C1E:  stx     L00CE                           ; 8C1E 86 CE                    ..
-	sty     L00CF                           ; 8C20 84 CF                    ..
-	ldy     #$00                            ; 8C22 A0 00                    ..
-L8C24:  lda     L00A6                           ; 8C24 A5 A6                    ..
-	sta     LD301                           ; 8C26 8D 01 D3                 ...
-	lda     (L00B1),y                       ; 8C29 B1 B1                    ..
-	cmp     (L00B3),y                       ; 8C2B D1 B3                    ..
-	bne     L8C3D                           ; 8C2D D0 0E                    ..
-	iny                                     ; 8C2F C8                       .
-	dec     L00CE                           ; 8C30 C6 CE                    ..
-	bne     L8C37                           ; 8C32 D0 03                    ..
-	dec     L00CF                           ; 8C34 C6 CF                    ..
-	rts                                     ; 8C36 60                       `
+	adc     #$03                    	; 8C06 69 03                    i.
+	sta     L00B1                   	; 8C08 85 B1                    ..
+	lda     L00A5                   	; 8C0A A5 A5                    ..
+	adc     #$00                    	; 8C0C 69 00                    i.
+	sta     L00B2                   	; 8C0E 85 B2                    ..
+	ldy     #$02                    	; 8C10 A0 02                    ..
+	lda     L00A6                   	; 8C12 A5 A6                    ..
+	sta     LD301                   	; 8C14 8D 01 D3                 ...
+	lda     (L00A4),y               	; 8C17 B1 A4                    ..
+	and     #$7F                    	; 8C19 29 7F                    ).
+	tay                             	; 8C1B A8                       .
+	ldx     L00C7                   	; 8C1C A6 C7                    ..
+L8C1E:  stx     L00CE                   	; 8C1E 86 CE                    ..
+	sty     L00CF                   	; 8C20 84 CF                    ..
+	ldy     #$00                    	; 8C22 A0 00                    ..
+L8C24:  lda     L00A6                   	; 8C24 A5 A6                    ..
+	sta     LD301                   	; 8C26 8D 01 D3                 ...
+	lda     (L00B1),y               	; 8C29 B1 B1                    ..
+	cmp     (L00B3),y               	; 8C2B D1 B3                    ..
+	bne     L8C3D                   	; 8C2D D0 0E                    ..
+	iny                             	; 8C2F C8                       .
+	dec     L00CE                   	; 8C30 C6 CE                    ..
+	bne     L8C37                   	; 8C32 D0 03                    ..
+	dec     L00CF                   	; 8C34 C6 CF                    ..
+	rts                             	; 8C36 60                       `
 
 ; ----------------------------------------------------------------------------
-L8C37:  dec     L00CF                           ; 8C37 C6 CF                    ..
-	bne     L8C24                           ; 8C39 D0 E9                    ..
-	tya                                     ; 8C3B 98                       .
-	clc                                     ; 8C3C 18                       .
-L8C3D:  rts                                     ; 8C3D 60                       `
+L8C37:  dec     L00CF                   	; 8C37 C6 CF                    ..
+	bne     L8C24                   	; 8C39 D0 E9                    ..
+	tya                             	; 8C3B 98                       .
+	clc                             	; 8C3C 18                       .
+L8C3D:  rts                             	; 8C3D 60                       `
 
 ; ----------------------------------------------------------------------------
-L8C3E:  ldy     #$03                            ; 8C3E A0 03                    ..
-	lda     L00A1                           ; 8C40 A5 A1                    ..
-	sta     LD301                           ; 8C42 8D 01 D3                 ...
-	ldx     #$00                            ; 8C45 A2 00                    ..
-L8C47:  lda     (L009F),y                       ; 8C47 B1 9F                    ..
-	sta     L0600,x                         ; 8C49 9D 00 06                 ...
-	iny                                     ; 8C4C C8                       .
-	inx                                     ; 8C4D E8                       .
-	cpx     L00C7                           ; 8C4E E4 C7                    ..
-	bne     L8C47                           ; 8C50 D0 F5                    ..
-	rts                                     ; 8C52 60                       `
+L8C3E:  ldy     #$03                    	; 8C3E A0 03                    ..
+	lda     L00A1                   	; 8C40 A5 A1                    ..
+	sta     LD301                   	; 8C42 8D 01 D3                 ...
+	ldx     #$00                    	; 8C45 A2 00                    ..
+L8C47:  lda     (L009F),y               	; 8C47 B1 9F                    ..
+	sta     L0600,x                 	; 8C49 9D 00 06                 ...
+	iny                             	; 8C4C C8                       .
+	inx                             	; 8C4D E8                       .
+	cpx     L00C7                   	; 8C4E E4 C7                    ..
+	bne     L8C47                   	; 8C50 D0 F5                    ..
+	rts                             	; 8C52 60                       `
 
 ; ----------------------------------------------------------------------------
-L8C53:  lda     L038B                           ; 8C53 AD 8B 03                 ...
-	pha                                     ; 8C56 48                       H
-	eor     #$01                            ; 8C57 49 01                    I.
-	sta     L038B                           ; 8C59 8D 8B 03                 ...
-	jsr     L8C63                           ; 8C5C 20 63 8C                  c.
-	pla                                     ; 8C5F 68                       h
-	sta     L038B                           ; 8C60 8D 8B 03                 ...
-L8C63:  jsr     LA7B8                           ; 8C63 20 B8 A7                  ..
-	lda     L0388,x                         ; 8C66 BD 88 03                 ...
-	bne     L8C6C                           ; 8C69 D0 01                    ..
-	rts                                     ; 8C6B 60                       `
+L8C53:  lda     L038B                   	; 8C53 AD 8B 03                 ...
+	pha                             	; 8C56 48                       H
+	eor     #$01                    	; 8C57 49 01                    I.
+	sta     L038B                   	; 8C59 8D 8B 03                 ...
+	jsr     L8C63                   	; 8C5C 20 63 8C                  c.
+	pla                             	; 8C5F 68                       h
+	sta     L038B                   	; 8C60 8D 8B 03                 ...
+L8C63:  jsr     LA7B8                   	; 8C63 20 B8 A7                  ..
+	lda     L0388,x                 	; 8C66 BD 88 03                 ...
+	bne     L8C6C                   	; 8C69 D0 01                    ..
+	rts                             	; 8C6B 60                       `
 
 ; ----------------------------------------------------------------------------
-L8C6C:  lda     L0380,y                         ; 8C6C B9 80 03                 ...
-	sta     L0378,y                         ; 8C6F 99 78 03                 .x.
-	lda     L0382,y                         ; 8C72 B9 82 03                 ...
-	sta     L037A,y                         ; 8C75 99 7A 03                 .z.
-	lda     #$00                            ; 8C78 A9 00                    ..
-	sta     L0388,x                         ; 8C7A 9D 88 03                 ...
-	jmp     L811F                           ; 8C7D 4C 1F 81                 L..
+L8C6C:  lda     L0380,y                 	; 8C6C B9 80 03                 ...
+	sta     L0378,y                 	; 8C6F 99 78 03                 .x.
+	lda     L0382,y                 	; 8C72 B9 82 03                 ...
+	sta     L037A,y                 	; 8C75 99 7A 03                 .z.
+	lda     #$00                    	; 8C78 A9 00                    ..
+	sta     L0388,x                 	; 8C7A 9D 88 03                 ...
+	jmp     L811F                   	; 8C7D 4C 1F 81                 L..
 
 ; ----------------------------------------------------------------------------
-L8C80:	pha                                     ; 8C80 48                       H
-	ldx     L038B                           ; 8C81 AE 8B 03                 ...
-	lda     L0388,x                         ; 8C84 BD 88 03                 ...
-	pha                                     ; 8C87 48                       H
-	jsr     L8C63                           ; 8C88 20 63 8C                  c.
-	pla                                     ; 8C8B 68                       h
+L8C80:	pha                             	; 8C80 48                       H
+	ldx     L038B                   	; 8C81 AE 8B 03                 ...
+	lda     L0388,x                 	; 8C84 BD 88 03                 ...
+	pha                             	; 8C87 48                       H
+	jsr     L8C63                   	; 8C88 20 63 8C                  c.
+	pla                             	; 8C8B 68                       h
 	beq	L8C91
-	jmp     L28E3                           ; 8C8E 4C E3 28                 L.(
+	jmp     L28E3                   	; 8C8E 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L8C91:	pla                                     ; 8C91 68                       h
-	cmp     #$48                            ; 8C92 C9 48                    .H
-	bne     L8CBB                           ; 8C94 D0 25                    .%
-	lda     L0095                           ; 8C96 A5 95                    ..
-	sec                                     ; 8C98 38                       8
-	sbc     L0080,x                         ; 8C99 F5 80                    ..
-	beq     L8CB8                           ; 8C9B F0 1B                    ..
-	sta     L00CE                           ; 8C9D 85 CE                    ..
-	lda     #$80                            ; 8C9F A9 80                    ..
-	jsr     L8D39                           ; 8CA1 20 39 8D                  9.
-	lda     L037A,y                         ; 8CA4 B9 7A 03                 .z.
-	clc                                     ; 8CA7 18                       .
-	adc     L00CE                           ; 8CA8 65 CE                    e.
-	sta     L037A,y                         ; 8CAA 99 7A 03                 .z.
-	sta     L0383,y                         ; 8CAD 99 83 03                 ...
-	lda     L0095                           ; 8CB0 A5 95                    ..
-	sta     L0080,x                         ; 8CB2 95 80                    ..
-	sta     L0086,x                         ; 8CB4 95 86                    ..
-	dec     L0086,x                         ; 8CB6 D6 86                    ..
-L8CB8:  jmp     L28E3                           ; 8CB8 4C E3 28                 L.(
+L8C91:	pla                             	; 8C91 68                       h
+	cmp     #$48                    	; 8C92 C9 48                    .H
+	bne     L8CBB                   	; 8C94 D0 25                    .%
+	lda     L0095                   	; 8C96 A5 95                    ..
+	sec                             	; 8C98 38                       8
+	sbc     L0080,x                 	; 8C99 F5 80                    ..
+	beq     L8CB8                   	; 8C9B F0 1B                    ..
+	sta     L00CE                   	; 8C9D 85 CE                    ..
+	lda     #$80                    	; 8C9F A9 80                    ..
+	jsr     L8D39                   	; 8CA1 20 39 8D                  9.
+	lda     L037A,y                 	; 8CA4 B9 7A 03                 .z.
+	clc                             	; 8CA7 18                       .
+	adc     L00CE                   	; 8CA8 65 CE                    e.
+	sta     L037A,y                 	; 8CAA 99 7A 03                 .z.
+	sta     L0383,y                 	; 8CAD 99 83 03                 ...
+	lda     L0095                   	; 8CB0 A5 95                    ..
+	sta     L0080,x                 	; 8CB2 95 80                    ..
+	sta     L0086,x                 	; 8CB4 95 86                    ..
+	dec     L0086,x                 	; 8CB6 D6 86                    ..
+L8CB8:  jmp     L28E3                   	; 8CB8 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L8CBB:  cmp     #$56                            ; 8CBB C9 56                    .V
-	bne     L8CE0                           ; 8CBD D0 21                    .!
-	jsr     L8D22                           ; 8CBF 20 22 8D                  ".
-	sta     L00CE                           ; 8CC2 85 CE                    ..
-	lda     #$40                            ; 8CC4 A9 40                    .@
-	jsr     L8D39                           ; 8CC6 20 39 8D                  9.
-	lda     L0378,y                         ; 8CC9 B9 78 03                 .x.
-	clc                                     ; 8CCC 18                       .
-	adc     L00CE                           ; 8CCD 65 CE                    e.
-	sta     L0378,y                         ; 8CCF 99 78 03                 .x.
-	sta     L0381,y                         ; 8CD2 99 81 03                 ...
-	lda     L0096                           ; 8CD5 A5 96                    ..
-	sta     L0088,x                         ; 8CD7 95 88                    ..
-	sta     L008E,x                         ; 8CD9 95 8E                    ..
-	dec     L008E,x                         ; 8CDB D6 8E                    ..
-	jmp     L28E3                           ; 8CDD 4C E3 28                 L.(
+L8CBB:  cmp     #$56                    	; 8CBB C9 56                    .V
+	bne     L8CE0                   	; 8CBD D0 21                    .!
+	jsr     L8D22                   	; 8CBF 20 22 8D                  ".
+	sta     L00CE                   	; 8CC2 85 CE                    ..
+	lda     #$40                    	; 8CC4 A9 40                    .@
+	jsr     L8D39                   	; 8CC6 20 39 8D                  9.
+	lda     L0378,y                 	; 8CC9 B9 78 03                 .x.
+	clc                             	; 8CCC 18                       .
+	adc     L00CE                   	; 8CCD 65 CE                    e.
+	sta     L0378,y                 	; 8CCF 99 78 03                 .x.
+	sta     L0381,y                 	; 8CD2 99 81 03                 ...
+	lda     L0096                   	; 8CD5 A5 96                    ..
+	sta     L0088,x                 	; 8CD7 95 88                    ..
+	sta     L008E,x                 	; 8CD9 95 8E                    ..
+	dec     L008E,x                 	; 8CDB D6 8E                    ..
+	jmp     L28E3                   	; 8CDD 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L8CE0:  cmp     #$42                            ; 8CE0 C9 42                    .B
-	bne     L8D1F                           ; 8CE2 D0 3B                    .;
-	lda     L0095                           ; 8CE4 A5 95                    ..
-	sec                                     ; 8CE6 38                       8
-	sbc     L0080,x                         ; 8CE7 F5 80                    ..
-	beq     L8D1F                           ; 8CE9 F0 34                    .4
-	sta     L00CE                           ; 8CEB 85 CE                    ..
-	jsr     L8D22                           ; 8CED 20 22 8D                  ".
-	sta     L00CF                           ; 8CF0 85 CF                    ..
-	lda     #$C0                            ; 8CF2 A9 C0                    ..
-	jsr     L8D39                           ; 8CF4 20 39 8D                  9.
-	lda     L037A,y                         ; 8CF7 B9 7A 03                 .z.
-	clc                                     ; 8CFA 18                       .
-	adc     L00CE                           ; 8CFB 65 CE                    e.
-	sta     L037A,y                         ; 8CFD 99 7A 03                 .z.
-	sta     L0383,y                         ; 8D00 99 83 03                 ...
-	lda     L0378,y                         ; 8D03 B9 78 03                 .x.
-	clc                                     ; 8D06 18                       .
-	adc     L00CF                           ; 8D07 65 CF                    e.
-	sta     L0378,y                         ; 8D09 99 78 03                 .x.
-	sta     L0381,y                         ; 8D0C 99 81 03                 ...
-	lda     L0095                           ; 8D0F A5 95                    ..
-	sta     L0080,x                         ; 8D11 95 80                    ..
-	sta     L0086,x                         ; 8D13 95 86                    ..
-	dec     L0086,x                         ; 8D15 D6 86                    ..
-	lda     L0096                           ; 8D17 A5 96                    ..
-	sta     L0088,x                         ; 8D19 95 88                    ..
-	sta     L008E,x                         ; 8D1B 95 8E                    ..
-	dec     L008E,x                         ; 8D1D D6 8E                    ..
-L8D1F:  jmp     L28E3                           ; 8D1F 4C E3 28                 L.(
+L8CE0:  cmp     #$42                    	; 8CE0 C9 42                    .B
+	bne     L8D1F                   	; 8CE2 D0 3B                    .;
+	lda     L0095                   	; 8CE4 A5 95                    ..
+	sec                             	; 8CE6 38                       8
+	sbc     L0080,x                 	; 8CE7 F5 80                    ..
+	beq     L8D1F                   	; 8CE9 F0 34                    .4
+	sta     L00CE                   	; 8CEB 85 CE                    ..
+	jsr     L8D22                   	; 8CED 20 22 8D                  ".
+	sta     L00CF                   	; 8CF0 85 CF                    ..
+	lda     #$C0                    	; 8CF2 A9 C0                    ..
+	jsr     L8D39                   	; 8CF4 20 39 8D                  9.
+	lda     L037A,y                 	; 8CF7 B9 7A 03                 .z.
+	clc                             	; 8CFA 18                       .
+	adc     L00CE                   	; 8CFB 65 CE                    e.
+	sta     L037A,y                 	; 8CFD 99 7A 03                 .z.
+	sta     L0383,y                 	; 8D00 99 83 03                 ...
+	lda     L0378,y                 	; 8D03 B9 78 03                 .x.
+	clc                             	; 8D06 18                       .
+	adc     L00CF                   	; 8D07 65 CF                    e.
+	sta     L0378,y                 	; 8D09 99 78 03                 .x.
+	sta     L0381,y                 	; 8D0C 99 81 03                 ...
+	lda     L0095                   	; 8D0F A5 95                    ..
+	sta     L0080,x                 	; 8D11 95 80                    ..
+	sta     L0086,x                 	; 8D13 95 86                    ..
+	dec     L0086,x                 	; 8D15 D6 86                    ..
+	lda     L0096                   	; 8D17 A5 96                    ..
+	sta     L0088,x                 	; 8D19 95 88                    ..
+	sta     L008E,x                 	; 8D1B 95 8E                    ..
+	dec     L008E,x                 	; 8D1D D6 8E                    ..
+L8D1F:  jmp     L28E3                   	; 8D1F 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L8D22:  lda     L0088,x                         ; 8D22 B5 88                    ..
-	stx     L00D3                           ; 8D24 86 D3                    ..
-	tax                                     ; 8D26 AA                       .
-	cpx     L0096                           ; 8D27 E4 96                    ..
-	beq     L8D1F                           ; 8D29 F0 F4                    ..
-	lda     #$00                            ; 8D2B A9 00                    ..
-L8D2D:  clc                                     ; 8D2D 18                       .
-	adc     L1901,x                         ; 8D2E 7D 01 19                 }..
-	inx                                     ; 8D31 E8                       .
-	cpx     L0096                           ; 8D32 E4 96                    ..
-	bcc     L8D2D                           ; 8D34 90 F7                    ..
-	ldx     L00D3                           ; 8D36 A6 D3                    ..
-	rts                                     ; 8D38 60                       `
+L8D22:  lda     L0088,x                 	; 8D22 B5 88                    ..
+	stx     L00D3                   	; 8D24 86 D3                    ..
+	tax                             	; 8D26 AA                       .
+	cpx     L0096                   	; 8D27 E4 96                    ..
+	beq     L8D1F                   	; 8D29 F0 F4                    ..
+	lda     #$00                    	; 8D2B A9 00                    ..
+L8D2D:  clc                             	; 8D2D 18                       .
+	adc     L1901,x                 	; 8D2E 7D 01 19                 }..
+	inx                             	; 8D31 E8                       .
+	cpx     L0096                   	; 8D32 E4 96                    ..
+	bcc     L8D2D                   	; 8D34 90 F7                    ..
+	ldx     L00D3                   	; 8D36 A6 D3                    ..
+	rts                             	; 8D38 60                       `
 
 ; ----------------------------------------------------------------------------
-L8D39:  sta     L0388,x                         ; 8D39 9D 88 03                 ...
-	bpl     L8D43                           ; 8D3C 10 05                    ..
-	bit     L038A                           ; 8D3E 2C 8A 03                 ,..
-	bmi     L8D4B                           ; 8D41 30 08                    0.
-L8D43:  asl     a                               ; 8D43 0A                       .
-	bpl     L8D53                           ; 8D44 10 0D                    ..
-	bit     L038A                           ; 8D46 2C 8A 03                 ,..
-	bmi     L8D53                           ; 8D49 30 08                    0.
-L8D4B:  lda     L038A                           ; 8D4B AD 8A 03                 ...
-	and     #$BF                            ; 8D4E 29 BF                    ).
-	sta     L038A                           ; 8D50 8D 8A 03                 ...
-L8D53:  lda     L0378,y                         ; 8D53 B9 78 03                 .x.
-	sta     L0380,y                         ; 8D56 99 80 03                 ...
-	lda     L0379,y                         ; 8D59 B9 79 03                 .y.
-	sta     L0381,y                         ; 8D5C 99 81 03                 ...
-	lda     L037A,y                         ; 8D5F B9 7A 03                 .z.
-	sta     L0382,y                         ; 8D62 99 82 03                 ...
-	lda     L037B,y                         ; 8D65 B9 7B 03                 .{.
-	sta     L0383,y                         ; 8D68 99 83 03                 ...
-	lda     L0088,x                         ; 8D6B B5 88                    ..
-	sta     L008A,x                         ; 8D6D 95 8A                    ..
-	lda     L008C,x                         ; 8D6F B5 8C                    ..
-	sta     L008E,x                         ; 8D71 95 8E                    ..
-	lda     L0080,x                         ; 8D73 B5 80                    ..
-	sta     L0082,x                         ; 8D75 95 82                    ..
-	lda     L0084,x                         ; 8D77 B5 84                    ..
-	sta     L0086,x                         ; 8D79 95 86                    ..
-	rts                                     ; 8D7B 60                       `
+L8D39:  sta     L0388,x                 	; 8D39 9D 88 03                 ...
+	bpl     L8D43                   	; 8D3C 10 05                    ..
+	bit     L038A                   	; 8D3E 2C 8A 03                 ,..
+	bmi     L8D4B                   	; 8D41 30 08                    0.
+L8D43:  asl     a                       	; 8D43 0A                       .
+	bpl     L8D53                   	; 8D44 10 0D                    ..
+	bit     L038A                   	; 8D46 2C 8A 03                 ,..
+	bmi     L8D53                   	; 8D49 30 08                    0.
+L8D4B:  lda     L038A                   	; 8D4B AD 8A 03                 ...
+	and     #$BF                    	; 8D4E 29 BF                    ).
+	sta     L038A                   	; 8D50 8D 8A 03                 ...
+L8D53:  lda     L0378,y                 	; 8D53 B9 78 03                 .x.
+	sta     L0380,y                 	; 8D56 99 80 03                 ...
+	lda     L0379,y                 	; 8D59 B9 79 03                 .y.
+	sta     L0381,y                 	; 8D5C 99 81 03                 ...
+	lda     L037A,y                 	; 8D5F B9 7A 03                 .z.
+	sta     L0382,y                 	; 8D62 99 82 03                 ...
+	lda     L037B,y                 	; 8D65 B9 7B 03                 .{.
+	sta     L0383,y                 	; 8D68 99 83 03                 ...
+	lda     L0088,x                 	; 8D6B B5 88                    ..
+	sta     L008A,x                 	; 8D6D 95 8A                    ..
+	lda     L008C,x                 	; 8D6F B5 8C                    ..
+	sta     L008E,x                 	; 8D71 95 8E                    ..
+	lda     L0080,x                 	; 8D73 B5 80                    ..
+	sta     L0082,x                 	; 8D75 95 82                    ..
+	lda     L0084,x                 	; 8D77 B5 84                    ..
+	sta     L0086,x                 	; 8D79 95 86                    ..
+	rts                             	; 8D7B 60                       `
 
 ; ----------------------------------------------------------------------------
-L8D7C:	ldy     #$00                            ; 8D7C A0 00                    ..
-	sty     L00BA                           ; 8D7E 84 BA                    ..
-	inc     L00B9                           ; 8D80 E6 B9                    ..
-	cmp     #$44                            ; 8D82 C9 44                    .D
-	bne     L8D87                           ; 8D84 D0 01                    ..
-	dey                                     ; 8D86 88                       .
-L8D87:  sty     L0097                           ; 8D87 84 97                    ..
-	jsr     L8750                           ; 8D89 20 50 87                  P.
-	bcs     L8D91                           ; 8D8C B0 03                    ..
-	jmp     L98B2                           ; 8D8E 4C B2 98                 L..
+L8D7C:	ldy     #$00                    	; 8D7C A0 00                    ..
+	sty     L00BA                   	; 8D7E 84 BA                    ..
+	inc     L00B9                   	; 8D80 E6 B9                    ..
+	cmp     #$44                    	; 8D82 C9 44                    .D
+	bne     L8D87                   	; 8D84 D0 01                    ..
+	dey                             	; 8D86 88                       .
+L8D87:  sty     L0097                   	; 8D87 84 97                    ..
+	jsr     L8750                   	; 8D89 20 50 87                  P.
+	bcs     L8D91                   	; 8D8C B0 03                    ..
+	jmp     L98B2                   	; 8D8E 4C B2 98                 L..
 
 ; ----------------------------------------------------------------------------
-L8D91:  lda     L00AD                           ; 8D91 A5 AD                    ..
-	cmp     L00AF                           ; 8D93 C5 AF                    ..
-	bcc     L8D9A                           ; 8D95 90 03                    ..
-	jmp     L28E3                           ; 8D97 4C E3 28                 L.(
+L8D91:  lda     L00AD                   	; 8D91 A5 AD                    ..
+	cmp     L00AF                   	; 8D93 C5 AF                    ..
+	bcc     L8D9A                   	; 8D95 90 03                    ..
+	jmp     L28E3                   	; 8D97 4C E3 28                 L.(
 
 ; ----------------------------------------------------------------------------
-L8D9A:  lda     #$40                            ; 8D9A A9 40                    .@
-	sta     L19A7                           ; 8D9C 8D A7 19                 ...
-	jsr     L1FD1                           ; 8D9F 20 D1 1F                  ..
-	txa                                     ; 8DA2 8A                       .
-	sec                                     ; 8DA3 38                       8
-	sbc     L00AE                           ; 8DA4 E5 AE                    ..
-	sta     L0098                           ; 8DA6 85 98                    ..
-	lda     #$00                            ; 8DA8 A9 00                    ..
-	sta     L19A7                           ; 8DAA 8D A7 19                 ...
-	jsr     L1FD1                           ; 8DAD 20 D1 1F                  ..
-	stx     L00B8                           ; 8DB0 86 B8                    ..
-	stx     L19D0                           ; 8DB2 8E D0 19                 ...
-	sty     L00B7                           ; 8DB5 84 B7                    ..
-	sty     L19CF                           ; 8DB7 8C CF 19                 ...
-	txa                                     ; 8DBA 8A                       .
-	clc                                     ; 8DBB 18                       .
-	adc     L0098                           ; 8DBC 65 98                    e.
-	sta     L0098                           ; 8DBE 85 98                    ..
-	jsr     L8EDC                           ; 8DC0 20 DC 8E                  ..
-	lda     L00AD                           ; 8DC3 A5 AD                    ..
-	sta     L00B5                           ; 8DC5 85 B5                    ..
-	lda     L00AE                           ; 8DC7 A5 AE                    ..
-	sta     L00B6                           ; 8DC9 85 B6                    ..
-	dec     L000B                           ; 8DCB C6 0B                    ..
-L8DCD:  lda     L00B5                           ; 8DCD A5 B5                    ..
-	sta     L00A9                           ; 8DCF 85 A9                    ..
-	lda     L00B6                           ; 8DD1 A5 B6                    ..
-	sta     L00AA                           ; 8DD3 85 AA                    ..
-	jsr     L974B                           ; 8DD5 20 4B 97                  K.
-	lda     L00C3                           ; 8DD8 A5 C3                    ..
-	bpl     L8DF4                           ; 8DDA 10 18                    ..
-	lda     #$00                            ; 8DDC A9 00                    ..
-	sta     L03FD                           ; 8DDE 8D FD 03                 ...
-	ldy     #$08                            ; 8DE1 A0 08                    ..
-	ldx     #$06                            ; 8DE3 A2 06                    ..
-L8DE5:  lda     (L009F),y                       ; 8DE5 B1 9F                    ..
-	sta     L03FD,x                         ; 8DE7 9D FD 03                 ...
-	sta     L00D3,x                         ; 8DEA 95 D3                    ..
-	dey                                     ; 8DEC 88                       .
-	dex                                     ; 8DED CA                       .
-	bne     L8DE5                           ; 8DEE D0 F5                    ..
-	lda     #$07                            ; 8DF0 A9 07                    ..
-	sta     L00C7                           ; 8DF2 85 C7                    ..
-L8DF4:  lda     L00B7                           ; 8DF4 A5 B7                    ..
-	sta     L00A9                           ; 8DF6 85 A9                    ..
-	lda     L00B8                           ; 8DF8 A5 B8                    ..
-	sta     L00AA                           ; 8DFA 85 AA                    ..
-	lda     L006A                           ; 8DFC A5 6A                    .j
-	bne     L8E19                           ; 8DFE D0 19                    ..
-	jsr     L0C8A                           ; 8E00 20 8A 0C                  ..
-	ldy     #$02                            ; 8E03 A0 02                    ..
-	lda     (L009F),y                       ; 8E05 B1 9F                    ..
-	and     #$80                            ; 8E07 29 80                    ).
-	sta     (L009F),y                       ; 8E09 91 9F                    ..
-	lda     #$FF                            ; 8E0B A9 FF                    ..
-	sta     LD301                           ; 8E0D 8D 01 D3                 ...
-	lda     (L009D),y                       ; 8E10 B1 9D                    ..
-	and     #$3F                            ; 8E12 29 3F                    )?
-	sta     (L009D),y                       ; 8E14 91 9D                    ..
-	jmp     L8E31                           ; 8E16 4C 31 8E                 L1.
+L8D9A:  lda     #$40                    	; 8D9A A9 40                    .@
+	sta     L19A7                   	; 8D9C 8D A7 19                 ...
+	jsr     L1FD1                   	; 8D9F 20 D1 1F                  ..
+	txa                             	; 8DA2 8A                       .
+	sec                             	; 8DA3 38                       8
+	sbc     L00AE                   	; 8DA4 E5 AE                    ..
+	sta     L0098                   	; 8DA6 85 98                    ..
+	lda     #$00                    	; 8DA8 A9 00                    ..
+	sta     L19A7                   	; 8DAA 8D A7 19                 ...
+	jsr     L1FD1                   	; 8DAD 20 D1 1F                  ..
+	stx     L00B8                   	; 8DB0 86 B8                    ..
+	stx     L19D0                   	; 8DB2 8E D0 19                 ...
+	sty     L00B7                   	; 8DB5 84 B7                    ..
+	sty     L19CF                   	; 8DB7 8C CF 19                 ...
+	txa                             	; 8DBA 8A                       .
+	clc                             	; 8DBB 18                       .
+	adc     L0098                   	; 8DBC 65 98                    e.
+	sta     L0098                   	; 8DBE 85 98                    ..
+	jsr     L8EDC                   	; 8DC0 20 DC 8E                  ..
+	lda     L00AD                   	; 8DC3 A5 AD                    ..
+	sta     L00B5                   	; 8DC5 85 B5                    ..
+	lda     L00AE                   	; 8DC7 A5 AE                    ..
+	sta     L00B6                   	; 8DC9 85 B6                    ..
+	dec     L000B                   	; 8DCB C6 0B                    ..
+L8DCD:  lda     L00B5                   	; 8DCD A5 B5                    ..
+	sta     L00A9                   	; 8DCF 85 A9                    ..
+	lda     L00B6                   	; 8DD1 A5 B6                    ..
+	sta     L00AA                   	; 8DD3 85 AA                    ..
+	jsr     L974B                   	; 8DD5 20 4B 97                  K.
+	lda     L00C3                   	; 8DD8 A5 C3                    ..
+	bpl     L8DF4                   	; 8DDA 10 18                    ..
+	lda     #$00                    	; 8DDC A9 00                    ..
+	sta     L03FD                   	; 8DDE 8D FD 03                 ...
+	ldy     #$08                    	; 8DE1 A0 08                    ..
+	ldx     #$06                    	; 8DE3 A2 06                    ..
+L8DE5:  lda     (L009F),y               	; 8DE5 B1 9F                    ..
+	sta     L03FD,x                 	; 8DE7 9D FD 03                 ...
+	sta     L00D3,x                 	; 8DEA 95 D3                    ..
+	dey                             	; 8DEC 88                       .
+	dex                             	; 8DED CA                       .
+	bne     L8DE5                   	; 8DEE D0 F5                    ..
+	lda     #$07                    	; 8DF0 A9 07                    ..
+	sta     L00C7                   	; 8DF2 85 C7                    ..
+L8DF4:  lda     L00B7                   	; 8DF4 A5 B7                    ..
+	sta     L00A9                   	; 8DF6 85 A9                    ..
+	lda     L00B8                   	; 8DF8 A5 B8                    ..
+	sta     L00AA                   	; 8DFA 85 AA                    ..
+	lda     L006A                   	; 8DFC A5 6A                    .j
+	bne     L8E19                   	; 8DFE D0 19                    ..
+	jsr     L0C8A                   	; 8E00 20 8A 0C                  ..
+	ldy     #$02                    	; 8E03 A0 02                    ..
+	lda     (L009F),y               	; 8E05 B1 9F                    ..
+	and     #$80                    	; 8E07 29 80                    ).
+	sta     (L009F),y               	; 8E09 91 9F                    ..
+	lda     #$FF                    	; 8E0B A9 FF                    ..
+	sta     LD301                   	; 8E0D 8D 01 D3                 ...
+	lda     (L009D),y               	; 8E10 B1 9D                    ..
+	and     #$3F                    	; 8E12 29 3F                    )?
+	sta     (L009D),y               	; 8E14 91 9D                    ..
+	jmp     L8E31                   	; 8E16 4C 31 8E                 L1.
 
 ; ----------------------------------------------------------------------------
-L8E19:  jsr     L9772                           ; 8E19 20 72 97                  r.
-	lda     L006A                           ; 8E1C A5 6A                    .j
-	bpl     L8E31                           ; 8E1E 10 11                    ..
-	ldy     #$08                            ; 8E20 A0 08                    ..
-	lda     L00A1                           ; 8E22 A5 A1                    ..
-	sta     LD301                           ; 8E24 8D 01 D3                 ...
-	ldx     #$05                            ; 8E27 A2 05                    ..
-L8E29:  lda     L00D4,x                         ; 8E29 B5 D4                    ..
-	sta     (L009F),y                       ; 8E2B 91 9F                    ..
-	dey                                     ; 8E2D 88                       .
-	dex                                     ; 8E2E CA                       .
-	bpl     L8E29                           ; 8E2F 10 F8                    ..
-L8E31:  inc     L00B8                           ; 8E31 E6 B8                    ..
-	inc     L00B6                           ; 8E33 E6 B6                    ..
-	lda     L00B0                           ; 8E35 A5 B0                    ..
-	cmp     L00B6                           ; 8E37 C5 B6                    ..
-	bcs     L8DCD                           ; 8E39 B0 92                    ..
-	lda     L19D0                           ; 8E3B AD D0 19                 ...
-	sta     L00B8                           ; 8E3E 85 B8                    ..
-	lda     L00AE                           ; 8E40 A5 AE                    ..
-	sta     L00B6                           ; 8E42 85 B6                    ..
-	inc     L00B7                           ; 8E44 E6 B7                    ..
-	inc     L00B5                           ; 8E46 E6 B5                    ..
-	lda     L00AF                           ; 8E48 A5 AF                    ..
-	cmp     L00B5                           ; 8E4A C5 B5                    ..
-	bcc     L8E51                           ; 8E4C 90 03                    ..
-	jmp     L8DCD                           ; 8E4E 4C CD 8D                 L..
+L8E19:  jsr     L9772                   	; 8E19 20 72 97                  r.
+	lda     L006A                   	; 8E1C A5 6A                    .j
+	bpl     L8E31                   	; 8E1E 10 11                    ..
+	ldy     #$08                    	; 8E20 A0 08                    ..
+	lda     L00A1                   	; 8E22 A5 A1                    ..
+	sta     LD301                   	; 8E24 8D 01 D3                 ...
+	ldx     #$05                    	; 8E27 A2 05                    ..
+L8E29:  lda     L00D4,x                 	; 8E29 B5 D4                    ..
+	sta     (L009F),y               	; 8E2B 91 9F                    ..
+	dey                             	; 8E2D 88                       .
+	dex                             	; 8E2E CA                       .
+	bpl     L8E29                   	; 8E2F 10 F8                    ..
+L8E31:  inc     L00B8                   	; 8E31 E6 B8                    ..
+	inc     L00B6                   	; 8E33 E6 B6                    ..
+	lda     L00B0                   	; 8E35 A5 B0                    ..
+	cmp     L00B6                   	; 8E37 C5 B6                    ..
+	bcs     L8DCD                   	; 8E39 B0 92                    ..
+	lda     L19D0                   	; 8E3B AD D0 19                 ...
+	sta     L00B8                   	; 8E3E 85 B8                    ..
+	lda     L00AE                   	; 8E40 A5 AE                    ..
+	sta     L00B6                   	; 8E42 85 B6                    ..
+	inc     L00B7                   	; 8E44 E6 B7                    ..
+	inc     L00B5                   	; 8E46 E6 B5                    ..
+	lda     L00AF                   	; 8E48 A5 AF                    ..
+	cmp     L00B5                   	; 8E4A C5 B5                    ..
+	bcc     L8E51                   	; 8E4C 90 03                    ..
+	jmp     L8DCD                   	; 8E4E 4C CD 8D                 L..
 
 ; ----------------------------------------------------------------------------
-L8E51:  lda     L00AF                           ; 8E51 A5 AF                    ..
-	sec                                     ; 8E53 38                       8
-	sbc     L00AD                           ; 8E54 E5 AD                    ..
-	clc                                     ; 8E56 18                       .
-	adc     L19CF                           ; 8E57 6D CF 19                 m..
-	sta     L00AF                           ; 8E5A 85 AF                    ..
-	lda     L19CF                           ; 8E5C AD CF 19                 ...
-	sta     L00AD                           ; 8E5F 85 AD                    ..
-	lda     L00B0                           ; 8E61 A5 B0                    ..
-	sec                                     ; 8E63 38                       8
-	sbc     L00AE                           ; 8E64 E5 AE                    ..
-	clc                                     ; 8E66 18                       .
-	adc     L19D0                           ; 8E67 6D D0 19                 m..
-	sta     L00B0                           ; 8E6A 85 B0                    ..
-	lda     L19D0                           ; 8E6C AD D0 19                 ...
-	sta     L00AE                           ; 8E6F 85 AE                    ..
-L8E71:  lda     #$00                            ; 8E71 A9 00                    ..
-	sta     L19F7                           ; 8E73 8D F7 19                 ...
-	ldx     L00AD                           ; 8E76 A6 AD                    ..
-	stx     L00A9                           ; 8E78 86 A9                    ..
-	inx                                     ; 8E7A E8                       .
-	stx     L00AB                           ; 8E7B 86 AB                    ..
-L8E7D:  lda     L0098                           ; 8E7D A5 98                    ..
-	sta     L00AA                           ; 8E7F 85 AA                    ..
-	sta     L00AC                           ; 8E81 85 AC                    ..
-	jsr     L8BC4                           ; 8E83 20 C4 8B                  ..
-	beq     L8EBE                           ; 8E86 F0 36                    .6
-	bit     L0097                           ; 8E88 24 97                    $.
-	bpl     L8E8F                           ; 8E8A 10 03                    ..
-	bcc     L8EBE                           ; 8E8C 90 30                    .0
-	clc                                     ; 8E8E 18                       .
-L8E8F:  bcs     L8EBE                           ; 8E8F B0 2D                    .-
-	dec     L19F7                           ; 8E91 CE F7 19                 ...
-	lda     L00AE                           ; 8E94 A5 AE                    ..
-	sta     L00AA                           ; 8E96 85 AA                    ..
-	sta     L00AC                           ; 8E98 85 AC                    ..
-L8E9A:  jsr     L0C8A                           ; 8E9A 20 8A 0C                  ..
-	jsr     L0CB9                           ; 8E9D 20 B9 0C                  ..
-	ldy     #$02                            ; 8EA0 A0 02                    ..
-	lda     #$FF                            ; 8EA2 A9 FF                    ..
-	sta     LD301                           ; 8EA4 8D 01 D3                 ...
-L8EA7:  lda     (L009D),y                       ; 8EA7 B1 9D                    ..
-	tax                                     ; 8EA9 AA                       .
-	lda     (L00A2),y                       ; 8EAA B1 A2                    ..
-	sta     (L009D),y                       ; 8EAC 91 9D                    ..
-	txa                                     ; 8EAE 8A                       .
-	sta     (L00A2),y                       ; 8EAF 91 A2                    ..
-	dey                                     ; 8EB1 88                       .
-	bpl     L8EA7                           ; 8EB2 10 F3                    ..
-	inc     L00AA                           ; 8EB4 E6 AA                    ..
-	inc     L00AC                           ; 8EB6 E6 AC                    ..
-	lda     L00B0                           ; 8EB8 A5 B0                    ..
-	cmp     L00AA                           ; 8EBA C5 AA                    ..
-	bcs     L8E9A                           ; 8EBC B0 DC                    ..
-L8EBE:  inc     L00A9                           ; 8EBE E6 A9                    ..
-	inc     L00AB                           ; 8EC0 E6 AB                    ..
-	lda     L00A9                           ; 8EC2 A5 A9                    ..
-	cmp     L00AF                           ; 8EC4 C5 AF                    ..
-	bcc     L8E7D                           ; 8EC6 90 B5                    ..
-	lda     L19F7                           ; 8EC8 AD F7 19                 ...
-	beq     L8ED5                           ; 8ECB F0 08                    ..
-	dec     L00AF                           ; 8ECD C6 AF                    ..
-	lda     L00AF                           ; 8ECF A5 AF                    ..
-	cmp     L00AD                           ; 8ED1 C5 AD                    ..
-	bne     L8E71                           ; 8ED3 D0 9C                    ..
-L8ED5:  ldx     L00AE                           ; 8ED5 A6 AE                    ..
-	ldy     L00AD                           ; 8ED7 A4 AD                    ..
-	jmp     L80A2                           ; 8ED9 4C A2 80                 L..
+L8E51:  lda     L00AF                   	; 8E51 A5 AF                    ..
+	sec                             	; 8E53 38                       8
+	sbc     L00AD                   	; 8E54 E5 AD                    ..
+	clc                             	; 8E56 18                       .
+	adc     L19CF                   	; 8E57 6D CF 19                 m..
+	sta     L00AF                   	; 8E5A 85 AF                    ..
+	lda     L19CF                   	; 8E5C AD CF 19                 ...
+	sta     L00AD                   	; 8E5F 85 AD                    ..
+	lda     L00B0                   	; 8E61 A5 B0                    ..
+	sec                             	; 8E63 38                       8
+	sbc     L00AE                   	; 8E64 E5 AE                    ..
+	clc                             	; 8E66 18                       .
+	adc     L19D0                   	; 8E67 6D D0 19                 m..
+	sta     L00B0                   	; 8E6A 85 B0                    ..
+	lda     L19D0                   	; 8E6C AD D0 19                 ...
+	sta     L00AE                   	; 8E6F 85 AE                    ..
+L8E71:  lda     #$00                    	; 8E71 A9 00                    ..
+	sta     L19F7                   	; 8E73 8D F7 19                 ...
+	ldx     L00AD                   	; 8E76 A6 AD                    ..
+	stx     L00A9                   	; 8E78 86 A9                    ..
+	inx                             	; 8E7A E8                       .
+	stx     L00AB                   	; 8E7B 86 AB                    ..
+L8E7D:  lda     L0098                   	; 8E7D A5 98                    ..
+	sta     L00AA                   	; 8E7F 85 AA                    ..
+	sta     L00AC                   	; 8E81 85 AC                    ..
+	jsr     L8BC4                   	; 8E83 20 C4 8B                  ..
+	beq     L8EBE                   	; 8E86 F0 36                    .6
+	bit     L0097                   	; 8E88 24 97                    $.
+	bpl     L8E8F                   	; 8E8A 10 03                    ..
+	bcc     L8EBE                   	; 8E8C 90 30                    .0
+	clc                             	; 8E8E 18                       .
+L8E8F:  bcs     L8EBE                   	; 8E8F B0 2D                    .-
+	dec     L19F7                   	; 8E91 CE F7 19                 ...
+	lda     L00AE                   	; 8E94 A5 AE                    ..
+	sta     L00AA                   	; 8E96 85 AA                    ..
+	sta     L00AC                   	; 8E98 85 AC                    ..
+L8E9A:  jsr     L0C8A                   	; 8E9A 20 8A 0C                  ..
+	jsr     L0CB9                   	; 8E9D 20 B9 0C                  ..
+	ldy     #$02                    	; 8EA0 A0 02                    ..
+	lda     #$FF                    	; 8EA2 A9 FF                    ..
+	sta     LD301                   	; 8EA4 8D 01 D3                 ...
+L8EA7:  lda     (L009D),y               	; 8EA7 B1 9D                    ..
+	tax                             	; 8EA9 AA                       .
+	lda     (L00A2),y               	; 8EAA B1 A2                    ..
+	sta     (L009D),y               	; 8EAC 91 9D                    ..
+	txa                             	; 8EAE 8A                       .
+	sta     (L00A2),y               	; 8EAF 91 A2                    ..
+	dey                             	; 8EB1 88                       .
+	bpl     L8EA7                   	; 8EB2 10 F3                    ..
+	inc     L00AA                   	; 8EB4 E6 AA                    ..
+	inc     L00AC                   	; 8EB6 E6 AC                    ..
+	lda     L00B0                   	; 8EB8 A5 B0                    ..
+	cmp     L00AA                   	; 8EBA C5 AA                    ..
+	bcs     L8E9A                   	; 8EBC B0 DC                    ..
+L8EBE:  inc     L00A9                   	; 8EBE E6 A9                    ..
+	inc     L00AB                   	; 8EC0 E6 AB                    ..
+	lda     L00A9                   	; 8EC2 A5 A9                    ..
+	cmp     L00AF                   	; 8EC4 C5 AF                    ..
+	bcc     L8E7D                   	; 8EC6 90 B5                    ..
+	lda     L19F7                   	; 8EC8 AD F7 19                 ...
+	beq     L8ED5                   	; 8ECB F0 08                    ..
+	dec     L00AF                   	; 8ECD C6 AF                    ..
+	lda     L00AF                   	; 8ECF A5 AF                    ..
+	cmp     L00AD                   	; 8ED1 C5 AD                    ..
+	bne     L8E71                   	; 8ED3 D0 9C                    ..
+L8ED5:  ldx     L00AE                   	; 8ED5 A6 AE                    ..
+	ldy     L00AD                   	; 8ED7 A4 AD                    ..
+	jmp     L80A2                   	; 8ED9 4C A2 80                 L..
 
 ; ----------------------------------------------------------------------------
-L8EDC:  tya                                     ; 8EDC 98                       .
-	clc                                     ; 8EDD 18                       .
-	adc     L199A                           ; 8EDE 6D 9A 19                 m..
-	tay                                     ; 8EE1 A8                       .
-	txa                                     ; 8EE2 8A                       .
-	clc                                     ; 8EE3 18                       .
-	adc     L1999                           ; 8EE4 6D 99 19                 m..
-	tax                                     ; 8EE7 AA                       .
-	jmp     L9AD3                           ; 8EE8 4C D3 9A                 L..
+L8EDC:  tya                             	; 8EDC 98                       .
+	clc                             	; 8EDD 18                       .
+	adc     L199A                   	; 8EDE 6D 9A 19                 m..
+	tay                             	; 8EE1 A8                       .
+	txa                             	; 8EE2 8A                       .
+	clc                             	; 8EE3 18                       .
+	adc     L1999                   	; 8EE4 6D 99 19                 m..
+	tax                             	; 8EE7 AA                       .
+	jmp     L9AD3                   	; 8EE8 4C D3 9A                 L..
 
 ; ----------------------------------------------------------------------------
-L8EEB:  ldx     #$80                            ; 8EEB A2 80                    ..
-	cmp     #$52                            ; 8EED C9 52                    .R
-	beq     L8EF3                           ; 8EEF F0 02                    ..
-	ldx     #$40                            ; 8EF1 A2 40                    .@
-L8EF3:  stx     L19A7                           ; 8EF3 8E A7 19                 ...
-	rts                                     ; 8EF6 60                       `
+L8EEB:  ldx     #$80                    	; 8EEB A2 80                    ..
+	cmp     #$52                    	; 8EED C9 52                    .R
+	beq     L8EF3                   	; 8EEF F0 02                    ..
+	ldx     #$40                    	; 8EF1 A2 40                    .@
+L8EF3:  stx     L19A7                   	; 8EF3 8E A7 19                 ...
+	rts                             	; 8EF6 60                       `
 
 ; ----------------------------------------------------------------------------
-L8EF7:  ldx     #$10                            ; 8EF7 A2 10                    ..
-	lda     #$00                            ; 8EF9 A9 00                    ..
-	sta     L0344,x                         ; 8EFB 9D 44 03                 .D.
-	lda     #$06                            ; 8EFE A9 06                    ..
-	sta     L0345,x                         ; 8F00 9D 45 03                 .E.
-	lda     L00BD                           ; 8F03 A5 BD                    ..
-	sta     L0348,x                         ; 8F05 9D 48 03                 .H.
-	lda     #$00                            ; 8F08 A9 00                    ..
-	sta     L0349,x                         ; 8F0A 9D 49 03                 .I.
-	lda     #$0B                            ; 8F0D A9 0B                    ..
-	sta     L0342,x                         ; 8F0F 9D 42 03                 .B.
-	jsr     LE456                           ; 8F12 20 56 E4                  V.
-	bmi     L8F18                           ; 8F15 30 01                    0.
-	rts                                     ; 8F17 60                       `
+L8EF7:  ldx     #$10                    	; 8EF7 A2 10                    ..
+	lda     #$00                    	; 8EF9 A9 00                    ..
+	sta     L0344,x                 	; 8EFB 9D 44 03                 .D.
+	lda     #$06                    	; 8EFE A9 06                    ..
+	sta     L0345,x                 	; 8F00 9D 45 03                 .E.
+	lda     L00BD                   	; 8F03 A5 BD                    ..
+	sta     L0348,x                 	; 8F05 9D 48 03                 .H.
+	lda     #$00                    	; 8F08 A9 00                    ..
+	sta     L0349,x                 	; 8F0A 9D 49 03                 .I.
+	lda     #$0B                    	; 8F0D A9 0B                    ..
+	sta     L0342,x                 	; 8F0F 9D 42 03                 .B.
+	jsr     LE456                   	; 8F12 20 56 E4                  V.
+	bmi     L8F18                   	; 8F15 30 01                    0.
+	rts                             	; 8F17 60                       `
 
 ; ----------------------------------------------------------------------------
-L8F18:  jmp     L98BC                           ; 8F18 4C BC 98                 L..
+L8F18:  jmp     L98BC                   	; 8F18 4C BC 98                 L..
 
 ; ----------------------------------------------------------------------------
-L8F1B:  lda     #$00                            ; 8F1B A9 00                    ..
-	sta     L00A9                           ; 8F1D 85 A9                    ..
-L8F1F:  sta     L00AA                           ; 8F1F 85 AA                    ..
-L8F21:  jsr     L9D01                           ; 8F21 20 01 9D                  ..
-	jsr     L0C8A                           ; 8F24 20 8A 0C                  ..
-	jsr     L0CA4                           ; 8F27 20 A4 0C                  ..
-	lda     L00C3                           ; 8F2A A5 C3                    ..
-	bpl     L8F3B                           ; 8F2C 10 0D                    ..
-	lda     L000C                           ; 8F2E A5 0C                    ..
-	bne     L8F38                           ; 8F30 D0 06                    ..
-	lda     L00C5                           ; 8F32 A5 C5                    ..
-	and     #$08                            ; 8F34 29 08                    ).
-	bne     L8F3B                           ; 8F36 D0 03                    ..
-L8F38:  jsr     LAA99                           ; 8F38 20 99 AA                  ..
-L8F3B:  lda     L00CD                           ; 8F3B A5 CD                    ..
-	bmi     L8F54                           ; 8F3D 30 15                    0.
-	inc     L00A9                           ; 8F3F E6 A9                    ..
-	lda     L00A7                           ; 8F41 A5 A7                    ..
-	cmp     L00A9                           ; 8F43 C5 A9                    ..
-	bcs     L8F21                           ; 8F45 B0 DA                    ..
-	lda     #$00                            ; 8F47 A9 00                    ..
-	sta     L00A9                           ; 8F49 85 A9                    ..
-	inc     L00AA                           ; 8F4B E6 AA                    ..
-	lda     L00A8                           ; 8F4D A5 A8                    ..
-	cmp     L00AA                           ; 8F4F C5 AA                    ..
-	bcs     L8F21                           ; 8F51 B0 CE                    ..
-	rts                                     ; 8F53 60                       `
+L8F1B:  lda     #$00                    	; 8F1B A9 00                    ..
+	sta     L00A9                   	; 8F1D 85 A9                    ..
+L8F1F:  sta     L00AA                   	; 8F1F 85 AA                    ..
+L8F21:  jsr     L9D01                   	; 8F21 20 01 9D                  ..
+	jsr     L0C8A                   	; 8F24 20 8A 0C                  ..
+	jsr     L0CA4                   	; 8F27 20 A4 0C                  ..
+	lda     L00C3                   	; 8F2A A5 C3                    ..
+	bpl     L8F3B                   	; 8F2C 10 0D                    ..
+	lda     L000C                   	; 8F2E A5 0C                    ..
+	bne     L8F38                   	; 8F30 D0 06                    ..
+	lda     L00C5                   	; 8F32 A5 C5                    ..
+	and     #$08                    	; 8F34 29 08                    ).
+	bne     L8F3B                   	; 8F36 D0 03                    ..
+L8F38:  jsr     LAA99                   	; 8F38 20 99 AA                  ..
+L8F3B:  lda     L00CD                   	; 8F3B A5 CD                    ..
+	bmi     L8F54                   	; 8F3D 30 15                    0.
+	inc     L00A9                   	; 8F3F E6 A9                    ..
+	lda     L00A7                   	; 8F41 A5 A7                    ..
+	cmp     L00A9                   	; 8F43 C5 A9                    ..
+	bcs     L8F21                   	; 8F45 B0 DA                    ..
+	lda     #$00                    	; 8F47 A9 00                    ..
+	sta     L00A9                   	; 8F49 85 A9                    ..
+	inc     L00AA                   	; 8F4B E6 AA                    ..
+	lda     L00A8                   	; 8F4D A5 A8                    ..
+	cmp     L00AA                   	; 8F4F C5 AA                    ..
+	bcs     L8F21                   	; 8F51 B0 CE                    ..
+	rts                             	; 8F53 60                       `
 
 ; ----------------------------------------------------------------------------
-L8F54:  jsr     L903E                           ; 8F54 20 3E 90                  >.
-	bcs     L8F21                           ; 8F57 B0 C8                    ..
-L8F59:  rts                                     ; 8F59 60                       `
+L8F54:  jsr     L903E                   	; 8F54 20 3E 90                  >.
+	bcs     L8F21                   	; 8F57 B0 C8                    ..
+L8F59:  rts                             	; 8F59 60                       `
 
 ; ----------------------------------------------------------------------------
-L8F5A:  jsr     L909E                           ; 8F5A 20 9E 90                  ..
-	lsr     L19C8                           ; 8F5D 4E C8 19                 N..
-	bcc     L8F68                           ; 8F60 90 06                    ..
-	jsr     L907F                           ; 8F62 20 7F 90                  ..
-	jsr     L8F84                           ; 8F65 20 84 8F                  ..
-L8F68:  jsr     L9073                           ; 8F68 20 73 90                  s.
-	jsr     L8FD7                           ; 8F6B 20 D7 8F                  ..
-	lsr     L19C8                           ; 8F6E 4E C8 19                 N..
-	bcc     L8F79                           ; 8F71 90 06                    ..
-	jsr     L9085                           ; 8F73 20 85 90                  ..
-	jsr     L8F84                           ; 8F76 20 84 8F                  ..
-L8F79:  lsr     L19C8                           ; 8F79 4E C8 19                 N..
-	bcc     L8F59                           ; 8F7C 90 DB                    ..
-	jsr     L9079                           ; 8F7E 20 79 90                  y.
-	jmp     L8FD7                           ; 8F81 4C D7 8F                 L..
+L8F5A:  jsr     L909E                   	; 8F5A 20 9E 90                  ..
+	lsr     L19C8                   	; 8F5D 4E C8 19                 N..
+	bcc     L8F68                   	; 8F60 90 06                    ..
+	jsr     L907F                   	; 8F62 20 7F 90                  ..
+	jsr     L8F84                   	; 8F65 20 84 8F                  ..
+L8F68:  jsr     L9073                   	; 8F68 20 73 90                  s.
+	jsr     L8FD7                   	; 8F6B 20 D7 8F                  ..
+	lsr     L19C8                   	; 8F6E 4E C8 19                 N..
+	bcc     L8F79                   	; 8F71 90 06                    ..
+	jsr     L9085                   	; 8F73 20 85 90                  ..
+	jsr     L8F84                   	; 8F76 20 84 8F                  ..
+L8F79:  lsr     L19C8                   	; 8F79 4E C8 19                 N..
+	bcc     L8F59                   	; 8F7C 90 DB                    ..
+	jsr     L9079                   	; 8F7E 20 79 90                  y.
+	jmp     L8FD7                   	; 8F81 4C D7 8F                 L..
 
 ; ----------------------------------------------------------------------------
-L8F84:  lda     L0094                           ; 8F84 A5 94                    ..
-	cmp     #$C0                            ; 8F86 C9 C0                    ..
-	bne     L8FD7                           ; 8F88 D0 4D                    .M
-	jsr     L8FD7                           ; 8F8A 20 D7 8F                  ..
-	ldx     L00BF                           ; 8F8D A6 BF                    ..
-	lda     L0086,x                         ; 8F8F B5 86                    ..
-	sta     L00AE                           ; 8F91 85 AE                    ..
-	sta     L00AA                           ; 8F93 85 AA                    ..
-	lda     L008A,x                         ; 8F95 B5 8A                    ..
-	sta     L00B0                           ; 8F97 85 B0                    ..
-	lda     L00AD                           ; 8F99 A5 AD                    ..
-	sta     L00A9                           ; 8F9B 85 A9                    ..
-	lda     L0091                           ; 8F9D A5 91                    ..
-	sta     L0090                           ; 8F9F 85 90                    ..
-	txa                                     ; 8FA1 8A                       .
-	asl     a                               ; 8FA2 0A                       .
-	asl     a                               ; 8FA3 0A                       .
-	tax                                     ; 8FA4 AA                       .
-	lda     L0371,x                         ; 8FA5 BD 71 03                 .q.
-	sta     L0091                           ; 8FA8 85 91                    ..
-	jsr     L8FED                           ; 8FAA 20 ED 8F                  ..
-	lsr     L00BF                           ; 8FAD 46 BF                    F.
-	bcs     L8FB6                           ; 8FAF B0 05                    ..
-	jsr     L907F                           ; 8FB1 20 7F 90                  ..
-	bmi     L8FB9                           ; 8FB4 30 03                    0.
-L8FB6:  jsr     L9085                           ; 8FB6 20 85 90                  ..
-L8FB9:  jsr     L9027                           ; 8FB9 20 27 90                  '.
-	ldx     L00BF                           ; 8FBC A6 BF                    ..
-	lda     L007E,x                         ; 8FBE B5 7E                    .~
-	sta     L00AD                           ; 8FC0 85 AD                    ..
-	sta     L00A9                           ; 8FC2 85 A9                    ..
-	lda     L0082,x                         ; 8FC4 B5 82                    ..
-	sta     L00AF                           ; 8FC6 85 AF                    ..
-	lda     L0093                           ; 8FC8 A5 93                    ..
-	sta     L0092                           ; 8FCA 85 92                    ..
-	txa                                     ; 8FCC 8A                       .
-	asl     a                               ; 8FCD 0A                       .
-	asl     a                               ; 8FCE 0A                       .
-	tax                                     ; 8FCF AA                       .
-	lda     L0372,x                         ; 8FD0 BD 72 03                 .r.
-	sta     L0093                           ; 8FD3 85 93                    ..
-	bpl     L8FED                           ; 8FD5 10 16                    ..
-L8FD7:  jsr     L9027                           ; 8FD7 20 27 90                  '.
-L8FDA:  lda     L00BE                           ; 8FDA A5 BE                    ..
-	beq     L8FED                           ; 8FDC F0 0F                    ..
-	lda     L1996                           ; 8FDE AD 96 19                 ...
-	bne     L8FED                           ; 8FE1 D0 0A                    ..
-	ldx     L00A9                           ; 8FE3 A6 A9                    ..
-	inx                                     ; 8FE5 E8                       .
-	txa                                     ; 8FE6 8A                       .
-	jsr     L94CE                           ; 8FE7 20 CE 94                  ..
-	jsr     L1F2D                           ; 8FEA 20 2D 1F                  -.
-L8FED:  ldx     L00AA                           ; 8FED A6 AA                    ..
-	ldy     L00A9                           ; 8FEF A4 A9                    ..
-	jsr     L9051                           ; 8FF1 20 51 90                  Q.
-	lda     L00A7                           ; 8FF4 A5 A7                    ..
-	cmp     L00A9                           ; 8FF6 C5 A9                    ..
-	bcs     L9000                           ; 8FF8 B0 06                    ..
-L8FFA:  jsr     L1EEC                           ; 8FFA 20 EC 1E                  ..
-	jmp     L9011                           ; 8FFD 4C 11 90                 L..
+L8F84:  lda     L0094                   	; 8F84 A5 94                    ..
+	cmp     #$C0                    	; 8F86 C9 C0                    ..
+	bne     L8FD7                   	; 8F88 D0 4D                    .M
+	jsr     L8FD7                   	; 8F8A 20 D7 8F                  ..
+	ldx     L00BF                   	; 8F8D A6 BF                    ..
+	lda     L0086,x                 	; 8F8F B5 86                    ..
+	sta     L00AE                   	; 8F91 85 AE                    ..
+	sta     L00AA                   	; 8F93 85 AA                    ..
+	lda     L008A,x                 	; 8F95 B5 8A                    ..
+	sta     L00B0                   	; 8F97 85 B0                    ..
+	lda     L00AD                   	; 8F99 A5 AD                    ..
+	sta     L00A9                   	; 8F9B 85 A9                    ..
+	lda     L0091                   	; 8F9D A5 91                    ..
+	sta     L0090                   	; 8F9F 85 90                    ..
+	txa                             	; 8FA1 8A                       .
+	asl     a                       	; 8FA2 0A                       .
+	asl     a                       	; 8FA3 0A                       .
+	tax                             	; 8FA4 AA                       .
+	lda     L0371,x                 	; 8FA5 BD 71 03                 .q.
+	sta     L0091                   	; 8FA8 85 91                    ..
+	jsr     L8FED                   	; 8FAA 20 ED 8F                  ..
+	lsr     L00BF                   	; 8FAD 46 BF                    F.
+	bcs     L8FB6                   	; 8FAF B0 05                    ..
+	jsr     L907F                   	; 8FB1 20 7F 90                  ..
+	bmi     L8FB9                   	; 8FB4 30 03                    0.
+L8FB6:  jsr     L9085                   	; 8FB6 20 85 90                  ..
+L8FB9:  jsr     L9027                   	; 8FB9 20 27 90                  '.
+	ldx     L00BF                   	; 8FBC A6 BF                    ..
+	lda     L007E,x                 	; 8FBE B5 7E                    .~
+	sta     L00AD                   	; 8FC0 85 AD                    ..
+	sta     L00A9                   	; 8FC2 85 A9                    ..
+	lda     L0082,x                 	; 8FC4 B5 82                    ..
+	sta     L00AF                   	; 8FC6 85 AF                    ..
+	lda     L0093                   	; 8FC8 A5 93                    ..
+	sta     L0092                   	; 8FCA 85 92                    ..
+	txa                             	; 8FCC 8A                       .
+	asl     a                       	; 8FCD 0A                       .
+	asl     a                       	; 8FCE 0A                       .
+	tax                             	; 8FCF AA                       .
+	lda     L0372,x                 	; 8FD0 BD 72 03                 .r.
+	sta     L0093                   	; 8FD3 85 93                    ..
+	bpl     L8FED                   	; 8FD5 10 16                    ..
+L8FD7:  jsr     L9027                   	; 8FD7 20 27 90                  '.
+L8FDA:  lda     L00BE                   	; 8FDA A5 BE                    ..
+	beq     L8FED                   	; 8FDC F0 0F                    ..
+	lda     L1996                   	; 8FDE AD 96 19                 ...
+	bne     L8FED                   	; 8FE1 D0 0A                    ..
+	ldx     L00A9                   	; 8FE3 A6 A9                    ..
+	inx                             	; 8FE5 E8                       .
+	txa                             	; 8FE6 8A                       .
+	jsr     L94CE                   	; 8FE7 20 CE 94                  ..
+	jsr     L1F2D                   	; 8FEA 20 2D 1F                  -.
+L8FED:  ldx     L00AA                   	; 8FED A6 AA                    ..
+	ldy     L00A9                   	; 8FEF A4 A9                    ..
+	jsr     L9051                   	; 8FF1 20 51 90                  Q.
+	lda     L00A7                   	; 8FF4 A5 A7                    ..
+	cmp     L00A9                   	; 8FF6 C5 A9                    ..
+	bcs     L9000                   	; 8FF8 B0 06                    ..
+L8FFA:  jsr     L1EEC                   	; 8FFA 20 EC 1E                  ..
+	jmp     L9011                   	; 8FFD 4C 11 90                 L..
 
 ; ----------------------------------------------------------------------------
-L9000:  lda     L00A8                           ; 9000 A5 A8                    ..
-	cmp     L00AA                           ; 9002 C5 AA                    ..
-L9004:  bcc     L8FFA                           ; 9004 90 F4                    ..
-	jsr     L90C4                           ; 9006 20 C4 90                  ..
-L9009:  inc     L00AA                           ; 9009 E6 AA                    ..
-	lda     L00B0                           ; 900B A5 B0                    ..
-	cmp     L00AA                           ; 900D C5 AA                    ..
-	bcs     L9000                           ; 900F B0 EF                    ..
-L9011:  lda     L00BE                           ; 9011 A5 BE                    ..
-	beq     L901A                           ; 9013 F0 05                    ..
-	lda     #$9B                            ; 9015 A9 9B                    ..
-	jsr     L1222                           ; 9017 20 22 12                  ".
-L901A:  lda     L00AE                           ; 901A A5 AE                    ..
-	sta     L00AA                           ; 901C 85 AA                    ..
-	inc     L00A9                           ; 901E E6 A9                    ..
-	lda     L00AF                           ; 9020 A5 AF                    ..
-	cmp     L00A9                           ; 9022 C5 A9                    ..
-	bcs     L8FDA                           ; 9024 B0 B4                    ..
-	rts                                     ; 9026 60                       `
+L9000:  lda     L00A8                   	; 9000 A5 A8                    ..
+	cmp     L00AA                   	; 9002 C5 AA                    ..
+L9004:  bcc     L8FFA                   	; 9004 90 F4                    ..
+	jsr     L90C4                   	; 9006 20 C4 90                  ..
+L9009:  inc     L00AA                   	; 9009 E6 AA                    ..
+	lda     L00B0                   	; 900B A5 B0                    ..
+	cmp     L00AA                   	; 900D C5 AA                    ..
+	bcs     L9000                   	; 900F B0 EF                    ..
+L9011:  lda     L00BE                   	; 9011 A5 BE                    ..
+	beq     L901A                   	; 9013 F0 05                    ..
+	lda     #$9B                    	; 9015 A9 9B                    ..
+	jsr     L1222                   	; 9017 20 22 12                  ".
+L901A:  lda     L00AE                   	; 901A A5 AE                    ..
+	sta     L00AA                   	; 901C 85 AA                    ..
+	inc     L00A9                   	; 901E E6 A9                    ..
+	lda     L00AF                   	; 9020 A5 AF                    ..
+	cmp     L00A9                   	; 9022 C5 A9                    ..
+	bcs     L8FDA                   	; 9024 B0 B4                    ..
+	rts                             	; 9026 60                       `
 
 ; ----------------------------------------------------------------------------
-L9027:  ldx     L00BF                           ; 9027 A6 BF                    ..
-	lda     L0080,x                         ; 9029 B5 80                    ..
-	sta     L00AD                           ; 902B 85 AD                    ..
-	sta     L00A9                           ; 902D 85 A9                    ..
-	lda     L0084,x                         ; 902F B5 84                    ..
-	sta     L00AF                           ; 9031 85 AF                    ..
-	lda     L0088,x                         ; 9033 B5 88                    ..
-	sta     L00AE                           ; 9035 85 AE                    ..
-	sta     L00AA                           ; 9037 85 AA                    ..
-	lda     L008C,x                         ; 9039 B5 8C                    ..
-	sta     L00B0                           ; 903B 85 B0                    ..
-	rts                                     ; 903D 60                       `
+L9027:  ldx     L00BF                   	; 9027 A6 BF                    ..
+	lda     L0080,x                 	; 9029 B5 80                    ..
+	sta     L00AD                   	; 902B 85 AD                    ..
+	sta     L00A9                   	; 902D 85 A9                    ..
+	lda     L0084,x                 	; 902F B5 84                    ..
+	sta     L00AF                   	; 9031 85 AF                    ..
+	lda     L0088,x                 	; 9033 B5 88                    ..
+	sta     L00AE                   	; 9035 85 AE                    ..
+	sta     L00AA                   	; 9037 85 AA                    ..
+	lda     L008C,x                 	; 9039 B5 8C                    ..
+	sta     L00B0                   	; 903B 85 B0                    ..
+	rts                             	; 903D 60                       `
 
 ; ----------------------------------------------------------------------------
-L903E:  inc     L00AA                           ; 903E E6 AA                    ..
-	lda     L00A8                           ; 9040 A5 A8                    ..
-	cmp     L00AA                           ; 9042 C5 AA                    ..
-	bcs     L9050                           ; 9044 B0 0A                    ..
-	lda     #$00                            ; 9046 A9 00                    ..
-	sta     L00AA                           ; 9048 85 AA                    ..
-	inc     L00A9                           ; 904A E6 A9                    ..
-	lda     L00A7                           ; 904C A5 A7                    ..
-	cmp     L00A9                           ; 904E C5 A9                    ..
-L9050:  rts                                     ; 9050 60                       `
+L903E:  inc     L00AA                   	; 903E E6 AA                    ..
+	lda     L00A8                   	; 9040 A5 A8                    ..
+	cmp     L00AA                   	; 9042 C5 AA                    ..
+	bcs     L9050                   	; 9044 B0 0A                    ..
+	lda     #$00                    	; 9046 A9 00                    ..
+	sta     L00AA                   	; 9048 85 AA                    ..
+	inc     L00A9                   	; 904A E6 A9                    ..
+	lda     L00A7                   	; 904C A5 A7                    ..
+	cmp     L00A9                   	; 904E C5 A9                    ..
+L9050:  rts                             	; 9050 60                       `
 
 ; ----------------------------------------------------------------------------
-L9051:  lda     L00BE                           ; 9051 A5 BE                    ..
-	bne     L9050                           ; 9053 D0 FB                    ..
-	stx     L00AC                           ; 9055 86 AC                    ..
-	tya                                     ; 9057 98                       .
-	sec                                     ; 9058 38                       8
-	sbc     L00AD                           ; 9059 E5 AD                    ..
-	clc                                     ; 905B 18                       .
-	adc     L0092                           ; 905C 65 92                    e.
-	tay                                     ; 905E A8                       .
-	lda     L00AE                           ; 905F A5 AE                    ..
-	tax                                     ; 9061 AA                       .
-	lda     L0090                           ; 9062 A5 90                    ..
-L9064:  cpx     L00AC                           ; 9064 E4 AC                    ..
-	beq     L906F                           ; 9066 F0 07                    ..
-	clc                                     ; 9068 18                       .
-	adc     L1901,x                         ; 9069 7D 01 19                 }..
-	inx                                     ; 906C E8                       .
-	bne     L9064                           ; 906D D0 F5                    ..
-L906F:  tax                                     ; 906F AA                       .
-	jmp     L2BAF                           ; 9070 4C AF 2B                 L.+
+L9051:  lda     L00BE                   	; 9051 A5 BE                    ..
+	bne     L9050                   	; 9053 D0 FB                    ..
+	stx     L00AC                   	; 9055 86 AC                    ..
+	tya                             	; 9057 98                       .
+	sec                             	; 9058 38                       8
+	sbc     L00AD                   	; 9059 E5 AD                    ..
+	clc                             	; 905B 18                       .
+	adc     L0092                   	; 905C 65 92                    e.
+	tay                             	; 905E A8                       .
+	lda     L00AE                   	; 905F A5 AE                    ..
+	tax                             	; 9061 AA                       .
+	lda     L0090                   	; 9062 A5 90                    ..
+L9064:  cpx     L00AC                   	; 9064 E4 AC                    ..
+	beq     L906F                   	; 9066 F0 07                    ..
+	clc                             	; 9068 18                       .
+	adc     L1901,x                 	; 9069 7D 01 19                 }..
+	inx                             	; 906C E8                       .
+	bne     L9064                   	; 906D D0 F5                    ..
+L906F:  tax                             	; 906F AA                       .
+	jmp     L2BAF                   	; 9070 4C AF 2B                 L.+
 
 ; ----------------------------------------------------------------------------
-L9073:  ldy     #$03                            ; 9073 A0 03                    ..
-	lda     #$00                            ; 9075 A9 00                    ..
-	beq     L9090                           ; 9077 F0 17                    ..
-L9079:  ldy     #$07                            ; 9079 A0 07                    ..
-	lda     #$01                            ; 907B A9 01                    ..
-	bne     L9090                           ; 907D D0 11                    ..
-L907F:  ldy     #$0B                            ; 907F A0 0B                    ..
-	lda     #$02                            ; 9081 A9 02                    ..
-	bne     L9089                           ; 9083 D0 04                    ..
-L9085:  ldy     #$0F                            ; 9085 A0 0F                    ..
-	lda     #$03                            ; 9087 A9 03                    ..
-L9089:  tax                                     ; 9089 AA                       .
-	lda     L0386,x                         ; 908A BD 86 03                 ...
-	sta     L0094                           ; 908D 85 94                    ..
-	txa                                     ; 908F 8A                       .
-L9090:  sta     L00BF                           ; 9090 85 BF                    ..
-	ldx     #$03                            ; 9092 A2 03                    ..
-L9094:  lda     L0378,y                         ; 9094 B9 78 03                 .x.
-	sta     L0090,x                         ; 9097 95 90                    ..
-	dey                                     ; 9099 88                       .
-	dex                                     ; 909A CA                       .
-	bpl     L9094                           ; 909B 10 F7                    ..
-	rts                                     ; 909D 60                       `
+L9073:  ldy     #$03                    	; 9073 A0 03                    ..
+	lda     #$00                    	; 9075 A9 00                    ..
+	beq     L9090                   	; 9077 F0 17                    ..
+L9079:  ldy     #$07                    	; 9079 A0 07                    ..
+	lda     #$01                    	; 907B A9 01                    ..
+	bne     L9090                   	; 907D D0 11                    ..
+L907F:  ldy     #$0B                    	; 907F A0 0B                    ..
+	lda     #$02                    	; 9081 A9 02                    ..
+	bne     L9089                   	; 9083 D0 04                    ..
+L9085:  ldy     #$0F                    	; 9085 A0 0F                    ..
+	lda     #$03                    	; 9087 A9 03                    ..
+L9089:  tax                             	; 9089 AA                       .
+	lda     L0386,x                 	; 908A BD 86 03                 ...
+	sta     L0094                   	; 908D 85 94                    ..
+	txa                             	; 908F 8A                       .
+L9090:  sta     L00BF                   	; 9090 85 BF                    ..
+	ldx     #$03                    	; 9092 A2 03                    ..
+L9094:  lda     L0378,y                 	; 9094 B9 78 03                 .x.
+	sta     L0090,x                 	; 9097 95 90                    ..
+	dey                             	; 9099 88                       .
+	dex                             	; 909A CA                       .
+	bpl     L9094                   	; 909B 10 F7                    ..
+	rts                             	; 909D 60                       `
 
 ; ----------------------------------------------------------------------------
-L909E:  lda     #$00                            ; 909E A9 00                    ..
-	sta     L19C8                           ; 90A0 8D C8 19                 ...
-	ldx     L00BE                           ; 90A3 A6 BE                    ..
-	bne     L90C3                           ; 90A5 D0 1C                    ..
-	clc                                     ; 90A7 18                       .
-	lda     L038A                           ; 90A8 AD 8A 03                 ...
-	beq     L90AE                           ; 90AB F0 01                    ..
-	sec                                     ; 90AD 38                       8
-L90AE:  rol     L19C8                           ; 90AE 2E C8 19                 ...
-	lda     L0389                           ; 90B1 AD 89 03                 ...
-	beq     L90B7                           ; 90B4 F0 01                    ..
-	sec                                     ; 90B6 38                       8
-L90B7:  rol     L19C8                           ; 90B7 2E C8 19                 ...
-	lda     L0388                           ; 90BA AD 88 03                 ...
-	beq     L90C0                           ; 90BD F0 01                    ..
-	sec                                     ; 90BF 38                       8
-L90C0:  rol     L19C8                           ; 90C0 2E C8 19                 ...
-L90C3:  rts                                     ; 90C3 60                       `
+L909E:  lda     #$00                    	; 909E A9 00                    ..
+	sta     L19C8                   	; 90A0 8D C8 19                 ...
+	ldx     L00BE                   	; 90A3 A6 BE                    ..
+	bne     L90C3                   	; 90A5 D0 1C                    ..
+	clc                             	; 90A7 18                       .
+	lda     L038A                   	; 90A8 AD 8A 03                 ...
+	beq     L90AE                   	; 90AB F0 01                    ..
+	sec                             	; 90AD 38                       8
+L90AE:  rol     L19C8                   	; 90AE 2E C8 19                 ...
+	lda     L0389                   	; 90B1 AD 89 03                 ...
+	beq     L90B7                   	; 90B4 F0 01                    ..
+	sec                             	; 90B6 38                       8
+L90B7:  rol     L19C8                   	; 90B7 2E C8 19                 ...
+	lda     L0388                   	; 90BA AD 88 03                 ...
+	beq     L90C0                   	; 90BD F0 01                    ..
+	sec                             	; 90BF 38                       8
+L90C0:  rol     L19C8                   	; 90C0 2E C8 19                 ...
+L90C3:  rts                             	; 90C3 60                       `
 
 ; ----------------------------------------------------------------------------
-L90C4:  jsr     L0C8A                           ; 90C4 20 8A 0C                  ..
+L90C4:  jsr     L0C8A                   	; 90C4 20 8A 0C                  ..
 	jsr	L0CA4
-	ldx     L00AA                           ; 90CA A6 AA                    ..
-	lda     L1901,x                         ; 90CC BD 01 19                 ...
-	sta     L00EC                           ; 90CF 85 EC                    ..
-	bit     L00C3                           ; 90D1 24 C3                    $.
-	bmi     L90DE                           ; 90D3 30 09                    0.
-	bvs     L90E1                           ; 90D5 70 0A                    p.
-	lda     #$20                            ; 90D7 A9 20                    . 
-	ldy     L00EC                           ; 90D9 A4 EC                    ..
-	jmp     L1225                           ; 90DB 4C 25 12                 L%.
+	ldx     L00AA                   	; 90CA A6 AA                    ..
+	lda     L1901,x                 	; 90CC BD 01 19                 ...
+	sta     L00EC                   	; 90CF 85 EC                    ..
+	bit     L00C3                   	; 90D1 24 C3                    $.
+	bmi     L90DE                   	; 90D3 30 09                    0.
+	bvs     L90E1                   	; 90D5 70 0A                    p.
+	lda     #$20                    	; 90D7 A9 20                    . 
+	ldy     L00EC                   	; 90D9 A4 EC                    ..
+	jmp     L1225                   	; 90DB 4C 25 12                 L%.
 
 ; ----------------------------------------------------------------------------
-L90DE:  jsr     L9193                           ; 90DE 20 93 91                  ..
-L90E1:  lda     #$00                            ; 90E1 A9 00                    ..
-	sta     L0058                           ; 90E3 85 58                    .X
-	sta     L0059                           ; 90E5 85 59                    .Y
-	lda     L00C7                           ; 90E7 A5 C7                    ..
-	sta     L00C8                           ; 90E9 85 C8                    ..
-	lda     L00C5                           ; 90EB A5 C5                    ..
-	and     #$10                            ; 90ED 29 10                    ).
-	beq     L90F5                           ; 90EF F0 04                    ..
-	lda     #$00                            ; 90F1 A9 00                    ..
-	beq     L90FB                           ; 90F3 F0 06                    ..
-L90F5:  lda     L00C5                           ; 90F5 A5 C5                    ..
-	bmi     L9145                           ; 90F7 30 4C                    0L
+L90DE:  jsr     L9193                   	; 90DE 20 93 91                  ..
+L90E1:  lda     #$00                    	; 90E1 A9 00                    ..
+	sta     L0058                   	; 90E3 85 58                    .X
+	sta     L0059                   	; 90E5 85 59                    .Y
+	lda     L00C7                   	; 90E7 A5 C7                    ..
+	sta     L00C8                   	; 90E9 85 C8                    ..
+	lda     L00C5                   	; 90EB A5 C5                    ..
+	and     #$10                    	; 90ED 29 10                    ).
+	beq     L90F5                   	; 90EF F0 04                    ..
+	lda     #$00                    	; 90F1 A9 00                    ..
+	beq     L90FB                   	; 90F3 F0 06                    ..
+L90F5:  lda     L00C5                   	; 90F5 A5 C5                    ..
+	bmi     L9145                   	; 90F7 30 4C                    0L
 	and	#$07
-L90FB:  sta     L00CF                           ; 90FB 85 CF                    ..
-	lda     L00EC                           ; 90FD A5 EC                    ..
-	sec                                     ; 90FF 38                       8
-	sbc     L00CF                           ; 9100 E5 CF                    ..
-	beq     L9106                           ; 9102 F0 02                    ..
-	bcs     L9109                           ; 9104 B0 03                    ..
-L9106:  jsr     L9442                           ; 9106 20 42 94                  B.
-L9109:  sta     L00CE                           ; 9109 85 CE                    ..
-	lda     L00C5                           ; 910B A5 C5                    ..
-	and     #$10                            ; 910D 29 10                    ).
-L910F:  beq     L9115                           ; 910F F0 04                    ..
-	lda     #$00                            ; 9111 A9 00                    ..
-	beq     L911B                           ; 9113 F0 06                    ..
-L9115:  lda     L00CF                           ; 9115 A5 CF                    ..
-	bit     L00C5                           ; 9117 24 C5                    $.
-	bvc     L912E                           ; 9119 50 13                    P.
-L911B:  sta     L0058                           ; 911B 85 58                    .X
-	lda     L00CE                           ; 911D A5 CE                    ..
-	sec                                     ; 911F 38                       8
-	sbc     L00C8                           ; 9120 E5 C8                    ..
-	bcc     L9128                           ; 9122 90 04                    ..
-	sta     L0059                           ; 9124 85 59                    .Y
-	bcs     L9159                           ; 9126 B0 31                    .1
-L9128:  lda     L00CE                           ; 9128 A5 CE                    ..
-	sta     L00C8                           ; 912A 85 C8                    ..
-	bpl     L9159                           ; 912C 10 2B                    .+
-L912E:  sta     L0059                           ; 912E 85 59                    .Y
-	lda     L00CE                           ; 9130 A5 CE                    ..
-	sec                                     ; 9132 38                       8
-	sbc     L00C8                           ; 9133 E5 C8                    ..
-	bcc     L913B                           ; 9135 90 04                    ..
-	sta     L0058                           ; 9137 85 58                    .X
-	bcs     L9159                           ; 9139 B0 1E                    ..
-L913B:  eor     #$FF                            ; 913B 49 FF                    I.
-	adc     #$01                            ; 913D 69 01                    i.
-	ldx     L00CE                           ; 913F A6 CE                    ..
-	stx     L00C8                           ; 9141 86 C8                    ..
-	bpl     L915B                           ; 9143 10 16                    ..
-L9145:  lda     L00EC                           ; 9145 A5 EC                    ..
-	sec                                     ; 9147 38                       8
-	sbc     L00C8                           ; 9148 E5 C8                    ..
-	bcc     L9155                           ; 914A 90 09                    ..
-	lsr     a                               ; 914C 4A                       J
-	sta     L0058                           ; 914D 85 58                    .X
-	adc     #$00                            ; 914F 69 00                    i.
-	sta     L0059                           ; 9151 85 59                    .Y
-	bpl     L9159                           ; 9153 10 04                    ..
-L9155:  lda     L00EC                           ; 9155 A5 EC                    ..
-	sta     L00C8                           ; 9157 85 C8                    ..
-L9159:  lda     #$00                            ; 9159 A9 00                    ..
-L915B:  clc                                     ; 915B 18                       .
-	sta     L00CF                           ; 915C 85 CF                    ..
-	adc     #$03                            ; 915E 69 03                    i.
-	sta     L00CE                           ; 9160 85 CE                    ..
-	lda     #$20                            ; 9162 A9 20                    . 
-	ldy     L0058                           ; 9164 A4 58                    .X
-	jsr     L1225                           ; 9166 20 25 12                  %.
-	lda     L00C3                           ; 9169 A5 C3                    ..
-	bpl     L917D                           ; 916B 10 10                    ..
-L916D:  dec     L00C8                           ; 916D C6 C8                    ..
-	bmi     L918C                           ; 916F 30 1B                    0.
-	ldy     L00CF                           ; 9171 A4 CF                    ..
-	lda     L053D,y                         ; 9173 B9 3D 05                 .=.
-	jsr     L1222                           ; 9176 20 22 12                  ".
-	inc     L00CF                           ; 9179 E6 CF                    ..
-	bne     L916D                           ; 917B D0 F0                    ..
-L917D:  dec     L00C8                           ; 917D C6 C8                    ..
-	bmi     L918C                           ; 917F 30 0B                    0.
-	ldy     L00CE                           ; 9181 A4 CE                    ..
-	lda     (L009F),y                       ; 9183 B1 9F                    ..
-	jsr     L1222                           ; 9185 20 22 12                  ".
-	inc     L00CE                           ; 9188 E6 CE                    ..
-	bne     L917D                           ; 918A D0 F1                    ..
-L918C:  lda     #$20                            ; 918C A9 20                    . 
-	ldy     L0059                           ; 918E A4 59                    .Y
-	jmp     L1225                           ; 9190 4C 25 12                 L%.
+L90FB:  sta     L00CF                   	; 90FB 85 CF                    ..
+	lda     L00EC                   	; 90FD A5 EC                    ..
+	sec                             	; 90FF 38                       8
+	sbc     L00CF                   	; 9100 E5 CF                    ..
+	beq     L9106                   	; 9102 F0 02                    ..
+	bcs     L9109                   	; 9104 B0 03                    ..
+L9106:  jsr     L9442                   	; 9106 20 42 94                  B.
+L9109:  sta     L00CE                   	; 9109 85 CE                    ..
+	lda     L00C5                   	; 910B A5 C5                    ..
+	and     #$10                    	; 910D 29 10                    ).
+L910F:  beq     L9115                   	; 910F F0 04                    ..
+	lda     #$00                    	; 9111 A9 00                    ..
+	beq     L911B                   	; 9113 F0 06                    ..
+L9115:  lda     L00CF                   	; 9115 A5 CF                    ..
+	bit     L00C5                   	; 9117 24 C5                    $.
+	bvc     L912E                   	; 9119 50 13                    P.
+L911B:  sta     L0058                   	; 911B 85 58                    .X
+	lda     L00CE                   	; 911D A5 CE                    ..
+	sec                             	; 911F 38                       8
+	sbc     L00C8                   	; 9120 E5 C8                    ..
+	bcc     L9128                   	; 9122 90 04                    ..
+	sta     L0059                   	; 9124 85 59                    .Y
+	bcs     L9159                   	; 9126 B0 31                    .1
+L9128:  lda     L00CE                   	; 9128 A5 CE                    ..
+	sta     L00C8                   	; 912A 85 C8                    ..
+	bpl     L9159                   	; 912C 10 2B                    .+
+L912E:  sta     L0059                   	; 912E 85 59                    .Y
+	lda     L00CE                   	; 9130 A5 CE                    ..
+	sec                             	; 9132 38                       8
+	sbc     L00C8                   	; 9133 E5 C8                    ..
+	bcc     L913B                   	; 9135 90 04                    ..
+	sta     L0058                   	; 9137 85 58                    .X
+	bcs     L9159                   	; 9139 B0 1E                    ..
+L913B:  eor     #$FF                    	; 913B 49 FF                    I.
+	adc     #$01                    	; 913D 69 01                    i.
+	ldx     L00CE                   	; 913F A6 CE                    ..
+	stx     L00C8                   	; 9141 86 C8                    ..
+	bpl     L915B                   	; 9143 10 16                    ..
+L9145:  lda     L00EC                   	; 9145 A5 EC                    ..
+	sec                             	; 9147 38                       8
+	sbc     L00C8                   	; 9148 E5 C8                    ..
+	bcc     L9155                   	; 914A 90 09                    ..
+	lsr     a                       	; 914C 4A                       J
+	sta     L0058                   	; 914D 85 58                    .X
+	adc     #$00                    	; 914F 69 00                    i.
+	sta     L0059                   	; 9151 85 59                    .Y
+	bpl     L9159                   	; 9153 10 04                    ..
+L9155:  lda     L00EC                   	; 9155 A5 EC                    ..
+	sta     L00C8                   	; 9157 85 C8                    ..
+L9159:  lda     #$00                    	; 9159 A9 00                    ..
+L915B:  clc                             	; 915B 18                       .
+	sta     L00CF                   	; 915C 85 CF                    ..
+	adc     #$03                    	; 915E 69 03                    i.
+	sta     L00CE                   	; 9160 85 CE                    ..
+	lda     #$20                    	; 9162 A9 20                    . 
+	ldy     L0058                   	; 9164 A4 58                    .X
+	jsr     L1225                   	; 9166 20 25 12                  %.
+	lda     L00C3                   	; 9169 A5 C3                    ..
+	bpl     L917D                   	; 916B 10 10                    ..
+L916D:  dec     L00C8                   	; 916D C6 C8                    ..
+	bmi     L918C                   	; 916F 30 1B                    0.
+	ldy     L00CF                   	; 9171 A4 CF                    ..
+	lda     L053D,y                 	; 9173 B9 3D 05                 .=.
+	jsr     L1222                   	; 9176 20 22 12                  ".
+	inc     L00CF                   	; 9179 E6 CF                    ..
+	bne     L916D                   	; 917B D0 F0                    ..
+L917D:  dec     L00C8                   	; 917D C6 C8                    ..
+	bmi     L918C                   	; 917F 30 0B                    0.
+	ldy     L00CE                   	; 9181 A4 CE                    ..
+	lda     (L009F),y               	; 9183 B1 9F                    ..
+	jsr     L1222                   	; 9185 20 22 12                  ".
+	inc     L00CE                   	; 9188 E6 CE                    ..
+	bne     L917D                   	; 918A D0 F1                    ..
+L918C:  lda     #$20                    	; 918C A9 20                    . 
+	ldy     L0059                   	; 918E A4 59                    .Y
+	jmp     L1225                   	; 9190 4C 25 12                 L%.
 
 ; ----------------------------------------------------------------------------
-L9193:  jsr     L945D                           ; 9193 20 5D 94                  ].
-	lda     #$02                            ; 9196 A9 02                    ..
-	sta     L19F4                           ; 9198 8D F4 19                 ...
-	ldx     L00D4                           ; 919B A6 D4                    ..
-	beq     L91C1                           ; 919D F0 22                    ."
-L919F:  lda     L00D5                           ; 919F A5 D5                    ..
-	and     #$F0                            ; 91A1 29 F0                    ).
-	sta     L00CE                           ; 91A3 85 CE                    ..
-	ldx     L19F4                           ; 91A5 AE F4 19                 ...
-	dex                                     ; 91A8 CA                       .
-	beq     L91B3                           ; 91A9 F0 08                    ..
-	lda     L00C4                           ; 91AB A5 C4                    ..
-	and     #$08                            ; 91AD 29 08                    ).
-	beq     L91B3                           ; 91AF F0 02                    ..
-	inc     L00D4                           ; 91B1 E6 D4                    ..
-L91B3:  lda     L00D4                           ; 91B3 A5 D4                    ..
-	and     #$7F                            ; 91B5 29 7F                    ).
-	sec                                     ; 91B7 38                       8
-	sbc     #$40                            ; 91B8 E9 40                    .@
-	asl     a                               ; 91BA 0A                       .
-	tax                                     ; 91BB AA                       .
-	lda     L00CE                           ; 91BC A5 CE                    ..
-	beq     L91C1                           ; 91BE F0 01                    ..
-	inx                                     ; 91C0 E8                       .
-L91C1:  stx     L0052                           ; 91C1 86 52                    .R
-	txa                                     ; 91C3 8A                       .
-	bpl     L91CB                           ; 91C4 10 05                    ..
-	eor     #$FF                            ; 91C6 49 FF                    I.
-	clc                                     ; 91C8 18                       .
-	adc     #$01                            ; 91C9 69 01                    i.
-L91CB:  sta     L0053                           ; 91CB 85 53                    .S
-	lda     L00C3                           ; 91CD A5 C3                    ..
-	lsr     a                               ; 91CF 4A                       J
-	lsr     a                               ; 91D0 4A                       J
-	and     #$0F                            ; 91D1 29 0F                    ).
-	sta     L0054                           ; 91D3 85 54                    .T
-	lda     L00C4                           ; 91D5 A5 C4                    ..
-	and     #$C0                            ; 91D7 29 C0                    ).
-	beq     L9241                           ; 91D9 F0 66                    .f
-	cmp     #$40                            ; 91DB C9 40                    .@
-	bne     L91E2                           ; 91DD D0 03                    ..
-	jmp     L9268                           ; 91DF 4C 68 92                 Lh.
+L9193:  jsr     L945D                   	; 9193 20 5D 94                  ].
+	lda     #$02                    	; 9196 A9 02                    ..
+	sta     L19F4                   	; 9198 8D F4 19                 ...
+	ldx     L00D4                   	; 919B A6 D4                    ..
+	beq     L91C1                   	; 919D F0 22                    ."
+L919F:  lda     L00D5                   	; 919F A5 D5                    ..
+	and     #$F0                    	; 91A1 29 F0                    ).
+	sta     L00CE                   	; 91A3 85 CE                    ..
+	ldx     L19F4                   	; 91A5 AE F4 19                 ...
+	dex                             	; 91A8 CA                       .
+	beq     L91B3                   	; 91A9 F0 08                    ..
+	lda     L00C4                   	; 91AB A5 C4                    ..
+	and     #$08                    	; 91AD 29 08                    ).
+	beq     L91B3                   	; 91AF F0 02                    ..
+	inc     L00D4                   	; 91B1 E6 D4                    ..
+L91B3:  lda     L00D4                   	; 91B3 A5 D4                    ..
+	and     #$7F                    	; 91B5 29 7F                    ).
+	sec                             	; 91B7 38                       8
+	sbc     #$40                    	; 91B8 E9 40                    .@
+	asl     a                       	; 91BA 0A                       .
+	tax                             	; 91BB AA                       .
+	lda     L00CE                   	; 91BC A5 CE                    ..
+	beq     L91C1                   	; 91BE F0 01                    ..
+	inx                             	; 91C0 E8                       .
+L91C1:  stx     L0052                   	; 91C1 86 52                    .R
+	txa                             	; 91C3 8A                       .
+	bpl     L91CB                   	; 91C4 10 05                    ..
+	eor     #$FF                    	; 91C6 49 FF                    I.
+	clc                             	; 91C8 18                       .
+	adc     #$01                    	; 91C9 69 01                    i.
+L91CB:  sta     L0053                   	; 91CB 85 53                    .S
+	lda     L00C3                   	; 91CD A5 C3                    ..
+	lsr     a                       	; 91CF 4A                       J
+	lsr     a                       	; 91D0 4A                       J
+	and     #$0F                    	; 91D1 29 0F                    ).
+	sta     L0054                   	; 91D3 85 54                    .T
+	lda     L00C4                   	; 91D5 A5 C4                    ..
+	and     #$C0                    	; 91D7 29 C0                    ).
+	beq     L9241                   	; 91D9 F0 66                    .f
+	cmp     #$40                    	; 91DB C9 40                    .@
+	bne     L91E2                   	; 91DD D0 03                    ..
+	jmp     L9268                   	; 91DF 4C 68 92                 Lh.
 
 ; ----------------------------------------------------------------------------
-L91E2:  cmp     #$C0                            ; 91E2 C9 C0                    ..
-	beq     L91FC                           ; 91E4 F0 16                    ..
-	lda     #$01                            ; 91E6 A9 01                    ..
-	sta     L0055                           ; 91E8 85 55                    .U
-	lda     L0054                           ; 91EA A5 54                    .T
-	cmp     #$02                            ; 91EC C9 02                    ..
-	bcs     L91F2                           ; 91EE B0 02                    ..
-	lda     #$02                            ; 91F0 A9 02                    ..
-L91F2:  sta     L0056                           ; 91F2 85 56                    .V
-	sta     L19B8                           ; 91F4 8D B8 19                 ...
-	sta     L0054                           ; 91F7 85 54                    .T
-	jmp     L9291                           ; 91F9 4C 91 92                 L..
+L91E2:  cmp     #$C0                    	; 91E2 C9 C0                    ..
+	beq     L91FC                   	; 91E4 F0 16                    ..
+	lda     #$01                    	; 91E6 A9 01                    ..
+	sta     L0055                   	; 91E8 85 55                    .U
+	lda     L0054                   	; 91EA A5 54                    .T
+	cmp     #$02                    	; 91EC C9 02                    ..
+	bcs     L91F2                   	; 91EE B0 02                    ..
+	lda     #$02                    	; 91F0 A9 02                    ..
+L91F2:  sta     L0056                   	; 91F2 85 56                    .V
+	sta     L19B8                   	; 91F4 8D B8 19                 ...
+	sta     L0054                   	; 91F7 85 54                    .T
+	jmp     L9291                   	; 91F9 4C 91 92                 L..
 
 ; ----------------------------------------------------------------------------
-L91FC:  lda     L0053                           ; 91FC A5 53                    .S
-	lsr     a                               ; 91FE 4A                       J
-	lsr     a                               ; 91FF 4A                       J
-	sta     L00CE                           ; 9200 85 CE                    ..
-	asl     a                               ; 9202 0A                       .
-	clc                                     ; 9203 18                       .
-	adc     L00CE                           ; 9204 65 CE                    e.
-L9206:  cmp     L0053                           ; 9206 C5 53                    .S
-	bcs     L920E                           ; 9208 B0 04                    ..
-	adc     #$03                            ; 920A 69 03                    i.
-	bne     L9206                           ; 920C D0 F8                    ..
-L920E:  bit     L00D4                           ; 920E 24 D4                    $.
-	bvc     L9222                           ; 9210 50 10                    P.
-	cmp     L0053                           ; 9212 C5 53                    .S
-	beq     L9218                           ; 9214 F0 02                    ..
-	sbc     #$03                            ; 9216 E9 03                    ..
-L9218:  sta     L00CE                           ; 9218 85 CE                    ..
-	lda     L0053                           ; 921A A5 53                    .S
-	sec                                     ; 921C 38                       8
-	sbc     L00CE                           ; 921D E5 CE                    ..
-	jmp     L9227                           ; 921F 4C 27 92                 L'.
+L91FC:  lda     L0053                   	; 91FC A5 53                    .S
+	lsr     a                       	; 91FE 4A                       J
+	lsr     a                       	; 91FF 4A                       J
+	sta     L00CE                   	; 9200 85 CE                    ..
+	asl     a                       	; 9202 0A                       .
+	clc                             	; 9203 18                       .
+	adc     L00CE                   	; 9204 65 CE                    e.
+L9206:  cmp     L0053                   	; 9206 C5 53                    .S
+	bcs     L920E                   	; 9208 B0 04                    ..
+	adc     #$03                    	; 920A 69 03                    i.
+	bne     L9206                   	; 920C D0 F8                    ..
+L920E:  bit     L00D4                   	; 920E 24 D4                    $.
+	bvc     L9222                   	; 9210 50 10                    P.
+	cmp     L0053                   	; 9212 C5 53                    .S
+	beq     L9218                   	; 9214 F0 02                    ..
+	sbc     #$03                    	; 9216 E9 03                    ..
+L9218:  sta     L00CE                   	; 9218 85 CE                    ..
+	lda     L0053                   	; 921A A5 53                    .S
+	sec                             	; 921C 38                       8
+	sbc     L00CE                   	; 921D E5 CE                    ..
+	jmp     L9227                   	; 921F 4C 27 92                 L'.
 
 ; ----------------------------------------------------------------------------
-L9222:  sta     L00CE                           ; 9222 85 CE                    ..
-	sec                                     ; 9224 38                       8
-	sbc     L0053                           ; 9225 E5 53                    .S
-L9227:  adc     #$00                            ; 9227 69 00                    i.
-	sta     L0055                           ; 9229 85 55                    .U
-	lda     L00CE                           ; 922B A5 CE                    ..
-	sta     L0053                           ; 922D 85 53                    .S
-	lda     L0054                           ; 922F A5 54                    .T
-	cmp     #$04                            ; 9231 C9 04                    ..
-	bcs     L9237                           ; 9233 B0 02                    ..
-	lda     #$04                            ; 9235 A9 04                    ..
-L9237:  sta     L0056                           ; 9237 85 56                    .V
-	sta     L19B8                           ; 9239 8D B8 19                 ...
-	sta     L0054                           ; 923C 85 54                    .T
-	jmp     L9291                           ; 923E 4C 91 92                 L..
+L9222:  sta     L00CE                   	; 9222 85 CE                    ..
+	sec                             	; 9224 38                       8
+	sbc     L0053                   	; 9225 E5 53                    .S
+L9227:  adc     #$00                    	; 9227 69 00                    i.
+	sta     L0055                   	; 9229 85 55                    .U
+	lda     L00CE                   	; 922B A5 CE                    ..
+	sta     L0053                   	; 922D 85 53                    .S
+	lda     L0054                   	; 922F A5 54                    .T
+	cmp     #$04                    	; 9231 C9 04                    ..
+	bcs     L9237                   	; 9233 B0 02                    ..
+	lda     #$04                    	; 9235 A9 04                    ..
+L9237:  sta     L0056                   	; 9237 85 56                    .V
+	sta     L19B8                   	; 9239 8D B8 19                 ...
+	sta     L0054                   	; 923C 85 54                    .T
+	jmp     L9291                   	; 923E 4C 91 92                 L..
 
 ; ----------------------------------------------------------------------------
-L9241:  lda     L0052                           ; 9241 A5 52                    .R
-	sec                                     ; 9243 38                       8
-	adc     L0054                           ; 9244 65 54                    eT
-	sta     L19B8                           ; 9246 8D B8 19                 ...
-	ldx     L0052                           ; 9249 A6 52                    .R
-	bpl     L9254                           ; 924B 10 07                    ..
-	ldx     #$00                            ; 924D A2 00                    ..
-	stx     L0055                           ; 924F 86 55                    .U
-	inx                                     ; 9251 E8                       .
-	bne     L9257                           ; 9252 D0 03                    ..
-L9254:  inx                                     ; 9254 E8                       .
-	stx     L0055                           ; 9255 86 55                    .U
-L9257:  txa                                     ; 9257 8A                       .
-	clc                                     ; 9258 18                       .
-	adc     L0054                           ; 9259 65 54                    eT
-L925B:  sta     L0056                           ; 925B 85 56                    .V
-	cmp     #$0A                            ; 925D C9 0A                    ..
-	bcc     L9263                           ; 925F 90 02                    ..
-	lda     #$0A                            ; 9261 A9 0A                    ..
-L9263:  sta     L0054                           ; 9263 85 54                    .T
-	jmp     L9291                           ; 9265 4C 91 92                 L..
+L9241:  lda     L0052                   	; 9241 A5 52                    .R
+	sec                             	; 9243 38                       8
+	adc     L0054                   	; 9244 65 54                    eT
+	sta     L19B8                   	; 9246 8D B8 19                 ...
+	ldx     L0052                   	; 9249 A6 52                    .R
+	bpl     L9254                   	; 924B 10 07                    ..
+	ldx     #$00                    	; 924D A2 00                    ..
+	stx     L0055                   	; 924F 86 55                    .U
+	inx                             	; 9251 E8                       .
+	bne     L9257                   	; 9252 D0 03                    ..
+L9254:  inx                             	; 9254 E8                       .
+	stx     L0055                   	; 9255 86 55                    .U
+L9257:  txa                             	; 9257 8A                       .
+	clc                             	; 9258 18                       .
+	adc     L0054                   	; 9259 65 54                    eT
+L925B:  sta     L0056                   	; 925B 85 56                    .V
+	cmp     #$0A                    	; 925D C9 0A                    ..
+	bcc     L9263                   	; 925F 90 02                    ..
+	lda     #$0A                    	; 9261 A9 0A                    ..
+L9263:  sta     L0054                   	; 9263 85 54                    .T
+	jmp     L9291                   	; 9265 4C 91 92                 L..
 
 ; ----------------------------------------------------------------------------
-L9268:  ldx     L0052                           ; 9268 A6 52                    .R
-	bmi     L9283                           ; 926A 30 17                    0.
-	inx                                     ; 926C E8                       .
-	stx     L0055                           ; 926D 86 55                    .U
-	lda     L0054                           ; 926F A5 54                    .T
-	sec                                     ; 9271 38                       8
-	sbc     L0055                           ; 9272 E5 55                    .U
-	beq     L9278                           ; 9274 F0 02                    ..
-	bpl     L927A                           ; 9276 10 02                    ..
-L9278:  lda     #$01                            ; 9278 A9 01                    ..
-L927A:  clc                                     ; 927A 18                       .
-	adc     L0055                           ; 927B 65 55                    eU
-	sta     L19B8                           ; 927D 8D B8 19                 ...
-	jmp     L925B                           ; 9280 4C 5B 92                 L[.
+L9268:  ldx     L0052                   	; 9268 A6 52                    .R
+	bmi     L9283                   	; 926A 30 17                    0.
+	inx                             	; 926C E8                       .
+	stx     L0055                   	; 926D 86 55                    .U
+	lda     L0054                   	; 926F A5 54                    .T
+	sec                             	; 9271 38                       8
+	sbc     L0055                   	; 9272 E5 55                    .U
+	beq     L9278                   	; 9274 F0 02                    ..
+	bpl     L927A                   	; 9276 10 02                    ..
+L9278:  lda     #$01                    	; 9278 A9 01                    ..
+L927A:  clc                             	; 927A 18                       .
+	adc     L0055                   	; 927B 65 55                    eU
+	sta     L19B8                   	; 927D 8D B8 19                 ...
+	jmp     L925B                   	; 9280 4C 5B 92                 L[.
 
 ; ----------------------------------------------------------------------------
-L9283:  lda     #$00                            ; 9283 A9 00                    ..
-	sta     L0055                           ; 9285 85 55                    .U
-	lda     L0054                           ; 9287 A5 54                    .T
-	sta     L19B8                           ; 9289 8D B8 19                 ...
-	clc                                     ; 928C 18                       .
-	adc     L0053                           ; 928D 65 53                    eS
-	sta     L0056                           ; 928F 85 56                    .V
-L9291:  lda     L00C5                           ; 9291 A5 C5                    ..
-	and     #$30                            ; 9293 29 30                    )0
-	beq     L92A3                           ; 9295 F0 0C                    ..
-	and     #$10                            ; 9297 29 10                    ).
-	beq     L929D                           ; 9299 F0 02                    ..
-	lda     #$FA                            ; 929B A9 FA                    ..
-L929D:  clc                                     ; 929D 18                       .
-	adc     #$45                            ; 929E 69 45                    iE
-	jmp     L9444                           ; 92A0 4C 44 94                 LD.
+L9283:  lda     #$00                    	; 9283 A9 00                    ..
+	sta     L0055                   	; 9285 85 55                    .U
+	lda     L0054                   	; 9287 A5 54                    .T
+	sta     L19B8                   	; 9289 8D B8 19                 ...
+	clc                             	; 928C 18                       .
+	adc     L0053                   	; 928D 65 53                    eS
+	sta     L0056                   	; 928F 85 56                    .V
+L9291:  lda     L00C5                   	; 9291 A5 C5                    ..
+	and     #$30                    	; 9293 29 30                    )0
+	beq     L92A3                   	; 9295 F0 0C                    ..
+	and     #$10                    	; 9297 29 10                    ).
+	beq     L929D                   	; 9299 F0 02                    ..
+	lda     #$FA                    	; 929B A9 FA                    ..
+L929D:  clc                             	; 929D 18                       .
+	adc     #$45                    	; 929E 69 45                    iE
+	jmp     L9444                   	; 92A0 4C 44 94                 LD.
 
 ; ----------------------------------------------------------------------------
-L92A3:  lda     L00D4                           ; 92A3 A5 D4                    ..
-	beq     L92ED                           ; 92A5 F0 46                    .F
-	lda     L0052                           ; 92A7 A5 52                    .R
-	clc                                     ; 92A9 18                       .
-	adc     #$80                            ; 92AA 69 80                    i.
-	sec                                     ; 92AC 38                       8
-	sbc     L19B8                           ; 92AD ED B8 19                 ...
-	tay                                     ; 92B0 A8                       .
-	lda     L00D4                           ; 92B1 A5 D4                    ..
-	asl     a                               ; 92B3 0A                       .
-	tya                                     ; 92B4 98                       .
-	ldx     #$05                            ; 92B5 A2 05                    ..
-	ror     a                               ; 92B7 6A                       j
-	bcc     L92BC                           ; 92B8 90 02                    ..
-	ldx     #$50                            ; 92BA A2 50                    .P
-L92BC:  sta     L00E0                           ; 92BC 85 E0                    ..
-	stx     L00E1                           ; 92BE 86 E1                    ..
-	lda     #$00                            ; 92C0 A9 00                    ..
-	ldx     #$04                            ; 92C2 A2 04                    ..
-L92C4:  sta     L00E1,x                         ; 92C4 95 E1                    ..
-	dex                                     ; 92C6 CA                       .
-	bne     L92C4                           ; 92C7 D0 FB                    ..
-	lda     L00D5                           ; 92C9 A5 D5                    ..
-	and     #$F0                            ; 92CB 29 F0                    ).
-	sta     L19F7                           ; 92CD 8D F7 19                 ...
-	jsr     LDA66                           ; 92D0 20 66 DA                  f.
-	lda     L00D5                           ; 92D3 A5 D5                    ..
-	and     #$F0                            ; 92D5 29 F0                    ).
-	beq     L92E0                           ; 92D7 F0 07                    ..
-	lda     L19F7                           ; 92D9 AD F7 19                 ...
-	beq     L92E5                           ; 92DC F0 07                    ..
-	bne     L92ED                           ; 92DE D0 0D                    ..
-L92E0:  lda     L19F7                           ; 92E0 AD F7 19                 ...
-	beq     L92ED                           ; 92E3 F0 08                    ..
-L92E5:  dec     L19F4                           ; 92E5 CE F4 19                 ...
-	beq     L92ED                           ; 92E8 F0 03                    ..
-	jmp     L919F                           ; 92EA 4C 9F 91                 L..
+L92A3:  lda     L00D4                   	; 92A3 A5 D4                    ..
+	beq     L92ED                   	; 92A5 F0 46                    .F
+	lda     L0052                   	; 92A7 A5 52                    .R
+	clc                             	; 92A9 18                       .
+	adc     #$80                    	; 92AA 69 80                    i.
+	sec                             	; 92AC 38                       8
+	sbc     L19B8                   	; 92AD ED B8 19                 ...
+	tay                             	; 92B0 A8                       .
+	lda     L00D4                   	; 92B1 A5 D4                    ..
+	asl     a                       	; 92B3 0A                       .
+	tya                             	; 92B4 98                       .
+	ldx     #$05                    	; 92B5 A2 05                    ..
+	ror     a                       	; 92B7 6A                       j
+	bcc     L92BC                   	; 92B8 90 02                    ..
+	ldx     #$50                    	; 92BA A2 50                    .P
+L92BC:  sta     L00E0                   	; 92BC 85 E0                    ..
+	stx     L00E1                   	; 92BE 86 E1                    ..
+	lda     #$00                    	; 92C0 A9 00                    ..
+	ldx     #$04                    	; 92C2 A2 04                    ..
+L92C4:  sta     L00E1,x                 	; 92C4 95 E1                    ..
+	dex                             	; 92C6 CA                       .
+	bne     L92C4                   	; 92C7 D0 FB                    ..
+	lda     L00D5                   	; 92C9 A5 D5                    ..
+	and     #$F0                    	; 92CB 29 F0                    ).
+	sta     L19F7                   	; 92CD 8D F7 19                 ...
+	jsr     LDA66                   	; 92D0 20 66 DA                  f.
+	lda     L00D5                   	; 92D3 A5 D5                    ..
+	and     #$F0                    	; 92D5 29 F0                    ).
+	beq     L92E0                   	; 92D7 F0 07                    ..
+	lda     L19F7                   	; 92D9 AD F7 19                 ...
+	beq     L92E5                   	; 92DC F0 07                    ..
+	bne     L92ED                   	; 92DE D0 0D                    ..
+L92E0:  lda     L19F7                   	; 92E0 AD F7 19                 ...
+	beq     L92ED                   	; 92E3 F0 08                    ..
+L92E5:  dec     L19F4                   	; 92E5 CE F4 19                 ...
+	beq     L92ED                   	; 92E8 F0 03                    ..
+	jmp     L919F                   	; 92EA 4C 9F 91                 L..
 
 ; ----------------------------------------------------------------------------
-L92ED:  ldx     #$01                            ; 92ED A2 01                    ..
-	ldy     #$01                            ; 92EF A0 01                    ..
-	lda     L00D5                           ; 92F1 A5 D5                    ..
-	and     #$F0                            ; 92F3 29 F0                    ).
-	sta     L00CE                           ; 92F5 85 CE                    ..
-	beq     L9306                           ; 92F7 F0 0D                    ..
-L92F9:  lda     L00D4,y                         ; 92F9 B9 D4 00                 ...
-	lsr     a                               ; 92FC 4A                       J
-	lsr     a                               ; 92FD 4A                       J
-	lsr     a                               ; 92FE 4A                       J
-	lsr     a                               ; 92FF 4A                       J
-	ora     #$30                            ; 9300 09 30                    .0
-	sta     L04FD,x                         ; 9302 9D FD 04                 ...
-	inx                                     ; 9305 E8                       .
-L9306:  lda     L00D4,y                         ; 9306 B9 D4 00                 ...
-	and     #$0F                            ; 9309 29 0F                    ).
-	ora     #$30                            ; 930B 09 30                    .0
-	sta     L04FD,x                         ; 930D 9D FD 04                 ...
-	inx                                     ; 9310 E8                       .
-	iny                                     ; 9311 C8                       .
-	cpy     #$06                            ; 9312 C0 06                    ..
-	bne     L92F9                           ; 9314 D0 E3                    ..
-	lda     L00CE                           ; 9316 A5 CE                    ..
-	bne     L9320                           ; 9318 D0 06                    ..
-	lda     #$30                            ; 931A A9 30                    .0
-	sta     L04FD,x                         ; 931C 9D FD 04                 ...
-	inx                                     ; 931F E8                       .
-L9320:  lda     L0053                           ; 9320 A5 53                    .S
-	jsr     L94CE                           ; 9322 20 CE 94                  ..
+L92ED:  ldx     #$01                    	; 92ED A2 01                    ..
+	ldy     #$01                    	; 92EF A0 01                    ..
+	lda     L00D5                   	; 92F1 A5 D5                    ..
+	and     #$F0                    	; 92F3 29 F0                    ).
+	sta     L00CE                   	; 92F5 85 CE                    ..
+	beq     L9306                   	; 92F7 F0 0D                    ..
+L92F9:  lda     L00D4,y                 	; 92F9 B9 D4 00                 ...
+	lsr     a                       	; 92FC 4A                       J
+	lsr     a                       	; 92FD 4A                       J
+	lsr     a                       	; 92FE 4A                       J
+	lsr     a                       	; 92FF 4A                       J
+	ora     #$30                    	; 9300 09 30                    .0
+	sta     L04FD,x                 	; 9302 9D FD 04                 ...
+	inx                             	; 9305 E8                       .
+L9306:  lda     L00D4,y                 	; 9306 B9 D4 00                 ...
+	and     #$0F                    	; 9309 29 0F                    ).
+	ora     #$30                    	; 930B 09 30                    .0
+	sta     L04FD,x                 	; 930D 9D FD 04                 ...
+	inx                             	; 9310 E8                       .
+	iny                             	; 9311 C8                       .
+	cpy     #$06                    	; 9312 C0 06                    ..
+	bne     L92F9                   	; 9314 D0 E3                    ..
+	lda     L00CE                   	; 9316 A5 CE                    ..
+	bne     L9320                   	; 9318 D0 06                    ..
+	lda     #$30                    	; 931A A9 30                    .0
+	sta     L04FD,x                 	; 931C 9D FD 04                 ...
+	inx                             	; 931F E8                       .
+L9320:  lda     L0053                   	; 9320 A5 53                    .S
+	jsr     L94CE                   	; 9322 20 CE 94                  ..
 	lda	L00E7
-	lsr     a                               ; 9327 4A                       J
-	lsr     a                               ; 9328 4A                       J
-	lsr     a                               ; 9329 4A                       J
-	lsr     a                               ; 932A 4A                       J
-	ora     #$30                            ; 932B 09 30                    .0
-	sta     L0508                           ; 932D 8D 08 05                 ...
-	lda     L00E7                           ; 9330 A5 E7                    ..
-	and     #$0F                            ; 9332 29 0F                    ).
-	ora     #$30                            ; 9334 09 30                    .0
-	sta     L0509                           ; 9336 8D 09 05                 ...
-	ldx     #$00                            ; 9339 A2 00                    ..
-	bit     L00D4                           ; 933B 24 D4                    $.
-	bpl     L9352                           ; 933D 10 13                    ..
-	lda     L00C4                           ; 933F A5 C4                    ..
-	and     #$03                            ; 9341 29 03                    ).
-	bne     L9349                           ; 9343 D0 04                    ..
-	lda     #$2D                            ; 9345 A9 2D                    .-
-	bne     L934E                           ; 9347 D0 05                    ..
-L9349:  lsr     a                               ; 9349 4A                       J
-	bcs     L9352                           ; 934A B0 06                    ..
-	lda     #$28                            ; 934C A9 28                    .(
-L934E:  sta     L053D,x                         ; 934E 9D 3D 05                 .=.
-	inx                                     ; 9351 E8                       .
-L9352:  lda     L00C4                           ; 9352 A5 C4                    ..
-	and     #$10                            ; 9354 29 10                    ).
-	beq     L935E                           ; 9356 F0 06                    ..
-	lda     #$24                            ; 9358 A9 24                    .$
-	sta     L053D,x                         ; 935A 9D 3D 05                 .=.
-	inx                                     ; 935D E8                       .
-L935E:  lda     L00C4                           ; 935E A5 C4                    ..
-	and     #$20                            ; 9360 29 20                    ) 
-	beq     L9370                           ; 9362 F0 0C                    ..
-	lda     L0055                           ; 9364 A5 55                    .U
-L9366:  sec                                     ; 9366 38                       8
-	sbc     #$03                            ; 9367 E9 03                    ..
-	beq     L936E                           ; 9369 F0 03                    ..
-	bcs     L9366                           ; 936B B0 F9                    ..
-	sec                                     ; 936D 38                       8
-L936E:  adc     #$02                            ; 936E 69 02                    i.
-L9370:  sta     L19B7                           ; 9370 8D B7 19                 ...
-	ldy     #$01                            ; 9373 A0 01                    ..
-	lda     L0055                           ; 9375 A5 55                    .U
-	bne     L9385                           ; 9377 D0 0C                    ..
-	lda     #$30                            ; 9379 A9 30                    .0
-	sta     L053D,x                         ; 937B 9D 3D 05                 .=.
-	inx                                     ; 937E E8                       .
-	dec     L0056                           ; 937F C6 56                    .V
-	bne     L93AB                           ; 9381 D0 28                    .(
-	beq     L93CF                           ; 9383 F0 4A                    .J
-L9385:  lda     #$30                            ; 9385 A9 30                    .0
-	dec     L0054                           ; 9387 C6 54                    .T
-	bmi     L938F                           ; 9389 30 04                    0.
-	lda     L04FD,y                         ; 938B B9 FD 04                 ...
-	iny                                     ; 938E C8                       .
-L938F:  sta     L053D,x                         ; 938F 9D 3D 05                 .=.
-	inx                                     ; 9392 E8                       .
-	dec     L0056                           ; 9393 C6 56                    .V
-	dec     L0055                           ; 9395 C6 55                    .U
-	beq     L93AB                           ; 9397 F0 12                    ..
-	dec     L19B7                           ; 9399 CE B7 19                 ...
-	bne     L9385                           ; 939C D0 E7                    ..
-	lda     #$2C                            ; 939E A9 2C                    .,
-	sta     L053D,x                         ; 93A0 9D 3D 05                 .=.
-	inx                                     ; 93A3 E8                       .
-	lda     #$03                            ; 93A4 A9 03                    ..
-	sta     L19B7                           ; 93A6 8D B7 19                 ...
-	bne     L9385                           ; 93A9 D0 DA                    ..
-L93AB:  lda     L0056                           ; 93AB A5 56                    .V
-	beq     L93F4                           ; 93AD F0 45                    .E
-	lda     #$2E                            ; 93AF A9 2E                    ..
-	sta     L053D,x                         ; 93B1 9D 3D 05                 .=.
-	inx                                     ; 93B4 E8                       .
-L93B5:  lda     #$30                            ; 93B5 A9 30                    .0
-	bit     L00C4                           ; 93B7 24 C4                    $.
-	bmi     L93BF                           ; 93B9 30 04                    0.
-	inc     L0052                           ; 93BB E6 52                    .R
-	bmi     L93C7                           ; 93BD 30 08                    0.
-L93BF:  dec     L0054                           ; 93BF C6 54                    .T
-	bmi     L93C7                           ; 93C1 30 04                    0.
-	lda     L04FD,y                         ; 93C3 B9 FD 04                 ...
-	iny                                     ; 93C6 C8                       .
-L93C7:  sta     L053D,x                         ; 93C7 9D 3D 05                 .=.
-	inx                                     ; 93CA E8                       .
-	dec     L0056                           ; 93CB C6 56                    .V
-	bne     L93B5                           ; 93CD D0 E6                    ..
-L93CF:  lda     L00C4                           ; 93CF A5 C4                    ..
-	bpl     L93F4                           ; 93D1 10 21                    .!
-	lda     #$2B                            ; 93D3 A9 2B                    .+
-	sta     L053D,x                         ; 93D5 9D 3D 05                 .=.
-	lda     L00D4                           ; 93D8 A5 D4                    ..
-	beq     L93E4                           ; 93DA F0 08                    ..
-	asl     a                               ; 93DC 0A                       .
-	bmi     L93E4                           ; 93DD 30 05                    0.
-	lda     #$2D                            ; 93DF A9 2D                    .-
-	sta     L053D,x                         ; 93E1 9D 3D 05                 .=.
-L93E4:  inx                                     ; 93E4 E8                       .
-	lda     L0508                           ; 93E5 AD 08 05                 ...
-	sta     L053D,x                         ; 93E8 9D 3D 05                 .=.
-	inx                                     ; 93EB E8                       .
-	iny                                     ; 93EC C8                       .
-	lda     L0509                           ; 93ED AD 09 05                 ...
-	sta     L053D,x                         ; 93F0 9D 3D 05                 .=.
-	inx                                     ; 93F3 E8                       .
-L93F4:  lda     L00C4                           ; 93F4 A5 C4                    ..
-	lsr     a                               ; 93F6 4A                       J
-	bcc     L9413                           ; 93F7 90 1A                    ..
-	lda     #$20                            ; 93F9 A9 20                    . 
-	sta     L053D,x                         ; 93FB 9D 3D 05                 .=.
-	inx                                     ; 93FE E8                       .
-	ldy     #$43                            ; 93FF A0 43                    .C
-	bit     L00D4                           ; 9401 24 D4                    $.
-	bmi     L9406                           ; 9403 30 01                    0.
-	iny                                     ; 9405 C8                       .
-L9406:  tya                                     ; 9406 98                       .
-	sta     L053D,x                         ; 9407 9D 3D 05                 .=.
-	inx                                     ; 940A E8                       .
-	lda     #$52                            ; 940B A9 52                    .R
-	sta     L053D,x                         ; 940D 9D 3D 05                 .=.
-	inx                                     ; 9410 E8                       .
-	bne     L9422                           ; 9411 D0 0F                    ..
-L9413:  lsr     a                               ; 9413 4A                       J
-	bcc     L9422                           ; 9414 90 0C                    ..
-	lda     #$20                            ; 9416 A9 20                    . 
-	bit     L00D4                           ; 9418 24 D4                    $.
-	bpl     L941E                           ; 941A 10 02                    ..
-	lda     #$29                            ; 941C A9 29                    .)
-L941E:  sta     L053D,x                         ; 941E 9D 3D 05                 .=.
-	inx                                     ; 9421 E8                       .
-L9422:  lda     L00C4                           ; 9422 A5 C4                    ..
-	and     #$08                            ; 9424 29 08                    ).
-	beq     L942E                           ; 9426 F0 06                    ..
-	lda     #$25                            ; 9428 A9 25                    .%
-	sta     L053D,x                         ; 942A 9D 3D 05                 .=.
-	inx                                     ; 942D E8                       .
-L942E:  stx     L00C7                           ; 942E 86 C7                    ..
-	lda     L00C5                           ; 9430 A5 C5                    ..
-	and     #$07                            ; 9432 29 07                    ).
-	sta     L00CE                           ; 9434 85 CE                    ..
-	lda     L00EC                           ; 9436 A5 EC                    ..
-	sec                                     ; 9438 38                       8
-	sbc     L00CE                           ; 9439 E5 CE                    ..
-	bcc     L9442                           ; 943B 90 05                    ..
-	cmp     L00C7                           ; 943D C5 C7                    ..
-	bcc     L9442                           ; 943F 90 01                    ..
-	rts                                     ; 9441 60                       `
+	lsr     a                       	; 9327 4A                       J
+	lsr     a                       	; 9328 4A                       J
+	lsr     a                       	; 9329 4A                       J
+	lsr     a                       	; 932A 4A                       J
+	ora     #$30                    	; 932B 09 30                    .0
+	sta     L0508                   	; 932D 8D 08 05                 ...
+	lda     L00E7                   	; 9330 A5 E7                    ..
+	and     #$0F                    	; 9332 29 0F                    ).
+	ora     #$30                    	; 9334 09 30                    .0
+	sta     L0509                   	; 9336 8D 09 05                 ...
+	ldx     #$00                    	; 9339 A2 00                    ..
+	bit     L00D4                   	; 933B 24 D4                    $.
+	bpl     L9352                   	; 933D 10 13                    ..
+	lda     L00C4                   	; 933F A5 C4                    ..
+	and     #$03                    	; 9341 29 03                    ).
+	bne     L9349                   	; 9343 D0 04                    ..
+	lda     #$2D                    	; 9345 A9 2D                    .-
+	bne     L934E                   	; 9347 D0 05                    ..
+L9349:  lsr     a                       	; 9349 4A                       J
+	bcs     L9352                   	; 934A B0 06                    ..
+	lda     #$28                    	; 934C A9 28                    .(
+L934E:  sta     L053D,x                 	; 934E 9D 3D 05                 .=.
+	inx                             	; 9351 E8                       .
+L9352:  lda     L00C4                   	; 9352 A5 C4                    ..
+	and     #$10                    	; 9354 29 10                    ).
+	beq     L935E                   	; 9356 F0 06                    ..
+	lda     #$24                    	; 9358 A9 24                    .$
+	sta     L053D,x                 	; 935A 9D 3D 05                 .=.
+	inx                             	; 935D E8                       .
+L935E:  lda     L00C4                   	; 935E A5 C4                    ..
+	and     #$20                    	; 9360 29 20                    ) 
+	beq     L9370                   	; 9362 F0 0C                    ..
+	lda     L0055                   	; 9364 A5 55                    .U
+L9366:  sec                             	; 9366 38                       8
+	sbc     #$03                    	; 9367 E9 03                    ..
+	beq     L936E                   	; 9369 F0 03                    ..
+	bcs     L9366                   	; 936B B0 F9                    ..
+	sec                             	; 936D 38                       8
+L936E:  adc     #$02                    	; 936E 69 02                    i.
+L9370:  sta     L19B7                   	; 9370 8D B7 19                 ...
+	ldy     #$01                    	; 9373 A0 01                    ..
+	lda     L0055                   	; 9375 A5 55                    .U
+	bne     L9385                   	; 9377 D0 0C                    ..
+	lda     #$30                    	; 9379 A9 30                    .0
+	sta     L053D,x                 	; 937B 9D 3D 05                 .=.
+	inx                             	; 937E E8                       .
+	dec     L0056                   	; 937F C6 56                    .V
+	bne     L93AB                   	; 9381 D0 28                    .(
+	beq     L93CF                   	; 9383 F0 4A                    .J
+L9385:  lda     #$30                    	; 9385 A9 30                    .0
+	dec     L0054                   	; 9387 C6 54                    .T
+	bmi     L938F                   	; 9389 30 04                    0.
+	lda     L04FD,y                 	; 938B B9 FD 04                 ...
+	iny                             	; 938E C8                       .
+L938F:  sta     L053D,x                 	; 938F 9D 3D 05                 .=.
+	inx                             	; 9392 E8                       .
+	dec     L0056                   	; 9393 C6 56                    .V
+	dec     L0055                   	; 9395 C6 55                    .U
+	beq     L93AB                   	; 9397 F0 12                    ..
+	dec     L19B7                   	; 9399 CE B7 19                 ...
+	bne     L9385                   	; 939C D0 E7                    ..
+	lda     #$2C                    	; 939E A9 2C                    .,
+	sta     L053D,x                 	; 93A0 9D 3D 05                 .=.
+	inx                             	; 93A3 E8                       .
+	lda     #$03                    	; 93A4 A9 03                    ..
+	sta     L19B7                   	; 93A6 8D B7 19                 ...
+	bne     L9385                   	; 93A9 D0 DA                    ..
+L93AB:  lda     L0056                   	; 93AB A5 56                    .V
+	beq     L93F4                   	; 93AD F0 45                    .E
+	lda     #$2E                    	; 93AF A9 2E                    ..
+	sta     L053D,x                 	; 93B1 9D 3D 05                 .=.
+	inx                             	; 93B4 E8                       .
+L93B5:  lda     #$30                    	; 93B5 A9 30                    .0
+	bit     L00C4                   	; 93B7 24 C4                    $.
+	bmi     L93BF                   	; 93B9 30 04                    0.
+	inc     L0052                   	; 93BB E6 52                    .R
+	bmi     L93C7                   	; 93BD 30 08                    0.
+L93BF:  dec     L0054                   	; 93BF C6 54                    .T
+	bmi     L93C7                   	; 93C1 30 04                    0.
+	lda     L04FD,y                 	; 93C3 B9 FD 04                 ...
+	iny                             	; 93C6 C8                       .
+L93C7:  sta     L053D,x                 	; 93C7 9D 3D 05                 .=.
+	inx                             	; 93CA E8                       .
+	dec     L0056                   	; 93CB C6 56                    .V
+	bne     L93B5                   	; 93CD D0 E6                    ..
+L93CF:  lda     L00C4                   	; 93CF A5 C4                    ..
+	bpl     L93F4                   	; 93D1 10 21                    .!
+	lda     #$2B                    	; 93D3 A9 2B                    .+
+	sta     L053D,x                 	; 93D5 9D 3D 05                 .=.
+	lda     L00D4                   	; 93D8 A5 D4                    ..
+	beq     L93E4                   	; 93DA F0 08                    ..
+	asl     a                       	; 93DC 0A                       .
+	bmi     L93E4                   	; 93DD 30 05                    0.
+	lda     #$2D                    	; 93DF A9 2D                    .-
+	sta     L053D,x                 	; 93E1 9D 3D 05                 .=.
+L93E4:  inx                             	; 93E4 E8                       .
+	lda     L0508                   	; 93E5 AD 08 05                 ...
+	sta     L053D,x                 	; 93E8 9D 3D 05                 .=.
+	inx                             	; 93EB E8                       .
+	iny                             	; 93EC C8                       .
+	lda     L0509                   	; 93ED AD 09 05                 ...
+	sta     L053D,x                 	; 93F0 9D 3D 05                 .=.
+	inx                             	; 93F3 E8                       .
+L93F4:  lda     L00C4                   	; 93F4 A5 C4                    ..
+	lsr     a                       	; 93F6 4A                       J
+	bcc     L9413                   	; 93F7 90 1A                    ..
+	lda     #$20                    	; 93F9 A9 20                    . 
+	sta     L053D,x                 	; 93FB 9D 3D 05                 .=.
+	inx                             	; 93FE E8                       .
+	ldy     #$43                    	; 93FF A0 43                    .C
+	bit     L00D4                   	; 9401 24 D4                    $.
+	bmi     L9406                   	; 9403 30 01                    0.
+	iny                             	; 9405 C8                       .
+L9406:  tya                             	; 9406 98                       .
+	sta     L053D,x                 	; 9407 9D 3D 05                 .=.
+	inx                             	; 940A E8                       .
+	lda     #$52                    	; 940B A9 52                    .R
+	sta     L053D,x                 	; 940D 9D 3D 05                 .=.
+	inx                             	; 9410 E8                       .
+	bne     L9422                   	; 9411 D0 0F                    ..
+L9413:  lsr     a                       	; 9413 4A                       J
+	bcc     L9422                   	; 9414 90 0C                    ..
+	lda     #$20                    	; 9416 A9 20                    . 
+	bit     L00D4                   	; 9418 24 D4                    $.
+	bpl     L941E                   	; 941A 10 02                    ..
+	lda     #$29                    	; 941C A9 29                    .)
+L941E:  sta     L053D,x                 	; 941E 9D 3D 05                 .=.
+	inx                             	; 9421 E8                       .
+L9422:  lda     L00C4                   	; 9422 A5 C4                    ..
+	and     #$08                    	; 9424 29 08                    ).
+	beq     L942E                   	; 9426 F0 06                    ..
+	lda     #$25                    	; 9428 A9 25                    .%
+	sta     L053D,x                 	; 942A 9D 3D 05                 .=.
+	inx                             	; 942D E8                       .
+L942E:  stx     L00C7                   	; 942E 86 C7                    ..
+	lda     L00C5                   	; 9430 A5 C5                    ..
+	and     #$07                    	; 9432 29 07                    ).
+	sta     L00CE                   	; 9434 85 CE                    ..
+	lda     L00EC                   	; 9436 A5 EC                    ..
+	sec                             	; 9438 38                       8
+	sbc     L00CE                   	; 9439 E5 CE                    ..
+	bcc     L9442                   	; 943B 90 05                    ..
+	cmp     L00C7                   	; 943D C5 C7                    ..
+	bcc     L9442                   	; 943F 90 01                    ..
+	rts                             	; 9441 60                       `
 
 ; ----------------------------------------------------------------------------
-L9442:  lda     #$3E                            ; 9442 A9 3E                    .>
-L9444:  ldy     L00EC                           ; 9444 A4 EC                    ..
-	dey                                     ; 9446 88                       .
-	bne     L944C                           ; 9447 D0 03                    ..
-	iny                                     ; 9449 C8                       .
-	bne     L9457                           ; 944A D0 0B                    ..
-L944C:  pha                                     ; 944C 48                       H
-	tya                                     ; 944D 98                       .
-	pha                                     ; 944E 48                       H
-	lda     #$20                            ; 944F A9 20                    . 
-	jsr     L1222                           ; 9451 20 22 12                  ".
-	pla                                     ; 9454 68                       h
-	tay                                     ; 9455 A8                       .
-	pla                                     ; 9456 68                       h
-L9457:  jsr     L1225                           ; 9457 20 25 12                  %.
-	pla                                     ; 945A 68                       h
-	pla                                     ; 945B 68                       h
-	rts                                     ; 945C 60                       `
+L9442:  lda     #$3E                    	; 9442 A9 3E                    .>
+L9444:  ldy     L00EC                   	; 9444 A4 EC                    ..
+	dey                             	; 9446 88                       .
+	bne     L944C                   	; 9447 D0 03                    ..
+	iny                             	; 9449 C8                       .
+	bne     L9457                   	; 944A D0 0B                    ..
+L944C:  pha                             	; 944C 48                       H
+	tya                             	; 944D 98                       .
+	pha                             	; 944E 48                       H
+	lda     #$20                    	; 944F A9 20                    . 
+	jsr     L1222                   	; 9451 20 22 12                  ".
+	pla                             	; 9454 68                       h
+	tay                             	; 9455 A8                       .
+	pla                             	; 9456 68                       h
+L9457:  jsr     L1225                   	; 9457 20 25 12                  %.
+	pla                             	; 945A 68                       h
+	pla                             	; 945B 68                       h
+	rts                             	; 945C 60                       `
 
 ; ----------------------------------------------------------------------------
-L945D:  ldy     #$08                            ; 945D A0 08                    ..
-	lda     L00A1                           ; 945F A5 A1                    ..
-	sta     LD301                           ; 9461 8D 01 D3                 ...
-	ldx     #$05                            ; 9464 A2 05                    ..
-L9466:  lda     (L009F),y                       ; 9466 B1 9F                    ..
-	sta     L00D4,x                         ; 9468 95 D4                    ..
-	dey                                     ; 946A 88                       .
-	dex                                     ; 946B CA                       .
-	bpl     L9466                           ; 946C 10 F8                    ..
-	rts                                     ; 946E 60                       `
+L945D:  ldy     #$08                    	; 945D A0 08                    ..
+	lda     L00A1                   	; 945F A5 A1                    ..
+	sta     LD301                   	; 9461 8D 01 D3                 ...
+	ldx     #$05                    	; 9464 A2 05                    ..
+L9466:  lda     (L009F),y               	; 9466 B1 9F                    ..
+	sta     L00D4,x                 	; 9468 95 D4                    ..
+	dey                             	; 946A 88                       .
+	dex                             	; 946B CA                       .
+	bpl     L9466                   	; 946C 10 F8                    ..
+	rts                             	; 946E 60                       `
 
 ; ----------------------------------------------------------------------------
-L946F:  lda     L00A1                           ; 946F A5 A1                    ..
-	sta     LD301                           ; 9471 8D 01 D3                 ...
-	lda     #$00                            ; 9474 A9 00                    ..
-	sta     L00CE                           ; 9476 85 CE                    ..
-	ldy     #$08                            ; 9478 A0 08                    ..
-	ldx     L00BA                           ; 947A A6 BA                    ..
-	cpx     #$06                            ; 947C E0 06                    ..
-	bne     L9482                           ; 947E D0 02                    ..
-	dec     L00CE                           ; 9480 C6 CE                    ..
-L9482:  lda     L04FC,x                         ; 9482 BD FC 04                 ...
-	and     L00CE                           ; 9485 25 CE                    %.
-	sta     (L009F),y                       ; 9487 91 9F                    ..
-	dex                                     ; 9489 CA                       .
-	dey                                     ; 948A 88                       .
-	cpy     #$02                            ; 948B C0 02                    ..
-	bne     L9482                           ; 948D D0 F3                    ..
-	dey                                     ; 948F 88                       .
-	lda     L00CE                           ; 9490 A5 CE                    ..
-	eor     #$FF                            ; 9492 49 FF                    I.
-	and     #$20                            ; 9494 29 20                    ) 
-	sta     L00CE                           ; 9496 85 CE                    ..
-	lda     (L009F),y                       ; 9498 B1 9F                    ..
-	and     #$DF                            ; 949A 29 DF                    ).
-	ora     L00CE                           ; 949C 05 CE                    ..
-	sta     (L009F),y                       ; 949E 91 9F                    ..
-	rts                                     ; 94A0 60                       `
+L946F:  lda     L00A1                   	; 946F A5 A1                    ..
+	sta     LD301                   	; 9471 8D 01 D3                 ...
+	lda     #$00                    	; 9474 A9 00                    ..
+	sta     L00CE                   	; 9476 85 CE                    ..
+	ldy     #$08                    	; 9478 A0 08                    ..
+	ldx     L00BA                   	; 947A A6 BA                    ..
+	cpx     #$06                    	; 947C E0 06                    ..
+	bne     L9482                   	; 947E D0 02                    ..
+	dec     L00CE                   	; 9480 C6 CE                    ..
+L9482:  lda     L04FC,x                 	; 9482 BD FC 04                 ...
+	and     L00CE                   	; 9485 25 CE                    %.
+	sta     (L009F),y               	; 9487 91 9F                    ..
+	dex                             	; 9489 CA                       .
+	dey                             	; 948A 88                       .
+	cpy     #$02                    	; 948B C0 02                    ..
+	bne     L9482                   	; 948D D0 F3                    ..
+	dey                             	; 948F 88                       .
+	lda     L00CE                   	; 9490 A5 CE                    ..
+	eor     #$FF                    	; 9492 49 FF                    I.
+	and     #$20                    	; 9494 29 20                    ) 
+	sta     L00CE                   	; 9496 85 CE                    ..
+	lda     (L009F),y               	; 9498 B1 9F                    ..
+	and     #$DF                    	; 949A 29 DF                    ).
+	ora     L00CE                   	; 949C 05 CE                    ..
+	sta     (L009F),y               	; 949E 91 9F                    ..
+	rts                             	; 94A0 60                       `
 
 ; ----------------------------------------------------------------------------
-L94A1:  lda     L00C2                           ; 94A1 A5 C2                    ..
-	bmi     L94B6                           ; 94A3 30 11                    0.
-L94A5:  lda     #$00                            ; 94A5 A9 00                    ..
-	ldx     L00BA                           ; 94A7 A6 BA                    ..
-	ldy     #$06                            ; 94A9 A0 06                    ..
-L94AB:  sta     L04FD,x                         ; 94AB 9D FD 04                 ...
-	inx                                     ; 94AE E8                       .
-	dey                                     ; 94AF 88                       .
-	bne     L94AB                           ; 94B0 D0 F9                    ..
-	stx     L00BA                           ; 94B2 86 BA                    ..
-	sec                                     ; 94B4 38                       8
-	rts                                     ; 94B5 60                       `
+L94A1:  lda     L00C2                   	; 94A1 A5 C2                    ..
+	bmi     L94B6                   	; 94A3 30 11                    0.
+L94A5:  lda     #$00                    	; 94A5 A9 00                    ..
+	ldx     L00BA                   	; 94A7 A6 BA                    ..
+	ldy     #$06                    	; 94A9 A0 06                    ..
+L94AB:  sta     L04FD,x                 	; 94AB 9D FD 04                 ...
+	inx                             	; 94AE E8                       .
+	dey                             	; 94AF 88                       .
+	bne     L94AB                   	; 94B0 D0 F9                    ..
+	stx     L00BA                   	; 94B2 86 BA                    ..
+	sec                             	; 94B4 38                       8
+	rts                             	; 94B5 60                       `
 
 ; ----------------------------------------------------------------------------
-L94B6:  lda     L00A6                           ; 94B6 A5 A6                    ..
-	sta     LD301                           ; 94B8 8D 01 D3                 ...
-	ldx     L00BA                           ; 94BB A6 BA                    ..
-	ldy     #$03                            ; 94BD A0 03                    ..
-L94BF:  lda     (L00A4),y                       ; 94BF B1 A4                    ..
-	sta     L04FD,x                         ; 94C1 9D FD 04                 ...
-	inx                                     ; 94C4 E8                       .
-	iny                                     ; 94C5 C8                       .
-	cpy     #$09                            ; 94C6 C0 09                    ..
-	bne     L94BF                           ; 94C8 D0 F5                    ..
-	stx     L00BA                           ; 94CA 86 BA                    ..
-	clc                                     ; 94CC 18                       .
-	rts                                     ; 94CD 60                       `
+L94B6:  lda     L00A6                   	; 94B6 A5 A6                    ..
+	sta     LD301                   	; 94B8 8D 01 D3                 ...
+	ldx     L00BA                   	; 94BB A6 BA                    ..
+	ldy     #$03                    	; 94BD A0 03                    ..
+L94BF:  lda     (L00A4),y               	; 94BF B1 A4                    ..
+	sta     L04FD,x                 	; 94C1 9D FD 04                 ...
+	inx                             	; 94C4 E8                       .
+	iny                             	; 94C5 C8                       .
+	cpy     #$09                    	; 94C6 C0 09                    ..
+	bne     L94BF                   	; 94C8 D0 F5                    ..
+	stx     L00BA                   	; 94CA 86 BA                    ..
+	clc                             	; 94CC 18                       .
+	rts                             	; 94CD 60                       `
 
 ; ----------------------------------------------------------------------------
-L94CE:  tax                                     ; 94CE AA                       .
-	bpl     L94D7                           ; 94CF 10 06                    ..
-	ldx     #$01                            ; 94D1 A2 01                    ..
-	ldy     #$28                            ; 94D3 A0 28                    .(
-	bne     L94DB                           ; 94D5 D0 04                    ..
-L94D7:  ldx     #$00                            ; 94D7 A2 00                    ..
-	ldy     #$00                            ; 94D9 A0 00                    ..
-L94DB:  stx     L00E6                           ; 94DB 86 E6                    ..
-	sty     L00E7                           ; 94DD 84 E7                    ..
-	sta     L00CE                           ; 94DF 85 CE                    ..
-	ldx     #$06                            ; 94E1 A2 06                    ..
-	sed                                     ; 94E3 F8                       .
-L94E4:  lsr     L00CE                           ; 94E4 46 CE                    F.
-	bcc     L94F4                           ; 94E6 90 0C                    ..
-	lda     L94FD,x                         ; 94E8 BD FD 94                 ...
-	clc                                     ; 94EB 18                       .
-	adc     L00E7                           ; 94EC 65 E7                    e.
-	sta     L00E7                           ; 94EE 85 E7                    ..
-	bcc     L94F4                           ; 94F0 90 02                    ..
-L94F2:  inc     L00E6                           ; 94F2 E6 E6                    ..
-L94F4:  dex                                     ; 94F4 CA                       .
-	bpl     L94E4                           ; 94F5 10 ED                    ..
-	inx                                     ; 94F7 E8                       .
-	stx     L19B9                           ; 94F8 8E B9 19                 ...
-	cld                                     ; 94FB D8                       .
-	rts                                     ; 94FC 60                       `
+L94CE:  tax                             	; 94CE AA                       .
+	bpl     L94D7                   	; 94CF 10 06                    ..
+	ldx     #$01                    	; 94D1 A2 01                    ..
+	ldy     #$28                    	; 94D3 A0 28                    .(
+	bne     L94DB                   	; 94D5 D0 04                    ..
+L94D7:  ldx     #$00                    	; 94D7 A2 00                    ..
+	ldy     #$00                    	; 94D9 A0 00                    ..
+L94DB:  stx     L00E6                   	; 94DB 86 E6                    ..
+	sty     L00E7                   	; 94DD 84 E7                    ..
+	sta     L00CE                   	; 94DF 85 CE                    ..
+	ldx     #$06                    	; 94E1 A2 06                    ..
+	sed                             	; 94E3 F8                       .
+L94E4:  lsr     L00CE                   	; 94E4 46 CE                    F.
+	bcc     L94F4                   	; 94E6 90 0C                    ..
+	lda     L94FD,x                 	; 94E8 BD FD 94                 ...
+	clc                             	; 94EB 18                       .
+	adc     L00E7                   	; 94EC 65 E7                    e.
+	sta     L00E7                   	; 94EE 85 E7                    ..
+	bcc     L94F4                   	; 94F0 90 02                    ..
+L94F2:  inc     L00E6                   	; 94F2 E6 E6                    ..
+L94F4:  dex                             	; 94F4 CA                       .
+	bpl     L94E4                   	; 94F5 10 ED                    ..
+	inx                             	; 94F7 E8                       .
+	stx     L19B9                   	; 94F8 8E B9 19                 ...
+	cld                             	; 94FB D8                       .
+	rts                             	; 94FC 60                       `
 
 ; ----------------------------------------------------------------------------
 L94FD:  .byte   $64,$32,$16,$08,$04,$02,$01
 
 ; ----------------------------------------------------------------------------
-L9504:  lda     #$00                            ; 9504 A9 00                    ..
-	beq     L950A                           ; 9506 F0 02                    ..
-L9508:  lda     #$80                            ; 9508 A9 80                    ..
-L950A:  sta     L00CF                           ; 950A 85 CF                    ..
-	jsr     LA7B8                           ; 950C 20 B8 A7                  ..
-	lda     L008C,x                         ; 950F B5 8C                    ..
-	cmp     L0096                           ; 9511 C5 96                    ..
-	bcs     L9517                           ; 9513 B0 02                    ..
-	sta     L0096                           ; 9515 85 96                    ..
-L9517:  lda     L0084,x                         ; 9517 B5 84                    ..
-	cmp     L0095                           ; 9519 C5 95                    ..
-	bcs     L951F                           ; 951B B0 02                    ..
-	sta     L0095                           ; 951D 85 95                    ..
-L951F:  lda     L0088,x                         ; 951F B5 88                    ..
-	tax                                     ; 9521 AA                       .
-	lda     L0378,y                         ; 9522 B9 78 03                 .x.
-L9525:  cpx     L0096                           ; 9525 E4 96                    ..
-	beq     L9530                           ; 9527 F0 07                    ..
-	clc                                     ; 9529 18                       .
-	adc     L1901,x                         ; 952A 7D 01 19                 }..
-	inx                                     ; 952D E8                       .
-	bne     L9525                           ; 952E D0 F5                    ..
-L9530:  sta     L0099                           ; 9530 85 99                    ..
-	lda     L1901,x                         ; 9532 BD 01 19                 ...
-	sta     L00CE                           ; 9535 85 CE                    ..
-	lda     L0379,y                         ; 9537 B9 79 03                 .y.
-	sec                                     ; 953A 38                       8
-	sbc     L0099                           ; 953B E5 99                    ..
-	cmp     L00CE                           ; 953D C5 CE                    ..
-	bcs     L9543                           ; 953F B0 02                    ..
-	sta     L00CE                           ; 9541 85 CE                    ..
-L9543:  lda     L0095                           ; 9543 A5 95                    ..
-	ldx     L038B                           ; 9545 AE 8B 03                 ...
-	sec                                     ; 9548 38                       8
-	sbc     L0080,x                         ; 9549 F5 80                    ..
-	clc                                     ; 954B 18                       .
-	adc     L037A,y                         ; 954C 79 7A 03                 yz.
-	sta     L009A                           ; 954F 85 9A                    ..
-	jsr     L2BB3                           ; 9551 20 B3 2B                  .+
-	ldy     #$00                            ; 9554 A0 00                    ..
-L9556:  lda     (L009B),y                       ; 9556 B1 9B                    ..
-	and     #$7F                            ; 9558 29 7F                    ).
-	ora     L00CF                           ; 955A 05 CF                    ..
-	sta     (L009B),y                       ; 955C 91 9B                    ..
-	iny                                     ; 955E C8                       .
-	dec     L00CE                           ; 955F C6 CE                    ..
-	bne     L9556                           ; 9561 D0 F3                    ..
-L9563:  lda     L00C1                           ; 9563 A5 C1                    ..
-	bne     L958F                           ; 9565 D0 28                    .(
-	lda     #$80                            ; 9567 A9 80                    ..
-	sta     L00C0                           ; 9569 85 C0                    ..
-	ldx     #$00                            ; 956B A2 00                    ..
-	ldy     #$00                            ; 956D A0 00                    ..
-	jsr     L2BAF                           ; 956F 20 AF 2B                  .+
-	jsr     L9583                           ; 9572 20 83 95                  ..
-	lda     #$05                            ; 9575 A9 05                    ..
-	sec                                     ; 9577 38                       8
-	sbc     L0099                           ; 9578 E5 99                    ..
-	sta     L00CE                           ; 957A 85 CE                    ..
-	lda     #$20                            ; 957C A9 20                    . 
-	ldy     L00CE                           ; 957E A4 CE                    ..
-	jmp     L1228                           ; 9580 4C 28 12                 L(.
+L9504:  lda     #$00                    	; 9504 A9 00                    ..
+	beq     L950A                   	; 9506 F0 02                    ..
+L9508:  lda     #$80                    	; 9508 A9 80                    ..
+L950A:  sta     L00CF                   	; 950A 85 CF                    ..
+	jsr     LA7B8                   	; 950C 20 B8 A7                  ..
+	lda     L008C,x                 	; 950F B5 8C                    ..
+	cmp     L0096                   	; 9511 C5 96                    ..
+	bcs     L9517                   	; 9513 B0 02                    ..
+	sta     L0096                   	; 9515 85 96                    ..
+L9517:  lda     L0084,x                 	; 9517 B5 84                    ..
+	cmp     L0095                   	; 9519 C5 95                    ..
+	bcs     L951F                   	; 951B B0 02                    ..
+	sta     L0095                   	; 951D 85 95                    ..
+L951F:  lda     L0088,x                 	; 951F B5 88                    ..
+	tax                             	; 9521 AA                       .
+	lda     L0378,y                 	; 9522 B9 78 03                 .x.
+L9525:  cpx     L0096                   	; 9525 E4 96                    ..
+	beq     L9530                   	; 9527 F0 07                    ..
+	clc                             	; 9529 18                       .
+	adc     L1901,x                 	; 952A 7D 01 19                 }..
+	inx                             	; 952D E8                       .
+	bne     L9525                   	; 952E D0 F5                    ..
+L9530:  sta     L0099                   	; 9530 85 99                    ..
+	lda     L1901,x                 	; 9532 BD 01 19                 ...
+	sta     L00CE                   	; 9535 85 CE                    ..
+	lda     L0379,y                 	; 9537 B9 79 03                 .y.
+	sec                             	; 953A 38                       8
+	sbc     L0099                   	; 953B E5 99                    ..
+	cmp     L00CE                   	; 953D C5 CE                    ..
+	bcs     L9543                   	; 953F B0 02                    ..
+	sta     L00CE                   	; 9541 85 CE                    ..
+L9543:  lda     L0095                   	; 9543 A5 95                    ..
+	ldx     L038B                   	; 9545 AE 8B 03                 ...
+	sec                             	; 9548 38                       8
+	sbc     L0080,x                 	; 9549 F5 80                    ..
+	clc                             	; 954B 18                       .
+	adc     L037A,y                 	; 954C 79 7A 03                 yz.
+	sta     L009A                   	; 954F 85 9A                    ..
+	jsr     L2BB3                   	; 9551 20 B3 2B                  .+
+	ldy     #$00                    	; 9554 A0 00                    ..
+L9556:  lda     (L009B),y               	; 9556 B1 9B                    ..
+	and     #$7F                    	; 9558 29 7F                    ).
+	ora     L00CF                   	; 955A 05 CF                    ..
+	sta     (L009B),y               	; 955C 91 9B                    ..
+	iny                             	; 955E C8                       .
+	dec     L00CE                   	; 955F C6 CE                    ..
+	bne     L9556                   	; 9561 D0 F3                    ..
+L9563:  lda     L00C1                   	; 9563 A5 C1                    ..
+	bne     L958F                   	; 9565 D0 28                    .(
+	lda     #$80                    	; 9567 A9 80                    ..
+	sta     L00C0                   	; 9569 85 C0                    ..
+	ldx     #$00                    	; 956B A2 00                    ..
+	ldy     #$00                    	; 956D A0 00                    ..
+	jsr     L2BAF                   	; 956F 20 AF 2B                  .+
+	jsr     L9583                   	; 9572 20 83 95                  ..
+	lda     #$05                    	; 9575 A9 05                    ..
+	sec                             	; 9577 38                       8
+	sbc     L0099                   	; 9578 E5 99                    ..
+	sta     L00CE                   	; 957A 85 CE                    ..
+	lda     #$20                    	; 957C A9 20                    . 
+	ldy     L00CE                   	; 957E A4 CE                    ..
+	jmp     L1228                   	; 9580 4C 28 12                 L(.
 
 ; ----------------------------------------------------------------------------
 L9583:  jsr	L9590
 	ldx	#$80
-	ldy     #$05                            ; 9588 A0 05                    ..
-	jsr     L120A                           ; 958A 20 0A 12                  ..
-	sta     L00C0                           ; 958D 85 C0                    ..
-L958F:  rts                                     ; 958F 60                       `
+	ldy     #$05                    	; 9588 A0 05                    ..
+	jsr     L120A                   	; 958A 20 0A 12                  ..
+	sta     L00C0                   	; 958D 85 C0                    ..
+L958F:  rts                             	; 958F 60                       `
 
 ; ----------------------------------------------------------------------------
-L9590:  ldx     #$00                            ; 9590 A2 00                    ..
-	bit     L19A7                           ; 9592 2C A7 19                 ,..
-	bmi     L95AE                           ; 9595 30 17                    0.
-	lda     L0096                           ; 9597 A5 96                    ..
-	jsr     L1F55                           ; 9599 20 55 1F                  U.
-	ldx     #$00                            ; 959C A2 00                    ..
-	lda     L00E6                           ; 959E A5 E6                    ..
-	beq     L95A8                           ; 95A0 F0 06                    ..
-	lda     L00E8                           ; 95A2 A5 E8                    ..
-	sta     L0580,x                         ; 95A4 9D 80 05                 ...
-	inx                                     ; 95A7 E8                       .
-L95A8:  lda     L00E7                           ; 95A8 A5 E7                    ..
-	sta     L0580,x                         ; 95AA 9D 80 05                 ...
-	inx                                     ; 95AD E8                       .
-L95AE:  bit     L19A7                           ; 95AE 2C A7 19                 ,..
-	bvs     L95D9                           ; 95B1 70 26                    p&
-	ldy     L0095                           ; 95B3 A4 95                    ..
-	iny                                     ; 95B5 C8                       .
-	tya                                     ; 95B6 98                       .
-	jmp     L95BC                           ; 95B7 4C BC 95                 L..
+L9590:  ldx     #$00                    	; 9590 A2 00                    ..
+	bit     L19A7                   	; 9592 2C A7 19                 ,..
+	bmi     L95AE                   	; 9595 30 17                    0.
+	lda     L0096                   	; 9597 A5 96                    ..
+	jsr     L1F55                   	; 9599 20 55 1F                  U.
+	ldx     #$00                    	; 959C A2 00                    ..
+	lda     L00E6                   	; 959E A5 E6                    ..
+	beq     L95A8                   	; 95A0 F0 06                    ..
+	lda     L00E8                   	; 95A2 A5 E8                    ..
+	sta     L0580,x                 	; 95A4 9D 80 05                 ...
+	inx                             	; 95A7 E8                       .
+L95A8:  lda     L00E7                   	; 95A8 A5 E7                    ..
+	sta     L0580,x                 	; 95AA 9D 80 05                 ...
+	inx                             	; 95AD E8                       .
+L95AE:  bit     L19A7                   	; 95AE 2C A7 19                 ,..
+	bvs     L95D9                   	; 95B1 70 26                    p&
+	ldy     L0095                   	; 95B3 A4 95                    ..
+	iny                             	; 95B5 C8                       .
+	tya                             	; 95B6 98                       .
+	jmp     L95BC                   	; 95B7 4C BC 95                 L..
 
 ; ----------------------------------------------------------------------------
-	ldx     #$00                            ; 95BA A2 00                    ..
-L95BC:  stx     L00D3                           ; 95BC 86 D3                    ..
-	jsr     L94CE                           ; 95BE 20 CE 94                  ..
-	ldx     L00D3                           ; 95C1 A6 D3                    ..
-	lda     L00E6                           ; 95C3 A5 E6                    ..
-	jsr     L95E2                           ; 95C5 20 E2 95                  ..
-	lda     L00E7                           ; 95C8 A5 E7                    ..
-	lsr     a                               ; 95CA 4A                       J
-	lsr     a                               ; 95CB 4A                       J
-	lsr     a                               ; 95CC 4A                       J
-	lsr     a                               ; 95CD 4A                       J
-	jsr     L95E2                           ; 95CE 20 E2 95                  ..
-	dec     L19B9                           ; 95D1 CE B9 19                 ...
-	lda     L00E7                           ; 95D4 A5 E7                    ..
-	jsr     L95E2                           ; 95D6 20 E2 95                  ..
-L95D9:  lda     L057F,x                         ; 95D9 BD 7F 05                 ...
-	ora     #$80                            ; 95DC 09 80                    ..
-	sta     L057F,x                         ; 95DE 9D 7F 05                 ...
-	rts                                     ; 95E1 60                       `
+	ldx     #$00                    	; 95BA A2 00                    ..
+L95BC:  stx     L00D3                   	; 95BC 86 D3                    ..
+	jsr     L94CE                   	; 95BE 20 CE 94                  ..
+	ldx     L00D3                   	; 95C1 A6 D3                    ..
+	lda     L00E6                   	; 95C3 A5 E6                    ..
+	jsr     L95E2                   	; 95C5 20 E2 95                  ..
+	lda     L00E7                   	; 95C8 A5 E7                    ..
+	lsr     a                       	; 95CA 4A                       J
+	lsr     a                       	; 95CB 4A                       J
+	lsr     a                       	; 95CC 4A                       J
+	lsr     a                       	; 95CD 4A                       J
+	jsr     L95E2                   	; 95CE 20 E2 95                  ..
+	dec     L19B9                   	; 95D1 CE B9 19                 ...
+	lda     L00E7                   	; 95D4 A5 E7                    ..
+	jsr     L95E2                   	; 95D6 20 E2 95                  ..
+L95D9:  lda     L057F,x                 	; 95D9 BD 7F 05                 ...
+	ora     #$80                    	; 95DC 09 80                    ..
+	sta     L057F,x                 	; 95DE 9D 7F 05                 ...
+	rts                             	; 95E1 60                       `
 
 ; ----------------------------------------------------------------------------
-L95E2:  and     #$0F                            ; 95E2 29 0F                    ).
-	bne     L95EB                           ; 95E4 D0 05                    ..
-	bit     L19B9                           ; 95E6 2C B9 19                 ,..
-	bpl     L95F4                           ; 95E9 10 09                    ..
-L95EB:  dec     L19B9                           ; 95EB CE B9 19                 ...
-	ora     #$30                            ; 95EE 09 30                    .0
-	sta     L0580,x                         ; 95F0 9D 80 05                 ...
-	inx                                     ; 95F3 E8                       .
-L95F4:  rts                                     ; 95F4 60                       `
+L95E2:  and     #$0F                    	; 95E2 29 0F                    ).
+	bne     L95EB                   	; 95E4 D0 05                    ..
+	bit     L19B9                   	; 95E6 2C B9 19                 ,..
+	bpl     L95F4                   	; 95E9 10 09                    ..
+L95EB:  dec     L19B9                   	; 95EB CE B9 19                 ...
+	ora     #$30                    	; 95EE 09 30                    .0
+	sta     L0580,x                 	; 95F0 9D 80 05                 ...
+	inx                             	; 95F3 E8                       .
+L95F4:  rts                             	; 95F4 60                       `
 
 ; ----------------------------------------------------------------------------
-L95F5:  stx     L19DB                           ; 95F5 8E DB 19                 ...
-	jsr     L9504                           ; 95F8 20 04 95                  ..
-	ldx     L19DB                           ; 95FB AE DB 19                 ...
-	dex                                     ; 95FE CA                       .
-	bne     L9604                           ; 95FF D0 03                    ..
-	jmp     L9646                           ; 9601 4C 46 96                 LF.
+L95F5:  stx     L19DB                   	; 95F5 8E DB 19                 ...
+	jsr     L9504                   	; 95F8 20 04 95                  ..
+	ldx     L19DB                   	; 95FB AE DB 19                 ...
+	dex                             	; 95FE CA                       .
+	bne     L9604                   	; 95FF D0 03                    ..
+	jmp     L9646                   	; 9601 4C 46 96                 LF.
 
 ; ----------------------------------------------------------------------------
-L9604:  dex                                     ; 9604 CA                       .
-	bne     L960A                           ; 9605 D0 03                    ..
-	jmp     L9661                           ; 9607 4C 61 96                 La.
+L9604:  dex                             	; 9604 CA                       .
+	bne     L960A                   	; 9605 D0 03                    ..
+	jmp     L9661                   	; 9607 4C 61 96                 La.
 
 ; ----------------------------------------------------------------------------
-L960A:  dex                                     ; 960A CA                       .
-	beq     L9610                           ; 960B F0 03                    ..
-	jmp     L962A                           ; 960D 4C 2A 96                 L*.
+L960A:  dex                             	; 960A CA                       .
+	beq     L9610                   	; 960B F0 03                    ..
+	jmp     L962A                   	; 960D 4C 2A 96                 L*.
 
 ; ----------------------------------------------------------------------------
-L9610:  ldx     L038B                           ; 9610 AE 8B 03                 ...
-	lda     L0095                           ; 9613 A5 95                    ..
-	beq     L9631                           ; 9615 F0 1A                    ..
-	dec     L0095                           ; 9617 C6 95                    ..
-	cmp     L0080,x                         ; 9619 D5 80                    ..
-	bne     L9627                           ; 961B D0 0A                    ..
-	dec     L0080,x                         ; 961D D6 80                    ..
-	dec     L0084,x                         ; 961F D6 84                    ..
-	jsr     L9A06                           ; 9621 20 06 9A                  ..
-	jsr     L99DD                           ; 9624 20 DD 99                  ..
-L9627:  jmp     L9508                           ; 9627 4C 08 95                 L..
+L9610:  ldx     L038B                   	; 9610 AE 8B 03                 ...
+	lda     L0095                   	; 9613 A5 95                    ..
+	beq     L9631                   	; 9615 F0 1A                    ..
+	dec     L0095                   	; 9617 C6 95                    ..
+	cmp     L0080,x                 	; 9619 D5 80                    ..
+	bne     L9627                   	; 961B D0 0A                    ..
+	dec     L0080,x                 	; 961D D6 80                    ..
+	dec     L0084,x                 	; 961F D6 84                    ..
+	jsr     L9A06                   	; 9621 20 06 9A                  ..
+	jsr     L99DD                   	; 9624 20 DD 99                  ..
+L9627:  jmp     L9508                   	; 9627 4C 08 95                 L..
 
 ; ----------------------------------------------------------------------------
-L962A:  ldx     L038B                           ; 962A AE 8B 03                 ...
-	lda     L0095                           ; 962D A5 95                    ..
-	cmp     #$FE                            ; 962F C9 FE                    ..
-L9631:  beq     L964B                           ; 9631 F0 18                    ..
-	inc     L0095                           ; 9633 E6 95                    ..
-	cmp     L0084,x                         ; 9635 D5 84                    ..
-	bne     L9643                           ; 9637 D0 0A                    ..
-	inc     L0080,x                         ; 9639 F6 80                    ..
-	inc     L0084,x                         ; 963B F6 84                    ..
-	jsr     L9A06                           ; 963D 20 06 9A                  ..
-	jsr     L99DD                           ; 9640 20 DD 99                  ..
-L9643:  jmp     L9508                           ; 9643 4C 08 95                 L..
+L962A:  ldx     L038B                   	; 962A AE 8B 03                 ...
+	lda     L0095                   	; 962D A5 95                    ..
+	cmp     #$FE                    	; 962F C9 FE                    ..
+L9631:  beq     L964B                   	; 9631 F0 18                    ..
+	inc     L0095                   	; 9633 E6 95                    ..
+	cmp     L0084,x                 	; 9635 D5 84                    ..
+	bne     L9643                   	; 9637 D0 0A                    ..
+	inc     L0080,x                 	; 9639 F6 80                    ..
+	inc     L0084,x                 	; 963B F6 84                    ..
+	jsr     L9A06                   	; 963D 20 06 9A                  ..
+	jsr     L99DD                   	; 9640 20 DD 99                  ..
+L9643:  jmp     L9508                   	; 9643 4C 08 95                 L..
 
 ; ----------------------------------------------------------------------------
-L9646:  jsr     LA7B8                           ; 9646 20 B8 A7                  ..
-	lda     L0096                           ; 9649 A5 96                    ..
-L964B:  beq     L9668                           ; 964B F0 1B                    ..
-	dec     L0096                           ; 964D C6 96                    ..
-	cmp     L0088,x                         ; 964F D5 88                    ..
-	bne     L965E                           ; 9651 D0 0B                    ..
-	dec     L0088,x                         ; 9653 D6 88                    ..
-	jsr     L99C0                           ; 9655 20 C0 99                  ..
-	jsr     L9A06                           ; 9658 20 06 9A                  ..
-	jsr     L99DD                           ; 965B 20 DD 99                  ..
-L965E:  jmp     L9508                           ; 965E 4C 08 95                 L..
+L9646:  jsr     LA7B8                   	; 9646 20 B8 A7                  ..
+	lda     L0096                   	; 9649 A5 96                    ..
+L964B:  beq     L9668                   	; 964B F0 1B                    ..
+	dec     L0096                   	; 964D C6 96                    ..
+	cmp     L0088,x                 	; 964F D5 88                    ..
+	bne     L965E                   	; 9651 D0 0B                    ..
+	dec     L0088,x                 	; 9653 D6 88                    ..
+	jsr     L99C0                   	; 9655 20 C0 99                  ..
+	jsr     L9A06                   	; 9658 20 06 9A                  ..
+	jsr     L99DD                   	; 965B 20 DD 99                  ..
+L965E:  jmp     L9508                   	; 965E 4C 08 95                 L..
 
 ; ----------------------------------------------------------------------------
-L9661:  jsr     LA7B8                           ; 9661 20 B8 A7                  ..
-	lda     L0096                           ; 9664 A5 96                    ..
-	cmp     #$7F                            ; 9666 C9 7F                    ..
-L9668:  beq     L9686                           ; 9668 F0 1C                    ..
-	inc     L0096                           ; 966A E6 96                    ..
-	lda     L0096                           ; 966C A5 96                    ..
-	cmp     L008C,x                         ; 966E D5 8C                    ..
-	bcc     L9683                           ; 9670 90 11                    ..
-	jsr     L9696                           ; 9672 20 96 96                  ..
-	sta     L0088,x                         ; 9675 95 88                    ..
-	jsr     LA7B8                           ; 9677 20 B8 A7                  ..
-	jsr     L99C0                           ; 967A 20 C0 99                  ..
-	jsr     L9A06                           ; 967D 20 06 9A                  ..
-	jsr     L99DD                           ; 9680 20 DD 99                  ..
-L9683:  jmp     L9508                           ; 9683 4C 08 95                 L..
+L9661:  jsr     LA7B8                   	; 9661 20 B8 A7                  ..
+	lda     L0096                   	; 9664 A5 96                    ..
+	cmp     #$7F                    	; 9666 C9 7F                    ..
+L9668:  beq     L9686                   	; 9668 F0 1C                    ..
+	inc     L0096                   	; 966A E6 96                    ..
+	lda     L0096                   	; 966C A5 96                    ..
+	cmp     L008C,x                 	; 966E D5 8C                    ..
+	bcc     L9683                   	; 9670 90 11                    ..
+	jsr     L9696                   	; 9672 20 96 96                  ..
+	sta     L0088,x                 	; 9675 95 88                    ..
+	jsr     LA7B8                   	; 9677 20 B8 A7                  ..
+	jsr     L99C0                   	; 967A 20 C0 99                  ..
+	jsr     L9A06                   	; 967D 20 06 9A                  ..
+	jsr     L99DD                   	; 9680 20 DD 99                  ..
+L9683:  jmp     L9508                   	; 9683 4C 08 95                 L..
 
 ; ----------------------------------------------------------------------------
-L9686:  jsr     L2BCA                           ; 9686 20 CA 2B                  .+
-	lda     L19EB                           ; 9689 AD EB 19                 ...
-	beq     L9683                           ; 968C F0 F5                    ..
-	jsr     L99DD                           ; 968E 20 DD 99                  ..
-	inc     L19EB                           ; 9691 EE EB 19                 ...
-	beq     L9683                           ; 9694 F0 ED                    ..
-L9696:  lda     L0379,y                         ; 9696 B9 79 03                 .y.
-	sec                                     ; 9699 38                       8
-	sbc     L0378,y                         ; 969A F9 78 03                 .x.
-	adc     #$00                            ; 969D 69 00                    i.
-	sta     L00CE                           ; 969F 85 CE                    ..
-	ldy     L0096                           ; 96A1 A4 96                    ..
-	lda     L1901,y                         ; 96A3 B9 01 19                 ...
-L96A6:  dey                                     ; 96A6 88                       .
-	bmi     L96B1                           ; 96A7 30 08                    0.
-	clc                                     ; 96A9 18                       .
-	adc     L1901,y                         ; 96AA 79 01 19                 y..
-	cmp     L00CE                           ; 96AD C5 CE                    ..
-	bcc     L96A6                           ; 96AF 90 F5                    ..
-L96B1:  iny                                     ; 96B1 C8                       .
-	tya                                     ; 96B2 98                       .
-	rts                                     ; 96B3 60                       `
+L9686:  jsr     L2BCA                   	; 9686 20 CA 2B                  .+
+	lda     L19EB                   	; 9689 AD EB 19                 ...
+	beq     L9683                   	; 968C F0 F5                    ..
+	jsr     L99DD                   	; 968E 20 DD 99                  ..
+	inc     L19EB                   	; 9691 EE EB 19                 ...
+	beq     L9683                   	; 9694 F0 ED                    ..
+L9696:  lda     L0379,y                 	; 9696 B9 79 03                 .y.
+	sec                             	; 9699 38                       8
+	sbc     L0378,y                 	; 969A F9 78 03                 .x.
+	adc     #$00                    	; 969D 69 00                    i.
+	sta     L00CE                   	; 969F 85 CE                    ..
+	ldy     L0096                   	; 96A1 A4 96                    ..
+	lda     L1901,y                 	; 96A3 B9 01 19                 ...
+L96A6:  dey                             	; 96A6 88                       .
+	bmi     L96B1                   	; 96A7 30 08                    0.
+	clc                             	; 96A9 18                       .
+	adc     L1901,y                 	; 96AA 79 01 19                 y..
+	cmp     L00CE                   	; 96AD C5 CE                    ..
+	bcc     L96A6                   	; 96AF 90 F5                    ..
+L96B1:  iny                             	; 96B1 C8                       .
+	tya                             	; 96B2 98                       .
+	rts                             	; 96B3 60                       `
 
 ; ----------------------------------------------------------------------------
-L96B4:  sec                                     ; 96B4 38                       8
-	sbc     L0084,x                         ; 96B5 F5 84                    ..
-	clc                                     ; 96B7 18                       .
-	adc     L0080,x                         ; 96B8 75 80                    u.
-	rts                                     ; 96BA 60                       `
+L96B4:  sec                             	; 96B4 38                       8
+	sbc     L0084,x                 	; 96B5 F5 84                    ..
+	clc                             	; 96B7 18                       .
+	adc     L0080,x                 	; 96B8 75 80                    u.
+	rts                             	; 96BA 60                       `
 
 ; ----------------------------------------------------------------------------
-L96BB:  lda     L00CA                           ; 96BB A5 CA                    ..
-	rol     a                               ; 96BD 2A                       *
-	lda     L00CB                           ; 96BE A5 CB                    ..
-	rol     a                               ; 96C0 2A                       *
-	asl     a                               ; 96C1 0A                       .
-	bne     L96CC                           ; 96C2 D0 08                    ..
-	sta     L00CA                           ; 96C4 85 CA                    ..
-	lda     L00CB                           ; 96C6 A5 CB                    ..
-	and     #$C0                            ; 96C8 29 C0                    ).
-	sta     L00CB                           ; 96CA 85 CB                    ..
-L96CC:  rts                                     ; 96CC 60                       `
+L96BB:  lda     L00CA                   	; 96BB A5 CA                    ..
+	rol     a                       	; 96BD 2A                       *
+	lda     L00CB                   	; 96BE A5 CB                    ..
+	rol     a                       	; 96C0 2A                       *
+	asl     a                       	; 96C1 0A                       .
+	bne     L96CC                   	; 96C2 D0 08                    ..
+	sta     L00CA                   	; 96C4 85 CA                    ..
+	lda     L00CB                   	; 96C6 A5 CB                    ..
+	and     #$C0                    	; 96C8 29 C0                    ).
+	sta     L00CB                   	; 96CA 85 CB                    ..
+L96CC:  rts                             	; 96CC 60                       `
 
 ; ----------------------------------------------------------------------------
-L96CD:  ldx     L00CC                           ; 96CD A6 CC                    ..
-	lda     L00CB                           ; 96CF A5 CB                    ..
-	clc                                     ; 96D1 18                       .
-	sbc     L19E5                           ; 96D2 ED E5 19                 ...
-	bcs     L96D8                           ; 96D5 B0 01                    ..
-	dex                                     ; 96D7 CA                       .
-L96D8:  rts                                     ; 96D8 60                       `
+L96CD:  ldx     L00CC                   	; 96CD A6 CC                    ..
+	lda     L00CB                   	; 96CF A5 CB                    ..
+	clc                             	; 96D1 18                       .
+	sbc     L19E5                   	; 96D2 ED E5 19                 ...
+	bcs     L96D8                   	; 96D5 B0 01                    ..
+	dex                             	; 96D7 CA                       .
+L96D8:  rts                             	; 96D8 60                       `
 
 ; ----------------------------------------------------------------------------
-L96D9:  jsr     L96CD                           ; 96D9 20 CD 96                  ..
-	stx     L00CE                           ; 96DC 86 CE                    ..
-	lsr     L00CE                           ; 96DE 46 CE                    F.
-	ror     a                               ; 96E0 6A                       j
-	lsr     L00CE                           ; 96E1 46 CE                    F.
-	ror     a                               ; 96E3 6A                       j
-	rts                                     ; 96E4 60                       `
+L96D9:  jsr     L96CD                   	; 96D9 20 CD 96                  ..
+	stx     L00CE                   	; 96DC 86 CE                    ..
+	lsr     L00CE                   	; 96DE 46 CE                    F.
+	ror     a                       	; 96E0 6A                       j
+	lsr     L00CE                   	; 96E1 46 CE                    F.
+	ror     a                       	; 96E3 6A                       j
+	rts                             	; 96E4 60                       `
 
 ; ----------------------------------------------------------------------------
-L96E5:  jsr     L96D9                           ; 96E5 20 D9 96                  ..
-	sta     L00CE                           ; 96E8 85 CE                    ..
-	lda     L19E2                           ; 96EA AD E2 19                 ...
-	sec                                     ; 96ED 38                       8
-	sbc     L00CE                           ; 96EE E5 CE                    ..
-	jsr     L94CE                           ; 96F0 20 CE 94                  ..
-	ldx     #$21                            ; 96F3 A2 21                    .!
-	ldy     #$00                            ; 96F5 A0 00                    ..
-	jsr     L2BAF                           ; 96F7 20 AF 2B                  .+
-	lda     #$80                            ; 96FA A9 80                    ..
-	sta     L00C0                           ; 96FC 85 C0                    ..
-	jsr     L1F2D                           ; 96FE 20 2D 1F                  -.
-	lda     #$2F                            ; 9701 A9 2F                    ./
-	jsr     L1231                           ; 9703 20 31 12                  1.
-	lda     L19E2                           ; 9706 AD E2 19                 ...
-	jsr     L94CE                           ; 9709 20 CE 94                  ..
-	jsr     L1F2D                           ; 970C 20 2D 1F                  -.
-	sta     L00C0                           ; 970F 85 C0                    ..
-	rts                                     ; 9711 60                       `
+L96E5:  jsr     L96D9                   	; 96E5 20 D9 96                  ..
+	sta     L00CE                   	; 96E8 85 CE                    ..
+	lda     L19E2                   	; 96EA AD E2 19                 ...
+	sec                             	; 96ED 38                       8
+	sbc     L00CE                   	; 96EE E5 CE                    ..
+	jsr     L94CE                   	; 96F0 20 CE 94                  ..
+	ldx     #$21                    	; 96F3 A2 21                    .!
+	ldy     #$00                    	; 96F5 A0 00                    ..
+	jsr     L2BAF                   	; 96F7 20 AF 2B                  .+
+	lda     #$80                    	; 96FA A9 80                    ..
+	sta     L00C0                   	; 96FC 85 C0                    ..
+	jsr     L1F2D                   	; 96FE 20 2D 1F                  -.
+	lda     #$2F                    	; 9701 A9 2F                    ./
+	jsr     L1231                   	; 9703 20 31 12                  1.
+	lda     L19E2                   	; 9706 AD E2 19                 ...
+	jsr     L94CE                   	; 9709 20 CE 94                  ..
+	jsr     L1F2D                   	; 970C 20 2D 1F                  -.
+	sta     L00C0                   	; 970F 85 C0                    ..
+	rts                             	; 9711 60                       `
 
 ; ----------------------------------------------------------------------------
-L9712:  stx     L00D3                           ; 9712 86 D3                    ..
-	sty     L00D2                           ; 9714 84 D2                    ..
-	jsr     L0CE5                           ; 9716 20 E5 0C                  ..
-	lda     #$1C                            ; 9719 A9 1C                    ..
-	cmp     L00E7                           ; 971B C5 E7                    ..
-	bcc     L9749                           ; 971D 90 2A                    .*
-	bne     L9727                           ; 971F D0 06                    ..
-	lda     #$06                            ; 9721 A9 06                    ..
-	cmp     L00E6                           ; 9723 C5 E6                    ..
-	bcc     L9749                           ; 9725 90 22                    ."
-L9727:  lda     L00D3                           ; 9727 A5 D3                    ..
-	tax                                     ; 9729 AA                       .
-	inx                                     ; 972A E8                       .
-	ldy     L00D2                           ; 972B A4 D2                    ..
+L9712:  stx     L00D3                   	; 9712 86 D3                    ..
+	sty     L00D2                   	; 9714 84 D2                    ..
+	jsr     L0CE5                   	; 9716 20 E5 0C                  ..
+	lda     #$1C                    	; 9719 A9 1C                    ..
+	cmp     L00E7                   	; 971B C5 E7                    ..
+	bcc     L9749                   	; 971D 90 2A                    .*
+	bne     L9727                   	; 971F D0 06                    ..
+	lda     #$06                    	; 9721 A9 06                    ..
+	cmp     L00E6                   	; 9723 C5 E6                    ..
+	bcc     L9749                   	; 9725 90 22                    ."
+L9727:  lda     L00D3                   	; 9727 A5 D3                    ..
+	tax                             	; 9729 AA                       .
+	inx                             	; 972A E8                       .
+	ldy     L00D2                   	; 972B A4 D2                    ..
 	jsr	L9A5D
 	lda	L19E5
-	pha                                     ; 9733 48                       H
-	iny                                     ; 9734 C8                       .
-	sty     L19E5                           ; 9735 8C E5 19                 ...
-	jsr     L96CD                           ; 9738 20 CD 96                  ..
-	ldy     L19E5                           ; 973B AC E5 19                 ...
-	pla                                     ; 973E 68                       h
-	sta     L19E5                           ; 973F 8D E5 19                 ...
-	tya                                     ; 9742 98                       .
-	cpx     #$FF                            ; 9743 E0 FF                    ..
-	beq     L9749                           ; 9745 F0 02                    ..
-	clc                                     ; 9747 18                       .
-	rts                                     ; 9748 60                       `
+	pha                             	; 9733 48                       H
+	iny                             	; 9734 C8                       .
+	sty     L19E5                   	; 9735 8C E5 19                 ...
+	jsr     L96CD                   	; 9738 20 CD 96                  ..
+	ldy     L19E5                   	; 973B AC E5 19                 ...
+	pla                             	; 973E 68                       h
+	sta     L19E5                   	; 973F 8D E5 19                 ...
+	tya                             	; 9742 98                       .
+	cpx     #$FF                    	; 9743 E0 FF                    ..
+	beq     L9749                   	; 9745 F0 02                    ..
+	clc                             	; 9747 18                       .
+	rts                             	; 9748 60                       `
 
 ; ----------------------------------------------------------------------------
-L9749:  sec                                     ; 9749 38                       8
-	rts                                     ; 974A 60                       `
+L9749:  sec                             	; 9749 38                       8
+	rts                             	; 974A 60                       `
 
 ; ----------------------------------------------------------------------------
-L974B:  jsr     L0C8A                           ; 974B 20 8A 0C                  ..
-	jsr     L0CA4                           ; 974E 20 A4 0C                  ..
-	lda     L00C3                           ; 9751 A5 C3                    ..
-	and     #$C0                            ; 9753 29 C0                    ).
-	sta     L006A                           ; 9755 85 6A                    .j
-L9757:  bne     L975C                           ; 9757 D0 03                    ..
-	sta     L00C7                           ; 9759 85 C7                    ..
-	rts                                     ; 975B 60                       `
+L974B:  jsr     L0C8A                   	; 974B 20 8A 0C                  ..
+	jsr     L0CA4                   	; 974E 20 A4 0C                  ..
+	lda     L00C3                   	; 9751 A5 C3                    ..
+	and     #$C0                    	; 9753 29 C0                    ).
+	sta     L006A                   	; 9755 85 6A                    .j
+L9757:  bne     L975C                   	; 9757 D0 03                    ..
+	sta     L00C7                   	; 9759 85 C7                    ..
+	rts                             	; 975B 60                       `
 
 ; ----------------------------------------------------------------------------
-L975C:  bmi     L9762                           ; 975C 30 04                    0.
-	ldy     #$03                            ; 975E A0 03                    ..
-	bne     L9764                           ; 9760 D0 02                    ..
-L9762:  ldy     #$09                            ; 9762 A0 09                    ..
-L9764:  ldx     #$00                            ; 9764 A2 00                    ..
-L9766:  lda     (L009F),y                       ; 9766 B1 9F                    ..
-	sta     L03FD,x                         ; 9768 9D FD 03                 ...
-	iny                                     ; 976B C8                       .
-	inx                                     ; 976C E8                       .
-	cpx     L00C7                           ; 976D E4 C7                    ..
-	bne     L9766                           ; 976F D0 F5                    ..
-L9771:  rts                                     ; 9771 60                       `
+L975C:  bmi     L9762                   	; 975C 30 04                    0.
+	ldy     #$03                    	; 975E A0 03                    ..
+	bne     L9764                   	; 9760 D0 02                    ..
+L9762:  ldy     #$09                    	; 9762 A0 09                    ..
+L9764:  ldx     #$00                    	; 9764 A2 00                    ..
+L9766:  lda     (L009F),y               	; 9766 B1 9F                    ..
+	sta     L03FD,x                 	; 9768 9D FD 03                 ...
+	iny                             	; 976B C8                       .
+	inx                             	; 976C E8                       .
+	cpx     L00C7                   	; 976D E4 C7                    ..
+	bne     L9766                   	; 976F D0 F5                    ..
+L9771:  rts                             	; 9771 60                       `
 
 ; ----------------------------------------------------------------------------
-L9772:  jsr     L0C8A                           ; 9772 20 8A 0C                  ..
-	lda     L19DE                           ; 9775 AD DE 19                 ...
-	beq     L97B1                           ; 9778 F0 37                    .7
-	lda     L19AC                           ; 977A AD AC 19                 ...
-	beq     L979B                           ; 977D F0 1C                    ..
-	lda     #$00                            ; 977F A9 00                    ..
-	sta     L19AC                           ; 9781 8D AC 19                 ...
-	lda     L00C2                           ; 9784 A5 C2                    ..
-	and     #$C0                            ; 9786 29 C0                    ).
-	bne     L9771                           ; 9788 D0 E7                    ..
-	asl     L00C6                           ; 978A 06 C6                    ..
-	ror     a                               ; 978C 6A                       j
-	sta     L00C6                           ; 978D 85 C6                    ..
-	ldx     #$03                            ; 978F A2 03                    ..
-L9791:  lda     L009D,x                         ; 9791 B5 9D                    ..
-	sta     L00A2,x                         ; 9793 95 A2                    ..
-	dex                                     ; 9795 CA                       .
-	bpl     L9791                           ; 9796 10 F9                    ..
-L9798:  jmp     L0AA6                           ; 9798 4C A6 0A                 L..
+L9772:  jsr     L0C8A                   	; 9772 20 8A 0C                  ..
+	lda     L19DE                   	; 9775 AD DE 19                 ...
+	beq     L97B1                   	; 9778 F0 37                    .7
+	lda     L19AC                   	; 977A AD AC 19                 ...
+	beq     L979B                   	; 977D F0 1C                    ..
+	lda     #$00                    	; 977F A9 00                    ..
+	sta     L19AC                   	; 9781 8D AC 19                 ...
+	lda     L00C2                   	; 9784 A5 C2                    ..
+	and     #$C0                    	; 9786 29 C0                    ).
+	bne     L9771                   	; 9788 D0 E7                    ..
+	asl     L00C6                   	; 978A 06 C6                    ..
+	ror     a                       	; 978C 6A                       j
+	sta     L00C6                   	; 978D 85 C6                    ..
+	ldx     #$03                    	; 978F A2 03                    ..
+L9791:  lda     L009D,x                 	; 9791 B5 9D                    ..
+	sta     L00A2,x                 	; 9793 95 A2                    ..
+	dex                             	; 9795 CA                       .
+	bpl     L9791                   	; 9796 10 F9                    ..
+L9798:  jmp     L0AA6                   	; 9798 4C A6 0A                 L..
 
 ; ----------------------------------------------------------------------------
-L979B:  lda     L000B                           ; 979B A5 0B                    ..
-	beq     L97B1                           ; 979D F0 12                    ..
-	lda     L00C7                           ; 979F A5 C7                    ..
-	pha                                     ; 97A1 48                       H
-	jsr     L0CA4                           ; 97A2 20 A4 0C                  ..
-	lda     L00C6                           ; 97A5 A5 C6                    ..
-	bpl     L97AE                           ; 97A7 10 05                    ..
-	ldy     #$69                            ; 97A9 A0 69                    .i
-	jmp     L98BC                           ; 97AB 4C BC 98                 L..
+L979B:  lda     L000B                   	; 979B A5 0B                    ..
+	beq     L97B1                   	; 979D F0 12                    ..
+	lda     L00C7                   	; 979F A5 C7                    ..
+	pha                             	; 97A1 48                       H
+	jsr     L0CA4                   	; 97A2 20 A4 0C                  ..
+	lda     L00C6                   	; 97A5 A5 C6                    ..
+	bpl     L97AE                   	; 97A7 10 05                    ..
+	ldy     #$69                    	; 97A9 A0 69                    .i
+	jmp     L98BC                   	; 97AB 4C BC 98                 L..
 
 ; ----------------------------------------------------------------------------
-L97AE:  pla                                     ; 97AE 68                       h
-	sta     L00C7                           ; 97AF 85 C7                    ..
-L97B1:  asl     L00C6                           ; 97B1 06 C6                    ..
-	lda     L00C7                           ; 97B3 A5 C7                    ..
-	bne     L97BB                           ; 97B5 D0 04                    ..
-	sta     L006A                           ; 97B7 85 6A                    .j
-	sta     L00C6                           ; 97B9 85 C6                    ..
-L97BB:  lda     L006A                           ; 97BB A5 6A                    .j
-	bne     L97C3                           ; 97BD D0 04                    ..
-	sta     L00C6                           ; 97BF 85 C6                    ..
-	sta     L00C7                           ; 97C1 85 C7                    ..
-L97C3:  ror     L00C6                           ; 97C3 66 C6                    f.
-	lda     L00C3                           ; 97C5 A5 C3                    ..
-	and     #$3F                            ; 97C7 29 3F                    )?
-	ora     L006A                           ; 97C9 05 6A                    .j
-	sta     L00C3                           ; 97CB 85 C3                    ..
-	jsr     L96CD                           ; 97CD 20 CD 96                  ..
-	dex                                     ; 97D0 CA                       .
-	bpl     L97D9                           ; 97D1 10 06                    ..
-	tax                                     ; 97D3 AA                       .
-	bne     L97D9                           ; 97D4 D0 03                    ..
-	jmp     L98AE                           ; 97D6 4C AE 98                 L..
+L97AE:  pla                             	; 97AE 68                       h
+	sta     L00C7                   	; 97AF 85 C7                    ..
+L97B1:  asl     L00C6                   	; 97B1 06 C6                    ..
+	lda     L00C7                   	; 97B3 A5 C7                    ..
+	bne     L97BB                   	; 97B5 D0 04                    ..
+	sta     L006A                   	; 97B7 85 6A                    .j
+	sta     L00C6                   	; 97B9 85 C6                    ..
+L97BB:  lda     L006A                   	; 97BB A5 6A                    .j
+	bne     L97C3                   	; 97BD D0 04                    ..
+	sta     L00C6                   	; 97BF 85 C6                    ..
+	sta     L00C7                   	; 97C1 85 C7                    ..
+L97C3:  ror     L00C6                   	; 97C3 66 C6                    f.
+	lda     L00C3                   	; 97C5 A5 C3                    ..
+	and     #$3F                    	; 97C7 29 3F                    )?
+	ora     L006A                   	; 97C9 05 6A                    .j
+	sta     L00C3                   	; 97CB 85 C3                    ..
+	jsr     L96CD                   	; 97CD 20 CD 96                  ..
+	dex                             	; 97D0 CA                       .
+	bpl     L97D9                   	; 97D1 10 06                    ..
+	tax                             	; 97D3 AA                       .
+	bne     L97D9                   	; 97D4 D0 03                    ..
+	jmp     L98AE                   	; 97D6 4C AE 98                 L..
 
 ; ----------------------------------------------------------------------------
-L97D9:  lda     L19DE                           ; 97D9 AD DE 19                 ...
-	beq     L97FF                           ; 97DC F0 21                    .!
-	lda     #$FF                            ; 97DE A9 FF                    ..
-	sta     LD301                           ; 97E0 8D 01 D3                 ...
-	ldy     #$02                            ; 97E3 A0 02                    ..
-	sty     L00D0                           ; 97E5 84 D0                    ..
-	lda     (L009D),y                       ; 97E7 B1 9D                    ..
-	and     #$C0                            ; 97E9 29 C0                    ).
-	beq     L97FF                           ; 97EB F0 12                    ..
-	sta     L00CE                           ; 97ED 85 CE                    ..
-	lda     L00A1                           ; 97EF A5 A1                    ..
-	sta     LD301                           ; 97F1 8D 01 D3                 ...
-	lda     (L009F),y                       ; 97F4 B1 9F                    ..
-	and     #$7F                            ; 97F6 29 7F                    ).
-	bit     L00CE                           ; 97F8 24 CE                    $.
-	bpl     L97FF                           ; 97FA 10 03                    ..
-	clc                                     ; 97FC 18                       .
-	adc     #$06                            ; 97FD 69 06                    i.
-L97FF:  sta     L00CE                           ; 97FF 85 CE                    ..
-	lda     L00C7                           ; 9801 A5 C7                    ..
-	bit     L00C3                           ; 9803 24 C3                    $.
-	bpl     L980A                           ; 9805 10 03                    ..
-	clc                                     ; 9807 18                       .
-L9808:  adc     #$06                            ; 9808 69 06                    i.
-L980A:  sta     L00CF                           ; 980A 85 CF                    ..
-	lda     L00CE                           ; 980C A5 CE                    ..
-	beq     L9814                           ; 980E F0 04                    ..
-	cmp     L00CF                           ; 9810 C5 CF                    ..
-	bcs     L983C                           ; 9812 B0 28                    .(
-L9814:  lda     L00CF                           ; 9814 A5 CF                    ..
-	clc                                     ; 9816 18                       .
-	adc     #$03                            ; 9817 69 03                    i.
-L9819:  sta     L00CE                           ; 9819 85 CE                    ..
-	lda     L00CA                           ; 981B A5 CA                    ..
-	sec                                     ; 981D 38                       8
-	sbc     L00CE                           ; 981E E5 CE                    ..
-	sta     L00CA                           ; 9820 85 CA                    ..
-	lda     L00CB                           ; 9822 A5 CB                    ..
-	sbc     #$00                            ; 9824 E9 00                    ..
-	sta     L00CB                           ; 9826 85 CB                    ..
-	bcs     L982C                           ; 9828 B0 02                    ..
-	dec     L00CC                           ; 982A C6 CC                    ..
-L982C:  jsr     L9A9A                           ; 982C 20 9A 9A                  ..
-	stx     L009F                           ; 982F 86 9F                    ..
-	sty     L00A0                           ; 9831 84 A0                    ..
-	sta     L00A1                           ; 9833 85 A1                    ..
-	sta     LD301                           ; 9835 8D 01 D3                 ...
-	lda     #$00                            ; 9838 A9 00                    ..
-	sta     L00D0                           ; 983A 85 D0                    ..
-L983C:  lda     L00C7                           ; 983C A5 C7                    ..
-	asl     a                               ; 983E 0A                       .
-	asl     L00C6                           ; 983F 06 C6                    ..
-	ror     a                               ; 9841 6A                       j
-	sta     L00C6                           ; 9842 85 C6                    ..
-	ldy     #$00                            ; 9844 A0 00                    ..
-L9846:  lda     L00C4,y                         ; 9846 B9 C4 00                 ...
-	sta     (L009F),y                       ; 9849 91 9F                    ..
-	iny                                     ; 984B C8                       .
-	cpy     #$03                            ; 984C C0 03                    ..
-	bne     L9846                           ; 984E D0 F6                    ..
-	ldy     #$01                            ; 9850 A0 01                    ..
-	lda     (L009F),y                       ; 9852 B1 9F                    ..
-	ldx     L19AB                           ; 9854 AE AB 19                 ...
-	beq     L985D                           ; 9857 F0 04                    ..
-	ora     #$10                            ; 9859 09 10                    ..
-	bne     L985F                           ; 985B D0 02                    ..
-L985D:  and     #$EF                            ; 985D 29 EF                    ).
-L985F:  sta     (L009F),y                       ; 985F 91 9F                    ..
-	ldy     #$03                            ; 9861 A0 03                    ..
-	bit     L00C3                           ; 9863 24 C3                    $.
-	bpl     L9870                           ; 9865 10 09                    ..
-	lda     #$00                            ; 9867 A9 00                    ..
-L9869:  sta     (L009F),y                       ; 9869 91 9F                    ..
-	iny                                     ; 986B C8                       .
-	cpy     #$09                            ; 986C C0 09                    ..
-	bne     L9869                           ; 986E D0 F9                    ..
-L9870:  ldx     #$00                            ; 9870 A2 00                    ..
-L9872:  cpx     L00C7                           ; 9872 E4 C7                    ..
-	bcs     L987F                           ; 9874 B0 09                    ..
-	lda     L03FD,x                         ; 9876 BD FD 03                 ...
-	sta     (L009F),y                       ; 9879 91 9F                    ..
-	inx                                     ; 987B E8                       .
-	iny                                     ; 987C C8                       .
-	bpl     L9872                           ; 987D 10 F3                    ..
-L987F:  lda     #$FF                            ; 987F A9 FF                    ..
-	sta     LD301                           ; 9881 8D 01 D3                 ...
-	ldy     L00D0                           ; 9884 A4 D0                    ..
-	bne     L98A5                           ; 9886 D0 1D                    ..
-	iny                                     ; 9888 C8                       .
-L9889:  lda     L00CA,y                         ; 9889 B9 CA 00                 ...
-	sta     (L009D),y                       ; 988C 91 9D                    ..
-	dey                                     ; 988E 88                       .
-	bpl     L9889                           ; 988F 10 F8                    ..
-	lda     L00CC                           ; 9891 A5 CC                    ..
-	pha                                     ; 9893 48                       H
-	jsr     L96BB                           ; 9894 20 BB 96                  ..
-	pla                                     ; 9897 68                       h
-	ldy     #$02                            ; 9898 A0 02                    ..
-L989A:  sta     L00CE                           ; 989A 85 CE                    ..
-	lda     L00C3                           ; 989C A5 C3                    ..
-	and     #$FC                            ; 989E 29 FC                    ).
-	ora     L00CE                           ; 98A0 05 CE                    ..
-	sta     (L009D),y                       ; 98A2 91 9D                    ..
-	rts                                     ; 98A4 60                       `
+L97D9:  lda     L19DE                   	; 97D9 AD DE 19                 ...
+	beq     L97FF                   	; 97DC F0 21                    .!
+	lda     #$FF                    	; 97DE A9 FF                    ..
+	sta     LD301                   	; 97E0 8D 01 D3                 ...
+	ldy     #$02                    	; 97E3 A0 02                    ..
+	sty     L00D0                   	; 97E5 84 D0                    ..
+	lda     (L009D),y               	; 97E7 B1 9D                    ..
+	and     #$C0                    	; 97E9 29 C0                    ).
+	beq     L97FF                   	; 97EB F0 12                    ..
+	sta     L00CE                   	; 97ED 85 CE                    ..
+	lda     L00A1                   	; 97EF A5 A1                    ..
+	sta     LD301                   	; 97F1 8D 01 D3                 ...
+	lda     (L009F),y               	; 97F4 B1 9F                    ..
+	and     #$7F                    	; 97F6 29 7F                    ).
+	bit     L00CE                   	; 97F8 24 CE                    $.
+	bpl     L97FF                   	; 97FA 10 03                    ..
+	clc                             	; 97FC 18                       .
+	adc     #$06                    	; 97FD 69 06                    i.
+L97FF:  sta     L00CE                   	; 97FF 85 CE                    ..
+	lda     L00C7                   	; 9801 A5 C7                    ..
+	bit     L00C3                   	; 9803 24 C3                    $.
+	bpl     L980A                   	; 9805 10 03                    ..
+	clc                             	; 9807 18                       .
+L9808:  adc     #$06                    	; 9808 69 06                    i.
+L980A:  sta     L00CF                   	; 980A 85 CF                    ..
+	lda     L00CE                   	; 980C A5 CE                    ..
+	beq     L9814                   	; 980E F0 04                    ..
+	cmp     L00CF                   	; 9810 C5 CF                    ..
+	bcs     L983C                   	; 9812 B0 28                    .(
+L9814:  lda     L00CF                   	; 9814 A5 CF                    ..
+	clc                             	; 9816 18                       .
+	adc     #$03                    	; 9817 69 03                    i.
+L9819:  sta     L00CE                   	; 9819 85 CE                    ..
+	lda     L00CA                   	; 981B A5 CA                    ..
+	sec                             	; 981D 38                       8
+	sbc     L00CE                   	; 981E E5 CE                    ..
+	sta     L00CA                   	; 9820 85 CA                    ..
+	lda     L00CB                   	; 9822 A5 CB                    ..
+	sbc     #$00                    	; 9824 E9 00                    ..
+	sta     L00CB                   	; 9826 85 CB                    ..
+	bcs     L982C                   	; 9828 B0 02                    ..
+	dec     L00CC                   	; 982A C6 CC                    ..
+L982C:  jsr     L9A9A                   	; 982C 20 9A 9A                  ..
+	stx     L009F                   	; 982F 86 9F                    ..
+	sty     L00A0                   	; 9831 84 A0                    ..
+	sta     L00A1                   	; 9833 85 A1                    ..
+	sta     LD301                   	; 9835 8D 01 D3                 ...
+	lda     #$00                    	; 9838 A9 00                    ..
+	sta     L00D0                   	; 983A 85 D0                    ..
+L983C:  lda     L00C7                   	; 983C A5 C7                    ..
+	asl     a                       	; 983E 0A                       .
+	asl     L00C6                   	; 983F 06 C6                    ..
+	ror     a                       	; 9841 6A                       j
+	sta     L00C6                   	; 9842 85 C6                    ..
+	ldy     #$00                    	; 9844 A0 00                    ..
+L9846:  lda     L00C4,y                 	; 9846 B9 C4 00                 ...
+	sta     (L009F),y               	; 9849 91 9F                    ..
+	iny                             	; 984B C8                       .
+	cpy     #$03                    	; 984C C0 03                    ..
+	bne     L9846                   	; 984E D0 F6                    ..
+	ldy     #$01                    	; 9850 A0 01                    ..
+	lda     (L009F),y               	; 9852 B1 9F                    ..
+	ldx     L19AB                   	; 9854 AE AB 19                 ...
+	beq     L985D                   	; 9857 F0 04                    ..
+	ora     #$10                    	; 9859 09 10                    ..
+	bne     L985F                   	; 985B D0 02                    ..
+L985D:  and     #$EF                    	; 985D 29 EF                    ).
+L985F:  sta     (L009F),y               	; 985F 91 9F                    ..
+	ldy     #$03                    	; 9861 A0 03                    ..
+	bit     L00C3                   	; 9863 24 C3                    $.
+	bpl     L9870                   	; 9865 10 09                    ..
+	lda     #$00                    	; 9867 A9 00                    ..
+L9869:  sta     (L009F),y               	; 9869 91 9F                    ..
+	iny                             	; 986B C8                       .
+	cpy     #$09                    	; 986C C0 09                    ..
+	bne     L9869                   	; 986E D0 F9                    ..
+L9870:  ldx     #$00                    	; 9870 A2 00                    ..
+L9872:  cpx     L00C7                   	; 9872 E4 C7                    ..
+	bcs     L987F                   	; 9874 B0 09                    ..
+	lda     L03FD,x                 	; 9876 BD FD 03                 ...
+	sta     (L009F),y               	; 9879 91 9F                    ..
+	inx                             	; 987B E8                       .
+	iny                             	; 987C C8                       .
+	bpl     L9872                   	; 987D 10 F3                    ..
+L987F:  lda     #$FF                    	; 987F A9 FF                    ..
+	sta     LD301                   	; 9881 8D 01 D3                 ...
+	ldy     L00D0                   	; 9884 A4 D0                    ..
+	bne     L98A5                   	; 9886 D0 1D                    ..
+	iny                             	; 9888 C8                       .
+L9889:  lda     L00CA,y                 	; 9889 B9 CA 00                 ...
+	sta     (L009D),y               	; 988C 91 9D                    ..
+	dey                             	; 988E 88                       .
+	bpl     L9889                   	; 988F 10 F8                    ..
+	lda     L00CC                   	; 9891 A5 CC                    ..
+	pha                             	; 9893 48                       H
+	jsr     L96BB                   	; 9894 20 BB 96                  ..
+	pla                             	; 9897 68                       h
+	ldy     #$02                    	; 9898 A0 02                    ..
+L989A:  sta     L00CE                   	; 989A 85 CE                    ..
+	lda     L00C3                   	; 989C A5 C3                    ..
+	and     #$FC                    	; 989E 29 FC                    ).
+	ora     L00CE                   	; 98A0 05 CE                    ..
+	sta     (L009D),y               	; 98A2 91 9D                    ..
+	rts                             	; 98A4 60                       `
 
 ; ----------------------------------------------------------------------------
-L98A5:  ldy     #$02                            ; 98A5 A0 02                    ..
-	lda     (L009D),y                       ; 98A7 B1 9D                    ..
-	and     #$03                            ; 98A9 29 03                    ).
-	jmp     L989A                           ; 98AB 4C 9A 98                 L..
+L98A5:  ldy     #$02                    	; 98A5 A0 02                    ..
+	lda     (L009D),y               	; 98A7 B1 9D                    ..
+	and     #$03                    	; 98A9 29 03                    ).
+	jmp     L989A                   	; 98AB 4C 9A 98                 L..
 
 ; ----------------------------------------------------------------------------
-L98AE:  ldy     #$64                            ; 98AE A0 64                    .d
-	bne     L98BC                           ; 98B0 D0 0A                    ..
-L98B2:  ldy     #$65                            ; 98B2 A0 65                    .e
-	bne     L98BC                           ; 98B4 D0 06                    ..
-L98B6:  ldy     #$66                            ; 98B6 A0 66                    .f
-	bne     L98BC                           ; 98B8 D0 02                    ..
-L98BA:  ldy     #$67                            ; 98BA A0 67                    .g
-L98BC:  jsr     L98D1                           ; 98BC 20 D1 98                  ..
-L98BF:  jsr     L9D09                           ; 98BF 20 09 9D                  ..
-	beq     L98BF                           ; 98C2 F0 FB                    ..
-	lda     L19DE                           ; 98C4 AD DE 19                 ...
-	bne     L98CC                           ; 98C7 D0 03                    ..
-	jmp     L2857                           ; 98C9 4C 57 28                 LW(
+L98AE:  ldy     #$64                    	; 98AE A0 64                    .d
+	bne     L98BC                   	; 98B0 D0 0A                    ..
+L98B2:  ldy     #$65                    	; 98B2 A0 65                    .e
+	bne     L98BC                   	; 98B4 D0 06                    ..
+L98B6:  ldy     #$66                    	; 98B6 A0 66                    .f
+	bne     L98BC                   	; 98B8 D0 02                    ..
+L98BA:  ldy     #$67                    	; 98BA A0 67                    .g
+L98BC:  jsr     L98D1                   	; 98BC 20 D1 98                  ..
+L98BF:  jsr     L9D09                   	; 98BF 20 09 9D                  ..
+	beq     L98BF                   	; 98C2 F0 FB                    ..
+	lda     L19DE                   	; 98C4 AD DE 19                 ...
+	bne     L98CC                   	; 98C7 D0 03                    ..
+	jmp     L2857                   	; 98C9 4C 57 28                 LW(
 
 ; ----------------------------------------------------------------------------
-L98CC:  jmp     L8113                           ; 98CC 4C 13 81                 L..
+L98CC:  jmp     L8113                   	; 98CC 4C 13 81                 L..
 
 ; ----------------------------------------------------------------------------
-L98CF:  ldy     #$68                            ; 98CF A0 68                    .h
-L98D1:  sty     L19C9                           ; 98D1 8C C9 19                 ...
-	jsr     LBF35                           ; 98D4 20 35 BF                  5.
-	lda     L19AD                           ; 98D7 AD AD 19                 ...
-	bne     L98DF                           ; 98DA D0 03                    ..
-	jsr     L2628                           ; 98DC 20 28 26                  (&
-L98DF:  ldx     #$00                            ; 98DF A2 00                    ..
-	ldy     #$00                            ; 98E1 A0 00                    ..
-	jsr     L2BAF                           ; 98E3 20 AF 2B                  .+
-	jsr     L2B13                           ; 98E6 20 13 2B                  .+
-	ldx     #$3C                            ; 98E9 A2 3C                    .<
-	ldy     #$99                            ; 98EB A0 99                    ..
-	jsr     L120A                           ; 98ED 20 0A 12                  ..
-	lda     L19C9                           ; 98F0 AD C9 19                 ...
-	jsr     L94CE                           ; 98F3 20 CE 94                  ..
-	jsr     L1F2D                           ; 98F6 20 2D 1F                  -.
-	lda     #$3A                            ; 98F9 A9 3A                    .:
-	jsr     L1231                           ; 98FB 20 31 12                  1.
-	lda     #$0E                            ; 98FE A9 0E                    ..
-	sta     L00CF                           ; 9900 85 CF                    ..
-	lda     #$42                            ; 9902 A9 42                    .B
-	sta     L00B3                           ; 9904 85 B3                    ..
-	lda     #$99                            ; 9906 A9 99                    ..
-	sta     L00B4                           ; 9908 85 B4                    ..
-L990A:  ldy     #$00                            ; 990A A0 00                    ..
-	lda     (L00B3),y                       ; 990C B1 B3                    ..
-	cmp     L19C9                           ; 990E CD C9 19                 ...
-	beq     L992E                           ; 9911 F0 1B                    ..
-L9913:  lda     (L00B3),y                       ; 9913 B1 B3                    ..
-	beq     L991C                           ; 9915 F0 05                    ..
-	iny                                     ; 9917 C8                       .
-	bpl     L9913                           ; 9918 10 F9                    ..
-	bmi     L9939                           ; 991A 30 1D                    0.
-L991C:  tya                                     ; 991C 98                       .
-	sec                                     ; 991D 38                       8
-	adc     L00B3                           ; 991E 65 B3                    e.
-	sta     L00B3                           ; 9920 85 B3                    ..
-	lda     L00B4                           ; 9922 A5 B4                    ..
-	adc     #$00                            ; 9924 69 00                    i.
-	sta     L00B4                           ; 9926 85 B4                    ..
-	dec     L00CF                           ; 9928 C6 CF                    ..
-	bne     L990A                           ; 992A D0 DE                    ..
-	beq     L9939                           ; 992C F0 0B                    ..
-L992E:  ldx     L00B3                           ; 992E A6 B3                    ..
-	ldy     L00B4                           ; 9930 A4 B4                    ..
-	inx                                     ; 9932 E8                       .
-	bne     L9936                           ; 9933 D0 01                    ..
-	iny                                     ; 9935 C8                       .
-L9936:  jsr     L070F                           ; 9936 20 0F 07                  ..
-L9939:  jmp     L2BCA                           ; 9939 4C CA 2B                 L.+
+L98CF:  ldy     #$68                    	; 98CF A0 68                    .h
+L98D1:  sty     L19C9                   	; 98D1 8C C9 19                 ...
+	jsr     LBF35                   	; 98D4 20 35 BF                  5.
+	lda     L19AD                   	; 98D7 AD AD 19                 ...
+	bne     L98DF                   	; 98DA D0 03                    ..
+	jsr     L2628                   	; 98DC 20 28 26                  (&
+L98DF:  ldx     #$00                    	; 98DF A2 00                    ..
+	ldy     #$00                    	; 98E1 A0 00                    ..
+	jsr     L2BAF                   	; 98E3 20 AF 2B                  .+
+	jsr     L2B13                   	; 98E6 20 13 2B                  .+
+	ldx     #$3C                    	; 98E9 A2 3C                    .<
+	ldy     #$99                    	; 98EB A0 99                    ..
+	jsr     L120A                   	; 98ED 20 0A 12                  ..
+	lda     L19C9                   	; 98F0 AD C9 19                 ...
+	jsr     L94CE                   	; 98F3 20 CE 94                  ..
+	jsr     L1F2D                   	; 98F6 20 2D 1F                  -.
+	lda     #$3A                    	; 98F9 A9 3A                    .:
+	jsr     L1231                   	; 98FB 20 31 12                  1.
+	lda     #$0E                    	; 98FE A9 0E                    ..
+	sta     L00CF                   	; 9900 85 CF                    ..
+	lda     #$42                    	; 9902 A9 42                    .B
+	sta     L00B3                   	; 9904 85 B3                    ..
+	lda     #$99                    	; 9906 A9 99                    ..
+	sta     L00B4                   	; 9908 85 B4                    ..
+L990A:  ldy     #$00                    	; 990A A0 00                    ..
+	lda     (L00B3),y               	; 990C B1 B3                    ..
+	cmp     L19C9                   	; 990E CD C9 19                 ...
+	beq     L992E                   	; 9911 F0 1B                    ..
+L9913:  lda     (L00B3),y               	; 9913 B1 B3                    ..
+	beq     L991C                   	; 9915 F0 05                    ..
+	iny                             	; 9917 C8                       .
+	bpl     L9913                   	; 9918 10 F9                    ..
+	bmi     L9939                   	; 991A 30 1D                    0.
+L991C:  tya                             	; 991C 98                       .
+	sec                             	; 991D 38                       8
+	adc     L00B3                   	; 991E 65 B3                    e.
+	sta     L00B3                   	; 9920 85 B3                    ..
+	lda     L00B4                   	; 9922 A5 B4                    ..
+	adc     #$00                    	; 9924 69 00                    i.
+	sta     L00B4                   	; 9926 85 B4                    ..
+	dec     L00CF                   	; 9928 C6 CF                    ..
+	bne     L990A                   	; 992A D0 DE                    ..
+	beq     L9939                   	; 992C F0 0B                    ..
+L992E:  ldx     L00B3                   	; 992E A6 B3                    ..
+	ldy     L00B4                   	; 9930 A4 B4                    ..
+	inx                             	; 9932 E8                       .
+	bne     L9936                   	; 9933 D0 01                    ..
+	iny                             	; 9935 C8                       .
+L9936:  jsr     L070F                   	; 9936 20 0F 07                  ..
+L9939:  jmp     L2BCA                   	; 9939 4C CA 2B                 L.+
 
 ; ----------------------------------------------------------------------------
 L993C:	.byte	"ERROR",$A0
@@ -3814,76 +3811,248 @@ L993C:	.byte	"ERROR",$A0
 	.byte	$8A,$0E,$0F,$91,$00
 	.byte	$8B,$0E,$0F,$91,$00
 	.byte	$90,$0E,$A4,$00
-	lda     L0002                           ; 997C A5 02                    ..
-	.byte   $0C                             ; 997E 0C                       .
-	.byte   $8D                             ; 997F 8D                       .
-L9980:  sta     L0378,x                         ; 9980 9D 78 03                 .x.
-	tya                                     ; 9983 98                       .
-	sta     L037A,x                         ; 9984 9D 7A 03                 .z.
-	txa                                     ; 9987 8A                       .
-L9988:  lsr     a                               ; 9988 4A                       J
-	lsr     a                               ; 9989 4A                       J
-	sta     L038B                           ; 998A 8D 8B 03                 ...
-	tay                                     ; 998D A8                       .
-	ldx     L0088,y                         ; 998E B6 88                    ..
-	lda     L0080,y                         ; 9990 B9 80 00                 ...
-	tay                                     ; 9993 A8                       .
-	stx     L000F                           ; 9994 86 0F                    ..
-	sty     L000E                           ; 9996 84 0E                    ..
-	jsr     LA7B8                           ; 9998 20 B8 A7                  ..
-	lda     L000F                           ; 999B A5 0F                    ..
-	sta     L0088,x                         ; 999D 95 88                    ..
-	jsr     L99C0                           ; 999F 20 C0 99                  ..
-L99A2:  jsr     LA7B8                           ; 99A2 20 B8 A7                  ..
-	lda     L000E                           ; 99A5 A5 0E                    ..
-	sta     L0080,x                         ; 99A7 95 80                    ..
-L99A9:  lda     L037B,y                         ; 99A9 B9 7B 03                 .{.
-	clc                                     ; 99AC 18                       .
-	sbc     L037A,y                         ; 99AD F9 7A 03                 .z.
-	clc                                     ; 99B0 18                       .
-	adc     L0080,x                         ; 99B1 75 80                    u.
-	bcs     L99B9                           ; 99B3 B0 04                    ..
-	cmp     #$FF                            ; 99B5 C9 FF                    ..
-	bne     L99BD                           ; 99B7 D0 04                    ..
-L99B9:  dec     L0080,x                         ; 99B9 D6 80                    ..
-	bne     L99A9                           ; 99BB D0 EC                    ..
-L99BD:  sta     L0084,x                         ; 99BD 95 84                    ..
-	rts                                     ; 99BF 60                       `
+	lda     L0002                   	; 997C A5 02                    ..
+	.byte   $0C                     	; 997E 0C                       .
+	.byte   $8D                     	; 997F 8D                       .
+L9980:  sta     L0378,x                 	; 9980 9D 78 03                 .x.
+	tya                             	; 9983 98                       .
+	sta     L037A,x                 	; 9984 9D 7A 03                 .z.
+	txa                             	; 9987 8A                       .
+L9988:  lsr     a                       	; 9988 4A                       J
+	lsr     a                       	; 9989 4A                       J
+	sta     L038B                   	; 998A 8D 8B 03                 ...
+	tay                             	; 998D A8                       .
+	ldx     L0088,y                 	; 998E B6 88                    ..
+	lda     L0080,y                 	; 9990 B9 80 00                 ...
+	tay                             	; 9993 A8                       .
+	stx     L000F                   	; 9994 86 0F                    ..
+	sty     L000E                   	; 9996 84 0E                    ..
+	jsr     LA7B8                   	; 9998 20 B8 A7                  ..
+	lda     L000F                   	; 999B A5 0F                    ..
+	sta     L0088,x                 	; 999D 95 88                    ..
+	jsr     L99C0                   	; 999F 20 C0 99                  ..
+L99A2:  jsr     LA7B8                   	; 99A2 20 B8 A7                  ..
+	lda     L000E                   	; 99A5 A5 0E                    ..
+	sta     L0080,x                 	; 99A7 95 80                    ..
+L99A9:  lda     L037B,y                 	; 99A9 B9 7B 03                 .{.
+	clc                             	; 99AC 18                       .
+	sbc     L037A,y                 	; 99AD F9 7A 03                 .z.
+	clc                             	; 99B0 18                       .
+	adc     L0080,x                 	; 99B1 75 80                    u.
+	bcs     L99B9                   	; 99B3 B0 04                    ..
+	cmp     #$FF                    	; 99B5 C9 FF                    ..
+	bne     L99BD                   	; 99B7 D0 04                    ..
+L99B9:  dec     L0080,x                 	; 99B9 D6 80                    ..
+	bne     L99A9                   	; 99BB D0 EC                    ..
+L99BD:  sta     L0084,x                 	; 99BD 95 84                    ..
+	rts                             	; 99BF 60                       `
 
 ; ----------------------------------------------------------------------------
-L99C0:  lda     L0379,y                         ; 99C0 B9 79 03                 .y.
-	sec                                     ; 99C3 38                       8
-	sbc     L0378,y                         ; 99C4 F9 78 03                 .x.
-	ldy     L0088,x                         ; 99C7 B4 88                    ..
-L99C9:  sec                                     ; 99C9 38                       8
-	sbc     L1901,y                         ; 99CA F9 01 19                 ...
-	beq     L99D4                           ; 99CD F0 05                    ..
-	bcc     L99D4                           ; 99CF 90 03                    ..
-	iny                                     ; 99D1 C8                       .
-	bpl     L99C9                           ; 99D2 10 F5                    ..
-L99D4:  sty     L008C,x                         ; 99D4 94 8C                    ..
-	rts                                     ; 99D6 60                       `
+L99C0:  lda     L0379,y                 	; 99C0 B9 79 03                 .y.
+	sec                             	; 99C3 38                       8
+	sbc     L0378,y                 	; 99C4 F9 78 03                 .x.
+	ldy     L0088,x                 	; 99C7 B4 88                    ..
+L99C9:  sec                             	; 99C9 38                       8
+	sbc     L1901,y                 	; 99CA F9 01 19                 ...
+	beq     L99D4                   	; 99CD F0 05                    ..
+	bcc     L99D4                   	; 99CF 90 03                    ..
+	iny                             	; 99D1 C8                       .
+	bpl     L99C9                   	; 99D2 10 F5                    ..
+L99D4:  sty     L008C,x                 	; 99D4 94 8C                    ..
+	rts                             	; 99D6 60                       `
 
 ; ----------------------------------------------------------------------------
-L99D7:  jsr     L9A52                           ; 99D7 20 52 9A                  R.
-	jsr     L2628                           ; 99DA 20 28 26                  (&
-L99DD:  jsr     L1E4C                           ; 99DD 20 4C 1E                  L.
-	jsr     L1FB5                           ; 99E0 20 B5 1F                  ..
-	jsr     L8F5A                           ; 99E3 20 5A 8F                  Z.
-	lda     L00BE                           ; 99E6 A5 BE                    ..
-	bne     L99ED                           ; 99E8 D0 03                    ..
-	jsr     L9508                           ; 99EA 20 08 95                  ..
-L99ED:  lda     #$20                            ; 99ED A9 20                    . 
-	sta     L19B4                           ; 99EF 8D B4 19                 ...
-	sta     L19DE                           ; 99F2 8D DE 19                 ...
-	lda     #$00                            ; 99F5 A9 00                    ..
-	sta     L000A                           ; 99F7 85 0A                    ..
-	sta     L000C                           ; 99F9 85 0C                    ..
-	sta     L000B                           ; 99FB 85 0B                    ..
-	ldx     #$07                            ; 99FD A2 07                    ..
-L99FF:  sta     L19A6,x                         ; 99FF 9D A6 19                 ...
-	dex                                     ; 9A02 CA                       .
-	bpl     L99FF                           ; 9A03 10 FA                    ..
-	rts                                     ; 9A05 60                       `
+L99D7:  jsr     L9A52                   	; 99D7 20 52 9A                  R.
+	jsr     L2628                   	; 99DA 20 28 26                  (&
+L99DD:  jsr     L1E4C                   	; 99DD 20 4C 1E                  L.
+	jsr     L1FB5                   	; 99E0 20 B5 1F                  ..
+	jsr     L8F5A                   	; 99E3 20 5A 8F                  Z.
+	lda     L00BE                   	; 99E6 A5 BE                    ..
+	bne     L99ED                   	; 99E8 D0 03                    ..
+	jsr     L9508                   	; 99EA 20 08 95                  ..
+L99ED:  lda     #$20                    	; 99ED A9 20                    . 
+	sta     L19B4                   	; 99EF 8D B4 19                 ...
+	sta     L19DE                   	; 99F2 8D DE 19                 ...
+	lda     #$00                    	; 99F5 A9 00                    ..
+	sta     L000A                   	; 99F7 85 0A                    ..
+	sta     L000C                   	; 99F9 85 0C                    ..
+	sta     L000B                   	; 99FB 85 0B                    ..
+	ldx     #$07                    	; 99FD A2 07                    ..
+L99FF:  sta     L19A6,x                 	; 99FF 9D A6 19                 ...
+	dex                             	; 9A02 CA                       .
+	bpl     L99FF                   	; 9A03 10 FA                    ..
+	rts                             	; 9A05 60                       `
 
 ; ----------------------------------------------------------------------------
+L9A06:  ldy     L038B                           ; 9A06 AC 8B 03                 ...
+        tya                                     ; 9A09 98                       .
+        eor     #$01                            ; 9A0A 49 01                    I.
+        tax                                     ; 9A0C AA                       .
+        bit     L038A                           ; 9A0D 2C 8A 03                 ,..
+        bvc     L9A2E                           ; 9A10 50 1C                    P.
+        bpl     L9A21                           ; 9A12 10 0D                    ..
+        lda     L0080,y                         ; 9A14 B9 80 00                 ...
+        sta     L0080,x                         ; 9A17 95 80                    ..
+        lda     L0084,y                         ; 9A19 B9 84 00                 ...
+        sta     L0084,x                         ; 9A1C 95 84                    ..
+        jmp     L9A2B                           ; 9A1E 4C 2B 9A                 L+.
+
+; ----------------------------------------------------------------------------
+L9A21:  lda     L0088,y                         ; 9A21 B9 88 00                 ...
+        sta     L0088,x                         ; 9A24 95 88                    ..
+        lda     L008C,y                         ; 9A26 B9 8C 00                 ...
+        sta     L008C,x                         ; 9A29 95 8C                    ..
+L9A2B:  jsr     L9A31                           ; 9A2B 20 31 9A                  1.
+L9A2E:  ldx     L038B                           ; 9A2E AE 8B 03                 ...
+L9A31:  lda     L0388,x                         ; 9A31 BD 88 03                 ...
+        sta     L0094                           ; 9A34 85 94                    ..
+        cmp     #$C0                            ; 9A36 C9 C0                    ..
+        beq     L9A46                           ; 9A38 F0 0C                    ..
+        bit     L0094                           ; 9A3A 24 94                    $.
+        bpl     L9A47                           ; 9A3C 10 09                    ..
+        lda     L0088,x                         ; 9A3E B5 88                    ..
+        sta     L008A,x                         ; 9A40 95 8A                    ..
+        lda     L008C,x                         ; 9A42 B5 8C                    ..
+        sta     L008E,x                         ; 9A44 95 8E                    ..
+L9A46:  rts                                     ; 9A46 60                       `
+
+; ----------------------------------------------------------------------------
+L9A47:  bvc     L9A46                           ; 9A47 50 FD                    P.
+        lda     L0080,x                         ; 9A49 B5 80                    ..
+        sta     L0082,x                         ; 9A4B 95 82                    ..
+        lda     L0084,x                         ; 9A4D B5 84                    ..
+        sta     L0086,x                         ; 9A4F 95 86                    ..
+        rts                                     ; 9A51 60                       `
+
+; ----------------------------------------------------------------------------
+L9A52:  lda     L00C1                           ; 9A52 A5 C1                    ..
+        cmp     #$FE                            ; 9A54 C9 FE                    ..
+        bne     L9A5C                           ; 9A56 D0 04                    ..
+        lda     #$01                            ; 9A58 A9 01                    ..
+        sta     L00C1                           ; 9A5A 85 C1                    ..
+L9A5C:  rts                                     ; 9A5C 60                       `
+
+; ----------------------------------------------------------------------------
+L9A5D:  stx     L00D0                           ; 9A5D 86 D0                    ..
+        tax                                     ; 9A5F AA                       .
+        jsr     L0CE6                           ; 9A60 20 E6 0C                  ..
+        lda     #$FF                            ; 9A63 A9 FF                    ..
+        sta     LD301                           ; 9A65 8D 01 D3                 ...
+        lda     L00D0                           ; 9A68 A5 D0                    ..
+        clc                                     ; 9A6A 18                       .
+        adc     L00E6                           ; 9A6B 65 E6                    e.
+        sta     L00E6                           ; 9A6D 85 E6                    ..
+        bcc     L9A73                           ; 9A6F 90 02                    ..
+        inc     L00E7                           ; 9A71 E6 E7                    ..
+L9A73:  jsr     L9C92                           ; 9A73 20 92 9C                  ..
+        lda     L00E6                           ; 9A76 A5 E6                    ..
+        clc                                     ; 9A78 18                       .
+        adc     #$EA                            ; 9A79 69 EA                    i.
+        tax                                     ; 9A7B AA                       .
+        lda     L00E7                           ; 9A7C A5 E7                    ..
+        adc     #$2B                            ; 9A7E 69 2B                    i+
+        tay                                     ; 9A80 A8                       .
+        rts                                     ; 9A81 60                       `
+
+; ----------------------------------------------------------------------------
+L9A82:  sty     L00E7                           ; 9A82 84 E7                    ..
+        stx     L00E6                           ; 9A84 86 E6                    ..
+        ldy     #$02                            ; 9A86 A0 02                    ..
+L9A88:  lda     (L00E6),y                       ; 9A88 B1 E6                    ..
+        sta     L00CE,y                         ; 9A8A 99 CE 00                 ...
+        dey                                     ; 9A8D 88                       .
+        bpl     L9A88                           ; 9A8E 10 F8                    ..
+        lda     L00D0                           ; 9A90 A5 D0                    ..
+        sta     L00C2                           ; 9A92 85 C2                    ..
+        and     #$03                            ; 9A94 29 03                    ).
+        sta     L00D0                           ; 9A96 85 D0                    ..
+        bpl     L9AA3                           ; 9A98 10 09                    ..
+L9A9A:  ldx     #$02                            ; 9A9A A2 02                    ..
+L9A9C:  lda     L00CA,x                         ; 9A9C B5 CA                    ..
+        sta     L00CE,x                         ; 9A9E 95 CE                    ..
+        dex                                     ; 9AA0 CA                       .
+        bpl     L9A9C                           ; 9AA1 10 F9                    ..
+L9AA3:  lda     L00CF                           ; 9AA3 A5 CF                    ..
+        asl     a                               ; 9AA5 0A                       .
+        rol     L00D0                           ; 9AA6 26 D0                    &.
+        asl     a                               ; 9AA8 0A                       .
+        rol     L00D0                           ; 9AA9 26 D0                    &.
+        ldx     L00D0                           ; 9AAB A6 D0                    ..
+        .byte   $A5                             ; 9AAD A5                       .
+L9AAE:  .byte   $CF                             ; 9AAE CF                       .
+        and     #$3F                            ; 9AAF 29 3F                    )?
+        dex                                     ; 9AB1 CA                       .
+        bmi     L9AB7                           ; 9AB2 30 03                    0.
+        ora     #$40                            ; 9AB4 09 40                    .@
+        dex                                     ; 9AB6 CA                       .
+L9AB7:  inx                                     ; 9AB7 E8                       .
+        tay                                     ; 9AB8 A8                       .
+        txa                                     ; 9AB9 8A                       .
+        beq     L9AC4                           ; 9ABA F0 08                    ..
+        dex                                     ; 9ABC CA                       .
+        txa                                     ; 9ABD 8A                       .
+        asl     a                               ; 9ABE 0A                       .
+        asl     a                               ; 9ABF 0A                       .
+        ora     #$E3                            ; 9AC0 09 E3                    ..
+        bne     L9AC6                           ; 9AC2 D0 02                    ..
+L9AC4:  lda     #$FF                            ; 9AC4 A9 FF                    ..
+L9AC6:  ldx     L00CE                           ; 9AC6 A6 CE                    ..
+        rts                                     ; 9AC8 60                       `
+
+; ----------------------------------------------------------------------------
+L9AC9:  ldy     L0095                           ; 9AC9 A4 95                    ..
+        ldx     L0096                           ; 9ACB A6 96                    ..
+        bpl     L9AD3                           ; 9ACD 10 04                    ..
+L9ACF:  ldx     L00B0                           ; 9ACF A6 B0                    ..
+        ldy     L00AF                           ; 9AD1 A4 AF                    ..
+L9AD3:  sty     L000E                           ; 9AD3 84 0E                    ..
+        stx     L000F                           ; 9AD5 86 0F                    ..
+        ldx     #$00                            ; 9AD7 A2 00                    ..
+        lda     L00A8                           ; 9AD9 A5 A8                    ..
+        cmp     L000F                           ; 9ADB C5 0F                    ..
+        bcs     L9AE2                           ; 9ADD B0 03                    ..
+        dex                                     ; 9ADF CA                       .
+        lda     L000F                           ; 9AE0 A5 0F                    ..
+L9AE2:  sta     L1997                           ; 9AE2 8D 97 19                 ...
+        lda     L00A7                           ; 9AE5 A5 A7                    ..
+        cmp     L000E                           ; 9AE7 C5 0E                    ..
+        bcs     L9AEE                           ; 9AE9 B0 03                    ..
+        dex                                     ; 9AEB CA                       .
+        lda     L000E                           ; 9AEC A5 0E                    ..
+L9AEE:  sta     L1998                           ; 9AEE 8D 98 19                 ...
+        txa                                     ; 9AF1 8A                       .
+        beq     L9B2B                           ; 9AF2 F0 37                    .7
+        ldx     L1997                           ; 9AF4 AE 97 19                 ...
+        ldy     L1998                           ; 9AF7 AC 98 19                 ...
+        jsr     L0CE5                           ; 9AFA 20 E5 0C                  ..
+        lda     L00E6                           ; 9AFD A5 E6                    ..
+        sta     L00E0                           ; 9AFF 85 E0                    ..
+        lda     L00E7                           ; 9B01 A5 E7                    ..
+        sta     L00E1                           ; 9B03 85 E1                    ..
+        ldy     L00A7                           ; 9B05 A4 A7                    ..
+        ldx     L00A8                           ; 9B07 A6 A8                    ..
+        jsr     L0CE5                           ; 9B09 20 E5 0C                  ..
+        sec                                     ; 9B0C 38                       8
+        lda     L00E0                           ; 9B0D A5 E0                    ..
+        sbc     L00E6                           ; 9B0F E5 E6                    ..
+        sta     L00E6                           ; 9B11 85 E6                    ..
+        lda     L00E1                           ; 9B13 A5 E1                    ..
+        sbc     L00E7                           ; 9B15 E5 E7                    ..
+        sta     L00E7                           ; 9B17 85 E7                    ..
+        asl     L00E6                           ; 9B19 06 E6                    ..
+        rol     L00E7                           ; 9B1B 26 E7                    &.
+        jsr     L9C92                           ; 9B1D 20 92 9C                  ..
+        jsr     L96CD                           ; 9B20 20 CD 96                  ..
+        dex                                     ; 9B23 CA                       .
+        bpl     L9B2B                           ; 9B24 10 05                    ..
+        clc                                     ; 9B26 18                       .
+        sbc     L00E7                           ; 9B27 E5 E7                    ..
+        bcc     L9B36                           ; 9B29 90 0B                    ..
+L9B2B:  ldx     L1997                           ; 9B2B AE 97 19                 ...
+        ldy     L1998                           ; 9B2E AC 98 19                 ...
+        jsr     L9712                           ; 9B31 20 12 97                  ..
+        bcc     L9B39                           ; 9B34 90 03                    ..
+L9B36:  jmp     L98AE                           ; 9B36 4C AE 98                 L..
+
+; ----------------------------------------------------------------------------
+L9B39:  sta     L19E5                           ; 9B39 8D E5 19                 ...
