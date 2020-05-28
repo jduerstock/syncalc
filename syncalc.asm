@@ -177,9 +177,18 @@ L19A6	= $19A6
 L19A7	= $19A7
 L19A8	= $19A8
 L19A9	= $19A9
+L19AA	= $19AA
 L19AB	= $19AB
 L19AC	= $19AC
 L19AD	= $19AD
+L19B0	= $19B0
+L19B1	= $19B1
+L19B3	= $19B3
+L19B4	= $19B4
+L19B7	= $19B7
+L19B8	= $19B8
+L19B9	= $19B9
+L19BA	= $19BA
 L19C0	= $19C0
 L19C8	= $19C8
 L19C9	= $19C9
@@ -189,22 +198,17 @@ L19CC	= $19CC
 L19CD	= $19CD
 L19CE	= $19CE
 L19CF	= $19CF
-L19B0	= $19B0
-L19B1	= $19B1
-L19B3	= $19B3
-L19B4	= $19B4
-L19B7	= $19B7
-L19B8	= $19B8
-L19B9	= $19B9
-L19BA	= $19BA
 L19D0	= $19D0
 L19D1	= $19D1
 L19D2	= $19D2
 L19D3	= $19D3
+L19D4	= $19D4
+L19D6	= $19D6
 L19D8	= $19D8
 L19D9	= $19D9
 L19DA	= $19DA
 L19DB	= $19DB
+L19DC	= $19DC
 L19DD	= $19DD
 L19DE	= $19DE
 L19E2	= $19E2
@@ -235,6 +239,7 @@ L2811	= $2811
 L2838	= $2838
 L2857	= $2857
 L28E3	= $28E3
+L28F6	= $28F6
 L2910	= $2910
 L29EB	= $29EB
 L2A13	= $2A13
@@ -248,7 +253,6 @@ L2BAF	= $2BAF
 L2BB3	= $2BB3
 L2BCA	= $2BCA
 
-LA1B5	= $A1B5
 LA7B8	= $A7B8
 LA8A6	= $A8A6
 LA805	= $A805
@@ -4903,3 +4907,120 @@ LA0D7:  ldx     #$01                            ; A0D7 A2 01                    
 
 ; ----------------------------------------------------------------------------
 LA108:  cmp     #$73                            ; A108 C9 73                    .s
+        bcc     LA10E                           ; A10A 90 02                    ..
+        lda     #$72                            ; A10C A9 72                    .r
+LA10E:  sta     L00C7                           ; A10E 85 C7                    ..
+        lda     #$40                            ; A110 A9 40                    .@
+        sta     L006A                           ; A112 85 6A                    .j
+        lda     #$FF                            ; A114 A9 FF                    ..
+        sta     L000B                           ; A116 85 0B                    ..
+        lda     L19DD                           ; A118 AD DD 19                 ...
+        bne     LA12B                           ; A11B D0 0E                    ..
+        ldx     L00AA                           ; A11D A6 AA                    ..
+        lda     L1901,x                         ; A11F BD 01 19                 ...
+        cmp     L00C7                           ; A122 C5 C7                    ..
+        bcs     LA12B                           ; A124 B0 05                    ..
+        lda     #$10                            ; A126 A9 10                    ..
+        sta     L19AB                           ; A128 8D AB 19                 ...
+LA12B:  jsr     L9772                           ; A12B 20 72 97                  r.
+        lda     L19DD                           ; A12E AD DD 19                 ...
+        bne     LA1AC                           ; A131 D0 79                    .y
+        lda     L00C7                           ; A133 A5 C7                    ..
+        ldx     L00AA                           ; A135 A6 AA                    ..
+LA137:  sec                                     ; A137 38                       8
+        sbc     L1901,x                         ; A138 FD 01 19                 ...
+        bcc     LA143                           ; A13B 90 06                    ..
+        beq     LA143                           ; A13D F0 04                    ..
+        inx                                     ; A13F E8                       .
+        bpl     LA137                           ; A140 10 F5                    ..
+        dex                                     ; A142 CA                       .
+LA143:  cpx     L00AA                           ; A143 E4 AA                    ..
+        beq     LA1AC                           ; A145 F0 65                    .e
+        ldy     L00A9                           ; A147 A4 A9                    ..
+        lda     L00C7                           ; A149 A5 C7                    ..
+        pha                                     ; A14B 48                       H
+        jsr     L9AD3                           ; A14C 20 D3 9A                  ..
+        pla                                     ; A14F 68                       h
+        sta     L00B1                           ; A150 85 B1                    ..
+        sta     L00B2                           ; A152 85 B2                    ..
+        lda     #$40                            ; A154 A9 40                    .@
+        sta     L006A                           ; A156 85 6A                    .j
+        ldx     L00AA                           ; A158 A6 AA                    ..
+        lda     L1901,x                         ; A15A BD 01 19                 ...
+        sta     L00B3                           ; A15D 85 B3                    ..
+LA15F:  inc     L00AA                           ; A15F E6 AA                    ..
+        bpl     LA168                           ; A161 10 05                    ..
+        dec     L00AA                           ; A163 C6 AA                    ..
+        jmp     LA196                           ; A165 4C 96 A1                 L..
+
+; ----------------------------------------------------------------------------
+LA168:  ldx     L00AA                           ; A168 A6 AA                    ..
+        lda     L1901,x                         ; A16A BD 01 19                 ...
+        sta     L00C7                           ; A16D 85 C7                    ..
+        ldx     L00B3                           ; A16F A6 B3                    ..
+        ldy     #$00                            ; A171 A0 00                    ..
+LA173:  cpx     L00B2                           ; A173 E4 B2                    ..
+        bcs     LA181                           ; A175 B0 0A                    ..
+        lda     L0600,x                         ; A177 BD 00 06                 ...
+        sta     L03FD,y                         ; A17A 99 FD 03                 ...
+        cpx     L00B1                           ; A17D E4 B1                    ..
+        bne     LA185                           ; A17F D0 04                    ..
+LA181:  sty     L00C7                           ; A181 84 C7                    ..
+        beq     LA18B                           ; A183 F0 06                    ..
+LA185:  inx                                     ; A185 E8                       .
+        iny                                     ; A186 C8                       .
+        cpy     L00C7                           ; A187 C4 C7                    ..
+        bne     LA173                           ; A189 D0 E8                    ..
+LA18B:  stx     L00B3                           ; A18B 86 B3                    ..
+        jsr     L9772                           ; A18D 20 72 97                  r.
+        lda     L00B3                           ; A190 A5 B3                    ..
+        cmp     L00B1                           ; A192 C5 B1                    ..
+        bne     LA15F                           ; A194 D0 C9                    ..
+LA196:  lda     L19DB                           ; A196 AD DB 19                 ...
+        cmp     #$02                            ; A199 C9 02                    ..
+        bne     LA1AC                           ; A19B D0 0F                    ..
+        lda     L00AA                           ; A19D A5 AA                    ..
+        sta     L0096                           ; A19F 85 96                    ..
+        ldx     L038B                           ; A1A1 AE 8B 03                 ...
+        sta     L0088,x                         ; A1A4 95 88                    ..
+        jsr     L8132                           ; A1A6 20 32 81                  2.
+        jsr     L814E                           ; A1A9 20 4E 81                  N.
+LA1AC:  lda     L00C5                           ; A1AC A5 C5                    ..
+        and     #$EF                            ; A1AE 29 EF                    ).
+        sta     L00C5                           ; A1B0 85 C5                    ..
+        jmp     L28F6                           ; A1B2 4C F6 28                 L.(
+
+; ----------------------------------------------------------------------------
+LA1B5:  jsr     L9AC9                           ; A1B5 20 C9 9A                  ..
+        lda     #$FF                            ; A1B8 A9 FF                    ..
+LA1BA:  pha                                     ; A1BA 48                       H
+        lda     #$FE                            ; A1BB A9 FE                    ..
+        cmp     L00C1                           ; A1BD C5 C1                    ..
+        beq     LA1C5                           ; A1BF F0 04                    ..
+        ldx     #$FF                            ; A1C1 A2 FF                    ..
+        stx     L00C1                           ; A1C3 86 C1                    ..
+LA1C5:  eor     L19AA                           ; A1C5 4D AA 19                 M..
+        sta     L19B3                           ; A1C8 8D B3 19                 ...
+        bpl     LA1D1                           ; A1CB 10 04                    ..
+        lda     #$C0                            ; A1CD A9 C0                    ..
+        bne     LA1D3                           ; A1CF D0 02                    ..
+LA1D1:  lda     #$82                            ; A1D1 A9 82                    ..
+LA1D3:  sta     L19B0                           ; A1D3 8D B0 19                 ...
+        ldx     #$01                            ; A1D6 A2 01                    ..
+        stx     L0000                           ; A1D8 86 00                    ..
+        ldx     #$12                            ; A1DA A2 12                    ..
+        stx     L19BA                           ; A1DC 8E BA 19                 ...
+        stx     L0002                           ; A1DF 86 02                    ..
+        lda     L0095                           ; A1E1 A5 95                    ..
+        sta     L19D4                           ; A1E3 8D D4 19                 ...
+        lda     L0096                           ; A1E6 A5 96                    ..
+        sta     L19D6                           ; A1E8 8D D6 19                 ...
+        lda     L19DB                           ; A1EB AD DB 19                 ...
+        sta     L19DC                           ; A1EE 8D DC 19                 ...
+        jsr     L270C                           ; A1F1 20 0C 27                  .'
+        pla                                     ; A1F4 68                       h
+        ldx     #$27                            ; A1F5 A2 27                    .'
+        ldy     #$15                            ; A1F7 A0 15                    ..
+        jsr     L9E80                           ; A1F9 20 80 9E                  ..
+        jsr     L9504                           ; A1FC 20 04 95                  ..
+        lda     L19D4                           ; A1FF AD D4 19                 ...
