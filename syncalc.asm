@@ -254,6 +254,7 @@ L2BB3	= $2BB3
 L2BCA	= $2BCA
 
 LA56B	= $A56B
+LA593	= $A593
 LA597	= $A597
 LA59B	= $A59B
 LA5C2	= $A5C2
@@ -5423,10 +5424,8 @@ LA4DC:  jsr     L260F                           ; A4DC 20 0F 26                 
         jsr     LA5D5                           ; A4DF 20 D5 A5                  ..
         jsr     LA74C                           ; A4E2 20 4C A7                  L.
         jsr     LA6F2                           ; A4E5 20 F2 A6                  ..
-        .byte   $20                             ; A4E8 20                        
-        .byte   $93                             ; A4E9 93                       .
-LA4EA:  lda     L00A2                           ; A4EA A5 A2                    ..
-        .byte   $7A                             ; A4EC 7A                       z
+	jsr	LA593
+	ldx	#$7A
         ldy     #$A5                            ; A4ED A0 A5                    ..
         jsr     L070F                           ; A4EF 20 0F 07                  ..
         lda     #$40                            ; A4F2 A9 40                    .@
