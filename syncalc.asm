@@ -173,6 +173,10 @@ L1997	= $1997
 L1998	= $1998
 L1999	= $1999
 L199A	= $199A
+L199B	= $199B
+L199C	= $199C
+L199D	= $199D
+L199E	= $199E
 L199F	= $199F
 L19A4	= $19A4
 L19A5	= $19A5
@@ -234,6 +238,7 @@ L1FD9	= $1FD9
 L24CE	= $24CE
 L25A8	= $25A8
 L25F9	= $25F9
+L260D	= $260D
 L260F	= $260F
 L2628	= $2628
 L266F	= $266F
@@ -261,7 +266,6 @@ L2BAF	= $2BAF
 L2BB3	= $2BB3
 L2BCA	= $2BCA
 
-LA6F2	= $A6F2
 LA74C	= $A74C
 LA768	= $A768
 LA771	= $A771
@@ -270,8 +274,10 @@ LA799	= $A799
 LA7A4	= $A7A4
 LA7AA	= $A7AA
 LA7B8	= $A7B8
-LA7D9	= $A7D9
 LA7C0	= $A7C0
+LA7CE	= $A7CE
+LA7D9	= $A7D9
+LA7FA	= $A7FA
 LA805	= $A805
 LA813	= $A813
 LA8A6	= $A8A6
@@ -5580,3 +5586,155 @@ LA5FB:  sta     L199F                           ; A5FB 8D 9F 19                 
         sta     L00C0                           ; A603 85 C0                    ..
         lda     #$5F                            ; A605 A9 5F                    ._
         jsr     L1231                           ; A607 20 31 12                  1.
+	sta	L00C0
+	jsr	L9D93
+	jsr	L9DAF
+	beq	LA63C
+        bne     LA61E                           ; A614 D0 08                    ..
+
+; ----------------------------------------------------------------------------
+LA616:  jsr     L9D93                           ; A616 20 93 9D                  ..
+        jsr     L9DAF                           ; A619 20 AF 9D                  ..
+        beq     LA63C                           ; A61C F0 1E                    ..
+LA61E:  lda     L19A7                           ; A61E AD A7 19                 ...
+        pha                                     ; A621 48                       H
+        jsr     L95F5                           ; A622 20 F5 95                  ..
+        jsr     LA7C0                           ; A625 20 C0 A7                  ..
+        lda     #$5F                            ; A628 A9 5F                    ._
+        ldy     #$05                            ; A62A A0 05                    ..
+        jsr     L1228                           ; A62C 20 28 12                  (.
+        jsr     LA7C0                           ; A62F 20 C0 A7                  ..
+        pla                                     ; A632 68                       h
+        sta     L19A7                           ; A633 8D A7 19                 ...
+        jsr     L9583                           ; A636 20 83 95                  ..
+        jmp     LA616                           ; A639 4C 16 A6                 L..
+
+; ----------------------------------------------------------------------------
+LA63C:  sta     L000D                           ; A63C 85 0D                    ..
+        ldx     L199F                           ; A63E AE 9F 19                 ...
+        lda     LA676,x                         ; A641 BD 76 A6                 .v.
+        sta     L0000                           ; A644 85 00                    ..
+        lda     LA67B,x                         ; A646 BD 7B A6                 .{.
+        sta     L0002                           ; A649 85 02                    ..
+        lda     LA685,x                         ; A64B BD 85 A6                 ...
+        tay                                     ; A64E A8                       .
+        lda     LA680,x                         ; A64F BD 80 A6                 ...
+        tax                                     ; A652 AA                       .
+        lda     #$5F                            ; A653 A9 5F                    ._
+        sta     L19B4                           ; A655 8D B4 19                 ...
+        jsr     L9E80                           ; A658 20 80 9E                  ..
+        ldx     #$00                            ; A65B A2 00                    ..
+        ldy     L00B9                           ; A65D A4 B9                    ..
+LA65F:  lda     L0600,x                         ; A65F BD 00 06                 ...
+        cmp     #$23                            ; A662 C9 23                    .#
+        beq     LA673                           ; A664 F0 0D                    ..
+        cmp     #$9B                            ; A666 C9 9B                    ..
+        beq     LA671                           ; A668 F0 07                    ..
+        sta     L0680,y                         ; A66A 99 80 06                 ...
+        inx                                     ; A66D E8                       .
+        iny                                     ; A66E C8                       .
+        bne     LA65F                           ; A66F D0 EE                    ..
+LA671:  txa                                     ; A671 8A                       .
+        clc                                     ; A672 18                       .
+LA673:  sty     L00B9                           ; A673 84 B9                    ..
+        rts                                     ; A675 60                       `
+
+; ----------------------------------------------------------------------------
+LA676:	.byte	$18,$21,$18,$21,$18
+LA67B:	.byte	$12,$12,$14,$14,$13
+LA680:	.byte	$1D,$26,$1D,$26,$1D
+LA685:	.byte	$13,$13,$15,$15,$14
+
+; ----------------------------------------------------------------------------
+LA68A:  jsr     LA7FA                           ; A68A 20 FA A7                  ..
+        jsr     LA7CE                           ; A68D 20 CE A7                  ..
+        lda     #$00                            ; A690 A9 00                    ..
+        sta     L00D3                           ; A692 85 D3                    ..
+        lda     #$28                            ; A694 A9 28                    .(
+        sta     L0379                           ; A696 8D 79 03                 .y.
+        lda     #$11                            ; A699 A9 11                    ..
+        sta     L037B                           ; A69B 8D 7B 03                 .{.
+        ldx     L038B                           ; A69E AE 8B 03                 ...
+        lda     L0088,x                         ; A6A1 B5 88                    ..
+        sta     L0088                           ; A6A3 85 88                    ..
+        sta     L199E                           ; A6A5 8D 9E 19                 ...
+        lda     L0080,x                         ; A6A8 B5 80                    ..
+        sta     L0080                           ; A6AA 85 80                    ..
+        sta     L199D                           ; A6AC 8D 9D 19                 ...
+        lda     L0095                           ; A6AF A5 95                    ..
+        sec                                     ; A6B1 38                       8
+        sbc     L0080                           ; A6B2 E5 80                    ..
+        sbc     #$0E                            ; A6B4 E9 0E                    ..
+        php                                     ; A6B6 08                       .
+        bcc     LA6C0                           ; A6B7 90 07                    ..
+        adc     L0080                           ; A6B9 65 80                    e.
+        sta     L0080                           ; A6BB 85 80                    ..
+        sta     L199D                           ; A6BD 8D 9D 19                 ...
+LA6C0:  plp                                     ; A6C0 28                       (
+        bcs     LA6CD                           ; A6C1 B0 0A                    ..
+        lda     L038A                           ; A6C3 AD 8A 03                 ...
+        bne     LA6CD                           ; A6C6 D0 05                    ..
+        lda     L0388                           ; A6C8 AD 88 03                 ...
+        beq     LA6CF                           ; A6CB F0 02                    ..
+LA6CD:  dec     L00D3                           ; A6CD C6 D3                    ..
+LA6CF:  lda     #$00                            ; A6CF A9 00                    ..
+        sta     L0388                           ; A6D1 8D 88 03                 ...
+        sta     L0389                           ; A6D4 8D 89 03                 ...
+        sta     L038A                           ; A6D7 8D 8A 03                 ...
+        sta     L038B                           ; A6DA 8D 8B 03                 ...
+        lda     L0095                           ; A6DD A5 95                    ..
+        sta     L199B                           ; A6DF 8D 9B 19                 ...
+        lda     L0096                           ; A6E2 A5 96                    ..
+        sta     L199C                           ; A6E4 8D 9C 19                 ...
+        jsr     L8132                           ; A6E7 20 32 81                  2.
+        lda     L00D3                           ; A6EA A5 D3                    ..
+        beq     LA6F1                           ; A6EC F0 03                    ..
+        jmp     L99DD                           ; A6EE 4C DD 99                 L..
+
+; ----------------------------------------------------------------------------
+LA6F1:  rts                                     ; A6F1 60                       `
+
+; ----------------------------------------------------------------------------
+LA6F2:	lda	L199B
+	sta	L0095
+        lda     L199C                           ; A6F7 AD 9C 19                 ...
+        sta     L0096                           ; A6FA 85 96                    ..
+        lda     L199E                           ; A6FC AD 9E 19                 ...
+        sta     L0088                           ; A6FF 85 88                    ..
+        lda     L199D                           ; A701 AD 9D 19                 ...
+        sta     L0080                           ; A704 85 80                    ..
+        jsr     L8132                           ; A706 20 32 81                  2.
+        jmp     L99DD                           ; A709 4C DD 99                 L..
+
+; ----------------------------------------------------------------------------
+LA70C:  bne     LA72F                           ; A70C D0 21                    .!
+        jsr     L9590                           ; A70E 20 90 95                  ..
+        ldx     L00B9                           ; A711 A6 B9                    ..
+        ldy     #$00                            ; A713 A0 00                    ..
+LA715:  lda     L0580,y                         ; A715 B9 80 05                 ...
+        bmi     LA721                           ; A718 30 07                    0.
+        sta     L0680,x                         ; A71A 9D 80 06                 ...
+        iny                                     ; A71D C8                       .
+        inx                                     ; A71E E8                       .
+        bne     LA715                           ; A71F D0 F4                    ..
+LA721:  and     #$7F                            ; A721 29 7F                    ).
+        sta     L0680,x                         ; A723 9D 80 06                 ...
+        inx                                     ; A726 E8                       .
+        stx     L00B9                           ; A727 86 B9                    ..
+        jsr     LA7C0                           ; A729 20 C0 A7                  ..
+        jsr     L9583                           ; A72C 20 83 95                  ..
+LA72F:  jsr     L260D                           ; A72F 20 0D 26                  .&
+        ldy     #$00                            ; A732 A0 00                    ..
+        sty     L00CE                           ; A734 84 CE                    ..
+        ldx     #$06                            ; A736 A2 06                    ..
+        jsr     L2BAF                           ; A738 20 AF 2B                  .+
+LA73B:  ldx     L00CE                           ; A73B A6 CE                    ..
+        cpx     L00B9                           ; A73D E4 B9                    ..
+        beq     LA74B                           ; A73F F0 0A                    ..
+        lda     L0680,x                         ; A741 BD 80 06                 ...
+        jsr     L1231                           ; A744 20 31 12                  1.
+        inc     L00CE                           ; A747 E6 CE                    ..
+        bne     LA73B                           ; A749 D0 F0                    ..
+LA74B:  rts                                     ; A74B 60                       `
+
+; ----------------------------------------------------------------------------
