@@ -273,9 +273,9 @@ L2BAF	= $2BAF
 L2BB3	= $2BB3
 L2BCA	= $2BCA
 
-LA914	= $A914
-LA94A	= $A94A
-LA952	= $A952
+LAA30	= $AA30
+LAA3D	= $AA3D
+LAA64	= $AA64
 LAA99	= $AA99
 LB449 	= $B449
 LB575 	= $B575
@@ -291,6 +291,13 @@ LD9D2	= $D9D2
 LDA60	= $DA60
 LDA66	= $DA66
 LE456	= $E456
+
+.macro  HiStr       Arg
+	.repeat .strlen(Arg)-1, I
+		.byte .strat(Arg, I)
+	.endrep
+	.byte .strat(Arg, .strlen(Arg)-1)+$80
+.endmacro
 
 L8000:  sta     L000D                   	; 8000 85 0D                    ..
 	ldx     #$06                    	; 8002 A2 06                    ..
@@ -5986,3 +5993,123 @@ LA90D:  sta     L0600,x                         ; A90D 9D 00 06                 
         rts                                     ; A913 60                       `
 
 ; ----------------------------------------------------------------------------
+LA914:  sta     L00CE                           ; A914 85 CE                    ..
+        tay                                     ; A916 A8                       .
+        lda     LAA64,y                         ; A917 B9 64 AA                 .d.
+        ldx     #$07                            ; A91A A2 07                    ..
+LA91C:  asl     a                               ; A91C 0A                       .
+        bcc     LA924                           ; A91D 90 05                    ..
+        cpx     L19E9                           ; A91F EC E9 19                 ...
+        beq     LA93E                           ; A922 F0 1A                    ..
+LA924:  dex                                     ; A924 CA                       .
+        bpl     LA91C                           ; A925 10 F5                    ..
+        lda     L00CE                           ; A927 A5 CE                    ..
+        cmp     #$11                            ; A929 C9 11                    ..
+        bne     LA931                           ; A92B D0 04                    ..
+        lda     #$18                            ; A92D A9 18                    ..
+        bne     LA914                           ; A92F D0 E3                    ..
+LA931:  cmp     #$12                            ; A931 C9 12                    ..
+        beq     LA93A                           ; A933 F0 05                    ..
+        pla                                     ; A935 68                       h
+        pla                                     ; A936 68                       h
+        jmp     LA8F1                           ; A937 4C F1 A8                 L..
+
+; ----------------------------------------------------------------------------
+LA93A:  lda     #$19                            ; A93A A9 19                    ..
+        bne     LA914                           ; A93C D0 D6                    ..
+LA93E:  lda     LAA30,y                         ; A93E B9 30 AA                 .0.
+        and     #$7F                            ; A941 29 7F                    ).
+        sta     L19E9                           ; A943 8D E9 19                 ...
+        tya                                     ; A946 98                       .
+        sta     L19E8                           ; A947 8D E8 19                 ...
+LA94A:  ldx     L00B1                           ; A94A A6 B1                    ..
+        sta     L03FD,x                         ; A94C 9D FD 03                 ...
+        inc     L00B1                           ; A94F E6 B1                    ..
+        rts                                     ; A951 60                       `
+
+; ----------------------------------------------------------------------------
+LA952:  lda     #$00                            ; A952 A9 00                    ..
+        sta     L00CE                           ; A954 85 CE                    ..
+        tax                                     ; A956 AA                       .
+LA957:  ldy     L00B9                           ; A957 A4 B9                    ..
+LA959:  lda     L0680,y                         ; A959 B9 80 06                 ...
+        jsr     L867A                           ; A95C 20 7A 86                  z.
+        sta     L00CF                           ; A95F 85 CF                    ..
+        lda     LA99D,x                         ; A961 BD 9D A9                 ...
+        beq     LA996                           ; A964 F0 30                    .0
+        bmi     LA970                           ; A966 30 08                    0.
+        cmp     L00CF                           ; A968 C5 CF                    ..
+        bne     LA982                           ; A96A D0 16                    ..
+        inx                                     ; A96C E8                       .
+        iny                                     ; A96D C8                       .
+        bne     LA959                           ; A96E D0 E9                    ..
+LA970:  and     #$7F                            ; A970 29 7F                    ).
+        pha                                     ; A972 48                       H
+        lda     L0680,y                         ; A973 B9 80 06                 ...
+        jsr     L867A                           ; A976 20 7A 86                  z.
+        sta     L00CF                           ; A979 85 CF                    ..
+        pla                                     ; A97B 68                       h
+        cmp     L00CF                           ; A97C C5 CF                    ..
+        bne     LA988                           ; A97E D0 08                    ..
+        beq     LA98D                           ; A980 F0 0B                    ..
+LA982:  inx                                     ; A982 E8                       .
+        .byte   $BD                             ; A983 BD                       .
+        .byte   $9D                             ; A984 9D                       .
+LA985:  lda     #$10                            ; A985 A9 10                    ..
+        .byte   $FA                             ; A987 FA                       .
+LA988:  inx                                     ; A988 E8                       .
+        inc     L00CE                           ; A989 E6 CE                    ..
+        bne     LA957                           ; A98B D0 CA                    ..
+LA98D:  lda     L00CE                           ; A98D A5 CE                    ..
+        iny                                     ; A98F C8                       .
+        sty     L00B9                           ; A990 84 B9                    ..
+        clc                                     ; A992 18                       .
+        adc     #$02                            ; A993 69 02                    i.
+        rts                                     ; A995 60                       `
+
+; ----------------------------------------------------------------------------
+LA996:  ldx     L00B9                           ; A996 A6 B9                    ..
+        lda     L0680,x                         ; A998 BD 80 06                 ...
+        sec                                     ; A99B 38                       8
+        rts                                     ; A99C 60                       `
+
+; ----------------------------------------------------------------------------
+LA99D:	HiStr	"["
+	HiStr	"]"
+	HiStr	"("
+	HiStr	")"
+	HiStr	","
+	HiStr	":"
+	HiStr	"@IF"
+	HiStr	"AND"
+	HiStr	"OR"
+	HiStr	"="
+	HiStr	"<>"
+	HiStr	"<="
+	HiStr	">="
+	HiStr	"<"
+	HiStr	">"
+	HiStr	"+"
+	HiStr	"-"
+	HiStr	"*"
+	HiStr	"/"
+	HiStr	"'"				; A9B8
+	HiStr	"THEN"				; A9B9
+	HiStr	"ELSE"				; A9BD
+	HiStr	"("				; A9C1
+	HiStr	")"				; A9C2
+	HiStr	"@ABS"				; A9C3
+	HiStr	"@INT"				; A9C7
+	HiStr	"@LOG"				; A9CB
+	HiStr	"@LN"				; A9CF
+	HiStr	"@EXP"				; A9D2
+	HiStr	"@SORT"				; A9D6
+	HiStr	"@SIN"				; A9DB
+	HiStr	"@COS"				; A9DF
+	HiStr	"@TAN"				; A9E3
+	HiStr	"@ASIN"				; A9E7
+	HiStr	"@ACOS"				; A9EC
+	HiStr	"@ATAN"				; A9F1
+	HiStr	"@SUM"				; A9F6
+	HiStr	"@MIN"				; A9FA
+	HiStr	"@MAX"				; A9FE
